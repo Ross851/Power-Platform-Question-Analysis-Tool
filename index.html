@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Power Platform Question Analysis Tool - Unified Schema</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.5/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    .formatted-content p { margin: 0.5em 0; }
+    .formatted-content p:first-child { margin-top: 0; }
+    .formatted-content p:last-child { margin-bottom: 0; }
+    .formatted-content strong { font-weight: 600; color: inherit; }
+    .formatted-content br + br { display: none; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+  const { useState, useEffect } = React;
+
+  // Lucide icons as SVG components
+  const ChevronLeft = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="15,18 9,12 15,6"></polyline>
+    </svg>
+  );
+  const ChevronRight = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="9,18 15,12 9,6"></polyline>
+    </svg>
+  );
+  const BookOpen = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+    </svg>
+  );
+  const Target = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <circle cx="12" cy="12" r="6"></circle>
+      <circle cx="12" cy="12" r="2"></circle>
+    </svg>
+  );
+  const Lightbulb = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M9 21h6"></path>
+      <path d="M12 3a6 6 0 0 0-6 6v7h12v-7a6 6 0 0 0-6-6z"></path>
+    </svg>
+  );
+  const AlertTriangle = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+      <line x1="12" y1="9" x2="12" y2="13"></line>
+      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+    </svg>
+  );
+  const CheckCircle = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22,4 12,14.01 9,11.01"></polyline>
+    </svg>
+  );
+  const XCircle = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="15" y1="9" x2="9" y2="15"></line>
+      <line x1="9" y1="9" x2="15" y2="15"></line>
+    </svg>
+  );
+  const Eye = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+  );
+  const EyeOff = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+      <line x1="1" y1="1" x2="23" y2="23"></line>
+    </svg>
+  );
+  const Filter = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"></polygon>
+    </svg>
+  );
+  const RotateCcw = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="1,4 1,10 7,10"></polyline>
+      <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+    </svg>
+  );
+  const Zap = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+    </svg>
+  );
+  const ChevronUp = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="18,15 12,9 6,15"></polyline>
+    </svg>
+  );
+  const ChevronDown = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="6,9 12,15 18,9"></polyline>
+    </svg>
+  );
+  const Brain = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-5A2.5 2.5 0 0 1 9.5 2Z"></path>
+      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-5A2.5 2.5 0 0 0 14.5 2Z"></path>
+    </svg>
+  );
+
+  const QuestionAnalyzer = () => {
+    // State management
+    const [questions, setQuestions] = useState([]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedAnswers, setSelectedAnswers] = useState({});
+    const [showAnalysis, setShowAnalysis] = useState(false);
+    const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
+    const [filterTopic, setFilterTopic] = useState('All');
+    const [filterDifficulty, setFilterDifficulty] = useState('All');
+    const [filterType, setFilterType] = useState('All');
+    const [filterExamArea, setFilterExamArea] = useState('All');
+    const [filteredQuestions, setFilteredQuestions] = useState([]);
+    const [hintLevel, setHintLevel] = useState('easy');
+
+    // Quiz mode states
+    const [quizMode, setQuizMode] = useState(false);
+    const [selectedQuestions, setSelectedQuestions] = useState([]);
+    const [questionCount, setQuestionCount] = useState(10);
+    const [randomize, setRandomize] = useState(false);
+    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [quizScore, setQuizScore] = useState(null);
+    const [showQuizSetup, setShowQuizSetup] = useState(false);
+
+    // Format markdown-style text to HTML
+    const formatMarkdown = (text) => {
+      if (!text) return '';
+      
+      let formatted = text;
+      
+      // Convert **text** to bold
+      formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      
+      // Convert line breaks to <br> tags (but preserve double line breaks as paragraphs)
+      formatted = formatted.replace(/\n\n/g, '</p><p>');
+      formatted = formatted.replace(/\n/g, '<br/>');
+      formatted = '<p>' + formatted + '</p>';
+      
+      // Convert numbered lists (1. item)
+      formatted = formatted.replace(/(\d+)\.\s+\*\*([^*]+)\*\*([^<]*)/g, 
+        '<br/><strong>$1. $2</strong>$3');
+      formatted = formatted.replace(/(\d+)\.\s+([^<]*)/g, '<br/>$1. $2');
+      
+      // Convert bullet points (• item or - item)
+      formatted = formatted.replace(/[•]\s+/g, '<br/>• ');
+      formatted = formatted.replace(/^[-]\s+/gm, '<br/>• ');
+      
+      // Clean up multiple <br> tags
+      formatted = formatted.replace(/(<br\/>)+/g, '<br/>');
+      formatted = formatted.replace(/<p><br\/>/g, '<p>');
+      formatted = formatted.replace(/<br\/><\/p>/g, '</p>');
+      
+      return formatted;
+    };
+
+    useEffect(() => {
+      loadQuestions();
+    }, []);
+
+    useEffect(() => {
+      applyFilters();
+    }, [questions, filterTopic, filterDifficulty, filterType, filterExamArea]);
+
+    // Load questions with unified schema
+    const loadQuestions = () => {
+      // Sample questions in unified format from the artifacts
+      const sampleQuestions = [
+        {
+          "id": 21,
+          "type": "multiplechoice",
+          "topic": "Power Automate & Mobile Solutions",
+          "difficultyLevel": "Medium",
+          "text": "You are designing a Power Platform solution for a company. The company issues each employee a tablet device.\n\nThe company wants to simplify the opportunity management process and automate when possible. The company identifies the following requirements:\n• Users must have a visual guide to know which data to enter in each step of the opportunity management process.\n• The system must automatically assign the opportunity to a manager for approval once all data is entered.\n• The system must notify an assignee each time an opportunity is assigned to them by using push notifications.\n• When a user selects a push notification, the associated opportunity must display.\n\nYou need to recommend the Power Platform components that will meet their requirements.",
+          
+          "keyWords": ["push notifications", "manager approval", "business process flows", "mobile", "opportunity management", "tablet deployment"],
+          
+          "scenario": {
+            "businessContext": "A company with tablet-based workforce needs to streamline opportunity management with visual guidance, automated approvals, and mobile notifications",
+            "dataNeeds": [
+              "Visual process guidance for data entry",
+              "Automated manager assignments",
+              "Push notifications to mobile devices",
+              "Deep linking from notifications to records"
+            ]
+          },
+          
+          "hints": {
+            "easy": [
+              "For a guided stage-based process, consider business process flows.",
+              "Push notifications typically come from Power Apps mobile or flows that target devices."
+            ],
+            "medium": [
+              "Cloud flows can handle assignment and notifications automatically.",
+              "Apps on tablets can receive push notifications if built in Power Apps."
+            ],
+            "hard": [
+              "Evaluate advanced scenarios for offline usage or multiple environment deployments.",
+              "Consider how to trigger the manager assignment upon stage completion in a business process flow."
+            ]
+          },
+          
+          "conceptsTested": [
+            "Business process flows",
+            "Mobile notifications",
+            "Cloud flow automation",
+            "Power Apps user experience",
+            "Integration between components"
+          ],
+          
+          "commonMistakes": [
+            "Using a desktop flow instead of a cloud flow for manager assignment",
+            "Missing the out-of-box push notification features for mobile apps",
+            "Trying to rely on manual emails instead of automatic push notifications",
+            "Not considering the integration between BPF and cloud flows"
+          ],
+          
+          "analysisHighlights": {
+            "requirements": [
+              "Guided data entry for opportunities",
+              "Automatic manager assignment",
+              "Push notifications with direct record access"
+            ],
+            "constraints": [
+              "Tablet-based workforce",
+              "Desire for minimal manual steps"
+            ],
+            "technologies": [
+              "Business process flows",
+              "Power Apps mobile",
+              "Power Automate cloud flows"
+            ]
+          },
+          
+          "questionItems": [{
+            "id": "default",
+            "text": "Which three Power Platform components should you recommend?",
+            "description": "Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point."
+          }],
+          
+          "answerOptions": [
+            {
+              "id": "opt_a",
+              "letter": "A",
+              "text": "Business process flows",
+              "description": "Guided, stage-based experience for users entering data",
+              "analysis": "Provides a visual guide showing users exactly which data to enter at each stage. Works seamlessly on tablets and can trigger actions when stages are completed.",
+              "pros": ["Visual process guidance", "Stage enforcement", "Works on all devices", "Triggers automation"],
+              "cons": ["Requires Dataverse", "Limited to linear processes"],
+              "whenToUse": "When you need to enforce a consistent process across users",
+              "whyCorrect": "BPFs create the required visual guide for data entry and work across all devices including tablets",
+              "realWorldUse": "Think of BPFs like a GPS for your business process - they show users where they are, where they need to go, and what information is needed at each stop"
+            },
+            {
+              "id": "opt_b",
+              "letter": "B",
+              "text": "Power Apps mobile apps",
+              "description": "Native mobile application with push notification support",
+              "analysis": "Provides native push notification support and can deep-link directly to specific records when notifications are tapped.",
+              "pros": ["Native push notifications", "Deep linking to records", "Offline capability", "Optimized for tablets"],
+              "cons": ["Requires app installation", "Mobile-specific features"],
+              "whenToUse": "When mobile/tablet users need notifications and offline access",
+              "whyCorrect": "Power Apps mobile enables push notifications and direct navigation to opportunities from notifications",
+              "realWorldUse": "Similar to how banking apps notify you of transactions and open directly to the transaction detail when tapped"
+            },
+            {
+              "id": "opt_c",
+              "letter": "C",
+              "text": "Power Virtual Agents chatbots",
+              "description": "Conversational AI interface",
+              "analysis": "Used for automated chat interactions, not for structured data entry or push notifications.",
+              "pros": ["Natural language interface", "24/7 availability", "Self-service"],
+              "cons": ["No push notifications", "Not for structured processes", "No visual guidance"],
+              "whenToUse": "For FAQs, initial qualification, or conversational interfaces",
+              "whyIncorrect": "PVA doesn't provide the structured data entry guidance of BPFs or the push notification capabilities needed here",
+              "betterUseCase": "PVA would be better suited for FAQs about the opportunity process or initial lead qualification"
+            },
+            {
+              "id": "opt_d",
+              "letter": "D",
+              "text": "Power Automate desktop flows",
+              "description": "Robotic process automation for desktop applications",
+              "analysis": "Desktop RPA flows run on specific machines and automate legacy applications.",
+              "pros": ["Legacy app integration", "UI automation", "No API needed"],
+              "cons": ["Machine-specific", "No cloud capabilities", "No mobile support"],
+              "whenToUse": "For automating repetitive tasks in desktop applications",
+              "whyIncorrect": "Desktop flows can't send push notifications or handle cloud-based assignments. They're meant for automating legacy desktop applications",
+              "betterUseCase": "Desktop flows excel at automating repetitive tasks in legacy systems that don't have APIs"
+            },
+            {
+              "id": "opt_e",
+              "letter": "E",
+              "text": "Power Automate cloud flows",
+              "description": "Cloud-based workflow automation",
+              "analysis": "Automates business processes in the cloud, including assignments and notifications.",
+              "pros": ["Cloud-based", "Integrates with 300+ services", "Triggers on events", "Send notifications"],
+              "cons": ["No UI components", "Background processing only"],
+              "whenToUse": "For automated workflows, integrations, and notifications",
+              "whyCorrect": "Cloud flows can trigger when BPF stages complete, automatically assign records based on business logic, and send push notifications",
+              "realWorldUse": "Like an intelligent dispatcher that knows which manager should review each opportunity based on value, region, or product type"
+            }
+          ],
+          
+          "correctMappings": [{
+            "questionItemId": "default",
+            "correctAnswerIds": ["opt_a", "opt_b", "opt_e"],
+            "explanation": "Business Process Flows (A) provide the visual roadmap, Power Apps mobile (B) delivers the tablet experience with push notifications, and Power Automate cloud flows (E) orchestrate the automation, connecting everything together",
+            "isMultiSelect": true
+          }],
+          
+          "detailedExplanation": "This solution creates a complete mobile-friendly opportunity management system:\n\n1. **Business Process Flows (A)** provide the visual roadmap, ensuring consistent data capture\n2. **Power Apps mobile (B)** delivers the tablet experience with push notifications\n3. **Power Automate cloud flows (E)** orchestrate the automation, connecting everything together\n\nThe integration works like this: As users complete BPF stages on their tablets, cloud flows detect the completion, apply assignment logic, and trigger push notifications to the assigned manager's device.",
+          
+          "learningMoment": "Remember: Power Platform components are designed to work together. BPFs guide the process, Power Apps provides the interface, and Power Automate handles the automation. Always think about how components complement each other rather than viewing them in isolation.",
+          
+          "practicalTip": "When implementing this solution, create your cloud flow to trigger on BPF stage transitions. Use the 'When a business process flow stage is updated' trigger for precise control over when assignments and notifications occur.",
+          
+          "realWorldExample": "A pharmaceutical sales company implemented this exact pattern: BPFs ensured reps captured all required information about doctor visits, cloud flows automatically routed high-value opportunities to senior managers, and push notifications alerted managers instantly on their iPads, reducing approval time from days to hours.",
+          
+          "architectureInsight": "This pattern scales well: start with simple linear BPFs and basic assignment rules, then add branching logic and sophisticated routing as the organization matures. The same architecture supports 10 users or 10,000.",
+          
+          "category": "Architect a solution",
+          "weight": 7.2,
+          "examReference": "Design user experiences and process automation",
+          "source": "Custom generated",
+          "examArea": "Solution Architecture (35-40%)"
+        },
+        
+        {
+          "id": 4,
+          "type": "hotspot",
+          "topic": "Data Modeling Fundamentals",
+          "difficultyLevel": "Easy",
+          "text": "HOTSPOT - You are designing a Power Platform solution for a company that provides in-home appliance maintenance. When a customer schedules a service appointment, a dispatcher assigns one technician for a specific time and location. The solution must capture information about the technician assigned to each appointment and the list of tools that the technician must bring to the appointment. You need to recommend the data type for the captured information.",
+          
+          "keyWords": ["technician assigned", "tools", "data type", "one technician", "list of tools", "appointment", "lookup", "choices", "relationships"],
+          
+          "scenario": {
+            "businessContext": "A dispatcher receives a call for a refrigerator repair. They need to assign John Smith (a certified refrigerator technician) and ensure he brings a multimeter, refrigerant gauge, and leak detector.",
+            "dataNeeds": [
+              "Link appointment to John's user/contact record",
+              "Select multiple tools from a standard list",
+              "Maintain data integrity",
+              "Enable reporting on technician utilization and tool usage"
+            ]
+          },
+          
+          "hints": {
+            "easy": [
+              "Think about relationships between data",
+              "Consider single vs multiple selections",
+              "What data type links to other records?"
+            ],
+            "medium": [
+              "How do you reference a user record?",
+              "What allows multiple selections from a list?",
+              "Consider predefined vs dynamic lists"
+            ],
+            "hard": [
+              "Evaluate lookup vs choice performance",
+              "Consider data normalization",
+              "Think about reporting requirements"
+            ]
+          },
+          
+          "conceptsTested": [
+            "Data modeling",
+            "Field types",
+            "Relationships",
+            "Dataverse schema",
+            "Data types",
+            "1:N vs N:N relationships",
+            "Lookup vs choices"
+          ],
+          
+          "commonMistakes": [
+            "Using text fields for relationships",
+            "Choosing single-select for multiple items",
+            "Not understanding lookup relationships",
+            "Confusing choices with lookups",
+            "Using text fields to store user names instead of lookups",
+            "Creating unnecessary many-to-many relationships"
+          ],
+          
+          "analysisHighlights": {
+            "requirements": [
+              "Single technician per appointment",
+              "Multiple tools per appointment",
+              "Capture assignments"
+            ],
+            "constraints": [
+              "One technician only",
+              "List of tools (multiple)",
+              "Predefined options"
+            ],
+            "technologies": [
+              "Lookup fields",
+              "Multi-select choices",
+              "Dataverse relationships"
+            ]
+          },
+          
+          "questionItems": [
+            {
+              "id": "area_technician",
+              "text": "Technician assigned",
+              "description": "Field to store which technician is assigned to this appointment",
+              "businessContext": "Need to maintain relationship to the technician's user or contact record for reporting and security",
+              "keyConsiderations": [
+                "Must link to existing user/contact record",
+                "Only one technician per appointment",
+                "Need access to technician details",
+                "Enable 'My Appointments' views"
+              ]
+            },
+            {
+              "id": "area_tools",
+              "text": "Tools to bring",
+              "description": "Field to store which tools the technician needs for this appointment",
+              "businessContext": "Technicians need to know which tools to bring from a standard list",
+              "keyConsiderations": [
+                "Multiple tools per appointment",
+                "Standardized tool list",
+                "Easy filtering and reporting",
+                "Relatively stable list of options"
+              ]
+            }
+          ],
+          
+          "answerOptions": [
+            {
+              "id": "opt_text",
+              "text": "Text",
+              "description": "Free-form text field",
+              "analysis": "Stores unstructured text data without validation or relationships",
+              "pros": ["Simple to implement", "No relationships needed", "Flexible"],
+              "cons": ["No data integrity", "Can't report on technician records", "Duplicate data entry", "Typos create inconsistency"],
+              "whenToUse": "Only for truly unstructured data like notes or comments",
+              "whyIncorrect": "Text fields create data chaos - 'John Smith' vs 'J. Smith' become different values with no connection to the actual user record",
+              "realWorldUse": "A company tried this and ended up with 47 variations of 'Robert Johnson' in their system"
+            },
+            {
+              "id": "opt_lookup",
+              "text": "Lookup",
+              "description": "Creates a relationship to another table",
+              "analysis": "Establishes a foreign key relationship to Users/Contacts table",
+              "pros": ["Maintains referential integrity", "Access to all technician data", "Enables reporting", "Prevents invalid entries"],
+              "cons": ["Requires related table to exist", "Slightly more complex setup"],
+              "whenToUse": "Whenever referencing records in another table",
+              "whyCorrect": "Links to the actual technician record, maintaining data integrity and enabling advanced features like security trimming and presence",
+              "realWorldUse": "Enables features like 'My Appointments' views and automatic calendar integration"
+            },
+            {
+              "id": "opt_choices",
+              "text": "Choices (multi-select option set)",
+              "description": "Allows selection from predefined values",
+              "analysis": "Provides a standardized list of options with multi-select capability",
+              "pros": ["Multiple selections allowed", "Standardized options", "Easy reporting", "Good performance", "No related table needed"],
+              "cons": ["Fixed list of options", "Need to update schema for new tools", "No complex properties per option"],
+              "whenToUse": "For selecting multiple values from a relatively stable list",
+              "whyCorrect": "Perfect for selecting multiple items from a standard tool list while maintaining consistency",
+              "realWorldUse": "Enables queries like 'Show all appointments requiring multimeters' with simple filters"
+            },
+            {
+              "id": "opt_number",
+              "text": "Number",
+              "description": "Stores numeric values only",
+              "analysis": "Can only store numbers, no text or relationships",
+              "pros": ["Good for IDs or quantities", "Enables calculations", "Efficient storage"],
+              "cons": ["No relationship capability", "Meaningless to users", "Can't store names"],
+              "whenToUse": "For quantities, amounts, or measurements",
+              "whyIncorrect": "An employee ID number alone doesn't maintain the relationship or provide any context about the technician"
+            },
+            {
+              "id": "opt_boolean",
+              "text": "Boolean",
+              "description": "Yes/No or True/False values",
+              "analysis": "Binary choice field with only two possible values",
+              "pros": ["Simple binary choice", "Clear options", "Efficient storage"],
+              "cons": ["Only two states", "Can't list specific items", "Too limiting"],
+              "whenToUse": "For yes/no questions like 'Tools needed?' or 'Appointment confirmed?'",
+              "whyIncorrect": "Can't represent which specific tools are needed, only whether tools are needed or not"
+            }
+          ],
+          
+          "correctMappings": [
+            {
+              "questionItemId": "area_technician",
+              "correctAnswerIds": ["opt_lookup"],
+              "explanation": "Lookup maintains the relationship to the technician's user/contact record, enabling reporting, security trimming, and preventing data quality issues",
+              "isMultiSelect": false
+            },
+            {
+              "questionItemId": "area_tools",
+              "correctAnswerIds": ["opt_choices"],
+              "explanation": "Multi-select choices allow standardized selection of multiple tools while maintaining data consistency and enabling easy filtering",
+              "isMultiSelect": false
+            }
+          ],
+          
+          "detailedExplanation": "This question tests fundamental data modeling concepts:\n\n**Lookup for Technician:**\n- Creates a foreign key relationship to Users/Contacts\n- Maintains referential integrity (can't assign non-existent technicians)\n- Enables rich functionality: security, presence, full user details\n- Powers features like 'My Appointments' views\n- Supports cascading operations (deactivate technician → handle their appointments)\n\n**Choices for Tools:**\n- Provides standardized tool list (Multimeter, Voltage Tester, etc.)\n- Allows multiple selections in one field\n- Enables easy filtering: 'Show all appointments needing multimeters'\n- Simpler than creating a separate Tools table with N:N relationship\n- Perfect when the list is relatively stable and doesn't need complex properties\n\n**Why Not Text Fields?**\nText fields seem simple but create data chaos:\n- 'John Smith' vs 'Smith, John' vs 'J Smith' are all different\n- No connection to user security, contact info, or availability\n- Reporting becomes nearly impossible\n- No data validation",
+          
+          "learningMoment": "Data types aren't just about storage - they define relationships, enable features, and ensure data quality. The right data type can be the difference between a solution that scales and one that becomes unmaintainable. Always ask: 'What will I need to DO with this data?' not just 'What do I need to store?'",
+          
+          "practicalTip": "When choosing between Lookup and Choices:\n- Use Lookup when referencing records that exist elsewhere (Users, Accounts, Products)\n- Use Choices when selecting from a list of options that don't need to be full records\n- If you find yourself updating Choices frequently, consider switching to a Lookup with a custom table",
+          
+          "realWorldExample": "A major appliance company initially used text fields for technicians. After 6 months, they had 47 variations of 'Robert Johnson' and couldn't run accurate utilization reports. Switching to Lookups immediately revealed that 'Bob Johnson', 'R. Johnson', and 'Robert J' were all the same overworked technician who needed help.",
+          
+          "architectureInsight": "This simple data model enables powerful features:\n- **Resource Scheduling**: Lookup enables checking technician availability\n- **Inventory Management**: Choices can trigger tool preparation workflows\n- **Analytics**: Both fields enable drill-down reporting\n- **Mobile Offline**: Both data types sync efficiently to mobile devices\n- **Integration**: Lookup can sync with HR systems; Choices can map to inventory codes",
+          
+          "commonEvolution": "Many organizations later enhance this model by:\n1. Converting Tools choices to a Lookup when they need tool serial numbers\n2. Adding tool certification tracking (which tools can which technicians use)\n3. Creating tool kits (common tool combinations) for efficiency\n4. Integrating with inventory management for tool availability",
+          
+          "category": "Architect a solution",
+          "weight": 6.8,
+          "examReference": "Design strategies for data models",
+          "source": "Custom generated",
+          "examArea": "Solution Architecture (35-40%)"
+        },
+        
+        {
+          "id": 19,
+          "type": "specialdragdrop",
+          "topic": "Field Service Solutions",
+          "difficultyLevel": "Medium",
+          "text": "DRAG DROP - You are reviewing a list of business requirements submitted by a plumbing company. The company has the following requirements:\n• Send articles to technicians to allow technicians to help customers resolve issues.\n• Track work progress and inspections at customer sites.\n• Schedule technicians for service appointments.\n\nYou need to recommend solutions to meet the customer's requirements.",
+          
+          "keyWords": ["knowledge articles", "technicians", "Dynamics 365 Field Service", "scheduling", "work orders", "mobile workforce", "inspections"],
+          
+          "scenario": {
+            "businessContext": "A plumbing company with 50 field technicians needs to modernize their paper-based processes. Technicians currently call the office for repair procedures, use paper forms for inspections, and scheduling is done on a whiteboard.",
+            "dataNeeds": [
+              "Mobile access to repair procedures",
+              "Digital inspection forms with photo capture",
+              "Optimized scheduling with route planning",
+              "Real-time job status updates"
+            ]
+          },
+          
+          "hints": {
+            "easy": [
+              "Consider which application manages technician scheduling and inspections.",
+              "Knowledge articles can help technicians troubleshoot on site."
+            ],
+            "medium": [
+              "Dynamics 365 Field Service provides scheduling, work orders, and inspections.",
+              "Knowledge articles come from either Customer Service or Field Service knowledge base."
+            ],
+            "hard": [
+              "Evaluate licensing if they only need articles vs. full Field Service suite.",
+              "Remember that a 'work order' can track progress at a customer site."
+            ]
+          },
+          
+          "conceptsTested": [
+            "Field Service capabilities",
+            "Knowledge management",
+            "Scheduling & dispatch",
+            "Inspections",
+            "Mobile workforce enablement",
+            "Solution selection criteria"
+          ],
+          
+          "commonMistakes": [
+            "Using Customer Voice or a Power BI dashboard to track progress instead of Field Service",
+            "Relying on email or Word docs for knowledge articles instead of built-in knowledge management",
+            "Using Outlook calendars for scheduling rather than Field Service scheduling",
+            "Not recognizing that Field Service includes all three capabilities in one solution"
+          ],
+          
+          "analysisHighlights": {
+            "requirements": [
+              "Article distribution to technicians",
+              "Track progress/inspections at sites",
+              "Technician scheduling"
+            ],
+            "constraints": [
+              "Field-based workforce",
+              "Need for quick knowledge references"
+            ],
+            "technologies": [
+              "Knowledge articles",
+              "Field Service (work orders, inspections, scheduling)"
+            ]
+          },
+          
+          "questionItems": [
+            {
+              "id": "req_articles",
+              "text": "Send articles to technicians",
+              "description": "Technicians need access to repair procedures and troubleshooting guides",
+              "businessContext": "Technicians often encounter various appliance models and need quick access to specific repair procedures without calling the office",
+              "keyConsiderations": [
+                "Mobile accessibility on phones/tablets",
+                "Offline capability for basements/remote areas",
+                "Search functionality for quick access",
+                "Version control for updated procedures"
+              ]
+            },
+            {
+              "id": "req_tracking",
+              "text": "Track work progress and inspections at customer sites",
+              "description": "Management needs visibility into job status and compliance with inspection requirements",
+              "businessContext": "Currently using paper forms that get lost or damaged, making it hard to track job progress or prove inspections were completed",
+              "keyConsiderations": [
+                "Real-time status updates",
+                "Inspection templates for consistency",
+                "Photo capture for documentation",
+                "Customer signature collection"
+              ]
+            },
+            {
+              "id": "req_scheduling",
+              "text": "Schedule technicians for service appointments",
+              "description": "Efficiently assign and route technicians based on skills and location",
+              "businessContext": "Dispatchers currently use a whiteboard and Google Maps, leading to inefficient routing and technicians arriving at jobs they're not qualified for",
+              "keyConsiderations": [
+                "Skills-based technician matching",
+                "Geographic route optimization",
+                "Real-time schedule adjustments",
+                "Customer appointment windows"
+              ]
+            }
+          ],
+          
+          "answerOptions": [
+            {
+              "id": "choice_knowledge",
+              "text": "Knowledge Management (Customer Service or Field Service Knowledge Articles)",
+              "description": "Centralized repository for troubleshooting guides, procedures, and FAQs",
+              "analysis": "Provides searchable, version-controlled articles accessible on mobile devices",
+              "strengths": ["Version controlled articles", "Mobile app access", "Offline sync capability", "Rich media support"],
+              "limitations": ["Requires knowledge base setup", "Content must be maintained"],
+              "whenToUse": "When field workers need access to procedures and troubleshooting guides",
+              "realWorldUse": "Technicians search 'water heater pilot light' and instantly access step-by-step repair guides with diagrams"
+            },
+            {
+              "id": "choice_voice",
+              "text": "Customer Voice",
+              "description": "Survey platform for collecting customer feedback",
+              "analysis": "Captures customer satisfaction after service completion",
+              "strengths": ["Customer satisfaction tracking", "Automated survey distribution"],
+              "limitations": ["No operational tracking", "Post-service tool only"],
+              "whenToUse": "For measuring customer satisfaction after service",
+              "whyIncorrect": "Surveys collect feedback after service, but don't track real-time work progress",
+              "betterUseCase": "Use after implementing Field Service to measure customer satisfaction"
+            },
+            {
+              "id": "choice_powerbi",
+              "text": "Power BI dashboard",
+              "description": "Analytics and reporting platform",
+              "analysis": "Provides analytics on completed work but doesn't track active jobs",
+              "strengths": ["Executive dashboards", "Trend analysis", "KPI tracking"],
+              "limitations": ["Read-only reporting", "No transactional capabilities"],
+              "whenToUse": "For analyzing historical data and trends",
+              "whyIncorrect": "Dashboards show what happened, but technicians need to update progress in real-time",
+              "betterUseCase": "Use to analyze Field Service data after implementation"
+            },
+            {
+              "id": "choice_fieldservice",
+              "text": "Dynamics 365 Field Service (Work Orders, Inspections)",
+              "description": "Comprehensive work order management with inspection capabilities",
+              "analysis": "Purpose-built for managing field service operations",
+              "strengths": ["Real-time progress tracking", "Inspection templates", "Mobile offline capability", "IoT integration ready"],
+              "limitations": ["Requires Field Service license", "More complex than basic task tracking"],
+              "whenToUse": "For comprehensive field service management",
+              "realWorldUse": "Technician updates work order status to 'In Progress', completes safety checklist, captures photos of completed work"
+            },
+            {
+              "id": "choice_approvals",
+              "text": "Power Automate approvals",
+              "description": "Workflow approval automation",
+              "analysis": "Handles approval workflows but not ongoing work tracking",
+              "strengths": ["Multi-level approvals", "Email/Teams integration"],
+              "limitations": ["No progress tracking", "Approval-focused only"],
+              "whenToUse": "For approval workflows like overtime or purchase orders",
+              "whyIncorrect": "Approvals handle yes/no decisions, not ongoing work tracking",
+              "betterUseCase": "Use alongside Field Service for overtime approval workflows"
+            },
+            {
+              "id": "choice_project",
+              "text": "Microsoft Project",
+              "description": "Project management for long-term initiatives",
+              "analysis": "Designed for multi-month projects, not daily operations",
+              "strengths": ["Gantt charts", "Resource leveling", "Dependencies"],
+              "limitations": ["Not for daily operations", "Desktop-focused"],
+              "whenToUse": "For managing long-term projects",
+              "whyIncorrect": "Project is for multi-month initiatives, not daily service calls",
+              "betterUseCase": "Use for planning Field Service implementation project"
+            },
+            {
+              "id": "choice_scheduling",
+              "text": "Dynamics 365 Field Service scheduling",
+              "description": "AI-powered scheduling and dispatch optimization",
+              "analysis": "Purpose-built scheduling for field service with route optimization",
+              "strengths": ["Schedule Board visualization", "Resource Scheduling Optimization (RSO)", "Skills matching", "Travel time optimization"],
+              "limitations": ["Requires proper resource setup", "Learning curve for dispatchers"],
+              "whenToUse": "For optimizing field service scheduling and dispatch",
+              "realWorldUse": "Dispatcher drags emergency call to qualified technician's schedule, system automatically adjusts routes for minimal travel"
+            },
+            {
+              "id": "choice_teams",
+              "text": "Microsoft Teams calendar integration",
+              "description": "Collaborative scheduling through Teams",
+              "analysis": "Good for office meetings but lacks field service features",
+              "strengths": ["Teams integration", "Simple for office workers"],
+              "limitations": ["No field service features", "No route optimization"],
+              "whenToUse": "For scheduling office meetings and collaboration",
+              "whyIncorrect": "Teams calendars work for meetings, not optimized field service dispatch",
+              "betterUseCase": "Use for internal team meetings about Field Service operations"
+            },
+            {
+              "id": "choice_outlook",
+              "text": "Outlook shared calendar",
+              "description": "Basic calendar sharing via Outlook",
+              "analysis": "Basic scheduling without field service optimization",
+              "strengths": ["Familiar interface", "No additional licensing"],
+              "limitations": ["No dispatch features", "Manual everything"],
+              "whenToUse": "For simple appointment scheduling",
+              "whyIncorrect": "Shared calendars lack skills matching, route optimization, and field service context",
+              "betterUseCase": "Use for office staff scheduling, not field operations"
+            }
+          ],
+          
+          "correctMappings": [
+            {
+              "questionItemId": "req_articles",
+              "correctAnswerIds": ["choice_knowledge"],
+              "explanation": "Knowledge Management provides searchable, version-controlled articles accessible on mobile devices with offline sync - perfect for field technicians who need repair procedures",
+              "isMultiSelect": false
+            },
+            {
+              "questionItemId": "req_tracking",
+              "correctAnswerIds": ["choice_fieldservice"],
+              "explanation": "Field Service Work Orders track real-time progress with inspection templates, photo capture, and customer signatures - replacing paper forms with digital processes",
+              "isMultiSelect": false
+            },
+            {
+              "questionItemId": "req_scheduling",
+              "correctAnswerIds": ["choice_scheduling"],
+              "explanation": "Field Service scheduling includes the Schedule Board, skills matching, and route optimization - replacing whiteboards with AI-powered dispatch",
+              "isMultiSelect": false
+            }
+          ],
+          
+          "detailedExplanation": "This scenario perfectly illustrates why Dynamics 365 Field Service exists. While you could cobble together a solution using generic tools (calendars, project management, surveys), Field Service provides purpose-built capabilities:\n\n**Knowledge Management** ensures technicians have the right information at the right time, even offline. This reduces callbacks and improves first-visit resolution.\n\n**Work Orders with Inspections** provide the operational backbone - tracking everything from arrival time to parts used to safety compliance.\n\n**Field Service Scheduling** goes beyond basic calendaring with features like:\n- Skills-based matching (send the water heater expert to water heater calls)\n- Route optimization (minimize drive time between appointments)\n- Real-time adjustments (handle emergencies without destroying the day's schedule)\n\nThe key insight: Field Service is an integrated solution where all components work together. The same mobile app that shows knowledge articles also updates work orders and displays the technician's schedule.",
+          
+          "learningMoment": "When evaluating solutions, distinguish between 'can technically work' and 'purpose-built for the scenario.' Yes, you COULD track work in Project or schedule in Outlook, but Field Service components are specifically designed for mobile workforces. The integration between scheduling, work tracking, and knowledge delivery creates efficiency that generic tools can't match.",
+          
+          "practicalTip": "In real implementations, start with the Schedule Board and Work Orders to get immediate value, then add Knowledge Management as you build your article library. Many organizations see 15-20% productivity gains just from better scheduling, before adding other optimizations.",
+          
+          "realWorldExample": "A national HVAC company replaced their paper-based system with this Field Service configuration. Results after 6 months: 23% more jobs completed per day, 40% reduction in travel time, 90% first-visit fix rate (up from 65%), and customer satisfaction increased from 3.2 to 4.6 stars. The key was having repair procedures available offline and optimized routing.",
+          
+          "architectureInsight": "Field Service can be the foundation for a complete service delivery platform. Common additions include:\n- IoT integration for predictive maintenance\n- Customer portals for self-scheduling\n- AI for schedule optimization\n- Mixed Reality guides for complex repairs\n- Inventory management integration\n- Connected Field Service for proactive maintenance",
+          
+          "commonEvolution": "Organizations typically evolve their Field Service implementation:\n1. Phase 1: Basic scheduling and work orders\n2. Phase 2: Add inspections and knowledge articles\n3. Phase 3: Implement RSO (Resource Scheduling Optimization)\n4. Phase 4: Add IoT for predictive maintenance\n5. Phase 5: Customer self-service portals",
+          
+          "category": "Perform solution envisioning and requirement analysis",
+          "weight": 7.5,
+          "examReference": "Recommend apps based on business requirements",
+          "source": "Custom generated",
+          "examArea": "Solution Envisioning and Requirements (45-50%)"
+        },
+        
+        {
+          "id": 25,
+          "type": "sequence",
+          "topic": "Implementation Methodology",
+          "difficultyLevel": "Medium",
+          
+          "text": "SEQUENCE - You are implementing a Power Platform solution for a manufacturing company. The solution includes Dataverse, Power Apps, Power Automate flows, and Power BI reports.\n\nYou need to determine the correct order for implementing the solution components to ensure proper dependencies and minimize rework.\n\nArrange the following implementation steps in the correct order:",
+          
+          "keyWords": [
+            "implementation order",
+            "dependencies",
+            "Dataverse schema",
+            "Power Apps",
+            "Power Automate",
+            "Power BI",
+            "security roles",
+            "deployment sequence"
+          ],
+          
+          "scenario": {
+            "businessContext": "A manufacturing company needs a complete Power Platform solution. Previous implementations failed because components were built in the wrong order, causing extensive rework when dependencies weren't available.",
+            "dataNeeds": [
+              "Proper foundation with data model",
+              "Security before app development",
+              "Apps before automation",
+              "Data before reporting"
+            ]
+          },
+          
+          "hints": {
+            "easy": [
+              "What needs to exist before you can build apps?",
+              "Can you create reports without data?",
+              "Think about the foundation first."
+            ],
+            "medium": [
+              "Dataverse schema is the foundation for everything.",
+              "Security roles should be defined early to test during development.",
+              "Flows often depend on apps triggering them."
+            ],
+            "hard": [
+              "Consider both technical dependencies and practical development flow.",
+              "Some items could technically be done in parallel but have a logical sequence.",
+              "Think about what would cause the most rework if done out of order."
+            ]
+          },
+          
+          "conceptsTested": [
+            "Implementation methodology",
+            "Component dependencies",
+            "Solution architecture",
+            "Deployment best practices",
+            "Project planning"
+          ],
+          
+          "commonMistakes": [
+            "Building apps before finalizing the data model",
+            "Creating automation before the processes are defined",
+            "Implementing security as an afterthought",
+            "Developing reports before understanding data structure",
+            "Not considering environment deployment order"
+          ],
+          
+          "analysisHighlights": {
+            "requirements": [
+              "Minimize rework",
+              "Respect dependencies",
+              "Enable parallel development where possible"
+            ],
+            "constraints": [
+              "Technical dependencies",
+              "Team skillsets",
+              "Testing requirements"
+            ],
+            "technologies": [
+              "Dataverse",
+              "Power Apps",
+              "Power Automate",
+              "Power BI"
+            ]
+          },
+          
+          "questionItems": [{
+            "id": "default",
+            "text": "Implementation Steps",
+            "description": "Drag and drop the steps into the correct implementation order from first (top) to last (bottom)"
+          }],
+          
+          "answerOptions": [
+            {
+              "id": "opt_dataverse",
+              "text": "Design and create Dataverse tables, columns, and relationships",
+              "description": "Set up the data model foundation",
+              "analysis": "The data model is the foundation everything else builds upon. Tables, columns, and relationships must exist before apps can use them.",
+              "whyPosition": "Must be first - everything depends on the data structure",
+              "dependencies": "None - this is the foundation",
+              "impact": "Changing this later causes cascade effects throughout the solution"
+            },
+            {
+              "id": "opt_security",
+              "text": "Configure security roles and column-level security",
+              "description": "Set up access control and permissions",
+              "analysis": "Security should be established early so it can be tested during development, not bolted on at the end.",
+              "whyPosition": "Second - needs tables to secure, but should exist before apps",
+              "dependencies": "Requires Dataverse schema to be defined",
+              "impact": "Retrofitting security is complex and error-prone"
+            },
+            {
+              "id": "opt_apps",
+              "text": "Build Power Apps canvas and model-driven applications",
+              "description": "Create the user interface applications",
+              "analysis": "Apps can only be built once the data model and security are in place. They provide the interface for users and triggers for automation.",
+              "whyPosition": "Third - needs data model and security, enables flows",
+              "dependencies": "Dataverse schema and security roles",
+              "impact": "Apps often trigger flows and generate data for reports"
+            },
+            {
+              "id": "opt_flows",
+              "text": "Create Power Automate flows for business processes",
+              "description": "Build automated workflows and integrations",
+              "analysis": "Flows often trigger from app events or data changes, so apps should exist first. However, some flows are independent.",
+              "whyPosition": "Fourth - typically triggered by apps or data changes",
+              "dependencies": "Apps for UI triggers, Dataverse for data triggers",
+              "impact": "Flows may create or modify data that reports depend on"
+            },
+            {
+              "id": "opt_powerbi",
+              "text": "Develop Power BI reports and dashboards",
+              "description": "Create analytics and visualizations",
+              "analysis": "Reports need real data to be meaningful. Building them last ensures you have actual data patterns to work with.",
+              "whyPosition": "Fifth - needs real data from apps and flows",
+              "dependencies": "All components generating data",
+              "impact": "Reports built on empty data often need complete redesign"
+            },
+            {
+              "id": "opt_testing",
+              "text": "Conduct user acceptance testing and training",
+              "description": "Validate solution with end users",
+              "analysis": "Testing should happen after all components are built but before deployment. This includes both functional and security testing.",
+              "whyPosition": "Sixth - needs complete solution to test",
+              "dependencies": "All solution components completed",
+              "impact": "Issues found here are expensive but less than post-deployment"
+            },
+            {
+              "id": "opt_deployment",
+              "text": "Deploy solution to production environment",
+              "description": "Move solution to live environment",
+              "analysis": "Deployment is the final step after all development and testing is complete. This includes managed solutions and environment variables.",
+              "whyPosition": "Last - only after everything is tested and approved",
+              "dependencies": "Completed testing and sign-offs",
+              "impact": "Deployment issues affect live users immediately"
+            }
+          ],
+          
+          "correctMappings": [{
+            "questionItemId": "default",
+            "correctAnswerIds": [
+              "opt_dataverse",
+              "opt_security", 
+              "opt_apps",
+              "opt_flows",
+              "opt_powerbi",
+              "opt_testing",
+              "opt_deployment"
+            ],
+            "explanation": "This sequence minimizes rework by building each layer on a stable foundation. The data model comes first, then security, then apps that use the secured data, then automation that enhances the apps, then reporting on the generated data, and finally testing and deployment.",
+            "isMultiSelect": false,
+            "isOrdered": true
+          }],
+          
+          "detailedExplanation": "The correct implementation sequence follows a **dependency-driven approach**:\n\n**1. Dataverse Schema** - The foundation that everything else builds upon. Changing the data model after apps are built causes massive rework.\n\n**2. Security Configuration** - Implement security early so it can be tested throughout development. Security added late often has gaps.\n\n**3. Power Apps** - With data and security in place, build the user interfaces. Apps provide the interaction layer and often trigger automation.\n\n**4. Power Automate Flows** - Build automation after apps exist, as many flows trigger from app events. Some flows can be built in parallel with apps if they're data-triggered.\n\n**5. Power BI Reports** - Create reports after you have real data flowing through the system. Reports built on empty databases often miss important patterns.\n\n**6. User Acceptance Testing** - Test the complete solution with real users before deployment. This is your last chance to catch issues cheaply.\n\n**7. Production Deployment** - Deploy only after thorough testing and user sign-off.\n\n**Parallel Development Opportunities:**\n- Independent flows can be developed alongside apps\n- Report designs can be drafted early but need real data for completion\n- Training materials can be developed during testing phase",
+          
+          "learningMoment": "Think of Power Platform implementation like building a house: You need the foundation (data model) before the walls (apps), plumbing (flows) after the structure exists, and you only move in (deploy) after everything is tested. Each phase enables the next while minimizing the risk of expensive rework.",
+          
+          "practicalTip": "Create a 'Development' environment that mirrors production early. This allows you to test the deployment process multiple times before the actual go-live, catching environment-specific issues early.",
+          
+          "realWorldExample": "A logistics company tried building Power Apps first, before designing their Dataverse schema. When they later created the proper data model, they had to rebuild 80% of their app screens because the initial makeshift structure didn't match the final design. Following proper sequence in their second project reduced development time by 40%.",
+          
+          "architectureInsight": "While this sequence is optimal for most projects, experienced teams can parallelize some work:\n- **Core team**: Dataverse and security\n- **App team**: Mockups and UI design (implementing after core)\n- **Integration team**: Flow design and external system connectivity\n- **Analytics team**: Report templates and data model review\n\nThe key is maintaining clear communication about dependencies and having regular integration points.",
+          
+          "commonEvolution": "Organizations typically evolve their implementation approach:\n1. **First project**: Strictly sequential, learning each component\n2. **Second project**: Some parallel development with clear handoffs\n3. **Mature teams**: Agile sprints with parallel streams and continuous integration\n4. **Advanced**: Automated deployment pipelines with DevOps practices",
+          
+          "category": "Implement the solution",
+          "weight": 8.0,
+          "examReference": "Plan and implement deployment strategies",
+          "source": "Custom generated",
+          "examArea": "Solution Implementation (15-20%)"
+        }
+      ];
+
+      setQuestions(sampleQuestions);
+    };
+
+    // Apply filters
+    const applyFilters = () => {
+      let filtered = questions;
+
+      if (filterTopic !== 'All') {
+        filtered = filtered.filter(q => q.topic === filterTopic);
+      }
+      if (filterDifficulty !== 'All') {
+        filtered = filtered.filter(q => q.difficultyLevel === filterDifficulty);
+      }
+      if (filterType !== 'All') {
+        filtered = filtered.filter(q => q.type === filterType);
+      }
+      if (filterExamArea !== 'All') {
+        filtered = filtered.filter(q => q.examArea === filterExamArea);
+      }
+
+      setFilteredQuestions(filtered);
+      setCurrentQuestionIndex(0);
+    };
+
+    const resetFilters = () => {
+      setFilterTopic('All');
+      setFilterDifficulty('All');
+      setFilterType('All');
+      setFilterExamArea('All');
+    };
+
+    // Handle answer selection based on question type
+    const handleAnswerSelect = (questionId, questionItemId, answerId) => {
+      setSelectedAnswers(prev => ({
+        ...prev,
+        [questionId]: {
+          ...prev[questionId],
+          [questionItemId]: answerId
+        }
+      }));
+    };
+
+    const handleMultipleAnswerSelect = (questionId, questionItemId, answerId) => {
+      setSelectedAnswers(prev => {
+        const currentAnswers = prev[questionId]?.[questionItemId] || [];
+        const newAnswers = currentAnswers.includes(answerId)
+          ? currentAnswers.filter(a => a !== answerId)
+          : [...currentAnswers, answerId];
+        return {
+          ...prev,
+          [questionId]: {
+            ...prev[questionId],
+            [questionItemId]: newAnswers
+          }
+        };
+      });
+    };
+
+    // Quiz functions
+    const startQuiz = () => {
+      let questionsToUse = [...filteredQuestions];
+      if (randomize) {
+        questionsToUse = questionsToUse.sort(() => Math.random() - 0.5);
+      }
+      const selected = questionsToUse.slice(0, Math.min(questionCount, questionsToUse.length));
+      setSelectedQuestions(selected);
+      setQuizMode(true);
+      setShowQuizSetup(false);
+      setCurrentQuestionIndex(0);
+      setSelectedAnswers({});
+      setQuizCompleted(false);
+      setQuizScore(null);
+    };
+
+    const calculateScore = () => {
+      let correctAnswersCount = 0;
+      let totalQuestions = selectedQuestions.length;
+
+      selectedQuestions.forEach(question => {
+        const userAnswer = selectedAnswers[question.id];
+        if (!userAnswer) return;
+
+        let allCorrect = true;
+
+        // Check each mapping for this question
+        question.correctMappings.forEach(mapping => {
+          const userAnswerForItem = userAnswer[mapping.questionItemId];
+          
+          if (mapping.isOrdered) {
+            // For sequence questions, check if the order matches exactly
+            const correctOrder = mapping.correctAnswerIds;
+            const userOrder = userAnswerForItem || [];
+            
+            if (correctOrder.length !== userOrder.length ||
+                !correctOrder.every((id, index) => userOrder[index] === id)) {
+              allCorrect = false;
+            }
+          } else if (mapping.isMultiSelect) {
+            // For multi-select, check if arrays match
+            const correctIds = mapping.correctAnswerIds;
+            const userIds = userAnswerForItem || [];
+            
+            if (correctIds.length !== userIds.length || 
+                !correctIds.every(id => userIds.includes(id))) {
+              allCorrect = false;
+            }
+          } else {
+            // For single select, check if the answer matches
+            if (userAnswerForItem !== mapping.correctAnswerIds[0]) {
+              allCorrect = false;
+            }
+          }
+        });
+
+        if (allCorrect) correctAnswersCount++;
+      });
+
+      const percentage = (correctAnswersCount / totalQuestions) * 100;
+      const examScore = Math.round((percentage / 100) * 1000);
+
+      return {
+        correct: correctAnswersCount,
+        total: totalQuestions,
+        percentage: percentage,
+        examScore: examScore,
+        passed: examScore >= 700
+      };
+    };
+
+    const finishQuiz = () => {
+      const score = calculateScore();
+      setQuizScore(score);
+      setQuizCompleted(true);
+    };
+
+    const exitQuiz = () => {
+      setQuizMode(false);
+      setSelectedQuestions([]);
+      setQuizCompleted(false);
+      setQuizScore(null);
+      setCurrentQuestionIndex(0);
+    };
+
+    // Check if an answer is correct
+    const isAnswerCorrect = (question, answerId, questionItemId) => {
+      const mapping = question.correctMappings.find(m => m.questionItemId === questionItemId);
+      if (!mapping) return false;
+      return mapping.correctAnswerIds.includes(answerId);
+    };
+
+    // Render sequence question (drag and drop ordering)
+    const renderSequenceQuestion = (question) => {
+      const questionItem = question.questionItems[0];
+      const userAnswer = selectedAnswers[question.id]?.[questionItem.id] || [];
+      const mapping = question.correctMappings[0];
+
+      // Initialize with default order if not set
+      const currentOrder = userAnswer.length > 0 ? userAnswer : question.answerOptions.map(opt => opt.id);
+
+      const handleDragStart = (e, draggedId) => {
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', draggedId);
+      };
+
+      const handleDragOver = (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+      };
+
+      const handleDrop = (e, targetId) => {
+        e.preventDefault();
+        const draggedId = e.dataTransfer.getData('text/plain');
+        
+        if (draggedId === targetId) return;
+
+        const newOrder = [...currentOrder];
+        const draggedIndex = newOrder.indexOf(draggedId);
+        const targetIndex = newOrder.indexOf(targetId);
+
+        // Remove dragged item and insert at target position
+        newOrder.splice(draggedIndex, 1);
+        newOrder.splice(targetIndex, 0, draggedId);
+
+        handleAnswerSelect(question.id, questionItem.id, newOrder);
+      };
+
+      const moveItem = (id, direction) => {
+        const newOrder = [...currentOrder];
+        const currentIndex = newOrder.indexOf(id);
+        
+        if (direction === 'up' && currentIndex > 0) {
+          [newOrder[currentIndex - 1], newOrder[currentIndex]] = [newOrder[currentIndex], newOrder[currentIndex - 1]];
+        } else if (direction === 'down' && currentIndex < newOrder.length - 1) {
+          [newOrder[currentIndex], newOrder[currentIndex + 1]] = [newOrder[currentIndex + 1], newOrder[currentIndex]];
+        }
+        
+        handleAnswerSelect(question.id, questionItem.id, newOrder);
+      };
+
+      const isCorrectPosition = (optionId, index) => {
+        if (!showCorrectAnswers) return null;
+        return mapping.correctAnswerIds[index] === optionId;
+      };
+
+      return (
+        <div className="space-y-2">
+          <div className="mb-4 text-sm text-gray-600">
+            <p>{questionItem.description}</p>
+          </div>
+          {currentOrder.map((optionId, index) => {
+            const option = question.answerOptions.find(opt => opt.id === optionId);
+            const correct = isCorrectPosition(optionId, index);
+            
+            return (
+              <div
+                key={optionId}
+                draggable={!showCorrectAnswers}
+                onDragStart={(e) => handleDragStart(e, optionId)}
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, optionId)}
+                className={`p-4 border-2 rounded-lg transition-all cursor-move ${
+                  showCorrectAnswers
+                    ? correct
+                      ? 'border-green-500 bg-green-50'
+                      : 'border-red-500 bg-red-50'
+                    : 'border-gray-300 bg-white hover:border-blue-400'
+                }`}
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="flex flex-col space-y-1">
+                    <button
+                      onClick={() => moveItem(optionId, 'up')}
+                      disabled={index === 0 || showCorrectAnswers}
+                      className="p-1 rounded hover:bg-gray-200 disabled:opacity-30"
+                    >
+                      <ChevronUp />
+                    </button>
+                    <button
+                      onClick={() => moveItem(optionId, 'down')}
+                      disabled={index === currentOrder.length - 1 || showCorrectAnswers}
+                      className="p-1 rounded hover:bg-gray-200 disabled:opacity-30"
+                    >
+                      <ChevronDown />
+                    </button>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3 flex-1">
+                    <span className="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-800 rounded-full font-semibold">
+                      {index + 1}
+                    </span>
+                    <div className="flex-1">
+                      <div className="font-medium">{option.text}</div>
+                      {option.description && (
+                        <div className="text-sm text-gray-600 mt-1">{option.description}</div>
+                      )}
+                      {showAnalysis && (
+                        <div className="mt-2 space-y-1">
+                          {option.analysis && (
+                            <div className="text-sm text-gray-700">
+                              <span dangerouslySetInnerHTML={{ __html: formatMarkdown(option.analysis) }} />
+                            </div>
+                          )}
+                          {option.whyPosition && (
+                            <div className="text-sm text-blue-700">
+                              <strong>Position rationale:</strong> {option.whyPosition}
+                            </div>
+                          )}
+                          {option.dependencies && (
+                            <div className="text-sm text-purple-700">
+                              <strong>Dependencies:</strong> {option.dependencies}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    
+                    {showCorrectAnswers && (
+                      <div className="flex items-center">
+                        {correct ? <CheckCircle /> : <XCircle />}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          
+          {showCorrectAnswers && (
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+              <h4 className="font-semibold text-blue-900 mb-2">Correct Order:</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                {mapping.correctAnswerIds.map((id, index) => {
+                  const option = question.answerOptions.find(opt => opt.id === id);
+                  return (
+                    <li key={id} className="text-blue-800">
+                      {option.text}
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    // Render functions for different question types
+    const renderMultipleChoiceQuestion = (question) => {
+      const questionItem = question.questionItems[0]; // Multiple choice has single item
+      const userAnswers = selectedAnswers[question.id]?.[questionItem.id] || [];
+      const mapping = question.correctMappings[0];
+
+      return (
+        <div className="space-y-3">
+          {question.answerOptions.map((option) => (
+            <div
+              key={option.id}
+              className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                userAnswers.includes(option.id)
+                  ? 'border-blue-500 bg-blue-50'
+                  : 'border-gray-200 hover:border-gray-300'
+              } ${
+                showCorrectAnswers
+                  ? isAnswerCorrect(question, option.id, questionItem.id)
+                    ? 'border-green-500 bg-green-50'
+                    : userAnswers.includes(option.id)
+                    ? 'border-red-500 bg-red-50'
+                    : ''
+                  : ''
+              }`}
+              onClick={() =>
+                mapping.isMultiSelect
+                  ? handleMultipleAnswerSelect(question.id, questionItem.id, option.id)
+                  : handleAnswerSelect(question.id, questionItem.id, option.id)
+              }
+            >
+              <div className="flex items-start space-x-3">
+                <span className="font-bold text-lg">{option.letter}.</span>
+                <div className="flex-1">
+                  <div className="font-medium">{option.text}</div>
+                  {showAnalysis && (
+                    <div className="mt-2 text-sm text-gray-600">
+                      <div dangerouslySetInnerHTML={{ __html: formatMarkdown(option.analysis) }} />
+                      {option.whyCorrect && (
+                        <div className="mt-1 text-green-700">
+                          <strong>Why Correct:</strong> <span dangerouslySetInnerHTML={{ __html: formatMarkdown(option.whyCorrect) }} />
+                        </div>
+                      )}
+                      {option.whyIncorrect && (
+                        <div className="mt-1 text-red-700">
+                          <strong>Why Incorrect:</strong> <span dangerouslySetInnerHTML={{ __html: formatMarkdown(option.whyIncorrect) }} />
+                        </div>
+                      )}
+                      {option.realWorldUse && (
+                        <div className="mt-1 text-blue-700">
+                          <strong>Real World:</strong> <span dangerouslySetInnerHTML={{ __html: formatMarkdown(option.realWorldUse) }} />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                {showCorrectAnswers && (
+                  <div className="flex items-center">
+                    {isAnswerCorrect(question, option.id, questionItem.id) ? (
+                      <CheckCircle />
+                    ) : userAnswers.includes(option.id) ? (
+                      <XCircle />
+                    ) : null}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    const renderHotspotQuestion = (question) => {
+      const userAnswers = selectedAnswers[question.id] || {};
+
+      return (
+        <div className="space-y-4">
+          {question.questionItems.map((item) => (
+            <div key={item.id} className="border rounded-lg p-4">
+              <h4 className="font-semibold mb-2">{item.text}</h4>
+              {item.description && (
+                <p className="text-sm text-gray-600 mb-3">{item.description}</p>
+              )}
+              <div className="space-y-2">
+                {question.answerOptions.map((option) => {
+                  const mapping = question.correctMappings.find(m => m.questionItemId === item.id);
+                  const isCorrect = mapping?.correctAnswerIds.includes(option.id);
+                  const isSelected = userAnswers[item.id] === option.id;
+
+                  return (
+                    <div
+                      key={option.id}
+                      className={`p-3 border-2 rounded cursor-pointer transition-all ${
+                        isSelected
+                          ? 'border-blue-500 bg-blue-50'
+                          : 'border-gray-200 hover:border-gray-300'
+                      } ${
+                        showCorrectAnswers
+                          ? isCorrect
+                            ? 'border-green-500 bg-green-50'
+                            : isSelected
+                            ? 'border-red-500 bg-red-50'
+                            : ''
+                          : ''
+                      }`}
+                      onClick={() => handleAnswerSelect(question.id, item.id, option.id)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">{option.text}</div>
+                          {showAnalysis && option.analysis && (
+                            <div className="text-sm text-gray-600 mt-1">{option.analysis}</div>
+                          )}
+                        </div>
+                        {showCorrectAnswers && (
+                          <div>
+                            {isCorrect ? (
+                              <CheckCircle />
+                            ) : isSelected ? (
+                              <XCircle />
+                            ) : null}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    const renderDragDropQuestion = (question) => {
+      const userAnswers = selectedAnswers[question.id] || {};
+
+      return (
+        <div className="space-y-4">
+          {question.questionItems.map((item) => (
+            <div key={item.id} className="border rounded-lg p-4">
+              <div className="font-medium mb-2">{item.text}</div>
+              {item.description && (
+                <div className="text-sm text-gray-600 mb-3">{item.description}</div>
+              )}
+              <div className="flex gap-2 flex-wrap">
+                {question.answerOptions.map((option) => {
+                  const mapping = question.correctMappings.find(m => m.questionItemId === item.id);
+                  const isCorrect = mapping?.correctAnswerIds.includes(option.id);
+                  const isSelected = userAnswers[item.id] === option.id;
+
+                  return (
+                    <button
+                      key={option.id}
+                      className={`px-4 py-2 border-2 rounded transition-all ${
+                        isSelected
+                          ? 'border-blue-500 bg-blue-50'
+                          : 'border-gray-200 hover:border-gray-300'
+                      } ${
+                        showCorrectAnswers
+                          ? isCorrect
+                            ? 'border-green-500 bg-green-50'
+                            : isSelected
+                            ? 'border-red-500 bg-red-50'
+                            : ''
+                          : ''
+                      }`}
+                      onClick={() => handleAnswerSelect(question.id, item.id, option.id)}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <span>{option.text}</span>
+                        {showCorrectAnswers && (
+                          <>
+                            {isCorrect ? <CheckCircle /> : isSelected ? <XCircle /> : null}
+                          </>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    // Enhanced analysis panel
+    const renderEnhancedAnalysis = (question) => {
+      return (
+        <div className="bg-white rounded-lg border shadow-sm p-6 space-y-6">
+          {/* Learning Content Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Hints */}
+            <div>
+              <h3 className="flex items-center space-x-2 text-lg font-semibold mb-3">
+                <Lightbulb />
+                <span>Hints ({hintLevel})</span>
+              </h3>
+              <ul className="space-y-2">
+                {question.hints?.[hintLevel]?.map((hint, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-gray-700">{hint}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Common Mistakes */}
+            <div>
+              <h3 className="flex items-center space-x-2 text-lg font-semibold mb-3">
+                <AlertTriangle />
+                <span>Common Mistakes</span>
+              </h3>
+              <ul className="space-y-2">
+                {question.commonMistakes?.map((mistake, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <span className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-gray-700">{mistake}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Concepts Tested */}
+            <div>
+              <h3 className="flex items-center space-x-2 text-lg font-semibold mb-3">
+                <BookOpen />
+                <span>Concepts Tested</span>
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {question.conceptsTested?.map((concept, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >
+                    {concept}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Scenario Context */}
+            {question.scenario && (
+              <div>
+                <h3 className="flex items-center space-x-2 text-lg font-semibold mb-3">
+                  <Target />
+                  <span>Business Context</span>
+                </h3>
+                <p className="text-gray-700 mb-2">{question.scenario.businessContext}</p>
+                <ul className="space-y-1">
+                  {question.scenario.dataNeeds?.map((need, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{need}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Learning Cards */}
+          <div className="grid gap-4">
+            {/* Detailed Explanation */}
+            {question.detailedExplanation && (
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <h4 className="font-semibold text-blue-900 mb-2">Detailed Explanation</h4>
+                <div 
+                  className="text-blue-800 formatted-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(question.detailedExplanation)
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Learning Moment */}
+            {question.learningMoment && (
+              <div className="p-4 bg-purple-50 rounded-lg">
+                <h4 className="flex items-center space-x-2 font-semibold text-purple-900 mb-2">
+                  <Brain />
+                  <span>Key Learning</span>
+                </h4>
+                <div 
+                  className="text-purple-800 formatted-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(question.learningMoment)
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Practical Tip */}
+            {question.practicalTip && (
+              <div className="p-4 bg-green-50 rounded-lg">
+                <h4 className="flex items-center space-x-2 font-semibold text-green-900 mb-2">
+                  <Zap />
+                  <span>Practical Tip</span>
+                </h4>
+                <div 
+                  className="text-green-800 formatted-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(question.practicalTip)
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Real World Example */}
+            {question.realWorldExample && (
+              <div className="p-4 bg-orange-50 rounded-lg">
+                <h4 className="font-semibold text-orange-900 mb-2">Real World Example</h4>
+                <div 
+                  className="text-orange-800 formatted-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(question.realWorldExample)
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Architecture Insight */}
+            {question.architectureInsight && (
+              <div className="p-4 bg-indigo-50 rounded-lg">
+                <h4 className="font-semibold text-indigo-900 mb-2">Architecture Insight</h4>
+                <div 
+                  className="text-indigo-800 formatted-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(question.architectureInsight)
+                  }}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Metadata */}
+          <div className="border-t pt-4 grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="font-medium">Category: </span>
+              <span className="text-gray-700">{question.category}</span>
+            </div>
+            <div>
+              <span className="font-medium">Weight: </span>
+              <span className="text-gray-700">{question.weight}%</span>
+            </div>
+            {question.examReference && (
+              <div>
+                <span className="font-medium">Exam Reference: </span>
+                <span className="text-gray-700">{question.examReference}</span>
+              </div>
+            )}
+            <div>
+              <span className="font-medium">Exam Area: </span>
+              <span className="text-gray-700">{question.examArea}</span>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // Main render
+    const currentQuestion = quizMode
+      ? selectedQuestions[currentQuestionIndex]
+      : filteredQuestions[currentQuestionIndex];
+
+    if (!currentQuestion) {
+      return (
+        <div className="max-w-6xl mx-auto p-6">
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-4">
+              {quizMode ? 'Quiz Complete' : 'No Questions Available'}
+            </h2>
+            <p className="text-gray-600">
+              {quizMode
+                ? 'You have completed all questions in this quiz.'
+                : 'Check your question file or filters.'}
+            </p>
+            {quizMode && (
+              <button
+                onClick={exitQuiz}
+                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                Return to Study Mode
+              </button>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="max-w-6xl mx-auto p-6 space-y-6">
+
+        {/* Quiz Setup Modal */}
+        {showQuizSetup && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+              <h2 className="text-2xl font-bold mb-4">Quiz Setup</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Number of Questions: {questionCount}
+                  </label>
+                  <input
+                    type="range"
+                    min="1"
+                    max={filteredQuestions.length}
+                    value={questionCount}
+                    onChange={(e) => setQuestionCount(parseInt(e.target.value))}
+                    className="w-full"
+                  />
+                  <div className="text-xs text-gray-500 mt-1">
+                    Max available: {filteredQuestions.length}
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="randomize"
+                    checked={randomize}
+                    onChange={(e) => setRandomize(e.target.checked)}
+                    className="rounded"
+                  />
+                  <label htmlFor="randomize" className="text-sm font-medium">
+                    Randomize question order
+                  </label>
+                </div>
+                
+                <div className="text-sm text-gray-600 p-3 bg-blue-50 rounded">
+                  <strong>Exam Info:</strong><br/>
+                  • Passing Score: 700/1000<br/>
+                  • Typical Questions: 40+<br/>
+                  • Duration: ~100 minutes
+                </div>
+              </div>
+              
+              <div className="flex space-x-3 mt-6">
+                <button
+                  onClick={() => setShowQuizSetup(false)}
+                  className="flex-1 px-4 py-2 border rounded hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={startQuiz}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Start Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Quiz Results Modal */}
+        {quizCompleted && quizScore && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+              <h2 className="text-2xl font-bold mb-4 text-center">Quiz Complete!</h2>
+              
+              <div className="text-center space-y-4">
+                <div className={`text-6xl font-bold ${quizScore.passed ? 'text-green-600' : 'text-red-600'}`}>
+                  {quizScore.examScore}
+                </div>
+                <div className="text-gray-600">out of 1000</div>
+                
+                <div className={`text-xl font-semibold ${quizScore.passed ? 'text-green-600' : 'text-red-600'}`}>
+                  {quizScore.passed ? 'PASSED' : 'FAILED'}
+                </div>
+                
+                <div className="text-gray-700">
+                  {quizScore.correct} correct out of {quizScore.total} questions
+                  <br/>
+                  ({quizScore.percentage.toFixed(1)}%)
+                </div>
+                
+                <div className="text-sm text-gray-600 p-3 bg-gray-50 rounded">
+                  Passing score: 700/1000 (70%)
+                </div>
+              </div>
+              
+              <div className="flex space-x-3 mt-6">
+                <button
+                  onClick={exitQuiz}
+                  className="flex-1 px-4 py-2 border rounded hover:bg-gray-50"
+                >
+                  Exit Quiz
+                </button>
+                <button
+                  onClick={() => {
+                    setQuizCompleted(false);
+                    setCurrentQuestionIndex(0);
+                    setShowCorrectAnswers(true);
+                  }}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Review Answers
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Header */}
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg">
+          <h1 className="text-3xl font-bold mb-2">
+            {quizMode ? 'Practice Quiz' : 'Power Platform Question Analysis Tool'}
+          </h1>
+          <div className="flex flex-wrap items-center gap-4 text-blue-100">
+            {quizMode ? (
+              <>
+                <span>Quiz Question {currentQuestionIndex + 1} of {selectedQuestions.length}</span>
+                <span>•</span>
+                <span>{currentQuestion?.examArea}</span>
+                <div className="ml-auto">
+                  <button
+                    onClick={finishQuiz}
+                    className="px-4 py-1 bg-white bg-opacity-20 rounded hover:bg-opacity-30"
+                  >
+                    Finish Quiz
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <span>Question {currentQuestionIndex + 1} of {filteredQuestions.length}</span>
+                <span>•</span>
+                <span>{currentQuestion?.topic}</span>
+                <span>•</span>
+                <span>{currentQuestion?.difficultyLevel}</span>
+                <span>•</span>
+                <span>{currentQuestion?.examArea}</span>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Filters */}
+        {!quizMode && (
+          <div className="bg-white p-4 rounded-lg border shadow-sm">
+            <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex items-center space-x-2">
+                <Filter />
+                <span className="font-medium">Filters:</span>
+              </div>
+              
+              <select 
+                value={filterExamArea} 
+                onChange={(e) => setFilterExamArea(e.target.value)}
+                className="border rounded px-3 py-1"
+              >
+                <option value="All">All Exam Areas</option>
+                <option value="Solution Envisioning and Requirements (45-50%)">
+                  Solution Envisioning (45-50%)
+                </option>
+                <option value="Solution Architecture (35-40%)">
+                  Solution Architecture (35-40%)
+                </option>
+                <option value="Solution Implementation (15-20%)">
+                  Solution Implementation (15-20%)
+                </option>
+              </select>
+              
+              <select 
+                value={filterTopic} 
+                onChange={(e) => setFilterTopic(e.target.value)}
+                className="border rounded px-3 py-1"
+              >
+                {Array.from(new Set(['All', ...questions.map(q => q.topic)]))
+                  .map(topic => (
+                    <option key={topic} value={topic}>{topic}</option>
+                  ))
+                }
+              </select>
+              
+              <select 
+                value={filterDifficulty} 
+                onChange={(e) => setFilterDifficulty(e.target.value)}
+                className="border rounded px-3 py-1"
+              >
+                {Array.from(new Set(['All', ...questions.map(q => q.difficultyLevel)]))
+                  .map(diff => (
+                    <option key={diff} value={diff}>{diff}</option>
+                  ))
+                }
+              </select>
+              
+              <select 
+                value={filterType} 
+                onChange={(e) => setFilterType(e.target.value)}
+                className="border rounded px-3 py-1"
+              >
+                {Array.from(new Set(['All', ...questions.map(q => q.type)]))
+                  .map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))
+                }
+              </select>
+              
+              <button 
+                onClick={resetFilters}
+                className="flex items-center space-x-1 px-3 py-1 bg-gray-100 rounded hover:bg-gray-200"
+              >
+                <RotateCcw />
+                <span>Reset</span>
+              </button>
+              
+              <button 
+                onClick={() => setShowQuizSetup(true)}
+                className="flex items-center space-x-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                <Target />
+                <span>Start Quiz</span>
+              </button>
+              
+              <span className="text-sm text-gray-600">
+                Showing {filteredQuestions.length} of {questions.length} questions
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Question Container */}
+        <div className="bg-white rounded-lg border shadow-sm">
+          {/* Question Header */}
+          <div className="p-6 border-b">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex-1">
+                <div className="flex items-center space-x-2 mb-2">
+                  <span
+                    className={`px-2 py-1 rounded text-sm font-medium ${
+                      currentQuestion.difficultyLevel === 'Easy'
+                        ? 'bg-green-100 text-green-800'
+                        : currentQuestion.difficultyLevel === 'Medium'
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : 'bg-red-100 text-red-800'
+                    }`}
+                  >
+                    {currentQuestion.difficultyLevel}
+                  </span>
+                  <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium">
+                    {currentQuestion.type === 'multiplechoice' ? 'Multiple Choice' : 
+                     currentQuestion.type === 'hotspot' ? 'Hotspot' : 'Drag & Drop'}
+                  </span>
+                  <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm font-medium">
+                    Weight: {currentQuestion.weight}%
+                  </span>
+                </div>
+                <div 
+                  className="text-lg leading-relaxed"
+                  dangerouslySetInnerHTML={{ 
+                    __html: formatMarkdown(currentQuestion.text)
+                  }}
+                />
+              </div>
+            </div>
+            
+            {/* Question Items Description (for multiple choice) */}
+            {currentQuestion.type === 'multiplechoice' && currentQuestion.questionItems[0].description && (
+              <div className="mt-4 p-3 bg-blue-50 rounded">
+                <p className="text-blue-800">{currentQuestion.questionItems[0].description}</p>
+              </div>
+            )}
+            
+            {/* Keywords */}
+            {currentQuestion.keyWords && (
+              <div className="mt-4">
+                <span className="font-medium text-gray-700">Key Terms: </span>
+                {currentQuestion.keyWords.map((keyword, index) => (
+                  <span
+                    key={index}
+                    className="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm mr-2 mb-1"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Question Body */}
+          <div className="p-6">
+            {currentQuestion.type === 'multiplechoice'
+              ? renderMultipleChoiceQuestion(currentQuestion)
+              : currentQuestion.type === 'hotspot'
+              ? renderHotspotQuestion(currentQuestion)
+              : currentQuestion.type === 'sequence'
+              ? renderSequenceQuestion(currentQuestion)
+              : renderDragDropQuestion(currentQuestion)}
+          </div>
+
+          {/* Controls */}
+          <div className="p-6 border-t bg-gray-50 flex flex-wrap gap-2">
+            <button
+              onClick={() => setShowAnalysis(!showAnalysis)}
+              className={`flex items-center space-x-2 px-4 py-2 rounded transition-colors ${
+                showAnalysis ? 'bg-blue-600 text-white' : 'bg-white border hover:bg-gray-50'
+              }`}
+            >
+              <Target />
+              <span>Analysis</span>
+            </button>
+            
+            <button
+              onClick={() => setShowCorrectAnswers(!showCorrectAnswers)}
+              className={`flex items-center space-x-2 px-4 py-2 rounded transition-colors ${
+                showCorrectAnswers ? 'bg-red-600 text-white' : 'bg-green-600 text-white'
+              }`}
+            >
+              {showCorrectAnswers ? <EyeOff /> : <Eye />}
+              <span>{showCorrectAnswers ? 'Hide Answers' : 'Show Answers'}</span>
+            </button>
+            
+            <div className="flex items-center space-x-2">
+              <span className="text-sm font-medium">Hints:</span>
+              <select
+                value={hintLevel}
+                onChange={(e) => setHintLevel(e.target.value)}
+                className="border rounded px-2 py-1 text-sm"
+              >
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Enhanced Analysis Panel */}
+        {showAnalysis && renderEnhancedAnalysis(currentQuestion)}
+
+        {/* Navigation */}
+        <div className="flex justify-between items-center">
+          <button
+            onClick={() => setCurrentQuestionIndex(Math.max(0, currentQuestionIndex - 1))}
+            disabled={currentQuestionIndex === 0}
+            className="flex items-center space-x-2 px-4 py-2 bg-white border rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft />
+            <span>Previous</span>
+          </button>
+
+          <div className="flex items-center space-x-4">
+            {quizMode && (
+              <button
+                onClick={exitQuiz}
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                Exit Quiz
+              </button>
+            )}
+            
+            <span className="text-gray-600">
+              {currentQuestionIndex + 1} / {quizMode ? selectedQuestions.length : filteredQuestions.length}
+            </span>
+          </div>
+
+          <button
+            onClick={() =>
+              setCurrentQuestionIndex(
+                Math.min(
+                  (quizMode ? selectedQuestions.length : filteredQuestions.length) - 1,
+                  currentQuestionIndex + 1
+                )
+              )
+            }
+            disabled={
+              currentQuestionIndex ===
+              (quizMode ? selectedQuestions.length : filteredQuestions.length) - 1
+            }
+            className="flex items-center space-x-2 px-4 py-2 bg-white border rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span>Next</span>
+            <ChevronRight />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  ReactDOM.render(<QuestionAnalyzer />, document.getElementById('root'));
+</script>
+</body>
+</html>
