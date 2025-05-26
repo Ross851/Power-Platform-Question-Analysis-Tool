@@ -185,6 +185,390 @@
       // Sample questions in unified format from the artifacts
       const sampleQuestions = [
         {
+    "id": 1,
+    "type": "multiplechoice",
+    "topic": "Integration Architecture",
+    "difficultyLevel": "Medium",
+    
+    "text": "A company uses two separate unlinked apps to manage sales leads: a Power Apps app and a third-party application.\n\nThe client has the following requirements:\n• Manage all leads using the Power Apps app\n• Create a lead in the Power Apps app when a user creates a lead in the third-party application\n• Update leads in the Power Apps app when a user updates a lead in the third-party application\n• Connect to the third-party application using an API\n\nYou need to recommend strategies to integrate the Power Apps app and the third-party application.",
+    
+    "keyWords": [
+      "integration",
+      "third-party API",
+      "real-time sync",
+      "custom connector",
+      "Power Automate",
+      "lead management",
+      "bi-directional sync",
+      "API connectivity"
+    ],
+    
+    "scenario": {
+      "businessContext": "A growing sales organization uses a legacy CRM for historical data but wants to transition to Power Apps. During the transition period, sales reps work in both systems, creating data inconsistency and duplicate effort. The company needs real-time synchronization to maintain a single source of truth.",
+      "dataNeeds": [
+        "Real-time lead creation from third-party to Power Apps",
+        "Real-time lead updates synchronization",
+        "API-based connectivity to legacy system",
+        "Error handling for failed synchronizations",
+        "Audit trail of all synchronization activities"
+      ]
+    },
+    
+    "hints": {
+      "easy": [
+        "Look for integration patterns that connect external APIs",
+        "Consider what orchestrates data movement between systems",
+        "Think about what enables Power Platform to talk to external APIs"
+      ],
+      "medium": [
+        "Consider the three components: connectivity, orchestration, and data storage",
+        "Think about real-time triggers from the third-party system",
+        "What creates a reusable connection to an API?"
+      ],
+      "hard": [
+        "Evaluate webhook patterns for real-time updates",
+        "Consider authentication methods (OAuth, API Key, Basic)",
+        "Think about error handling and retry patterns for resilience"
+      ]
+    },
+    
+    "conceptsTested": [
+      "Custom connector development",
+      "Power Automate orchestration",
+      "API integration patterns",
+      "Real-time synchronization",
+      "Dataverse connectivity",
+      "Error handling strategies",
+      "Authentication methods"
+    ],
+    
+    "commonMistakes": [
+      "Choosing Dual-write which is specific to D365 F&O integration",
+      "Selecting Dataflow for real-time requirements when it's batch-oriented",
+      "Forgetting the custom connector needed for third-party API access",
+      "Not considering error handling and retry logic",
+      "Missing the Dataverse connector for Power Apps interaction",
+      "Attempting point-to-point integration without orchestration"
+    ],
+    
+    "analysisHighlights": {
+      "requirements": [
+        "Bi-directional synchronization",
+        "Real-time data updates",
+        "API-based connectivity",
+        "Lead management centralization"
+      ],
+      "constraints": [
+        "Third-party API limitations",
+        "Existing system dependencies",
+        "Real-time performance needs"
+      ],
+      "technologies": [
+        "Custom connectors",
+        "Power Automate cloud flows",
+        "Dataverse",
+        "API management"
+      ]
+    },
+    
+    "questionItems": [{
+      "id": "default",
+      "text": "Which three options can you use to achieve the goal?",
+      "description": "Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.",
+      "businessContext": "You need a complete integration solution that handles connectivity, orchestration, and data operations",
+      "keyConsiderations": [
+        "Real-time synchronization requirements",
+        "API connectivity to third-party system",
+        "Reliable data movement between systems",
+        "Error handling and monitoring"
+      ]
+    }],
+    
+    "answerOptions": [
+      {
+        "id": "opt_a",
+        "letter": "A",
+        "text": "Dual-write",
+        "description": "Real-time synchronization between Dynamics 365 Finance and Operations apps and Dataverse",
+        "analysis": "Dual-write provides bidirectional synchronization but is specifically designed for D365 Finance and Operations apps, not generic third-party applications.",
+        "pros": ["Real-time sync", "Bi-directional", "Built-in error handling"],
+        "cons": ["Only for D365 F&O", "Not extensible to third-party APIs", "Requires F&O license"],
+        "whenToUse": "When synchronizing between D365 Finance/Operations and customer engagement apps",
+        "whyIncorrect": "Dual-write is purpose-built for D365 F&O integration and cannot connect to arbitrary third-party APIs",
+        "betterUseCase": "Use Dual-write when implementing D365 Finance alongside Sales or Service apps"
+      },
+      {
+        "id": "opt_b",
+        "letter": "B",
+        "text": "Custom connector",
+        "description": "Reusable connector definition for third-party APIs in Power Platform",
+        "analysis": "Custom connectors enable secure, reusable connections to any REST or SOAP API, perfect for third-party system integration.",
+        "pros": ["Reusable API definition", "Security integration", "Standard authentication", "API documentation"],
+        "cons": ["Initial setup complexity", "Requires API knowledge", "Maintenance overhead"],
+        "whenToUse": "When connecting Power Platform to any external API not already available as a standard connector",
+        "whyCorrect": "Custom connector provides the essential bridge to connect Power Platform with the third-party API, handling authentication and API operations",
+        "realWorldUse": "A company created a custom connector for their legacy inventory system, enabling 50+ flows to reuse the same secure connection"
+      },
+      {
+        "id": "opt_c",
+        "letter": "C",
+        "text": "Dataflow",
+        "description": "Self-service data preparation for analytics with scheduled refresh",
+        "analysis": "Dataflows are designed for ETL operations and analytical data preparation, running on schedules rather than real-time.",
+        "pros": ["Good for data transformation", "Handles large datasets", "Built-in scheduling"],
+        "cons": ["Not real-time", "Batch processing only", "Analytics-focused"],
+        "whenToUse": "When preparing data for Power BI analytics or periodic data imports",
+        "whyIncorrect": "Dataflows operate on schedules (minimum 30 minutes) and cannot provide the real-time synchronization required",
+        "betterUseCase": "Use Dataflows to prepare historical lead data for Power BI analytics dashboards"
+      },
+      {
+        "id": "opt_d",
+        "letter": "D",
+        "text": "Power Automate cloud flow",
+        "description": "Cloud-based workflow automation triggered by events",
+        "analysis": "Cloud flows provide the orchestration layer, responding to triggers from the third-party system and coordinating data movement.",
+        "pros": ["Real-time triggers", "Error handling", "Retry policies", "Monitoring"],
+        "cons": ["API call limits", "Requires design skills", "Performance considerations"],
+        "whenToUse": "For event-driven integration scenarios requiring orchestration and business logic",
+        "whyCorrect": "Cloud flows orchestrate the integration, triggering on third-party events and managing the data synchronization process",
+        "realWorldUse": "A flow triggers via webhook when leads are created, applies business logic, and creates/updates records in Dataverse with full error handling"
+      },
+      {
+        "id": "opt_e",
+        "letter": "E",
+        "text": "Dataverse connector",
+        "description": "Standard connector for Dataverse operations in Power Platform",
+        "analysis": "The Dataverse connector enables flows and apps to perform CRUD operations on Dataverse data where Power Apps data resides.",
+        "pros": ["Native integration", "Full CRUD operations", "Security context", "Change tracking"],
+        "cons": ["Requires Dataverse", "Licensing considerations", "API limits"],
+        "whenToUse": "Whenever you need to interact with data in Dataverse/Power Apps from flows or other apps",
+        "whyCorrect": "Essential for the flow to create and update lead records in the Power Apps/Dataverse database",
+        "realWorldUse": "The Dataverse connector handles thousands of operations per minute, creating and updating leads with full security context"
+      }
+    ],
+    
+    "correctMappings": [{
+      "questionItemId": "default",
+      "correctAnswerIds": ["opt_b", "opt_d", "opt_e"],
+      "explanation": "A complete integration requires: Custom connector (B) for third-party API connectivity, Power Automate cloud flow (D) for orchestration and real-time processing, and Dataverse connector (E) for Power Apps data operations. Together, these create a robust, real-time integration solution.",
+      "isMultiSelect": true
+    }],
+    
+    "detailedExplanation": "**The three-component integration pattern:**\n\n**1. Custom Connector (B)** - The Bridge\n- Defines how to connect to the third-party API\n- Handles authentication (OAuth, API Key, etc.)\n- Provides reusable operations for all flows\n- Manages request/response formatting\n\n**2. Power Automate Cloud Flow (D)** - The Orchestrator\n- Triggers on events (webhooks, polling, or manual)\n- Implements business logic and transformations\n- Handles errors with retry policies\n- Provides monitoring and alerting\n\n**3. Dataverse Connector (E)** - The Data Layer\n- Creates and updates records in Power Apps\n- Maintains relationships and business rules\n- Provides security context\n- Enables change tracking\n\n**Integration Flow:**\n1. Third-party system triggers webhook → Cloud flow receives event\n2. Flow uses custom connector → Retrieves lead details from API\n3. Flow processes data → Applies transformations and business rules\n4. Flow uses Dataverse connector → Creates/updates lead in Power Apps\n5. Error handling → Retries failures and logs issues",
+    
+    "learningMoment": "Integration architecture follows the 'Connect-Process-Store' pattern. Always separate connectivity (custom connector) from orchestration (flow) and data operations (Dataverse). This separation enables reusability, maintainability, and scalability. Think of it like a restaurant: the supplier (API), the chef (flow), and the storage (Dataverse) each have distinct roles.",
+    
+    "practicalTip": "When building custom connectors, always implement pagination for list operations and include a 'test' action. During development, use Postman to prototype API calls before building the connector. Set up a dedicated flow for error notifications to catch integration issues early.",
+    
+    "realWorldExample": "A financial services firm integrated their legacy loan application system with Power Apps using this pattern. The custom connector handled complex SOAP operations, flows processed 10,000+ applications daily with business validation, and Dataverse stored the data for Power Apps. They achieved 99.9% synchronization accuracy with automatic retry handling for the remaining 0.1%.",
+    
+    "architectureInsight": "For high-volume scenarios (>1000 operations/hour), consider:\n- **Batch processing**: Accumulate changes and sync in batches\n- **Queue pattern**: Use Service Bus for guaranteed delivery\n- **Caching**: Store frequently accessed reference data\n- **Circuit breaker**: Prevent cascade failures during outages\n- **Monitoring**: Application Insights for end-to-end tracking\n\nThe same pattern scales from 10 to 100,000 daily transactions with proper design.",
+    
+    "commonEvolution": "Organizations typically mature through:\n1. **Basic**: Manual polling every 15 minutes\n2. **Intermediate**: Webhook-triggered real-time sync\n3. **Advanced**: Event-driven with Service Bus queuing\n4. **Enterprise**: Microservices with API Management\n5. **Optimized**: AI-powered conflict resolution and predictive sync",
+    
+    "category": "Perform solution envisioning and requirement analysis",
+    "weight": 7.9,
+    "examReference": "Design strategies for app integration",
+    "source": "Custom generated",
+    "examArea": "Solution Envisioning and Requirements (45-50%)"
+  },
+        {
+    "id": 2,
+    "type": "sequence",
+    "topic": "Business Continuity",
+    "difficultyLevel": "Easy",
+    
+    "text": "SEQUENCE - You are designing a business continuity strategy for a client who has a Microsoft Power Platform solution. The client works with critical data where any data loss creates a high risk.\n\nYou need to document the retry process for the stakeholders.\n\nArrange the following actions in the correct order to show how automatic retry handles transient failures:",
+    
+    "keyWords": [
+      "business continuity",
+      "retry pattern",
+      "transient failures",
+      "automatic retry",
+      "exception handling",
+      "service calls",
+      "resilience",
+      "error recovery"
+    ],
+    
+    "scenario": {
+      "businessContext": "A healthcare provider's Power Platform solution processes critical patient data. Network interruptions or temporary service unavailability could prevent vital information from being recorded. They need a documented retry strategy that handles transient failures automatically without losing data or requiring manual intervention.",
+      "dataNeeds": [
+        "Automatic retry for transient failures",
+        "No data loss during temporary outages",
+        "Clear audit trail of retry attempts",
+        "Graceful degradation after persistent failures",
+        "Stakeholder visibility into error handling"
+      ]
+    },
+    
+    "hints": {
+      "easy": [
+        "What happens first when calling a service?",
+        "What triggers a retry attempt?",
+        "How does the process end successfully?"
+      ],
+      "medium": [
+        "Consider the typical try-catch-retry pattern",
+        "Think about what constitutes success",
+        "Automatic retry happens without user intervention"
+      ],
+      "hard": [
+        "Consider exponential backoff strategies",
+        "Think about retry limits and circuit breakers",
+        "Evaluate logging and monitoring requirements"
+      ]
+    },
+    
+    "conceptsTested": [
+      "Retry patterns",
+      "Error handling",
+      "Transient fault handling",
+      "Business continuity",
+      "Resilience patterns",
+      "Automatic recovery",
+      "Service reliability"
+    ],
+    
+    "commonMistakes": [
+      "Including manual intervention in automatic retry flows",
+      "Missing the initial service call attempt",
+      "Forgetting the success path continuation",
+      "Adding complex retry logic instead of basic pattern",
+      "Confusing immediate retry with exponential backoff",
+      "Including administrator notification in basic retry"
+    ],
+    
+    "analysisHighlights": {
+      "requirements": [
+        "Document retry process",
+        "Handle transient failures",
+        "Automatic recovery",
+        "Critical data protection"
+      ],
+      "constraints": [
+        "No data loss tolerance",
+        "Automatic process only",
+        "Stakeholder documentation needs"
+      ],
+      "patterns": [
+        "Basic retry pattern",
+        "Exception handling",
+        "Automatic recovery"
+      ]
+    },
+    
+    "questionItems": [{
+      "id": "default",
+      "text": "Basic Retry Process Steps",
+      "description": "Order these steps to show the basic automatic retry pattern for handling transient failures",
+      "businessContext": "This forms the foundation of resilience in Power Platform solutions",
+      "keyConsiderations": [
+        "Automatic process flow",
+        "No manual intervention",
+        "Success path handling",
+        "Basic retry pattern"
+      ]
+    }],
+    
+    "answerOptions": [
+      {
+        "id": "opt_call",
+        "text": "The application makes a service call to the datacenter",
+        "description": "Initial attempt to perform the operation",
+        "analysis": "Every retry pattern begins with an initial attempt. This could be calling an API, writing to a database, or any service operation.",
+        "whyPosition": "First - You must attempt the operation before you can retry it",
+        "dependencies": "None - this initiates the process",
+        "impact": "Without the initial call, there's nothing to retry"
+      },
+      {
+        "id": "opt_exception",
+        "text": "The application receives an exception after attempting the service call",
+        "description": "Error detection that triggers retry logic",
+        "analysis": "Transient failures manifest as exceptions (timeout, 503 Service Unavailable, network errors). The application must detect these to initiate retry.",
+        "whyPosition": "Second - Exceptions trigger the retry mechanism",
+        "dependencies": "Requires initial service call attempt",
+        "impact": "Exception type determines if retry is appropriate"
+      },
+      {
+        "id": "opt_retry",
+        "text": "The application automatically tries the call again",
+        "description": "Automatic retry attempt without manual intervention",
+        "analysis": "The key word is 'automatically' - no user action required. This immediate retry often succeeds for transient issues.",
+        "whyPosition": "Third - Automatic response to transient failure",
+        "dependencies": "Triggered by exception from first attempt",
+        "impact": "Provides resilience against temporary issues"
+      },
+      {
+        "id": "opt_success",
+        "text": "If the second call is successful, the application continues normally",
+        "description": "Success path after retry",
+        "analysis": "When retry succeeds, the application proceeds as if the error never occurred. This transparency is key to good retry patterns.",
+        "whyPosition": "Fourth - Completes the successful retry pattern",
+        "dependencies": "Requires successful retry attempt",
+        "impact": "User experiences no disruption despite transient failure"
+      },
+      {
+        "id": "opt_log",
+        "text": "The application logs an error and notifies an administrator",
+        "description": "Error escalation after retry failure",
+        "analysis": "This happens after retry limits are exceeded, not in the basic retry flow. It's part of extended error handling.",
+        "whyPosition": "Not part of basic automatic retry pattern",
+        "dependencies": "Would follow multiple failed retries",
+        "impact": "Indicates persistent rather than transient failure"
+      },
+      {
+        "id": "opt_backoff",
+        "text": "The application retries three times with exponential backoff",
+        "description": "Advanced retry strategy with delays",
+        "analysis": "Exponential backoff is an enhancement to basic retry, not part of the fundamental pattern being documented.",
+        "whyPosition": "Advanced pattern, not basic retry",
+        "dependencies": "Extends basic retry with timing logic",
+        "impact": "Prevents overwhelming recovering services"
+      },
+      {
+        "id": "opt_manual",
+        "text": "The user manually retries the operation",
+        "description": "Manual intervention by user",
+        "analysis": "Manual retry is the opposite of automatic retry. This indicates the automatic process has failed completely.",
+        "whyPosition": "Contradicts automatic retry requirement",
+        "dependencies": "Only after automatic retry exhaustion",
+        "impact": "Requires user awareness and action"
+      }
+    ],
+    
+    "correctMappings": [{
+      "questionItemId": "default",
+      "correctAnswerIds": [
+        "opt_call",
+        "opt_exception",
+        "opt_retry",
+        "opt_success"
+      ],
+      "explanation": "The basic automatic retry pattern: 1) Attempt operation, 2) Detect failure via exception, 3) Automatically retry, 4) Continue on success. This simple pattern handles most transient failures transparently.",
+      "isMultiSelect": false,
+      "isOrdered": true
+    }],
+    
+    "detailedExplanation": "**The Basic Retry Pattern** is fundamental to resilient cloud applications:\n\n**1. Initial Attempt** - The application tries to perform its normal operation\n- No assumption of failure\n- Standard timeout and error handling\n\n**2. Exception Detection** - Transient failures are caught\n- Network timeouts\n- Service temporarily unavailable (503)\n- Database connection drops\n\n**3. Automatic Retry** - Immediate retry without delay\n- No user intervention\n- Same operation parameters\n- Often succeeds immediately\n\n**4. Success Continuation** - Normal flow resumes\n- No indication to user that error occurred\n- Operation completes successfully\n\n**What's NOT in basic retry:**\n- Exponential backoff (advanced pattern)\n- Multiple retry attempts (enhanced pattern)  \n- Administrator notification (escalation pattern)\n- Manual intervention (failure pattern)",
+    
+    "learningMoment": "Think of retry patterns like a car's automatic transmission adjusting to road conditions - it handles temporary issues without driver intervention. The basic retry pattern is your first line of defense against transient failures. Remember: 'Try-Catch-Retry-Continue' - it's that simple for 80% of transient failures.",
+    
+    "practicalTip": "In Power Automate, configure retry policy on HTTP actions: Settings → Retry Policy → Fixed Interval, Count: 4, Interval: PT20S. This provides 4 retries with 20-second intervals. For critical operations, also add a parallel branch with delay and notification after multiple failures.",
+    
+    "realWorldExample": "A retail company's Power Platform solution processes 100,000 transactions daily. With basic retry pattern: 95% succeed on first attempt, 4.8% succeed on automatic retry, only 0.2% require investigation. Without retry, they'd have 5,000 daily failures requiring manual intervention. The simple pattern saved 4,800 manual interventions per day.",
+    
+    "architectureInsight": "**Retry Pattern Evolution:**\n\n**Basic (shown here)**: Single immediate retry\n- Best for: Network blips, momentary load\n\n**Enhanced**: Multiple retries with fixed delays\n- Best for: Service restart scenarios\n\n**Advanced**: Exponential backoff with jitter\n- Best for: Avoiding thundering herd\n\n**Enterprise**: Circuit breaker with health checks\n- Best for: Protecting downstream services\n\nStart with basic retry and enhance based on failure patterns observed in production.",
+    
+    "commonEvolution": "Organizations typically evolve their retry strategies:\n1. **None**: Manual retry only (painful)\n2. **Basic**: Single automatic retry (this pattern)\n3. **Enhanced**: Multiple retries with delays\n4. **Smart**: Adaptive retry based on error type\n5. **Intelligent**: ML-predicted optimal retry timing",
+    
+    "category": "Architect a solution",
+    "weight": 6.8,
+    "examReference": "Design strategies for business continuity",
+    "source": "Custom generated",
+    "examArea": "Solution Architecture (35-40%)"
+  },
+        {
           "id": 21,
           "type": "multiplechoice",
           "topic": "Power Automate & Mobile Solutions",
