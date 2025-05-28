@@ -7725,14 +7725,27 @@
                 onChange={(e) => setFilterTopic(e.target.value)}
                 className="border rounded px-3 py-1"
               >
-                <option value="All">All Topics</option>
-                <option value="Power Platform Well-Architected Framework">Well-Architected Framework</option>
-                <option value="Environment Strategy & ALM">Environment Strategy & ALM</option>
-                <option value="Integration Architecture">Integration Architecture</option>
-                <option value="Solution Envisioning & Requirements">Solution Envisioning</option>
-                <option value="Business Continuity">Business Continuity</option>
-                <option value="Data Modeling Fundamentals">Data Modeling</option>
-              </select>
+                 <option value="All">All Topics</option>
+  {/* Solution Envisioning Topics (45-50%) */}
+  <option value="Solution Envisioning & Requirements">Solution Envisioning & Requirements</option>
+  <option value="Organization Assessment">Organization Assessment</option>
+  <option value="Requirements Capture">Requirements Capture</option>
+  <option value="Fit Gap Analysis">Fit/Gap Analysis</option>
+  {/* Architecture Topics (35-40%) */}
+  <option value="Solution Design Process">Solution Design Process</option>
+  <option value="Data Modeling Fundamentals">Data Modeling Fundamentals</option>
+  <option value="Integration Architecture">Integration Architecture</option>
+  <option value="Security Architecture">Security Architecture</option>
+  <option value="Environment Strategy & ALM">Environment Strategy & ALM</option>
+  {/* Implementation Topics (15-20%) */}
+  <option value="Solution Validation">Solution Validation</option>
+  <option value="Performance & API Limits">Performance & API Limits</option>
+  {/* Cross-cutting Topics */}
+  <option value="Power Platform Well-Architected Framework">Well-Architected Framework</option>
+  <option value="Business Continuity">Business Continuity</option>
+  <option value="Dynamics 365 Integration">Dynamics 365 Integration</option>
+  <option value="Migration Strategies">Migration Strategies</option>
+</select>
               
               <select 
                 value={filterDifficulty} 
