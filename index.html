@@ -6666,7 +6666,573 @@
   "examReference": "Identify and estimate migration and integration efforts and alternatives",
   "source": "Enhanced for September 2024 exam updates",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-}	      
+},	      
+{
+  "id":37,
+  "type": "multiplechoice",
+  "topic": "Fit Gap Analysis",
+  "difficultyLevel": "Medium",
+  "examObjective": "Evaluate solution fit and identify gaps",
+  "text": "A global logistics firm is planning to modernise its legacy case management system using Power Platform. During the envisioning phase, you've identified that while Power Apps can meet around 80% of the core requirements, the remaining 20% depend on complex routing logic embedded in a proprietary on-premises ERP system.\n\nYou are leading a Fit Gap Analysis to determine the best architectural approach.",
+  "keyWords": [
+    "fit gap analysis",
+    "custom development",
+    "power platform limitations",
+    "routing logic",
+    "integration",
+    "legacy ERP",
+    "solution mapping",
+    "architecture decisions"
+  ],
+  "scenario": {
+    "businessContext": "The organisation handles time-sensitive freight claims. Existing systems are unable to support mobile field staff or deliver real-time alerts. They aim to replace manual escalation steps with automation, while preserving business-critical routing logic in their ERP.",
+    "dataNeeds": [
+      "Identify out-of-the-box platform capabilities",
+      "Map proprietary logic to Power Automate interactions",
+      "Assess integration points with ERP",
+      "Capture decision criteria for bespoke components",
+      "Validate technical feasibility with business stakeholders"
+    ]
+  },
+  "wellArchitectedAlignment": {
+    "reliability": "Ensures fallback mechanisms are in place for routing failures",
+    "performance": "Considers runtime impact of invoking custom logic",
+    "operational": "Surfaces long-term maintainability implications"
+  },
+  "hints": {
+    "easy": [
+      "Fit Gap Analysis highlights where custom work is needed",
+      "Not all gaps need to be built within Power Platform"
+    ],
+    "medium": [
+      "Weigh cost, complexity and maintainability when proposing custom components",
+      "Integrating legacy systems may be more efficient than recreating logic"
+    ],
+    "hard": [
+      "Architectural decisions should preserve domain logic and IP",
+      "Early Fit Gap insight prevents costly rewrites later in delivery"
+    ]
+  },
+  "conceptsTested": [
+    "Identifying native versus custom solution boundaries",
+    "Analysing platform suitability",
+    "Architecting integrations",
+    "Strategic Fit Gap decision-making"
+  ],
+  "commonMistakes": [
+    "Assuming everything must be rebuilt in Power Platform",
+    "Underestimating the cost of duplicating complex logic",
+    "Neglecting integration feasibility early in planning",
+    "Not involving business SMEs during gap resolution",
+    "Failing to justify architectural trade-offs"
+  ],
+  "questionItems": [{
+    "id": "default",
+    "text": "Which of the following is the MOST appropriate architectural recommendation for addressing the proprietary routing logic identified during your Fit Gap Analysis?",
+    "description": "Choose the solution that best aligns with enterprise architecture principles and long-term maintainability.",
+    "businessContext": "The client values continuity of critical logic while transitioning to a modern platform."
+  }],
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Rebuild the routing logic in Power Automate using standard connectors",
+      "description": "Fully replicate the logic in cloud-native flows.",
+      "analysis": "Risky if the logic is tightly coupled with ERP or business-critical IP.",
+      "wellArchitectedPillar": "operational",
+      "pros": [
+        "Simplifies support",
+        "Keeps all components in Power Platform"
+      ],
+      "cons": [
+        "Labour-intensive rework",
+        "Loss of existing logic validation",
+        "Limited parity with ERP algorithms"
+      ],
+      "whyIncorrect": "Unnecessary rebuild of tested ERP functionality",
+      "realWorldUse": "Rarely viable for complex domain logic embedded in legacy systems"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Create a custom connector to invoke the ERP system and reuse the routing logic",
+      "description": "Integrate Power Platform with ERP to delegate complex processing.",
+      "analysis": "Preserves core logic and maintains business integrity.",
+      "wellArchitectedPillar": "reliability",
+      "pros": [
+        "Leverages proven ERP logic",
+        "Reduces reimplementation risk",
+        "Improves modularity",
+        "Simplifies testing and UAT"
+      ],
+      "cons": [
+        "Relies on on-premises availability",
+        "Requires secure integration gateway"
+      ],
+      "whyCorrect": "Combines reuse of reliable logic with low architectural friction",
+      "realWorldUse": "Commonly used where ERP remains a source of truth"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Migrate the ERP logic to Azure Functions and decommission the ERP module",
+      "description": "Refactor logic into a scalable cloud-native component.",
+      "analysis": "Best suited for long-term ERP retirement plans.",
+      "wellArchitectedPillar": "performance",
+      "pros": [
+        "Modern architecture",
+        "Greater cloud control"
+      ],
+      "cons": [
+        "High complexity and delivery risk",
+        "Potential logic regressions"
+      ],
+      "whyIncorrect": "Inappropriate unless full ERP modernisation is already underway",
+      "realWorldUse": "More common during digital transformation of entire backend stack"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Defer Fit Gap Analysis until after MVP delivery",
+      "description": "Postpone analysis to reduce upfront planning time.",
+      "analysis": "Increases technical debt and late-stage complexity.",
+      "wellArchitectedPillar": "operational",
+      "pros": [
+        "Speeds up MVP delivery",
+        "Reduces initial scoping effort"
+      ],
+      "cons": [
+        "Gaps may be discovered too late",
+        "Creates unplanned delivery risk",
+        "Violates architecture-first principles"
+      ],
+      "whyIncorrect": "Fit Gap must be completed during solution envisioning",
+      "realWorldUse": "An anti-pattern that causes scope creep and misaligned delivery"
+    }
+  ],
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_b"],
+    "explanation": "Using a custom connector to invoke the existing ERP logic offers a pragmatic and scalable solution, ensuring continuity while minimising rework.",
+    "isMultiSelect": false
+  }],
+  "detailedExplanation": "**Fit Gap Analysis** helps architects determine what can be achieved using standard Power Platform features and where bespoke or integrated solutions are required. Where business-critical logic is already stable within legacy systems, the preferred approach is to **integrate**, not rebuild. This reduces delivery risk, respects IP, and accelerates deployment timelines.",
+  "learningMoment": "Architects should favour reuse and integration where business logic is mature and stable.",
+  "practicalTip": "During Fit Gap sessions, classify gaps using categories: ‘configure’, ‘extend’, or ‘integrate’—and justify each with cost-benefit reasoning.",
+  "realWorldExample": "In a logistics firm, ERP-based scheduling logic was wrapped with a custom connector, allowing Power Apps to trigger validated processes without rewriting critical code.",
+  "architectureInsight": "Fit Gap outputs should directly shape architectural components, ensuring alignment between business need and platform capability.",
+  "learningResources": {
+    "primaryModule": "https://learn.microsoft.com/en-gb/training/modules/requirements-architect/",
+    "relatedModules": [
+      "https://learn.microsoft.com/en-gb/power-platform/guidance/architecture/overview",
+      "https://learn.microsoft.com/en-gb/power-platform/guidance/coe/starter-kit"
+    ],
+    "documentationLinks": [
+      "https://learn.microsoft.com/en-gb/powerapps/maker/data-platform/custom-connectors",
+      "https://learn.microsoft.com/en-gb/power-platform/alm/devops-build-tools"
+    ],
+    "prerequisites": [
+      "Understanding of legacy integration approaches",
+      "Basic knowledge of custom connector development",
+      "Familiarity with on-premises data gateway"
+    ]
+  },
+  "studyGuidance": {
+    "focusAreas": [
+      "Fit Gap analysis techniques",
+      "Integration options for Power Platform",
+      "Evaluating architecture trade-offs"
+    ],
+    "practiceExercises": "Draft a Fit Gap matrix for a client with legacy systems. Propose justified solutions for each major gap.",
+    "timeToMaster": "4–6 hours including applied case studies",
+    "moduleUnits": "Requirements analysis units 2 and 3"
+  },
+  "category": "perform_solution_envisioning",
+  "weight": 8,
+  "examReference": "Evaluate solution fit and identify gaps",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45–50%)"
+},
+{
+  "id": 38,
+  "type": "multiplechoice",
+  "topic": "Solution Design Process",
+  "difficultyLevel": "Hard",
+  "examObjective": "Design a scalable and maintainable solution architecture",
+  "text": "Following the Fit Gap Analysis for the logistics firm, you’ve confirmed that the routing logic will remain in the on-premises ERP system. You now need to finalise the **solution design** for this hybrid architecture.",
+  "keyWords": [
+    "solution design",
+    "hybrid architecture",
+    "custom connector",
+    "data gateway",
+    "power automate",
+    "solution layering",
+    "modularity"
+  ],
+  "scenario": {
+    "businessContext": "The solution must integrate real-time Power App submissions with the ERP routing logic. It must also support future migration away from the ERP, without impacting front-end functionality.",
+    "dataNeeds": [
+      "Maintain separation of logic and UI",
+      "Ensure resilience of connector calls",
+      "Track API failures and retries",
+      "Design for plug-and-play logic migration",
+      "Enable clear support boundaries"
+    ]
+  },
+  "wellArchitectedAlignment": {
+    "reliability": "Retries and logging prevent data loss",
+    "operational": "Modular components reduce support complexity",
+    "cost": "Minimises rework if ERP is replaced in future"
+  },
+  "hints": {
+    "easy": [
+      "Keep front-end and logic layers loosely coupled"
+    ],
+    "medium": [
+      "Use connectors to wrap volatile logic"
+    ],
+    "hard": [
+      "Design with future extensibility in mind"
+    ]
+  },
+  "conceptsTested": [
+    "Modular architecture",
+    "Connector-based design",
+    "Scalability of hybrid solutions",
+    "Separation of concerns"
+  ],
+  "commonMistakes": [
+    "Embedding business logic in front-end apps",
+    "Tightly coupling ERP to UI layers",
+    "Neglecting retry handling in connectors",
+    "Hardcoding ERP references"
+  ],
+  "questionItems": [{
+    "id": "default",
+    "text": "What is the most appropriate solution design approach for integrating Power Apps with the existing ERP routing logic?",
+    "description": "Choose the most scalable, modular, and supportable design.",
+    "businessContext": "You must support future-proofing, clear architecture boundaries, and hybrid system resiliency."
+  }],
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement business logic in Power Apps and call the ERP directly via JavaScript",
+      "description": "Moves logic into the UI layer.",
+      "analysis": "Breaks architecture boundaries and reduces maintainability.",
+      "wellArchitectedPillar": "operational",
+      "pros": [
+        "Simple to implement"
+      ],
+      "cons": [
+        "Tightly couples UI and logic",
+        "Not scalable",
+        "Poor separation of concerns"
+      ],
+      "whyIncorrect": "Introduces maintainability and security issues",
+      "realWorldUse": "Seen in quick MVPs, but not suitable for production systems"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Use a custom connector in Power Automate to invoke ERP logic and abstract logic from Power Apps",
+      "description": "Keeps logic external and modular.",
+      "analysis": "Best approach for maintainability, extensibility, and governance.",
+      "wellArchitectedPillar": "reliability",
+      "pros": [
+        "Loosely coupled",
+        "Easy to swap ERP later",
+        "Centralised logging and retry logic"
+      ],
+      "cons": [
+        "Requires Power Automate dependency"
+      ],
+      "whyCorrect": "Enforces layered architecture and prepares for ERP replacement",
+      "realWorldUse": "Common in long-lived, hybrid business systems"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Deploy Azure Logic Apps to encapsulate ERP routing and call them from Power Apps directly",
+      "description": "Moves logic into Azure.",
+      "analysis": "Possible, but introduces extra management overhead.",
+      "wellArchitectedPillar": "performance",
+      "pros": [
+        "Scalable",
+        "Well-suited to advanced orchestration"
+      ],
+      "cons": [
+        "Higher licensing cost",
+        "Requires Azure DevOps for deployment"
+      ],
+      "whyIncorrect": "Adds complexity when Power Automate is already available",
+      "realWorldUse": "Used for highly orchestrated B2B integrations"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Embed Power Automate flows inside each Power Apps screen directly",
+      "description": "Distributes logic across the app.",
+      "analysis": "Increases duplication and hinders logic reuse.",
+      "wellArchitectedPillar": "operational",
+      "pros": [
+        "Fast to prototype",
+        "Fits small-scale use cases"
+      ],
+      "cons": [
+        "Logic fragmentation",
+        "Difficult to maintain"
+      ],
+      "whyIncorrect": "Unsuitable for scalable architecture",
+      "realWorldUse": "Anti-pattern in multi-app enterprise platforms"
+    }
+  ],
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_b"],
+    "explanation": "Using a custom connector inside Power Automate centralises business logic and enables flexibility, resilience, and reusability—ideal for hybrid systems.",
+    "isMultiSelect": false
+  }],
+  "detailedExplanation": "The best solution architecture separates logic from user interface, enabling scalability and easier long-term changes. By using a Power Automate flow to call a custom connector, you preserve ERP integration logic outside of the Power App. This aligns with the **layered architecture** principle and improves supportability.",
+  "learningMoment": "Separate logic, integration, and presentation layers to reduce long-term risk.",
+  "practicalTip": "Use custom connectors as wrappers to decouple legacy systems from new solutions.",
+  "realWorldExample": "A UK healthcare provider abstracted legacy patient logic using custom connectors in Power Automate, preserving clinical pathways during their transition to Power Apps.",
+  "architectureInsight": "Hybrid architecture design must enable future refactoring with minimal impact to dependent components.",
+  "learningResources": {
+    "primaryModule": "https://learn.microsoft.com/en-gb/power-platform/guidance/architecture/overview",
+    "relatedModules": [
+      "https://learn.microsoft.com/en-gb/powerapps/maker/data-platform/custom-connectors",
+      "https://learn.microsoft.com/en-gb/power-automate/flows"
+    ],
+    "documentationLinks": [
+      "https://learn.microsoft.com/en-gb/power-platform/alm/devops-build-tools"
+    ],
+    "prerequisites": [
+      "Power Automate fundamentals",
+      "API design principles",
+      "Architecture layering concepts"
+    ]
+  },
+  "studyGuidance": {
+    "focusAreas": [
+      "Decoupled solution design",
+      "Connector-based architecture",
+      "Hybrid integration patterns"
+    ],
+    "practiceExercises": "Draw architecture diagrams for 3 hybrid scenarios using connectors",
+    "timeToMaster": "5–7 hours",
+    "moduleUnits": "Architecture Units 2–4"
+  },
+  "category": "architect_a_solution",
+  "weight": 9,
+  "examReference": "Design scalable and maintainable solutions",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35–40%)"
+},
+Here's the question reformatted to match the correct schema:
+
+```javascript
+{
+  "id": 3,
+  "type": "multiplechoice",
+  "topic": "Security Architecture",
+  "difficultyLevel": "Easy",
+  "examObjective": "Design the security model",
+  
+  "text": "A large company experiences high staff turnover rates. As a result, the company must add or remove multiple system user accounts daily. You need to recommend a security concept which will facilitate complex security profiles to entities for large groups of users across the Power Apps and Dynamics 365 applications. What should you recommend?",
+  
+  "keyWords": [
+    "Team Security",
+    "High Staff Turnover",
+    "Security Management",
+    "Large User Groups",
+    "Power Apps Security",
+    "Dynamics 365 Security",
+    "Role Management",
+    "Access Control"
+  ],
+  
+  "scenario": {
+    "businessContext": "Large enterprise with frequent staff changes requiring efficient security management across Power Platform and Dynamics 365 applications.",
+    "dataNeeds": [
+      "Scalable user management for daily additions and removals",
+      "Complex security profiles for different user groups",
+      "Cross-application security consistency",
+      "Reduced administrative overhead"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "security": "Team-based security provides scalable access control with proper segregation",
+    "operational": "Reduced administrative overhead through group-based management"
+  },
+  
+  "hints": {
+    "easy": [
+      "Think about group-based security management approaches",
+      "Consider scalability for managing many users efficiently"
+    ],
+    "medium": [
+      "How can you manage security for many users without individual assignments?",
+      "Think about inheritance of permissions through groups"
+    ],
+    "hard": [
+      "Evaluate role-based vs team-based security models",
+      "Consider maintenance overhead in high-turnover scenarios"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Team-based security in Power Platform",
+    "Security management scalability",
+    "Administrative efficiency in user management",
+    "Dynamics 365 security concepts"
+  ],
+  
+  "commonMistakes": [
+    "Choosing individual user management for high-volume scenarios",
+    "Selecting field-level security for broad access control",
+    "Confusing hierarchy security with team security",
+    "Not considering maintenance overhead"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should you recommend?",
+    "description": "Select the security approach that best handles frequent user changes.",
+    "businessContext": "High turnover requires efficient security management without excessive administrative overhead."
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Hierarchy security",
+      "description": "Security based on organizational hierarchy",
+      "analysis": "Hierarchy security works through managerial layers and organizational structure, not ideal for quickly assigning complex privileges to diverse user groups.",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Reflects organizational structure",
+        "Good for reporting hierarchies"
+      ],
+      "cons": [
+        "Complex setup for diverse groups",
+        "Not suitable for rapid user changes",
+        "Limited to hierarchical relationships"
+      ],
+      "whyIncorrect": "Hierarchy security is based on managerial reporting structures and isn't designed for quickly assigning complex privileges to large groups with frequent turnover.",
+      "realWorldUse": "Best for organizations where data access follows strict reporting hierarchies"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Field-level security",
+      "description": "Security at the field/column level",
+      "analysis": "Field-level security controls access to specific fields within entities but doesn't address entity-level privileges for large user groups.",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Granular field control",
+        "Good for sensitive data fields"
+      ],
+      "cons": [
+        "Limited to field access only",
+        "Doesn't handle entity-level permissions",
+        "Not designed for user group management"
+      ],
+      "whyIncorrect": "Field-level security only restricts access to certain fields within records, not entire entity-level privileges for large groups of users.",
+      "realWorldUse": "Used for protecting sensitive fields like salary or social security numbers"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "User access management",
+      "description": "Generic user management approach",
+      "analysis": "This is a generic term that doesn't map to a specific Power Platform security model or feature.",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Generic approach concept"
+      ],
+      "cons": [
+        "Not a specific Power Platform feature",
+        "Doesn't address scalability needs",
+        "No clear implementation path"
+      ],
+      "whyIncorrect": "User access management is a generic phrase that doesn't correspond to a specific recommended security approach in Power Apps/Dynamics 365.",
+      "realWorldUse": "General concept, not a specific implementation"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Team privileges",
+      "description": "Team-based security with role assignment",
+      "analysis": "Team-based security allows assigning security roles to teams, with users inheriting permissions through team membership.",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Scalable group management",
+        "Easy user addition/removal",
+        "Complex role inheritance",
+        "Reduced administrative overhead",
+        "Consistent security across changes"
+      ],
+      "cons": [
+        "Requires team structure planning",
+        "Initial setup complexity"
+      ],
+      "whyCorrect": "Team privileges streamline security management for large groups and reduce administrative overhead when staff join or leave. Teams allow assigning roles to groups - membership changes but team privileges remain consistent.",
+      "realWorldUse": "Used by large organizations for department-based access control and project teams"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_d"],
+    "explanation": "Team privileges provide the most efficient approach for managing complex security profiles across large groups of users with high turnover. By assigning security roles to teams rather than individual users, administrators can simply add or remove users from teams while maintaining consistent security profiles.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Team-Based Security for High-Turnover Environments**\n\nTeam privileges are the optimal solution for organizations with high staff turnover because:\n\n**Scalability Benefits:**\n- Users inherit permissions through team membership\n- Adding/removing users only requires team membership changes\n- Complex security profiles are maintained at the team level\n- Consistent access control across Power Apps and Dynamics 365\n\n**Administrative Efficiency:**\n- Reduced daily administrative tasks\n- Consistent security profiles regardless of staff changes\n- Easier auditing and compliance\n- Simplified onboarding and offboarding\n\n**Implementation Pattern:**\n1. Create teams representing job functions or departments\n2. Assign appropriate security roles to each team\n3. Add users to teams based on their responsibilities\n4. Manage turnover by simply changing team membership\n\nThis approach can reduce security administration overhead by up to 80% in high-turnover environments.",
+  
+  "learningMoment": "In high-volume user scenarios, always favor group-based security models over individual user management. Team privileges in Power Platform provide the scalability needed for enterprises with frequent staff changes.",
+  
+  "practicalTip": "When designing team structures, align them with business functions rather than organizational hierarchy. This provides more flexibility and better supports matrix organizations.",
+  
+  "realWorldExample": "Large consulting firms use team privileges to manage thousands of consultants who frequently move between projects. Teams represent competency areas with appropriate system access, allowing quick reassignment without complex security changes.",
+  
+  "architectureInsight": "Team-based security architecture provides a scalable foundation: Teams (business function aligned) → Roles (security permissions) → Users (team members). This hierarchy enables efficient management while maintaining security governance.",
+  
+  "learningResources": {
+    "primaryModule": "https://learn.microsoft.com/power-platform/admin/manage-teams",
+    "relatedModules": [
+      "https://learn.microsoft.com/power-platform/admin/security-roles-privileges",
+      "https://learn.microsoft.com/power-platform/admin/create-users"
+    ],
+    "documentationLinks": [
+      "https://docs.microsoft.com/power-platform/admin/security-concepts"
+    ],
+    "prerequisites": [
+      "Understanding of Power Platform security model",
+      "Basic knowledge of role-based access control"
+    ]
+  },
+  
+  "studyGuidance": {
+    "focusAreas": [
+      "Team-based security concepts",
+      "Security role management in Power Platform",
+      "Scalable user management strategies",
+      "Administrative efficiency patterns"
+    ],
+    "practiceExercises": "Create team structures for different scenarios, practice role assignment patterns",
+    "timeToMaster": "3-4 hours including hands-on practice",
+    "moduleUnits": "Security fundamentals units 2-4, team management units 1-2"
+  },
+  
+  "category": "architect_a_solution",
+  "weight": 4,
+  "examReference": "Design the security model",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35-40%)"
+}
 
 ];
 
