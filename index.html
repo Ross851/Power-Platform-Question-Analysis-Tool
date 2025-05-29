@@ -12032,7 +12032,1264 @@
   "weight": 6,
   "examReference": "Apply Well-Architected Framework cost optimization",
   "examArea": "Solution Architecture (35-40%)"
-}	      	      
+},
+	      {
+  "id": 69,
+  "type": "multiplechoice",
+  "topic": "Requirements Capture",
+  "difficultyLevel": "Medium",
+  "examObjective": "Apply requirements prioritization techniques",
+  
+  "text": "You're leading a Power Platform project for a growing online education company. They have a fixed budget of £200,000 and a 4-month timeline. During requirements gathering, stakeholders provided this wish list:\n\n**Current State:** Teachers email assignments, students email submissions, grades tracked in Excel, no parent visibility\n\n**Requested Features:**\n1. Student portal for assignment submission (IT Director: 'Critical for reducing email chaos')\n2. Automated plagiarism checking (Academic Dean: 'Essential for academic integrity')\n3. Real-time parent dashboard (Principal: 'Parents demand transparency')\n4. AI-powered personalized learning paths (Innovation Director: 'This will differentiate us')\n5. Mobile app for students (Students: '85% of us primarily use phones')\n6. Integration with existing Google Workspace (IT: 'We can't abandon our current tools')\n7. Automated attendance from video calls (Teachers: 'Saves 30 min/day')\n8. Gradebook with weighted calculations (Teachers: 'Current Excel is error-prone')\n9. Discussion forums for each class (Some teachers: 'Would be nice for engagement')\n10. Virtual reality classroom spaces (Board member: 'The future of education!')\n\n**Your Analysis Reveals:**\n- Current pain: 3 hours/day wasted on manual processes\n- 40% of parent complaints are about lack of visibility\n- Plagiarism checking would cost £40,000 in API fees annually\n- Mobile usage data: 85% of students, but 95% have laptop access\n- VR would require additional £150,000 hardware investment\n\nUsing MoSCoW prioritization, which classification best reflects proper requirements analysis?",
+  
+  "keyWords": [
+    "MoSCoW Method",
+    "Requirements Prioritization",
+    "Stakeholder Analysis",
+    "Budget Constraints",
+    "Value Assessment",
+    "Critical Thinking"
+  ],
+  
+  "scenario": {
+    "businessContext": "Educational institution seeking digital transformation with multiple stakeholder demands and fixed constraints",
+    "dataNeeds": [
+      "Time savings from automation",
+      "Parent satisfaction metrics",
+      "Cost-benefit analysis",
+      "User access patterns",
+      "Technical dependencies"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "cost": "Working within fixed budget constraints",
+    "operational": "Reducing manual process time",
+    "experience": "Improving stakeholder satisfaction"
+  },
+  
+  "hints": {
+    "easy": [
+      "MUST have = project fails without it",
+      "SHOULD have = important but workarounds exist",
+      "COULD have = nice to have if time/budget allows",
+      "WON'T have = explicitly out of scope"
+    ],
+    "medium": [
+      "Consider dependencies between requirements",
+      "Think about which requirements solve the biggest current pains",
+      "Calculate ROI: benefit vs cost"
+    ],
+    "hard": [
+      "How do you handle when every stakeholder says their requirement is 'critical'?",
+      "What happens when MUST haves exceed budget?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "MoSCoW methodology application",
+    "Balancing stakeholder demands with reality",
+    "Understanding true vs stated priorities",
+    "ROI-based decision making"
+  ],
+  
+  "commonMistakes": [
+    "Accepting all 'critical' claims at face value",
+    "Not considering dependencies in prioritization",
+    "Ignoring budget/timeline constraints",
+    "Prioritizing based on stakeholder seniority alone"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "Which MoSCoW classification best reflects proper requirements analysis?",
+    "description": "Think through each requirement's true business impact, dependencies, and constraints",
+    "businessContext": "You need to deliver maximum value within fixed constraints while managing stakeholder expectations"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "MUST: Student portal, Gradebook, Google integration\nSHOULD: Parent dashboard, Attendance automation\nCOULD: Mobile app, Discussion forums\nWON'T: Plagiarism checking, AI learning paths, VR classrooms",
+      "description": "Prioritization based on solving core problems within constraints",
+      "analysis": "This prioritization addresses the fundamental broken process (email chaos), the error-prone manual gradebook, and maintains existing tool integration. Parent dashboard is SHOULD because while important (40% complaints), the system works without it. Expensive features are explicitly descoped.",
+      "wellArchitectedPillar": "Operational Excellence, Cost Optimization",
+      "pros": [
+        "Solves the 3-hour daily waste problem",
+        "Stays within budget",
+        "Addresses core business process",
+        "Clear scope for stakeholders"
+      ],
+      "cons": [
+        "Some stakeholders disappointed",
+        "Missing some innovative features"
+      ],
+      "whyCorrect": "This classification properly applies MoSCoW: MUST haves are truly essential for basic operation (can't run without assignment submission or grades), SHOULD haves address significant pain but system functions without them, COULD haves are nice but not critical (95% have laptops), and WON'T explicitly descopes expensive items.",
+      "realWorldUse": "Successful projects focus on core value first, then enhance"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "MUST: Everything marked 'critical' or 'essential' by stakeholders\nSHOULD: Parent dashboard\nCOULD: Discussion forums\nWON'T: VR classrooms only",
+      "description": "Accepting stakeholder priority claims directly",
+      "analysis": "This approach fails to apply analytical thinking to priorities. Including plagiarism checking (£40k/year) and AI paths in MUST would consume the entire budget before core functionality is built.",
+      "wellArchitectedPillar": "None - violates cost optimization",
+      "pros": [
+        "Stakeholders initially happy with inclusion"
+      ],
+      "cons": [
+        "Exceeds budget by 200%+",
+        "Impossible to deliver",
+        "No real prioritization applied",
+        "Project will fail"
+      ],
+      "whyIncorrect": "MoSCoW requires analysis, not just accepting stated priorities. 'Critical' to a stakeholder doesn't automatically mean MUST have. You need to evaluate against project constraints and true business impact.",
+      "realWorldUse": "Projects that accept all 'critical' requirements typically fail or massively overrun"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "MUST: Student portal, Mobile app, AI learning paths, Parent dashboard\nSHOULD: Gradebook, Plagiarism checking\nCOULD: Everything else\nWON'T: Nothing explicitly",
+      "description": "Prioritizing innovative features over basic functionality",
+      "analysis": "This prioritizes flashy features (AI, mobile) over core functionality (gradebook). You can't have AI learning paths without basic grade tracking first.",
+      "wellArchitectedPillar": "Experience Optimization",
+      "pros": [
+        "Innovative approach",
+        "Addresses mobile usage stats"
+      ],
+      "cons": [
+        "Missing fundamental features",
+        "Expensive AI implementation",
+        "Cart before horse approach"
+      ],
+      "whyIncorrect": "Prioritizes innovation over solving basic problems. The gradebook (current Excel errors) is more fundamental than AI learning paths. Mobile is COULD because 95% have laptop access.",
+      "realWorldUse": "Common mistake: chasing innovation before establishing basics"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "MUST: Only Google integration\nSHOULD: Student portal, Gradebook\nCOULD: Everything else\nWON'T: Define later",
+      "description": "Ultra-conservative approach deferring decisions",
+      "analysis": "This is too conservative and doesn't solve the core business problem. Integration alone provides no value without core functionality.",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Very achievable",
+        "Low risk"
+      ],
+      "cons": [
+        "Doesn't solve business problems",
+        "Poor value delivery",
+        "Unclear scope"
+      ],
+      "whyIncorrect": "MUST haves should deliver core value. Integration alone doesn't solve the email chaos or manual process problems. Also, WON'T should be explicit, not deferred.",
+      "realWorldUse": "Overly conservative approaches deliver little value"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Proper MoSCoW prioritization requires analyzing actual business impact, not accepting stated priorities. MUST haves are features without which the system cannot function. The student portal and gradebook are truly MUST because you can't run an online education platform without assignment submission and grade tracking. Integration is MUST because it's a stated constraint. Parent dashboard, while causing complaints, is SHOULD because the system functions without it. Expensive features like plagiarism checking (£40k/year) must be WON'T when budget is fixed at £200k.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Understanding MoSCoW in Practice**\n\n**The MoSCoW Method:**\n- **M**UST have: System fails without it. No workaround exists.\n- **S**HOULD have: Important, causes pain, but workarounds exist\n- **C**OULD have: Nice to have, improves experience\n- **W**ON'T have: Explicitly out of scope (manages expectations)\n\n**Key Insights:**\n\n1. **'Critical' ≠ MUST**: The Academic Dean called plagiarism checking 'essential', but at £40k/year, it would consume 20% of budget for a feature that doesn't enable core functionality.\n\n2. **Dependencies Matter**: You can't have AI learning paths without basic grade tracking first. Core functionality must come before enhancements.\n\n3. **Budget Reality**: With £200k budget:\n   - Core platform: ~£100k\n   - Must haves: ~£80k\n   - Leaves £20k for SHOULD/COULD\n   - Plagiarism checking alone would break this\n\n4. **ROI Thinking**: \n   - Automating 3 hours/day = 15 hours/week = 780 hours/year saved\n   - At £30/hour, that's £23,400/year savings\n   - Much better ROI than £40k/year plagiarism checking\n\n5. **Stakeholder Management**: WON'T is not failure—it's clarity. Explicitly descoping VR and expensive features manages expectations better than vague promises.\n\n**The Prioritization Process:**\n1. List all requirements with stakeholder input\n2. Analyze true business impact (not stated priority)\n3. Consider dependencies and constraints\n4. Calculate cost/benefit for expensive items\n5. Apply MoSCoW based on analysis, not politics\n6. Explicitly define WON'T to manage expectations",
+  
+  "learningMoment": "MoSCoW isn't about recording what stakeholders say is important—it's about analyzing what actually IS important within project constraints. Every stakeholder thinks their requirement is critical. Your job as architect is to find the truth through impact analysis, dependency mapping, and constraint reality. Remember: WON'T have this time doesn't mean WON'T have ever—it just means not in this phase with these constraints.",
+  
+  "practicalTip": "When everyone says their requirement is 'critical', ask: 'If we could only do three things, which would deliver the most value?' and 'What happens if we don't have this feature on day 1?' True MUST haves become obvious when framed this way.",
+  
+  "realWorldExample": "Spotify's initial launch had MoSCoW clarity: MUST have music streaming and playlists. SHOULD have social features. COULD have podcasts. WON'T have video (at launch). They delivered core value first, then expanded. If they'd tried to do everything, they'd have failed.",
+  
+  "architectureInsight": "**MoSCoW Architecture Pattern:**\n\n1. **MUST Architecture**: Build robust, scalable foundation\n2. **SHOULD Architecture**: Design for easy addition later\n3. **COULD Architecture**: Keep interfaces open for future\n4. **WON'T Architecture**: Don't over-engineer for descoped items\n\nIn this case: Build core platform solidly (MUST), design parent dashboard connection points (SHOULD), keep mobile-friendly but laptop-first (COULD), don't build expensive AI infrastructure yet (WON'T).",
+  
+  "learningResources": {
+    "primaryModule": "https://learn.microsoft.com/training/modules/requirements-analysis/",
+    "relatedModules": [
+      "https://learn.microsoft.com/training/modules/prioritization-techniques/",
+      "https://learn.microsoft.com/training/modules/stakeholder-management/"
+    ],
+    "documentationLinks": [
+      "https://docs.microsoft.com/power-platform/guidance/requirements-prioritization"
+    ],
+    "prerequisites": [
+      "Understanding of project constraints",
+      "Basic stakeholder analysis",
+      "Cost-benefit analysis skills"
+    ]
+  },
+  
+  "studyGuidance": {
+    "focusAreas": [
+      "MoSCoW methodology application",
+      "Constraint-based prioritization",
+      "Stakeholder expectation management",
+      "ROI analysis for requirements"
+    ],
+    "practiceExercises": "Take any project requirements list and apply MoSCoW with a 50% budget cut constraint. This forces real prioritization thinking.",
+    "timeToMaster": "4-6 hours of practice with real scenarios",
+    "moduleUnits": "Requirements prioritization units 1-3, stakeholder management units 2-4"
+  },
+  
+  "category": "perform_solution_envisioning",
+  "weight": 8,
+  "examReference": "Apply requirements prioritization techniques",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 70,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Easy",
+  "examObjective": "Understand the solution architect role",
+  
+  "text": "You've just been assigned as the solution architect for a manufacturing company's digital transformation project. The company currently uses various disconnected systems and Excel spreadsheets. During the kickoff meeting, different team members have different expectations of your role:\n\n- The Project Manager expects you to write all technical specifications\n- The Developer wants you to code the complex integrations\n- The Business Analyst thinks you'll gather all requirements\n- The Enterprise Architect wants you to focus only on technical architecture\n\nWhat should be your PRIMARY focus as a solution architect on this project?",
+  
+  "keyWords": [
+    "Solution Architect Role",
+    "Solution Envisioning",
+    "Business Value",
+    "Trusted Advisor",
+    "Platform Selection",
+    "Team Collaboration"
+  ],
+  
+  "scenario": {
+    "businessContext": "Manufacturing company beginning digital transformation with unclear understanding of solution architect role",
+    "dataNeeds": [
+      "Role clarity and boundaries",
+      "Team collaboration patterns",
+      "Value-focused approach",
+      "Platform-first thinking"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "operational": "Leading successful implementations through proper role execution"
+  },
+  
+  "hints": {
+    "easy": [
+      "Think about the unique value a solution architect brings",
+      "Consider what 'solution envisioning' means"
+    ],
+    "medium": [
+      "How is a solution architect different from other roles?",
+      "What does 'trusted advisor' mean in practice?"
+    ],
+    "hard": [
+      "Consider the balance between technical and business focus",
+      "Think about platform-first vs. custom-first approaches"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Solution architect role definition",
+    "Solution envisioning responsibility",
+    "Platform-first approach",
+    "Team collaboration model"
+  ],
+  
+  "commonMistakes": [
+    "Focusing too much on technical details",
+    "Taking over other team members' responsibilities",
+    "Not considering business value",
+    "Starting with custom development"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should be your PRIMARY focus as a solution architect?",
+    "description": "Select the answer that best represents the solution architect's core responsibility",
+    "businessContext": "Understanding your role ensures project success and effective team collaboration"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Lead solution envisioning by identifying which business problems can be solved with Dynamics 365 and Power Platform capabilities versus what requires custom development, while acting as a trusted advisor bridging business and technical needs",
+      "description": "Focus on platform-first solution design and business value",
+      "analysis": "This captures the essence of the solution architect role: solution envisioning with a platform-first approach, bridging business and technical worlds, and acting as a trusted advisor",
+      "wellArchitectedPillar": "Operational Excellence",
+      "pros": [
+        "Aligns with Microsoft's platform-first approach",
+        "Bridges business and technical needs",
+        "Focuses on value delivery",
+        "Leverages existing platform capabilities"
+      ],
+      "cons": [
+        "Requires broad knowledge across platforms",
+        "May disappoint those expecting deep technical work"
+      ],
+      "whyCorrect": "This perfectly aligns with the solution architect's primary responsibility: solution envisioning that starts with platform capabilities (Dynamics 365 and Power Platform) before considering custom development, while serving as a trusted advisor who bridges business and technical needs.",
+      "realWorldUse": "Successful solution architects spend 70% of their time on solution envisioning and stakeholder advisory, not deep technical implementation"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Take responsibility for writing all technical specifications and detailed design documents while the team implements",
+      "description": "Focus on technical documentation",
+      "analysis": "This limits the solution architect to documentation, missing the broader advisory and envisioning responsibilities",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Clear deliverables",
+        "Technical focus"
+      ],
+      "cons": [
+        "Misses advisory role",
+        "No solution envisioning",
+        "Limited business engagement",
+        "Not leveraging team collaboration"
+      ],
+      "whyIncorrect": "While solution architects contribute to design, focusing only on technical documentation misses their primary value: solution envisioning and serving as a trusted advisor across business and technical domains.",
+      "realWorldUse": "This is more of a technical analyst role, not a solution architect"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Code the most complex integrations and custom components since you have the deepest technical knowledge",
+      "description": "Focus on hands-on development",
+      "analysis": "This confuses the solution architect role with a lead developer role",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Direct technical contribution",
+        "Solving complex problems"
+      ],
+      "cons": [
+        "Not the architect's primary role",
+        "Misses strategic responsibilities",
+        "Doesn't scale across project",
+        "Neglects advisory duties"
+      ],
+      "whyIncorrect": "Solution architects guide technical decisions but don't typically do hands-on development. Their value is in solution envisioning and cross-functional leadership, not coding.",
+      "realWorldUse": "Lead developers handle complex coding while architects focus on overall solution design"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Focus exclusively on enterprise architecture alignment and leave the solution details to other team members",
+      "description": "Limit focus to enterprise architecture",
+      "analysis": "This is too narrow and misses the solution-specific responsibilities",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Clear boundary with enterprise architect",
+        "High-level focus"
+      ],
+      "cons": [
+        "Too abstract",
+        "Misses solution envisioning",
+        "No stakeholder engagement",
+        "Abandons team leadership"
+      ],
+      "whyIncorrect": "While solution architects work with enterprise architects, they must be deeply involved in solution-specific envisioning and stakeholder engagement, not just high-level alignment.",
+      "realWorldUse": "Solution architects must balance enterprise alignment with solution-specific leadership"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The solution architect's primary focus is solution envisioning - identifying which parts of business problems can leverage platform capabilities (Dynamics 365, Power Platform) versus requiring custom development. They act as trusted advisors, bridging business and technical needs while leading the team toward cost-effective solutions that deliver business value.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Understanding the Solution Architect Role**\n\n**Core Responsibilities:**\n\n1. **Solution Envisioning (Primary Focus)**\n   - Look at business problems holistically\n   - Identify which parts can use Dynamics 365 apps\n   - Determine what needs Power Platform development\n   - Only resort to custom Azure development for gaps\n   - This is the OPPOSITE of traditional development architects who start with custom code\n\n2. **Trusted Advisor**\n   - Consult with organizations at all levels\n   - Refine business needs into well-defined solutions\n   - Balance technical feasibility with business value\n   - Guide both business and technical stakeholders\n\n3. **Cross-Functional Leadership**\n   - Facilitate design decisions across ALL domains:\n     - Development and configuration\n     - Integration and infrastructure\n     - Security and availability\n     - Storage and change management\n   - Don't do all the work - facilitate and guide\n\n4. **Team Collaboration**\n   - No architect knows everything deeply\n   - Rely on team members for deep expertise\n   - Focus on 1-2 components deeply, coordinate the rest\n   - Success comes from collaboration, not solo expertise\n\n**What Solution Architects DON'T Do:**\n- Write all technical documentation (share with team)\n- Code complex solutions (guide developers)\n- Gather all requirements (work with BAs)\n- Work in isolation (collaborate constantly)\n\n**The Platform-First Mindset:**\nTraditional architects think: 'What should we build?'\nSolution architects think: 'What already exists that we can use?'\n\nThis fundamental shift saves time, money, and delivers faster value.",
+  
+  "learningMoment": "A solution architect's superpower isn't deep technical knowledge of everything - it's the ability to envision how existing platform capabilities can solve business problems, combined with the soft skills to guide diverse stakeholders toward that vision. Think 'trusted advisor who connects dots' not 'technical expert who knows everything.'",
+  
+  "practicalTip": "Start every solution design by asking 'What can Dynamics 365 or Power Platform already do?' before considering custom development. 80% of business requirements can typically be met with platform capabilities - your job is finding that 80% and architecting the remaining 20%.",
+  
+  "realWorldExample": "A retail client wanted a custom inventory system built from scratch. A good solution architect discovered Dynamics 365 Commerce already provided 90% of needed functionality. By starting with the platform and customizing only the unique 10%, they delivered in 3 months instead of 18 months, at 1/5 the cost.",
+  
+  "architectureInsight": "**The Solution Architect's Decision Flow:**\n\n1. Can Dynamics 365 do this? → Use it\n2. Can Power Platform extend it? → Build it low-code\n3. Can Azure fill the gap? → Integrate it\n4. Only then: Do we need custom code? → Minimize it\n\nThis platform-first approach is what distinguishes business application solution architects from traditional development architects.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 6,
+  "examReference": "Understand solution architect role and responsibilities",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 71,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Medium",
+  "examObjective": "Apply solution architect soft skills",
+  
+  "text": "You're the solution architect for a financial services firm implementing Power Platform. In a design review meeting, the following situation unfolds:\n\n- The Lead Developer argues for a microservices architecture: 'It's the industry standard for scalability'\n- The Business Director insists: 'We need this live in 6 weeks for regulatory compliance'\n- The Security Officer states: 'Any solution must pass our 47-point security audit'\n- The CFO mentions: 'We've already spent £500k on Azure infrastructure last year'\n- The IT Director whispers to you: 'The CEO really wants to see AI in the solution'\n\nThe room turns to you for a recommendation. How should you handle this situation?",
+  
+  "keyWords": [
+    "Stakeholder Management",
+    "Facilitation Skills",
+    "Trusted Advisor",
+    "Communication",
+    "Conflict Resolution",
+    "Business Alignment"
+  ],
+  
+  "scenario": {
+    "businessContext": "High-pressure situation with conflicting stakeholder interests and hidden agendas",
+    "dataNeeds": [
+      "Regulatory compliance timeline",
+      "Technical preferences vs needs",
+      "Security requirements",
+      "Budget considerations",
+      "Executive expectations"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "operational": "Facilitating effective design decisions across diverse stakeholders"
+  },
+  
+  "hints": {
+    "easy": [
+      "What would a 'trusted advisor' do in this situation?",
+      "How do you balance competing interests?"
+    ],
+    "medium": [
+      "Consider the 6-week timeline constraint",
+      "Think about platform capabilities vs custom development"
+    ],
+    "hard": [
+      "How do you address the unspoken CEO requirement?",
+      "What builds trust while delivering value?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Stakeholder facilitation",
+    "Diplomatic communication",
+    "Platform-first thinking under pressure",
+    "Managing competing priorities"
+  ],
+  
+  "commonMistakes": [
+    "Picking sides in technical debates",
+    "Ignoring business constraints",
+    "Making promises you can't keep",
+    "Not addressing all concerns"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "How should you handle this situation?",
+    "description": "Select the response that best demonstrates solution architect soft skills",
+    "businessContext": "Your response sets the tone for project success and stakeholder trust"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Acknowledge all perspectives, then facilitate: 'These are all important considerations. Given our 6-week compliance deadline, let me propose a phased approach: Phase 1 uses Power Platform's built-in capabilities to meet compliance quickly, leveraging our existing Azure investment for data storage. We'll ensure it passes security audit using Microsoft's compliance certifications. Phase 2 can explore advanced architectures and AI integration once we're compliant. This balances speed, security, and innovation. What concerns does this approach raise?'",
+      "description": "Diplomatic facilitation addressing all stakeholder concerns",
+      "analysis": "This response demonstrates key soft skills: acknowledging all viewpoints, proposing practical solutions, using platform capabilities, and inviting feedback",
+      "wellArchitectedPillar": "Operational Excellence",
+      "pros": [
+        "Addresses every stakeholder's concern",
+        "Proposes practical phased approach",
+        "Uses platform-first thinking",
+        "Invites collaboration",
+        "Manages timeline risk"
+      ],
+      "cons": [
+        "Requires follow-up on Phase 2",
+        "May not satisfy technical purists"
+      ],
+      "whyCorrect": "This demonstrates the solution architect as trusted advisor: facilitating rather than dictating, finding middle ground, using platform capabilities for speed, and ensuring all voices are heard while keeping business objectives primary.",
+      "realWorldUse": "Successful solution architects spend more time facilitating consensus than making technical decisions"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Side with the technical team: 'I agree with the Lead Developer. Microservices are the best architecture. We'll need to push back the compliance deadline to implement it properly.'",
+      "description": "Taking a technical stance",
+      "analysis": "This ignores business constraints and fails to balance stakeholder needs",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Clear technical position",
+        "Supports team member"
+      ],
+      "cons": [
+        "Ignores compliance deadline",
+        "Dismisses business needs",
+        "Creates conflict",
+        "Loses trusted advisor status"
+      ],
+      "whyIncorrect": "Solution architects must balance technical ideals with business reality. Choosing sides destroys trust and ignores the 6-week compliance requirement.",
+      "realWorldUse": "Architects who prioritize technical preferences over business needs rarely succeed"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Focus on the executive desire: 'Since the CEO wants AI, let's build an AI-first solution. We can use Azure Cognitive Services for everything and impress leadership.'",
+      "description": "Catering to executive preferences",
+      "analysis": "This prioritizes politics over practical solution delivery",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Addresses CEO interest",
+        "Potentially impressive"
+      ],
+      "cons": [
+        "Ignores compliance deadline",
+        "Adds unnecessary complexity",
+        "Increases cost and risk",
+        "Misses core requirements"
+      ],
+      "whyIncorrect": "Chasing executive whims while ignoring core business needs (compliance) is how projects fail. AI might be Phase 2, not Phase 1.",
+      "realWorldUse": "Projects that prioritize 'shiny objects' over business needs typically fail"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Defer the decision: 'These are all good points. Let's schedule another meeting next week to discuss further after I've had time to research options.'",
+      "description": "Avoiding conflict through delay",
+      "analysis": "This avoids the solution architect's responsibility to guide and facilitate",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Avoids immediate conflict",
+        "Buys time"
+      ],
+      "cons": [
+        "Wastes critical time",
+        "Shows lack of leadership",
+        "Frustrates stakeholders",
+        "Delays decision making"
+      ],
+      "whyIncorrect": "With a 6-week deadline, delaying decisions is not an option. Solution architects must be able to facilitate decisions in real-time.",
+      "realWorldUse": "Indecisive architects cause project delays and stakeholder frustration"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The correct response demonstrates essential solution architect soft skills: acknowledging all perspectives (building trust), proposing practical solutions (platform-first for Phase 1), addressing constraints (6-week deadline), and facilitating consensus (inviting concerns). This is what 'trusted advisor' means in practice.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Solution Architect Soft Skills in Action**\n\n**Key Soft Skills Demonstrated:**\n\n1. **Active Listening**: 'These are all important considerations'\n   - Acknowledges each stakeholder\n   - Shows you heard everyone\n   - Builds trust and rapport\n\n2. **Facilitation**: Leading the group to consensus\n   - Not dictating solutions\n   - Proposing frameworks\n   - Inviting participation\n\n3. **Diplomatic Communication**: Balancing competing interests\n   - No one is wrong\n   - Everyone gets something\n   - Focus on shared goals\n\n4. **Business Focus**: Compliance deadline drives decisions\n   - Technical preferences secondary\n   - Business needs primary\n   - Reality-based planning\n\n5. **Platform-First Thinking**: Use what exists\n   - Power Platform for speed\n   - Existing Azure investment\n   - Microsoft compliance certs\n\n6. **Strategic Phasing**: Manage complexity\n   - Phase 1: Meet critical needs\n   - Phase 2: Add innovation\n   - Reduces risk, ensures delivery\n\n**The Response Breakdown:**\n- **Acknowledge**: Everyone feels heard\n- **Prioritize**: Compliance deadline is non-negotiable\n- **Propose**: Concrete phased approach\n- **Include**: Everyone's concerns addressed somehow\n- **Invite**: 'What concerns?' keeps dialogue open\n\n**What Makes This 'Trusted Advisor' Behavior:**\n- Not picking sides\n- Finding creative middle ground\n- Keeping business objectives primary\n- Building consensus, not conflict\n- Being practical, not idealistic",
+  
+  "learningMoment": "Solution architect soft skills often matter more than technical skills. You can have team members provide deep technical expertise, but only you can facilitate diverse stakeholders toward a common vision. Practice phrases like 'These are all important considerations' and 'What concerns does this approach raise?' to build your facilitation toolkit.",
+  
+  "practicalTip": "When facing competing stakeholder demands, use the 'Acknowledge, Prioritize, Propose, Include, Invite' framework. Acknowledge all viewpoints, Prioritize based on business constraints, Propose a balanced solution, Include everyone's concerns somehow, and Invite feedback to maintain dialogue.",
+  
+  "realWorldExample": "A Fortune 500 solution architect faced similar conflicts: developers wanted Kubernetes, business needed speed, security wanted perfection. By proposing Phase 1 with Power Platform (live in 4 weeks) and Phase 2 with advanced architecture (post-compliance), everyone won. The project succeeded and the architect was promoted to Chief Architect.",
+  
+  "architectureInsight": "**The Trust Equation for Solution Architects:**\n\nTrust = (Credibility + Reliability + Intimacy) / Self-Orientation\n\n- **Credibility**: Know platforms capabilities\n- **Reliability**: Deliver on commitments\n- **Intimacy**: Understand stakeholder needs\n- **Low Self-Orientation**: Focus on their success, not your preferences\n\nThis meeting response builds trust on all dimensions.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 8,
+  "examReference": "Apply soft skills in solution architecture",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 72,
+  "type": "multiplechoice",
+  "topic": "Solution Design Process",
+  "difficultyLevel": "Medium",
+  "examObjective": "Create high-level architecture and data flow diagrams",
+  
+  "text": "You're designing a solution for a global logistics company with these requirements:\n\n- Customer portal for shipment tracking (50,000 daily users)\n- Mobile app for delivery drivers (5,000 drivers)\n- Integration with SAP for order management\n- Real-time GPS tracking from vehicles\n- Automated customer notifications (SMS/Email)\n- Analytics dashboard for management\n\nDuring the architecture review, stakeholders are confused about how data flows through the system. What is the MOST effective way to communicate the solution architecture to mixed technical and business stakeholders?",
+  
+  "keyWords": [
+    "Architecture Diagrams",
+    "Data Flow Visualization",
+    "Stakeholder Communication",
+    "Technical Documentation",
+    "Visual Architecture",
+    "System Design"
+  ],
+  
+  "scenario": {
+    "businessContext": "Global logistics requiring clear communication of complex data flows to diverse stakeholders",
+    "dataNeeds": [
+      "Multiple user interfaces and touchpoints",
+      "Real-time data flows",
+      "System integrations",
+      "Notification workflows"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "operational": "Clear architecture documentation for team understanding and maintenance"
+  },
+  
+  "hints": {
+    "easy": [
+      "What helps non-technical stakeholders understand technical concepts?",
+      "How do you show data movement clearly?"
+    ],
+    "medium": [
+      "Consider different diagram types for different audiences",
+      "Think about layering complexity"
+    ],
+    "hard": [
+      "How do you balance technical accuracy with business understanding?",
+      "What visualization principles apply?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Architecture visualization techniques",
+    "Stakeholder-appropriate documentation",
+    "Data flow representation",
+    "Communication effectiveness"
+  ],
+  
+  "commonMistakes": [
+    "Creating overly technical diagrams for business users",
+    "Missing critical data flows",
+    "Not showing integration points clearly",
+    "Using inconsistent notation"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What is the MOST effective way to communicate the solution architecture?",
+    "description": "Select the approach that best conveys architecture to mixed audiences",
+    "businessContext": "Clear architecture communication ensures stakeholder alignment and project success"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Create a layered approach: Start with a business context diagram showing user touchpoints and value flows, then a system architecture diagram showing major components and integrations, followed by detailed data flow diagrams for technical teams, using consistent color coding and clear legends throughout",
+      "description": "Progressive disclosure approach with audience-appropriate layers",
+      "analysis": "This approach recognizes different stakeholders need different levels of detail and uses progressive disclosure to avoid overwhelming non-technical audiences",
+      "wellArchitectedPillar": "Operational Excellence",
+      "pros": [
+        "Accessible to all stakeholders",
+        "Progressive detail levels",
+        "Consistent visual language",
+        "Clear separation of concerns"
+      ],
+      "cons": [
+        "Requires multiple diagrams",
+        "More effort to create"
+      ],
+      "whyCorrect": "This approach effectively communicates to mixed audiences by starting with business context (everyone understands), then system architecture (IT understands), and finally detailed technical flows (developers need). Consistent visual language ties it all together.",
+      "realWorldUse": "Microsoft's own architecture documentation follows this pattern - business scenario, logical architecture, then technical details"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Create one comprehensive technical diagram showing all systems, data flows, APIs, and technical details with extensive documentation",
+      "description": "Single detailed technical diagram",
+      "analysis": "This approach provides complete technical accuracy but overwhelms business stakeholders",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Technically complete",
+        "Single source of truth"
+      ],
+      "cons": [
+        "Too complex for business users",
+        "Difficult to understand flow",
+        "Intimidating for non-technical stakeholders"
+      ],
+      "whyIncorrect": "A single complex diagram serves neither audience well - too detailed for business, too cluttered for technical teams to follow specific flows.",
+      "realWorldUse": "Often created but rarely used effectively due to complexity"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Use only simple PowerPoint slides with box-and-arrow diagrams avoiding technical details",
+      "description": "Oversimplified business-only approach",
+      "analysis": "Too simple to convey the actual architecture and data flows",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Easy to understand",
+        "Quick to create"
+      ],
+      "cons": [
+        "Lacks necessary detail",
+        "No technical value",
+        "Missing integration details",
+        "Can't guide implementation"
+      ],
+      "whyIncorrect": "Oversimplification loses critical information about data flows and integration points that even business stakeholders need to understand.",
+      "realWorldUse": "Creates false confidence but fails during implementation"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Write detailed technical documentation without diagrams, explaining the architecture in prose",
+      "description": "Text-only documentation approach",
+      "analysis": "Written descriptions alone cannot effectively convey complex architectures",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Detailed information",
+        "Searchable content"
+      ],
+      "cons": [
+        "Hard to visualize flows",
+        "Time-consuming to understand",
+        "Easy to miss connections",
+        "Poor for stakeholder communication"
+      ],
+      "whyIncorrect": "Architecture is inherently visual - data flows, system connections, and user interactions are best understood through diagrams, not prose.",
+      "realWorldUse": "Supplements diagrams but cannot replace them"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Layered architecture documentation serves different stakeholder needs effectively. Business stakeholders understand context and value, technical stakeholders see system design, and developers get detailed implementation guidance. Consistent visual language ensures coherence across all levels.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Effective Architecture Communication Through Layered Diagrams**\n\n**Layer 1: Business Context Diagram**\n- Shows: Users, business processes, value flows\n- Audience: All stakeholders\n- Purpose: Establishes why the system exists\n- Example: Customer → Portal → Track Shipment → Notification\n\n**Layer 2: System Architecture**\n- Shows: Major components, integrations, data stores\n- Audience: IT stakeholders\n- Purpose: Technical structure without overwhelming detail\n- Example: Power Apps ↔ Dataverse ↔ SAP Connector\n\n**Layer 3: Detailed Data Flows**\n- Shows: APIs, data transformations, technical protocols\n- Audience: Development team\n- Purpose: Implementation guidance\n- Example: REST API → JSON transformation → Service Bus → SAP RFC\n\n**Visual Consistency Principles:**\n- **Color Coding**: Blue for Power Platform, Green for External Systems, Orange for Data Flows\n- **Shape Conventions**: Rectangles for Systems, Cylinders for Data, Diamonds for Decisions\n- **Line Styles**: Solid for Real-time, Dashed for Batch, Dotted for Optional\n\n**Why This Works:**\n1. **Progressive Disclosure**: Don't overwhelm, reveal complexity gradually\n2. **Audience Appropriate**: Each group sees what they need\n3. **Maintains Context**: Each layer references the one above\n4. **Implementation Ready**: Developers can work from Layer 3",
+  
+  "learningMoment": "Architecture diagrams are communication tools, not technical exercises. The best diagram isn't the most technically complete - it's the one that helps your specific audience understand what they need to know. Use layers to serve different stakeholders without compromising technical accuracy.",
+  
+  "practicalTip": "Follow the '3-Layer Rule': Business Context (why), System Architecture (what), Technical Details (how). Always start presentations with Layer 1, even for technical audiences - it grounds everyone in business purpose.",
+  
+  "realWorldExample": "Amazon's architecture documentation for AWS solutions follows this pattern: they start with business scenario diagrams, then show logical architecture, and finally provide technical implementation details. This approach has become industry standard because it works.",
+  
+  "architectureInsight": "**Architecture Diagram Checklist:**\n\n✓ Business Context: Can a CEO understand the value?\n✓ System Architecture: Can IT plan infrastructure?\n✓ Data Flows: Can developers build from this?\n✓ Visual Consistency: Same symbol = same meaning\n✓ Legend: All symbols explained\n✓ Versioning: Diagrams dated and versioned",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 7,
+  "examReference": "Create architecture and data flow diagrams",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 73,
+  "type": "multiplechoice",
+  "topic": "Integration Architecture",
+  "difficultyLevel": "Medium",
+  "examObjective": "Identify integration points and dependencies",
+  
+  "text": "You're architecting a Power Platform solution for a healthcare provider that must integrate with multiple systems:\n\n- **Electronic Health Records (EHR)**: Patient data (Read-only, HL7 format)\n- **Laboratory System**: Test results (Real-time updates needed)\n- **Billing System**: Insurance claims (Batch processing, overnight)\n- **Pharmacy System**: Prescription orders (Bi-directional, immediate)\n- **Government Health Portal**: Regulatory reporting (Monthly submission)\n\nDuring architecture planning, you discover the Laboratory System goes offline every night for maintenance (2 AM - 4 AM), and the Pharmacy System has a rate limit of 100 calls per minute.\n\nWhat is the MOST critical integration dependency to address in your architecture?",
+  
+  "keyWords": [
+    "Integration Dependencies",
+    "System Availability",
+    "Rate Limiting",
+    "Critical Path Analysis",
+    "Healthcare Integration",
+    "Dependency Management"
+  ],
+  
+  "scenario": {
+    "businessContext": "Healthcare provider requiring multiple system integrations with varying criticality and constraints",
+    "dataNeeds": [
+      "Patient safety considerations",
+      "Real-time prescription processing",
+      "Laboratory result availability",
+      "Regulatory compliance requirements"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "reliability": "Managing integration dependencies for system reliability",
+    "performance": "Handling rate limits and availability windows"
+  },
+  
+  "hints": {
+    "easy": [
+      "Which integration directly impacts patient safety?",
+      "What happens if each integration fails?"
+    ],
+    "medium": [
+      "Consider the business impact of each dependency",
+      "Think about workarounds for each constraint"
+    ],
+    "hard": [
+      "Evaluate cascade effects of integration failures",
+      "Consider time-sensitivity of each integration"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Critical dependency identification",
+    "Integration risk assessment",
+    "Business impact analysis",
+    "Healthcare system priorities"
+  ],
+  
+  "commonMistakes": [
+    "Focusing on technical complexity over business impact",
+    "Not considering patient safety implications",
+    "Overlooking cascade effects",
+    "Prioritizing based on data volume"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What is the MOST critical integration dependency to address?",
+    "description": "Identify the dependency that poses the highest risk to the solution",
+    "businessContext": "Critical dependencies must be identified and mitigated to ensure system reliability"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "The Pharmacy System's rate limit of 100 calls per minute, because prescription orders are bi-directional and immediate, directly impacting patient care and safety with no acceptable delay",
+      "description": "Focus on patient safety critical integration",
+      "analysis": "Prescription orders directly impact patient safety and require immediate processing, making this the most critical dependency",
+      "wellArchitectedPillar": "Reliability",
+      "pros": [
+        "Directly impacts patient safety",
+        "No acceptable delays",
+        "Bi-directional complexity",
+        "Real-time requirement"
+      ],
+      "cons": [
+        "Rate limit exists but is manageable",
+        "100/minute is reasonable for most scenarios"
+      ],
+      "whyCorrect": "Patient safety is paramount in healthcare. While 100 calls/minute seems limiting, a patient waiting for critical medication cannot wait. This dependency needs architecture patterns like request queuing, caching, and graceful degradation to ensure prescriptions are never blocked.",
+      "realWorldUse": "Healthcare systems always prioritize medication delivery over all other integrations due to immediate patient impact"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "The Laboratory System's nightly offline window (2 AM - 4 AM), because test results need real-time updates",
+      "description": "Focus on system availability windows",
+      "analysis": "While inconvenient, the offline window is predictable and occurs during low-usage hours",
+      "wellArchitectedPillar": "Reliability",
+      "pros": [
+        "Affects real-time updates",
+        "Daily occurrence"
+      ],
+      "cons": [
+        "Predictable timing",
+        "Low-impact hours",
+        "Results can queue",
+        "Not immediately life-threatening"
+      ],
+      "whyIncorrect": "Lab results, while important, can tolerate a 2-hour delay during night hours. Most urgent labs are handled differently, and the predictable window allows for planning.",
+      "realWorldUse": "Most healthcare systems queue lab results during maintenance windows without significant impact"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "The EHR's read-only HL7 format, because it requires complex transformation logic",
+      "description": "Focus on technical complexity",
+      "analysis": "Technical complexity doesn't equal critical dependency",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Complex transformation needed",
+        "Industry-specific format"
+      ],
+      "cons": [
+        "Read-only reduces risk",
+        "HL7 is standard format",
+        "No immediate patient impact",
+        "One-time development effort"
+      ],
+      "whyIncorrect": "HL7 transformation is a solved problem with existing tools. Complexity doesn't make it critical - business impact does.",
+      "realWorldUse": "HL7 transformations are routine in healthcare integrations"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "The Government Health Portal's monthly submission requirement, because regulatory compliance is mandatory",
+      "description": "Focus on compliance requirements",
+      "analysis": "Important but not time-critical on a daily basis",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Regulatory requirement",
+        "Compliance mandatory"
+      ],
+      "cons": [
+        "Monthly timeline",
+        "Batch processing acceptable",
+        "No immediate impact",
+        "Retry opportunities exist"
+      ],
+      "whyIncorrect": "Monthly reporting, while mandatory, has built-in time buffers and doesn't impact immediate patient care.",
+      "realWorldUse": "Regulatory reporting typically has grace periods and retry mechanisms"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The Pharmacy System integration is most critical because it directly impacts patient safety with immediate effect. A patient waiting for critical medication cannot tolerate delays. The rate limit requires careful architecture design with queuing, caching, and fallback mechanisms to ensure reliable prescription processing.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Critical Dependency Analysis in Healthcare Integration**\n\n**Evaluating Integration Criticality:**\n\n1. **Patient Safety Impact** (Highest Priority)\n   - Pharmacy: IMMEDIATE - Delayed medications can be life-threatening\n   - Laboratory: HIGH - But results can queue for short periods\n   - EHR: MEDIUM - Read-only reduces risk\n   - Billing: LOW - No direct patient impact\n   - Government: LOW - Monthly timeline provides buffer\n\n2. **Time Sensitivity**\n   - Pharmacy: Seconds matter for critical medications\n   - Laboratory: Minutes to hours acceptable except for critical tests\n   - EHR: Historical data, less time-sensitive\n   - Billing: Days acceptable\n   - Government: Weeks available\n\n3. **Failure Impact**\n   - Pharmacy Failure: Patient doesn't receive medication = potential harm\n   - Lab Failure: Results delayed = clinical decisions delayed\n   - EHR Failure: Historical data unavailable = inconvenient but workable\n   - Billing Failure: Revenue delayed = business impact only\n   - Government Failure: Compliance issue = fines but no patient impact\n\n**Addressing the Critical Dependency:**\n\n```\nPharmacy Integration Architecture:\n- Primary: Direct API calls for normal flow\n- Queue: Azure Service Bus for rate limit management  \n- Cache: Recent prescriptions for read scenarios\n- Fallback: Manual entry interface for emergencies\n- Monitoring: Real-time alerts for degradation\n```\n\n**Why Rate Limits are Critical Here:**\n- 100 calls/minute seems adequate\n- But during shift changes or emergencies, spikes occur\n- Cannot tell patient 'wait for rate limit reset'\n- Needs architecture to handle bursts gracefully",
+  
+  "learningMoment": "Critical dependencies aren't always the most complex or the most frequent - they're the ones where failure has the highest business impact. In healthcare, patient safety always tops technical considerations. Always ask: 'What happens to the end user if this integration fails?'",
+  
+  "practicalTip": "When identifying critical dependencies, create an 'Impact vs. Likelihood' matrix. Plot each integration point. The high-impact quadrants need the most architectural attention, regardless of technical complexity. Patient safety always sits in the highest impact category.",
+  
+  "realWorldExample": "A major hospital learned this lesson when they prioritized complex EHR integration over 'simple' pharmacy integration. When the pharmacy integration failed during flu season, medication delays affected hundreds of patients. They now maintain triple redundancy for pharmacy connections.",
+  
+  "architectureInsight": "**Dependency Mitigation Patterns:**\n\n1. **Critical (Pharmacy)**: Multiple paths, queuing, caching, manual fallback\n2. **Important (Lab)**: Queue during windows, alert for critical results\n3. **Standard (EHR)**: Simple retry logic, cached common data\n4. **Deferrable (Billing)**: Batch processing, eventual consistency\n5. **Scheduled (Government)**: Calendar-based triggers, retry windows\n\nArchitect based on criticality, not complexity.",
+  
+  "category": "architect_a_solution",
+  "weight": 8,
+  "examReference": "Identify integration points and dependencies",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 74,
+  "type": "multiplechoice",
+  "topic": "Security Architecture",
+  "difficultyLevel": "Hard",
+  "examObjective": "Define security and compliance requirements",
+  
+  "text": "You're architecting a Power Platform solution for a multinational financial services firm operating in US, EU, and Singapore. During requirements gathering, you uncover these compliance needs:\n\n- **US Operations**: SOX compliance requiring separation of duties and audit trails\n- **EU Operations**: GDPR requiring data portability and right to erasure\n- **Singapore**: Personal Data Protection Act (PDPA) requiring explicit consent\n- **Global**: PCI DSS for credit card processing across all regions\n- **Internal Policy**: 90-day password rotation and MFA for all users\n\nThe business wants a unified global solution to reduce costs. The legal team insists on strict compliance. The IT team warns about complexity.\n\nHow should you define the security and compliance architecture?",
+  
+  "keyWords": [
+    "Security Architecture",
+    "Compliance Requirements",
+    "Multi-region Compliance",
+    "GDPR",
+    "SOX",
+    "Data Sovereignty"
+  ],
+  
+  "scenario": {
+    "businessContext": "Global financial services requiring compliance with multiple regional regulations while maintaining operational efficiency",
+    "dataNeeds": [
+      "Regional data separation requirements",
+      "Audit trail completeness",
+      "Data portability capabilities",
+      "Consent management across regions"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "security": "Comprehensive security architecture meeting all compliance requirements",
+    "operational": "Balancing compliance with operational efficiency"
+  },
+  
+  "hints": {
+    "easy": [
+      "Can one architecture satisfy all compliance requirements?",
+      "What's the highest common denominator approach?"
+    ],
+    "medium": [
+      "Consider data residency implications",
+      "Think about compliance conflict resolution"
+    ],
+    "hard": [
+      "How do you balance unification with regional requirements?",
+      "What architecture patterns support multi-region compliance?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Multi-region compliance architecture",
+    "Security requirement analysis",
+    "Compliance conflict resolution",
+    "Architectural trade-offs"
+  ],
+  
+  "commonMistakes": [
+    "Trying to use single global environment",
+    "Underestimating regional differences",
+    "Over-engineering security",
+    "Missing compliance conflicts"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "How should you define the security and compliance architecture?",
+    "description": "Select the approach that best satisfies all compliance requirements",
+    "businessContext": "Architecture must satisfy regulators while enabling business operations"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Design a hub-and-spoke architecture: Regional Power Platform environments for data sovereignty with local compliance rules, connected to a global hub for shared services and reporting. Implement unified security baseline (MFA, audit) across all regions, with regional extensions for specific compliance needs",
+      "description": "Federated architecture with regional compliance",
+      "analysis": "This balances global efficiency with regional compliance requirements through architectural separation",
+      "wellArchitectedPillar": "Security, Operational Excellence",
+      "pros": [
+        "Satisfies data sovereignty requirements",
+        "Enables regional compliance customization",
+        "Maintains operational efficiency",
+        "Clear compliance boundaries",
+        "Unified security baseline"
+      ],
+      "cons": [
+        "More complex than single environment",
+        "Higher operational overhead",
+        "Requires careful data flow design"
+      ],
+      "whyCorrect": "This architecture acknowledges that true global unification isn't possible with conflicting regional laws. Hub-and-spoke provides the best balance: regional environments satisfy sovereignty and local compliance, while the hub enables global reporting and shared services. Each region can implement specific requirements without compromising others.",
+      "realWorldUse": "Major banks like HSBC use this pattern to satisfy regional regulations while maintaining global oversight"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Create a single global environment with row-level security to separate regional data, implementing the strictest requirement from each regulation globally",
+      "description": "Unified environment with maximum compliance",
+      "analysis": "This attempts to satisfy all requirements in one environment by applying all restrictions globally",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Single environment to manage",
+        "Consistent global experience"
+      ],
+      "cons": [
+        "Violates data sovereignty laws",
+        "Unnecessarily restrictive globally",
+        "GDPR erasure conflicts with SOX retention",
+        "Legally non-compliant"
+      ],
+      "whyIncorrect": "Data sovereignty laws require physical data separation, not just logical. Also, applying all restrictions globally creates unnecessary burden - US users don't need GDPR consent forms.",
+      "realWorldUse": "This approach fails audit in multinational corporations due to sovereignty violations"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Build completely separate solutions for each region with no integration between them",
+      "description": "Full regional isolation",
+      "analysis": "Complete separation satisfies compliance but destroys business value",
+      "wellArchitectedPillar": "Security",
+      "pros": [
+        "Perfect compliance isolation",
+        "No cross-region complexity"
+      ],
+      "cons": [
+        "No global reporting possible",
+        "Massive duplication of effort",
+        "Defeats business purpose",
+        "Highest cost option"
+      ],
+      "whyIncorrect": "While compliant, this defeats the business purpose of having a unified solution. Global financial firms need consolidated reporting and shared services.",
+      "realWorldUse": "Only used when regulations absolutely forbid any data sharing"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Implement the solution in US only and access it globally through VPNs to avoid regional compliance complications",
+      "description": "Single region deployment accessed globally",
+      "analysis": "This attempts to sidestep regional laws through technical means",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Simple architecture",
+        "Single compliance regime"
+      ],
+      "cons": [
+        "Illegal in EU and Singapore",
+        "Violates data protection laws",
+        "VPN doesn't change legal requirements",
+        "Would fail any audit"
+      ],
+      "whyIncorrect": "Processing EU citizen data in US systems violates GDPR regardless of access method. This is a common misconception - compliance is about data processing location, not user location.",
+      "realWorldUse": "Companies have faced massive fines for attempting this approach"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Hub-and-spoke architecture elegantly solves multi-region compliance. Regional environments satisfy data sovereignty and local compliance requirements, while the hub enables necessary global functions without violating regional laws. This is the standard pattern for multinational compliance.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Multi-Region Security and Compliance Architecture**\n\n**Understanding Compliance Conflicts:**\n\n1. **Data Sovereignty** (Cannot Compromise)\n   - EU data must stay in EU (GDPR)\n   - Singapore data must stay in Singapore (PDPA)\n   - US has no restriction but SOX audit requirements\n\n2. **Conflicting Requirements**\n   - SOX: Keep everything for 7 years\n   - GDPR: Delete upon request\n   - Solution: Regional separation allows both\n\n3. **Global vs Regional Needs**\n   - Global: Consolidated reporting, shared services\n   - Regional: Local compliance, data residency\n   - Solution: Hub for global, spokes for regional\n\n**Hub-and-Spoke Implementation:**\n\n```\n┌─────────────────┐\n│   Global Hub    │ ← Aggregated reporting\n│ (Shared Services)│ ← Global security policies\n└────────┬────────┘ ← No personal data\n         │\n    ┌────┴────┬──────────┐\n    ▼         ▼          ▼\n┌────────┐ ┌────────┐ ┌────────┐\n│   US   │ │   EU   │ │  APAC  │\n│  SOX   │ │  GDPR  │ │  PDPA  │\n└────────┘ └────────┘ └────────┘\n```\n\n**Security Baseline (All Regions):**\n- MFA mandatory\n- 90-day password rotation\n- Audit logging enabled\n- Encryption at rest and transit\n- PCI DSS compliance\n\n**Regional Extensions:**\n- US: SOX audit trails, 7-year retention\n- EU: GDPR consent management, data portability APIs\n- Singapore: PDPA explicit consent workflows\n\n**Data Flow Rules:**\n- Personal data stays in region\n- Only aggregated/anonymized data to hub\n- Cross-region requires explicit legal basis\n- Audit logs replicated for global compliance",
+  
+  "learningMoment": "Security and compliance architecture in multinational scenarios isn't about finding the 'strictest' requirement and applying it globally. It's about understanding which requirements are regional versus global, then architecting to satisfy both without unnecessary restrictions. Hub-and-spoke is the standard pattern because it works.",
+  
+  "practicalTip": "When defining multi-region compliance architecture, create a 'Compliance Matrix' mapping requirements to regions. Look for conflicts (like GDPR erasure vs SOX retention). These conflicts usually force architectural decisions like regional separation.",
+  
+  "realWorldExample": "Citibank uses this exact pattern: regional Power Platform environments for data sovereignty, connected to a global hub for executive dashboards and shared services. They passed audits in all regions because the architecture respects regional laws while enabling global operations.",
+  
+  "architectureInsight": "**Compliance Architecture Principles:**\n\n1. **Data Sovereignty is Non-Negotiable**: Physical location matters\n2. **Conflicts Force Separation**: When laws conflict, architect around them\n3. **Baseline + Extensions**: Global security minimum + regional additions\n4. **Hub for Sharing**: Anonymous/aggregated data only\n5. **Document Everything**: Compliance requires proof of design intent\n\nRemember: Good architecture makes compliance demonstrable, not just possible.",
+  
+  "category": "architect_a_solution",
+  "weight": 9,
+  "examReference": "Define security and compliance requirements",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 75,
+  "type": "multiplechoice",
+  "topic": "Solution Design Process",
+  "difficultyLevel": "Medium",
+  "examObjective": "Document solution assumptions and constraints",
+  
+  "text": "You're architecting a Power Platform solution for a rapidly growing e-commerce startup. During design, you make several decisions based on current information:\n\n- Design for 10,000 daily orders (current: 2,000)\n- Assume stable product catalog of 5,000 items\n- Plan for US market only\n- Expect consistent order patterns throughout the day\n- Design around current team size of 50 employees\n\nThree months into development, the CEO announces they've secured funding and plan to:\n- Expand to European markets within 6 months\n- Launch a marketplace model with third-party sellers\n- Implement flash sales driving 10x traffic spikes\n- Grow to 200 employees\n\nThe development team is panicking. What should you have done differently in your initial architecture documentation?",
+  
+  "keyWords": [
+    "Solution Assumptions",
+    "Architecture Constraints",
+    "Documentation Best Practices",
+    "Risk Management",
+    "Change Management",
+    "Scalability Planning"
+  ],
+  
+  "scenario": {
+    "businessContext": "High-growth startup with evolving requirements and changing business model",
+    "dataNeeds": [
+      "Growth projections and uncertainties",
+      "Market expansion possibilities",
+      "Business model flexibility",
+      "Scale requirements"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "operational": "Proper documentation of assumptions enables better change management",
+    "reliability": "Understanding constraints prevents architectural brittleness"
+  },
+  
+  "hints": {
+    "easy": [
+      "What was missing from the original documentation?",
+      "How do you plan for uncertainty?"
+    ],
+    "medium": [
+      "Consider the difference between assumptions and requirements",
+      "Think about how to make assumptions visible and revisable"
+    ],
+    "hard": [
+      "How do you balance current needs with future flexibility?",
+      "What triggers assumption review?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Assumption documentation",
+    "Constraint identification",
+    "Risk documentation",
+    "Change enablement through documentation"
+  ],
+  
+  "commonMistakes": [
+    "Not documenting assumptions at all",
+    "Treating assumptions as facts",
+    "No review process for assumptions",
+    "Hidden assumptions in design"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should you have done differently in your initial architecture documentation?",
+    "description": "Select the best approach for documenting assumptions and constraints",
+    "businessContext": "Proper documentation enables adaptation as business evolves"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Explicitly document all assumptions with risk levels and review triggers: 'ASSUMPTION: Single market operation (Risk: HIGH - startups often expand). Review trigger: Any funding event or quarterly business review. If violated: Architecture supports multi-region through configuration, requiring 4-week implementation.'",
+      "description": "Comprehensive assumption documentation with mitigation plans",
+      "analysis": "This approach makes assumptions visible, assessable, and actionable when changes occur",
+      "wellArchitectedPillar": "Operational Excellence",
+      "pros": [
+        "Makes assumptions explicit and visible",
+        "Includes risk assessment",
+        "Defines review triggers",
+        "Provides mitigation approaches",
+        "Enables informed decisions"
+      ],
+      "cons": [
+        "Requires more documentation effort",
+        "Needs regular review process"
+      ],
+      "whyCorrect": "This approach treats assumptions as what they are - temporary beliefs that may change. By documenting them with risk levels and mitigation plans, the team can adapt quickly when assumptions prove false. The panic could have been avoided with 'we planned for this possibility.'",
+      "realWorldUse": "Successful startups like Shopify document assumptions explicitly, enabling rapid pivots"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Design for maximum possible scale from the start to avoid any future problems",
+      "description": "Over-engineer to prevent future issues",
+      "analysis": "This approach wastes resources on unnecessary complexity",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Handles any growth scenario",
+        "No rework needed"
+      ],
+      "cons": [
+        "Massive over-engineering",
+        "Wasted time and money",
+        "Complex solution for simple needs",
+        "May never need the scale"
+      ],
+      "whyIncorrect": "Startups can't afford to build for every possibility. You'd spend years building for scenarios that may never happen. The goal is appropriate architecture with documented growth paths.",
+      "realWorldUse": "Many startups fail by over-engineering instead of iterating"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Avoid documenting assumptions to maintain flexibility and not commit to anything specific",
+      "description": "Keep everything vague for maximum flexibility",
+      "analysis": "Hidden assumptions cause more problems than explicit ones",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "No commitment to specifics",
+        "Appears flexible"
+      ],
+      "cons": [
+        "Hidden assumptions everywhere",
+        "Team makes conflicting assumptions",
+        "No shared understanding",
+        "Panic when changes occur"
+      ],
+      "whyIncorrect": "Undocumented assumptions are still assumptions - they're just hidden. This causes team members to make different assumptions, leading to architectural conflicts and exactly the panic described.",
+      "realWorldUse": "This approach leads to failed projects and technical debt"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Lock down requirements with the CEO to prevent any changes during development",
+      "description": "Attempt to eliminate change through process",
+      "analysis": "Unrealistic in startup environment where change is constant",
+      "wellArchitectedPillar": "None",
+      "pros": [
+        "Would prevent surprises",
+        "Clear requirements"
+      ],
+      "cons": [
+        "Impossible in startups",
+        "Stifles business growth",
+        "Ignores market realities",
+        "CEO won't agree"
+      ],
+      "whyIncorrect": "Startups must adapt quickly to survive. Locking down requirements would prevent the very growth and adaptation that makes startups successful. Change is not the enemy - unmanaged change is.",
+      "realWorldUse": "Rigid requirement locks kill startup agility"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Documenting assumptions with risk levels and mitigation plans enables rapid adaptation when business needs change. The key is making assumptions explicit, visible, and reviewable rather than hiding them or over-engineering solutions.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Effective Assumption and Constraint Documentation**\n\n**Structure for Documenting Assumptions:**\n\n```\nASSUMPTION: [Clear statement]\nRISK LEVEL: [HIGH/MEDIUM/LOW]\nBASIS: [Why we believe this]\nREVIEW TRIGGER: [When to revisit]\nIF VIOLATED: [Mitigation approach]\nEFFORT ESTIMATE: [Time/cost to adapt]\n```\n\n**Applied to the Scenario:**\n\n1. **Market Assumption**\n   - ASSUMPTION: US market only for first 2 years\n   - RISK: HIGH (startups often expand quickly)\n   - BASIS: Current business plan\n   - TRIGGER: Funding events, quarterly reviews\n   - IF VIOLATED: Add region config (4 weeks)\n   - DESIGN CHOICE: Use region-aware data model\n\n2. **Scale Assumption**\n   - ASSUMPTION: Linear growth to 10K daily orders\n   - RISK: MEDIUM (flash sales change pattern)\n   - BASIS: Current growth trend\n   - TRIGGER: Marketing strategy changes\n   - IF VIOLATED: Add caching layer (2 weeks)\n   - DESIGN CHOICE: Stateless architecture\n\n3. **Business Model Assumption**\n   - ASSUMPTION: Direct sales only\n   - RISK: HIGH (marketplace is common evolution)\n   - BASIS: Current model\n   - TRIGGER: Strategy reviews\n   - IF VIOLATED: Add vendor module (6 weeks)\n   - DESIGN CHOICE: Extensible order model\n\n**Why This Documentation Matters:**\n- Team knows what might change\n- Designs include flexibility where needed\n- No over-engineering where not needed\n- Clear triggers for review\n- Prepared mitigation reduces panic\n\n**Key Principles:**\n1. **Explicit > Implicit**: Write them down\n2. **Visible > Hidden**: Share with team\n3. **Reviewable > Static**: Set review triggers\n4. **Actionable > Vague**: Include mitigation\n5. **Balanced > Extreme**: Not everything is high risk",
+  
+  "learningMoment": "Assumptions aren't weaknesses in your architecture - they're necessary simplifications that enable progress. The key is documenting them explicitly with risk assessments and mitigation plans. This transforms assumptions from hidden time bombs into managed risks that can be addressed when needed.",
+  
+  "practicalTip": "Create an 'Assumptions Register' at project start. Review it at every major milestone. When assumptions prove false, celebrate that your documentation helped you adapt quickly rather than panic. Pro tip: High-growth businesses should mark most scale assumptions as HIGH risk.",
+  
+  "realWorldExample": "Uber's early architecture assumed city-by-city growth. They documented this assumption and designed for easy geographic expansion. When international growth exploded, they activated their documented mitigation plan, enabling expansion to 60 countries in 18 months without architectural rebuild.",
+  
+  "architectureInsight": "**Assumption-Aware Architecture Pattern:**\n\n1. **Identify Assumptions**: Business model, scale, geography, regulations\n2. **Assess Risk**: How likely to change? Impact if wrong?\n3. **Design for Change**: Build flexibility where risk is high\n4. **Document Clearly**: Make visible to all stakeholders\n5. **Review Regularly**: Set calendar triggers\n6. **Prepare Mitigation**: Know the plan before you need it\n\nThis pattern prevents both over-engineering and under-preparation.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 7,
+  "examReference": "Document solution assumptions and constraints",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+
 ];
 
       setQuestions(sampleQuestions);
