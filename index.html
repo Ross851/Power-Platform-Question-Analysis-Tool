@@ -10001,8 +10001,2038 @@
   "examReference": "Design for performance optimization and platform limits",
   "source": "Enhanced for September 2024 exam updates",
   "examArea": "Solution Architecture (35-40%)"
-}
-	      
+},
+{
+  "id": 54,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Hard",
+  "examObjective": "Challenge assumptions and identify true business needs",
+  
+  "text": "You're meeting with the executives of NorthWind Logistics, a company with 3,000 employees that wants to 'modernize their operations with AI and automation.' The CEO insists they need 'the most advanced AI chatbot like ChatGPT' for customer service. During discovery, you learn that 78% of their customer inquiries are about shipment tracking, 15% are delivery scheduling changes, and 7% are billing questions. Their current issue resolution time is 48 hours, and customer satisfaction is at 62%.\n\nWhat should be your FIRST approach as a solution architect?",
+  
+  "keyWords": [
+    "Requirements Analysis",
+    "Challenging Assumptions",
+    "Business Value",
+    "Problem Definition",
+    "Stakeholder Management",
+    "AI Misconceptions",
+    "Root Cause Analysis"
+  ],
+  
+  "scenario": {
+    "businessContext": "A logistics company facing customer service challenges, with executives focused on trending technology rather than core business problems",
+    "dataNeeds": [
+      "Customer inquiry categorization and patterns",
+      "Current resolution workflows and bottlenecks",
+      "Integration points with tracking systems",
+      "Cost-benefit analysis of various solutions"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "operational": "Focus on solving actual business problems rather than implementing technology for its own sake",
+    "cost": "Ensure solution investments align with business value and ROI"
+  },
+  
+  "hints": {
+    "easy": [
+      "What would solve 78% of their problems most effectively?",
+      "Is AI always the answer to customer service challenges?"
+    ],
+    "medium": [
+      "Consider the difference between what they're asking for and what they need",
+      "What questions would reveal the real pain points?"
+    ],
+    "hard": [
+      "How do you redirect executive enthusiasm toward business outcomes?",
+      "What's the simplest solution that could transform their metrics?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Requirements elicitation techniques",
+    "Challenging technology assumptions",
+    "Business value alignment",
+    "Stakeholder management",
+    "Problem vs solution focus"
+  ],
+  
+  "commonMistakes": [
+    "Accepting the AI requirement at face value without analysis",
+    "Starting with technology selection before understanding the problem",
+    "Not quantifying the business impact of different approaches",
+    "Failing to educate stakeholders on appropriate solutions"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should be your FIRST approach as a solution architect?",
+    "description": "Select the approach that best demonstrates solution architecture leadership and business focus",
+    "businessContext": "You need to guide the client toward the most valuable solution while managing executive expectations"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Conduct a detailed workshop to map current customer service workflows, identify bottlenecks, and quantify the business impact of each inquiry type before proposing any technology solutions",
+      "description": "Business-first discovery approach",
+      "analysis": "This approach properly identifies the real problems before jumping to solutions, enabling data-driven recommendations",
+      "wellArchitectedPillar": "Operational Excellence",
+      "pros": [
+        "Reveals actual pain points and root causes",
+        "Quantifies business impact for ROI calculations",
+        "Builds stakeholder trust through thorough analysis",
+        "Enables appropriate technology selection"
+      ],
+      "cons": [
+        "Takes more time initially",
+        "May face resistance from executives wanting quick AI implementation"
+      ],
+      "whyCorrect": "This approach exemplifies architectural leadership by focusing on business outcomes first. By understanding that 78% of inquiries are simple tracking requests, you might recommend a self-service portal with real-time tracking instead of complex AI, delivering faster ROI and better customer satisfaction.",
+      "realWorldUse": "FedEx improved customer satisfaction by 40% by implementing self-service tracking, avoiding complex AI for simple queries"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Begin evaluating different AI platforms and chatbot solutions to present options to the CEO, focusing on the most advanced capabilities available in the market",
+      "description": "Technology-first approach aligned with executive request",
+      "analysis": "This approach accepts the assumption that AI is the solution without validating if it addresses the actual business needs",
+      "wellArchitectedPillar": "None - violates architectural principles",
+      "pros": [
+        "Aligns with executive expectations",
+        "Shows quick action on their request"
+      ],
+      "cons": [
+        "May implement expensive solution for simple problems",
+        "Doesn't address root causes",
+        "Risk of poor ROI and adoption"
+      ],
+      "whyIncorrect": "Starting with technology selection before understanding the problem often leads to over-engineered solutions. An AI chatbot might be overkill when 78% of issues could be resolved with simple tracking integration.",
+      "realWorldUse": "Many companies waste millions on AI implementations that could be solved with basic automation"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Propose a proof of concept using Power Virtual Agents to quickly demonstrate AI capabilities and get executive buy-in for a larger implementation",
+      "description": "Rapid prototype approach",
+      "analysis": "While prototyping has value, starting here assumes AI is the right solution without proper analysis",
+      "wellArchitectedPillar": "Performance Efficiency",
+      "pros": [
+        "Quick demonstration of capabilities",
+        "Low initial investment",
+        "Hands-on executive engagement"
+      ],
+      "cons": [
+        "Reinforces potentially wrong solution direction",
+        "Doesn't address whether AI is needed",
+        "May create momentum for inappropriate solution"
+      ],
+      "whyIncorrect": "Building a POC before understanding requirements often leads to solution bias. You might find that integrating Power Apps with their tracking system solves most problems without AI.",
+      "realWorldUse": "POCs work best after requirements are understood, not as a requirements discovery tool"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Present industry benchmarks showing that most logistics companies are implementing AI, supporting the CEO's vision with market research and competitive analysis",
+      "description": "Market validation approach",
+      "analysis": "This approach validates the executive's assumptions rather than challenging them based on business needs",
+      "wellArchitectedPillar": "None - follows trends rather than business value",
+      "pros": [
+        "Supports executive vision",
+        "Shows industry awareness"
+      ],
+      "cons": [
+        "Doesn't address specific business needs",
+        "May lead to inappropriate solutions",
+        "Focuses on competition rather than customers"
+      ],
+      "whyIncorrect": "Following industry trends without understanding your specific needs is a recipe for failed implementations. Your 78% tracking inquiries might need a completely different solution than competitors.",
+      "realWorldUse": "Best practices should inform, not dictate, solution selection"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The correct approach demonstrates true solution architecture leadership by challenging assumptions and focusing on business outcomes. By discovering that 78% of inquiries are simple tracking requests, you can recommend targeted solutions that deliver immediate value rather than complex AI implementations.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**The Art of Challenging Assumptions in Solution Architecture**\n\nThis scenario illustrates a fundamental skill that separates great solution architects from average ones: the ability to challenge assumptions and redirect stakeholders toward value.\n\n**Why This Matters:**\n- Executives often chase technology trends without understanding their specific needs\n- The most advanced solution isn't always the right solution\n- Simple problems often have simple, cost-effective solutions\n\n**The Discovery Process:**\n1. **Quantify the Problem**: 78% tracking, 15% scheduling, 7% billing\n2. **Identify Root Causes**: Why does resolution take 48 hours?\n3. **Map Current State**: What systems and processes exist?\n4. **Define Success Metrics**: What would improve satisfaction from 62%?\n\n**Likely Outcome:**\nThrough proper discovery, you'd probably find that:\n- A Power Apps portal with real-time tracking integration solves 78% of inquiries\n- Power Automate can handle scheduling changes automatically\n- Simple improvements deliver 10x ROI compared to complex AI\n\n**Leadership Technique:**\n'I appreciate your vision for AI innovation. Let me help ensure we apply it where it delivers maximum business value. Can we spend 2 days mapping your current challenges so any AI investment targets your biggest opportunities?'",
+  
+  "learningMoment": "Great solution architects don't just deliver what's asked for—they discover what's actually needed. The ability to respectfully challenge assumptions while guiding stakeholders toward value is what transforms a technical implementer into a trusted advisor.",
+  
+  "practicalTip": "Always quantify problems before proposing solutions. When executives say 'we need AI,' ask 'what business metrics are you trying to improve?' This shifts the conversation from technology to outcomes.",
+  
+  "realWorldExample": "A major retailer wanted AI chatbots for customer service. Analysis revealed 83% of contacts were 'where is my order?' questions. They implemented simple order tracking integration instead, improving satisfaction 45% at 1/10th the cost of AI.",
+  
+  "architectureInsight": "The solution architecture process should always follow this pattern:\n1. **Problem Definition**: What business outcomes need improvement?\n2. **Current State Analysis**: What exists today and why does it fall short?\n3. **Requirement Validation**: Do stated requirements align with actual needs?\n4. **Solution Options**: What approaches could achieve the outcomes?\n5. **Recommendation**: Which option provides best value/risk balance?\n\nSkipping steps 1-3 is the root cause of most failed implementations.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 9,
+  "examReference": "Lead solution envisioning and requirement analyses",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 55,
+  "type": "hotspot",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Hard",
+  "examObjective": "Manage complex stakeholder dynamics and conflicting requirements",
+  
+  "text": "You're architecting a Power Platform solution for MedTech Innovations, a medical device company with 5,000 employees. During stakeholder interviews, you've identified significant conflicts:\n\n- **Chief Medical Officer**: 'Patient safety is paramount. Any system must have zero tolerance for errors and complete audit trails.'\n- **VP of Sales**: 'Speed is everything. Our reps need instant access to inventory and pricing. Every second of delay costs us sales.'\n- **Chief Security Officer**: 'We need military-grade encryption and multi-factor authentication on everything. No exceptions.'\n- **Head of Field Service**: 'My technicians work in hospitals with poor connectivity. The system must work offline or it's useless.'\n- **CFO**: 'Keep it under $2M and deliver ROI within 12 months, or the project is cancelled.'\n\nYou need to navigate these competing demands and build consensus around a solution architecture.",
+  
+  "keyWords": [
+    "Stakeholder Management",
+    "Conflict Resolution",
+    "Requirements Prioritization",
+    "Consensus Building",
+    "Leadership Skills",
+    "Trade-off Analysis",
+    "Communication Strategies"
+  ],
+  
+  "scenario": {
+    "businessContext": "Medical device company with life-critical products facing digital transformation with competing stakeholder priorities and constraints",
+    "dataNeeds": [
+      "Patient safety and audit requirements",
+      "Sales performance and inventory access",
+      "Security and compliance mandates",
+      "Offline capability for field service",
+      "Budget and ROI constraints"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "reliability": "Balancing zero-error tolerance with system complexity",
+    "security": "Meeting security requirements without impacting usability",
+    "performance": "Instant access needs vs security overhead",
+    "cost": "Delivering value within budget constraints"
+  },
+  
+  "hints": {
+    "easy": [
+      "Which stakeholder requirements are truly non-negotiable?",
+      "How can you find common ground between competing needs?"
+    ],
+    "medium": [
+      "Consider which architectural patterns address multiple concerns",
+      "Think about phased approaches to manage budget and risk"
+    ],
+    "hard": [
+      "How do you reframe conflicts as shared goals?",
+      "What communication strategy builds trust across diverse groups?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Stakeholder analysis and management",
+    "Requirements negotiation techniques",
+    "Architectural trade-off analysis",
+    "Communication and leadership skills",
+    "Consensus building strategies"
+  ],
+  
+  "commonMistakes": [
+    "Trying to fully satisfy all requirements without compromise",
+    "Avoiding difficult conversations about trade-offs",
+    "Not identifying shared goals among stakeholders",
+    "Technical solutions without stakeholder buy-in",
+    "Underestimating change management needs"
+  ],
+  
+  "questionItems": [
+    {
+      "id": "approach",
+      "text": "Stakeholder engagement approach",
+      "description": "How should you approach building consensus among these conflicting requirements?",
+      "businessContext": "You need a strategy that acknowledges all concerns while finding a viable path forward"
+    },
+    {
+      "id": "priority",
+      "text": "Requirements prioritization method",
+      "description": "What framework should guide requirement prioritization?",
+      "businessContext": "Some requirements may be regulatory mandates while others are preferences"
+    },
+    {
+      "id": "communication",
+      "text": "Communication strategy",
+      "description": "How should you communicate architectural decisions to stakeholders?",
+      "businessContext": "Different stakeholders need different levels of technical detail"
+    },
+    {
+      "id": "resolution",
+      "text": "Conflict resolution technique",
+      "description": "What technique best resolves the speed vs. security conflict?",
+      "businessContext": "Sales and Security have directly opposing requirements"
+    }
+  ],
+  
+  "answerOptions": [
+    {
+      "id": "workshop",
+      "text": "Joint architecture workshop with all stakeholders",
+      "description": "Collaborative session to find common ground",
+      "analysis": "Brings all voices together to understand interdependencies and build shared ownership"
+    },
+    {
+      "id": "serial",
+      "text": "Serial one-on-one negotiations with each stakeholder",
+      "description": "Individual meetings to address specific concerns",
+      "analysis": "Allows deep dives but may miss integration opportunities and create silos"
+    },
+    {
+      "id": "moscov",
+      "text": "MoSCoW (Must/Should/Could/Won't) prioritization",
+      "description": "Formal requirements prioritization framework",
+      "analysis": "Provides clear structure for difficult prioritization conversations"
+    },
+    {
+      "id": "value",
+      "text": "Business value scoring matrix",
+      "description": "Quantitative approach to requirement priority",
+      "analysis": "Makes trade-offs objective but may miss regulatory requirements"
+    },
+    {
+      "id": "visual",
+      "text": "Visual architecture diagrams with trade-off overlays",
+      "description": "Show how architecture addresses multiple concerns",
+      "analysis": "Makes complex decisions tangible and shows integration points"
+    },
+    {
+      "id": "technical",
+      "text": "Detailed technical specifications for review",
+      "description": "Comprehensive documentation approach",
+      "analysis": "Provides thoroughness but may overwhelm non-technical stakeholders"
+    },
+    {
+      "id": "progressive",
+      "text": "Progressive security with role-based performance optimization",
+      "description": "Adaptive security that scales with user needs",
+      "analysis": "Balances security requirements with performance needs through intelligent design"
+    },
+    {
+      "id": "choose",
+      "text": "Force stakeholders to choose between speed or security",
+      "description": "Binary choice approach",
+      "analysis": "Creates win-lose scenarios that damage stakeholder relationships"
+    }
+  ],
+  
+  "correctMappings": [
+    {
+      "questionItemId": "approach",
+      "correctAnswerIds": ["workshop"],
+      "explanation": "Joint workshops create shared understanding and ownership. When stakeholders hear each other's constraints, they're more willing to compromise."
+    },
+    {
+      "questionItemId": "priority",
+      "correctAnswerIds": ["moscov"],
+      "explanation": "MoSCoW provides a structured framework that separates regulatory 'musts' (patient safety, security compliance) from negotiable 'shoulds' and 'coulds'."
+    },
+    {
+      "questionItemId": "communication",
+      "correctAnswerIds": ["visual"],
+      "explanation": "Visual architecture diagrams with trade-off overlays help all stakeholders understand how their requirements are addressed and where compromises exist."
+    },
+    {
+      "questionItemId": "resolution",
+      "correctAnswerIds": ["progressive"],
+      "explanation": "Progressive security with role-based optimization satisfies both needs—field sales get streamlined access while sensitive operations maintain full security."
+    }
+  ],
+  
+  "detailedExplanation": "**Mastering Stakeholder Dynamics in Complex Architectures**\n\n**The Leadership Challenge:**\nThis scenario tests the 'soft skills' that separate competent architects from great ones. Technical skills alone won't resolve these conflicts—you need leadership, communication, and negotiation abilities.\n\n**Successful Approach Pattern:**\n\n1. **Establish Shared Goals**\n   - Start workshop with: 'We all want to deliver safe, effective medical devices to patients while growing the business sustainably'\n   - This reframes competition into collaboration\n\n2. **Use Structured Prioritization**\n   - Regulatory requirements (patient safety, security) = MUST\n   - Business performance (speed, offline) = SHOULD\n   - Nice-to-have features = COULD\n   - Out of scope items = WON'T\n\n3. **Find Architectural Synergies**\n   - Progressive security satisfies both speed and security\n   - Offline-first architecture improves both field service and performance\n   - Comprehensive audit trails support both safety and security\n\n4. **Communicate Visually**\n   - Show how Power Apps offline capabilities address field service needs\n   - Demonstrate how role-based security provides fast access for sales\n   - Illustrate how Azure integration ensures audit compliance\n\n**Key Stakeholder Management Techniques:**\n\n- **CMO**: 'Your patient safety requirements are non-negotiable. Here's how our architecture ensures zero data loss with complete audit trails...'\n- **VP Sales**: 'I understand speed drives revenue. Our progressive security gives your reps one-click access to what they need...'\n- **CSO**: 'Security is foundational. We're implementing zero-trust architecture with adaptive authentication...'\n- **Field Service**: 'Offline capability is built into the core architecture, not bolted on...'\n- **CFO**: 'Here's our phased approach delivering value in 90-day increments...'",
+  
+  "learningMoment": "Solution architecture is 50% technology and 50% leadership. The ability to navigate stakeholder dynamics, build consensus, and communicate complex trade-offs determines project success more than technical brilliance alone.",
+  
+  "practicalTip": "Always start stakeholder sessions by establishing shared goals. When people focus on common objectives rather than competing requirements, collaboration becomes possible. Use visual communication to make abstract concepts concrete.",
+  
+  "realWorldExample": "Johnson & Johnson's medical device division successfully implemented Power Platform by using joint architecture workshops where security, sales, and operations collaborated on solutions. The key was showing how each requirement strengthened rather than compromised others.",
+  
+  "architectureInsight": "**Stakeholder Alignment Architecture Pattern:**\n\n1. **Discovery Phase**: Individual interviews to understand deep concerns\n2. **Alignment Workshop**: Joint session establishing shared goals\n3. **Architecture Design**: Solutions that address multiple stakeholder needs\n4. **Validation Sessions**: Demonstrate how each requirement is met\n5. **Continuous Communication**: Regular updates maintaining trust\n\nThis pattern transforms potential adversaries into solution partners.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 8.5,
+  "examReference": "Lead solution envisioning with stakeholder alignment",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 56,
+  "type": "multiplechoice",
+  "topic": "Data Modeling Fundamentals",
+  "difficultyLevel": "Hard",
+  "examObjective": "Design scalable data models for high-volume scenarios",
+  
+  "text": "GlobalRetail operates 2,000 stores across 30 countries with 50 million customers. They're implementing a Power Platform solution to track customer interactions, purchases, and loyalty points. Current volumes include:\n\n- 5 million transactions daily\n- 500,000 customer service interactions monthly  \n- 100TB of historical data over 10 years\n- Peak loads of 50,000 concurrent users during sales\n\nThe data model must support:\n- Real-time point balance updates\n- Complex customer segmentation queries\n- Historical purchase analysis\n- Regulatory compliance with 7-year data retention\n- Sub-second response times for customer lookup\n\nHow should you design the Dataverse data model to handle this scale while maintaining performance?",
+  
+  "keyWords": [
+    "Data Modeling at Scale",
+    "Performance Optimization",
+    "Partitioning Strategies",
+    "Reference Data",
+    "Transactional Data",
+    "Data Archival",
+    "Query Optimization",
+    "Indexing Strategies"
+  ],
+  
+  "scenario": {
+    "businessContext": "Global retail enterprise requiring massive scale data handling with real-time performance requirements and complex analytical needs",
+    "dataNeeds": [
+      "High-volume transaction processing",
+      "Real-time customer data access",
+      "Historical data analysis capabilities",
+      "Regulatory compliance and retention",
+      "Global scale with regional requirements"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "performance": "Sub-second query response at massive scale",
+    "reliability": "Handle peak loads without degradation",
+    "cost": "Optimize storage and compute costs for 100TB+ data"
+  },
+  
+  "hints": {
+    "easy": [
+      "Can Dataverse alone handle 5 million daily transactions?",
+      "What patterns separate hot and cold data?"
+    ],
+    "medium": [
+      "Consider hybrid architectures for different data types",
+      "Think about data lifecycle and access patterns"
+    ],
+    "hard": [
+      "Evaluate the trade-offs between consistency and performance",
+      "Consider how to maintain real-time capabilities with historical data"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Scalable data architecture patterns",
+    "Hybrid data platform design",
+    "Performance optimization strategies",
+    "Data lifecycle management",
+    "Real-time vs analytical workloads"
+  ],
+  
+  "commonMistakes": [
+    "Trying to store all data in Dataverse",
+    "Not considering data access patterns in design",
+    "Over-normalizing for transaction volumes",
+    "Ignoring archival and lifecycle needs",
+    "Not planning for query performance at scale"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "How should you design the data model architecture?",
+    "description": "Select the approach that best handles the scale while maintaining required performance",
+    "businessContext": "The solution must support business growth while managing costs"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement a hybrid architecture with hot transactional data in Dataverse, warm data in Azure SQL, and cold historical data in Azure Data Lake, with Power Apps connecting through virtual tables and real-time synchronization",
+      "description": "Tiered data architecture based on access patterns",
+      "analysis": "This approach optimizes for both performance and cost by placing data in appropriate tiers based on access patterns",
+      "wellArchitectedPillar": "Performance Efficiency, Cost Optimization",
+      "pros": [
+        "Optimizes performance for each data tier",
+        "Cost-effective storage for historical data",
+        "Maintains real-time capabilities for hot data",
+        "Scales to handle massive data volumes",
+        "Supports both transactional and analytical workloads"
+      ],
+      "cons": [
+        "Increased architectural complexity",
+        "Requires synchronization management",
+        "Multiple platform expertise needed"
+      ],
+      "whyCorrect": "This architecture properly separates concerns: Dataverse handles real-time customer interactions (perfect for its strengths), Azure SQL manages recent transactional data with complex queries, and Data Lake stores historical data cost-effectively. Virtual tables provide seamless access across tiers.",
+      "realWorldUse": "Walmart uses similar architecture for their customer data platform, processing billions of transactions"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Use Dataverse exclusively with aggressive indexing, partitioning by region, and regular archival jobs to manage data volume",
+      "description": "Dataverse-only approach with optimization",
+      "analysis": "Attempts to handle enterprise scale within Dataverse alone",
+      "wellArchitectedPillar": "Reliability",
+      "pros": [
+        "Simpler architecture",
+        "Single platform to manage",
+        "Native Power Platform integration"
+      ],
+      "cons": [
+        "Dataverse not designed for 5M daily transactions",
+        "Expensive at 100TB scale",
+        "Performance degradation at high volumes",
+        "Limited analytical capabilities"
+      ],
+      "whyIncorrect": "Dataverse has transaction limits and isn't cost-effective for 100TB storage. At 5 million daily transactions, you'd hit platform limits and experience performance issues. The platform is designed for different use cases.",
+      "realWorldUse": "Suitable for smaller retailers but not global enterprise scale"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Build complete solution in Azure SQL with custom APIs, using Power Apps only as the front-end interface",
+      "description": "Traditional database-centric architecture",
+      "analysis": "Bypasses Dataverse entirely for a custom solution",
+      "wellArchitectedPillar": "Performance Efficiency",
+      "pros": [
+        "Full control over optimization",
+        "Proven scale capabilities",
+        "Complex query optimization"
+      ],
+      "cons": [
+        "Loses Power Platform native features",
+        "Requires custom development",
+        "Higher maintenance overhead",
+        "No built-in business logic"
+      ],
+      "whyIncorrect": "This approach negates Power Platform benefits like security models, audit trails, and business rules. You'd need to rebuild these features, increasing cost and timeline significantly.",
+      "realWorldUse": "Legacy approach before modern data platforms"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Implement microservices architecture with separate databases per domain (customers, transactions, loyalty) synchronized through Azure Service Bus",
+      "description": "Domain-driven distributed architecture",
+      "analysis": "Applies microservices patterns to data modeling",
+      "wellArchitectedPillar": "Reliability",
+      "pros": [
+        "Independent scaling per domain",
+        "Fault isolation",
+        "Technology flexibility"
+      ],
+      "cons": [
+        "Complex consistency management",
+        "Difficult cross-domain queries",
+        "Increased operational overhead",
+        "Not aligned with Power Platform"
+      ],
+      "whyIncorrect": "While microservices work for applications, this approach complicates Power Platform integration and makes unified customer views extremely difficult. The consistency challenges outweigh benefits for this use case.",
+      "realWorldUse": "Better suited for pure cloud-native applications"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The hybrid architecture correctly recognizes that different data has different requirements. Hot data (current customers, recent transactions) stays in Dataverse for real-time access. Warm data (recent history) in Azure SQL supports complex queries. Cold data (historical) in Data Lake minimizes costs. Virtual tables unify access, making it seamless for Power Apps users.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "**Designing Data Architecture for Global Scale**\n\n**Understanding Data Patterns:**\n\n1. **Hot Data (Dataverse)**: ~10% of data, accessed constantly\n   - Current customer profiles\n   - Active loyalty points\n   - Recent transactions (30 days)\n   - Real-time inventory levels\n\n2. **Warm Data (Azure SQL)**: ~30% of data, accessed frequently\n   - Last 2 years of transactions\n   - Customer behavior patterns\n   - Seasonal analysis data\n   - Regional performance metrics\n\n3. **Cold Data (Data Lake)**: ~60% of data, accessed rarely\n   - Historical transactions beyond 2 years\n   - Archived customer interactions\n   - Compliance and audit records\n   - Backup and disaster recovery\n\n**Implementation Architecture:**\n\n```\n[Power Apps] → [Dataverse (Hot)]\n     ↓              ↓\n[Virtual Tables] ← [Azure SQL (Warm)]\n     ↓              ↓\n[Power BI] ← [Azure Data Lake (Cold)]\n```\n\n**Key Design Decisions:**\n\n1. **Dataverse Tables**:\n   - Customer (indexed by ID, email, phone)\n   - CurrentTransactions (30-day window)\n   - LoyaltyPoints (real-time balance)\n   - Use alternate keys for performance\n\n2. **Azure SQL Design**:\n   - Partitioned by date and region\n   - Columnstore indexes for analytics\n   - Read replicas for reporting\n\n3. **Data Lake Structure**:\n   - Parquet format for compression\n   - Partitioned by year/month/region\n   - Lifecycle policies for compliance\n\n**Performance Optimizations:**\n- Dataverse caching for reference data\n- Azure SQL query optimization\n- Data Lake query acceleration\n- CDN for global static data",
+  
+  "learningMoment": "At enterprise scale, no single platform can efficiently handle all data patterns. Great architects design hybrid solutions that leverage each platform's strengths. The key is making this complexity transparent to users through proper abstraction layers.",
+  
+  "practicalTip": "Always analyze data access patterns before designing. Use the 80/20 rule: 80% of queries typically access 20% of data. Design your hot tier for this 20% and optimize costs for the rarely-accessed 80%.",
+  
+  "realWorldExample": "Target's customer data platform uses similar tiered architecture: Dataverse for real-time customer service, Azure SQL for recent purchase analytics, and Data Lake for historical analysis. This handles their 100M+ customers efficiently.",
+  
+  "architectureInsight": "**Data Modeling Scale Patterns:**\n\n1. **Understand Access Patterns**: Frequency, volume, latency requirements\n2. **Design for Data Lifecycle**: Hot → Warm → Cold → Archive\n3. **Optimize Each Tier**: Right platform for right purpose\n4. **Abstract Complexity**: Virtual tables hide tier complexity\n5. **Plan for Growth**: Architecture should scale 10x without redesign\n\nThe goal is transparent performance at scale, not architectural purity.",
+  
+  "category": "architect_a_solution",
+  "weight": 9,
+  "examReference": "Design data models for enterprise scale",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 57,
+  "type": "sequence",
+  "topic": "Integration Architecture",
+  "difficultyLevel": "Hard",
+  "examObjective": "Design end-to-end integration for complex enterprise ecosystems",
+  
+  "text": "TechCorp has grown through acquisitions and now operates with a complex technology landscape:\n\n**Current Systems:**\n- SAP ERP (on-premises) - Financial data, 20 years of history\n- Salesforce CRM (cloud) - Customer data for 3 business units\n- Oracle HCM (cloud) - HR data for 50,000 employees\n- 15 departmental SharePoint sites with critical documents\n- Legacy mainframe system with product catalog (AS/400)\n- Multiple Excel-based processes in finance and operations\n- Teams used extensively for collaboration\n- Custom .NET applications for manufacturing\n\n**Integration Requirements:**\n- Unified employee portal showing data from all systems\n- Real-time synchronization between SAP and Salesforce\n- Automated document workflows across SharePoint sites\n- Mobile access for field workers with offline capability\n- Maintain mainframe until 2026 (regulatory requirement)\n- Support 30,000 daily integration transactions\n- Meet SOX compliance for financial data\n\nYou need to design the complete integration architecture. Order these architectural decisions from first to last:",
+  
+  "keyWords": [
+    "Enterprise Integration",
+    "System Interoperability",
+    "Legacy Modernization",
+    "API Strategy",
+    "Data Synchronization",
+    "Hybrid Architecture",
+    "Integration Patterns",
+    "Middleware Design"
+  ],
+  
+  "scenario": {
+    "businessContext": "Post-acquisition company with diverse systems requiring unified integration while maintaining operations and compliance",
+    "dataNeeds": [
+      "Master data management across systems",
+      "Real-time and batch integration patterns",
+      "Legacy system connectivity",
+      "Document and collaboration integration",
+      "Mobile offline scenarios"
+    ]
+  },
+  
+  "wellArchitectedAlignment": {
+    "reliability": "Mission-critical integration with no data loss",
+    "security": "SOX compliance and data governance",
+    "performance": "30,000 daily transactions with real-time requirements",
+    "operational": "Manageable integration architecture"
+  },
+  
+  "hints": {
+    "easy": [
+      "What needs to be understood before designing integration?",
+      "What provides the foundation for all integrations?"
+    ],
+    "medium": [
+      "Consider the logical flow from assessment to implementation",
+      "Think about what depends on what in integration design"
+    ],
+    "hard": [
+      "How do you phase complex integration for risk management?",
+      "What governance ensures long-term success?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Integration architecture methodology",
+    "Enterprise integration patterns",
+    "Legacy system connectivity",
+    "API-first design principles",
+    "Phased implementation approach"
+  ],
+  
+  "commonMistakes": [
+    "Starting with technology before understanding data flows",
+    "Not establishing integration standards early",
+    "Attempting big-bang integration approach",
+    "Ignoring legacy system constraints",
+    "Underestimating governance needs"
+  ],
+  
+  "questionItems": [{
+    "id": "integration_sequence",
+    "text": "Order these architectural decisions for the integration implementation:",
+    "description": "Each step should build on previous decisions while managing risk",
+    "businessContext": "The sequence must balance technical dependencies with business continuity"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "assess_landscape",
+      "text": "Conduct comprehensive integration assessment mapping all data flows, APIs, and dependencies between systems",
+      "description": "Understand current state integration landscape",
+      "analysis": "Essential first step to understand what exists before designing solutions"
+    },
+    {
+      "id": "establish_platform",
+      "text": "Establish enterprise integration platform with Azure Integration Services (API Management, Logic Apps, Service Bus)",
+      "description": "Set up core integration infrastructure",
+      "analysis": "Provides the foundation for all subsequent integrations"
+    },
+    {
+      "id": "define_standards",
+      "text": "Define integration standards, patterns, and governance model including API design guidelines and security policies",
+      "description": "Create integration governance framework",
+      "analysis": "Standards must exist before building integrations to ensure consistency"
+    },
+    {
+      "id": "build_connectivity",
+      "text": "Build connectivity layer with on-premises data gateway for SAP/mainframe and cloud connectors for SaaS systems",
+      "description": "Establish system connectivity",
+      "analysis": "Physical connectivity enables actual integration development"
+    },
+    {
+      "id": "implement_mdm",
+      "text": "Implement master data management for customer and employee entities with golden record strategy",
+      "description": "Solve data consistency challenges",
+      "analysis": "MDM provides consistent data foundation for all integrations"
+    },
+    {
+      "id": "develop_apis",
+      "text": "Develop system-specific APIs wrapping legacy systems and exposing standardized interfaces through API Management",
+      "description": "Create consistent API layer",
+      "analysis": "APIs abstract system complexity and enable reuse"
+    },
+    {
+      "id": "deploy_portal",
+      "text": "Deploy Power Apps employee portal consuming integrated APIs with phased rollout by department",
+      "description": "Deliver business value through unified interface",
+      "analysis": "Portal provides tangible value using established integrations"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "integration_sequence",
+    "correctAnswerIds": [
+      "assess_landscape",
+      "define_standards", 
+      "establish_platform",
+      "build_connectivity",
+      "implement_mdm",
+      "develop_apis",
+      "deploy_portal"
+    ],
+    "explanation": "This sequence follows integration best practices: Understand current state (assess) → Define how things should work (standards) → Build foundation (platform) → Enable connections (connectivity) → Solve data consistency (MDM) → Create reusable interfaces (APIs) → Deliver value (portal). Each step enables the next while managing risk.",
+    "isOrdered": true
+  }],
+  
+  "detailedExplanation": "**Enterprise Integration Architecture Methodology**\n\n**Why This Sequence Works:**\n\n1. **Assessment First**: You can't fix what you don't understand\n   - Map all 100+ integration points\n   - Document data flows and dependencies\n   - Identify technical debt and risks\n\n2. **Standards Before Building**: Governance prevents integration chaos\n   - API design standards (REST, naming, versioning)\n   - Security policies (OAuth, encryption)\n   - Error handling patterns\n   - Monitoring requirements\n\n3. **Platform Foundation**: Infrastructure enables everything else\n   - API Management for governance\n   - Logic Apps for orchestration\n   - Service Bus for async patterns\n   - Event Grid for real-time\n\n4. **Connectivity Layer**: Can't integrate what you can't reach\n   - On-premises gateway cluster for SAP/mainframe\n   - Managed connectors for SaaS\n   - VPN for secure communications\n\n5. **Master Data Management**: Solves the hardest problem\n   - Customer golden records across SAP/Salesforce\n   - Employee data harmonization\n   - Reference data management\n\n6. **API Development**: Abstracts complexity\n   - SAP RFC → REST API transformation\n   - Mainframe screen scraping → API\n   - Consistent error handling\n\n7. **Portal Deployment**: Delivers value\n   - Phased by department reduces risk\n   - Quick wins build momentum\n   - User feedback improves design\n\n**Integration Patterns Applied:**\n\n- **Synchronous**: Employee lookup, authentication\n- **Asynchronous**: Document processing, bulk updates\n- **Event-Driven**: Real-time SAP-Salesforce sync\n- **Batch**: Nightly mainframe extracts\n- **Cached**: Reference data for performance",
+  
+  "learningMoment": "Enterprise integration requires methodical approach. The sequence matters because each phase builds on previous work. Trying to skip steps or parallelize too aggressively leads to rework and failed integrations.",
+  
+  "practicalTip": "Always document integration patterns as you build them. Future developers (including yourself) need to understand not just what integrates, but why specific patterns were chosen. This documentation becomes invaluable during troubleshooting.",
+  
+  "realWorldExample": "General Electric's digital transformation followed this exact sequence when integrating 150+ systems. Starting with assessment revealed 40% redundant integrations. Standards reduced integration time by 60%. The methodical approach delivered $100M in savings.",
+  
+  "architectureInsight": "**Integration Maturity Model:**\n\n1. **Chaos**: Point-to-point spaghetti\n2. **Standardized**: Common patterns emerge\n3. **Centralized**: Integration platform adopted\n4. **Managed**: Governance and monitoring\n5. **Optimized**: Self-service and automation\n\nThis sequence moves organizations from level 1 to level 4, setting foundation for level 5.",
+  
+  "category": "architect_a_solution",
+  "weight": 9.5,
+  "examReference": "Design complex integration architectures",
+  "source": "Enhanced for September 2024 exam updates",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 58,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Easy",
+  "examObjective": "Identify when to challenge assumptions",
+  
+  "text": "A small retail company's owner says: 'We need artificial intelligence to compete with Amazon. Our competitors are all using AI chatbots.' When you review their business, you find they only receive about 20 customer inquiries per week, mostly asking about store hours and product availability.\n\nWhat should be your response as a solution architect?",
+  
+  "keyWords": [
+    "Requirements Analysis",
+    "Business Value",
+    "AI Assumptions",
+    "Small Business",
+    "Cost-Benefit"
+  ],
+  
+  "scenario": {
+    "businessContext": "Small retailer with minimal customer service volume considering expensive AI implementation",
+    "dataNeeds": [
+      "20 customer inquiries per week",
+      "Basic questions about hours and inventory",
+      "Limited budget and technical expertise"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "Consider the volume of inquiries versus the cost of AI",
+      "What simpler solution could address their needs?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Challenging technology assumptions",
+    "Right-sizing solutions",
+    "Business value focus"
+  ],
+  
+  "commonMistakes": [
+    "Accepting AI requirements without analysis",
+    "Not considering simpler alternatives",
+    "Following competitor choices blindly"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should be your response?",
+    "description": "Choose the most appropriate architectural guidance"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Suggest they start with a simple FAQ page on their website and Google Business listing with hours and inventory information",
+      "correct": true,
+      "explanation": "With only 20 inquiries per week about basic information, a simple FAQ page and accurate Google Business listing would solve most customer needs at minimal cost. This demonstrates good architectural judgment by matching the solution complexity to the actual business need.",
+      "pros": ["Minimal cost", "Immediate implementation", "Solves actual problem"],
+      "cons": ["Not as trendy as AI"],
+      "realWorldUse": "Most small businesses successfully use this approach"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Recommend implementing an AI chatbot since their competitors are using it",
+      "correct": false,
+      "explanation": "Following competitors without analyzing your own needs often leads to wasted investment. With only 20 inquiries per week, the AI investment would never provide positive ROI.",
+      "whyIncorrect": "AI chatbots cost thousands to implement and maintain, which isn't justified for 20 weekly inquiries"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Propose a full digital transformation project including AI, machine learning, and predictive analytics",
+      "correct": false,
+      "explanation": "This is massive overkill for a small retailer's simple needs. It would be expensive and complex without providing proportional value.",
+      "whyIncorrect": "Proposing complex solutions for simple problems violates basic architectural principles"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Tell them they don't need any technology improvements",
+      "correct": false,
+      "explanation": "While they don't need AI, they could still benefit from basic digital presence improvements. Dismissing all technology isn't helpful.",
+      "whyIncorrect": "Good architects find appropriate solutions, not dismiss technology entirely"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The key skill here is recognizing when simple solutions are more appropriate than complex ones. A FAQ page solves the actual business need (answering basic questions) without unnecessary complexity or cost.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This scenario tests your ability to challenge assumptions and recommend appropriate solutions. Just because competitors use AI doesn't mean it's right for every business. With only 20 inquiries per week, even a part-time employee could handle them personally in under an hour.",
+  
+  "learningMoment": "Always match solution complexity to business need. The best architects often recommend simpler solutions than what clients initially request.",
+  
+  "practicalTip": "When clients mention competitors' technology, ask 'What business problem are you trying to solve?' Focus on their needs, not others' solutions.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 5,
+  "examReference": "Evaluate business requirements",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 59,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Medium",
+  "examObjective": "Navigate stakeholder conflicts",
+  
+  "text": "You're designing a Power Apps solution for a mid-sized hospital. During requirements gathering, you encounter conflicting priorities:\n\n- **Head of Nursing**: 'The app must be extremely simple. My nurses barely have time to breathe, let alone learn complex systems.'\n- **IT Security Manager**: 'We need multi-factor authentication, encrypted data, and session timeouts every 15 minutes for HIPAA compliance.'\n- **Emergency Department Chief**: 'Speed is critical. Every second counts in emergency care. We can't have barriers to accessing patient data.'\n\nHow should you address these conflicting requirements?",
+  
+  "keyWords": [
+    "Stakeholder Conflicts",
+    "Healthcare Requirements",
+    "Security vs Usability",
+    "Compromise Solutions",
+    "HIPAA Compliance"
+  ],
+  
+  "scenario": {
+    "businessContext": "Hospital environment with life-critical operations requiring balance between security and usability",
+    "dataNeeds": [
+      "Patient data access",
+      "HIPAA compliance requirements",
+      "Emergency care time constraints",
+      "Nurse workflow efficiency"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "Can technology provide both security and usability?",
+      "Consider context-aware solutions"
+    ],
+    "medium": [
+      "Think about different security requirements for different scenarios",
+      "How can you satisfy all stakeholders without compromise?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Stakeholder negotiation",
+    "Security vs usability balance",
+    "Context-aware solutions",
+    "Healthcare compliance"
+  ],
+  
+  "commonMistakes": [
+    "Choosing one stakeholder's needs over others",
+    "Not exploring technical solutions to conflicts",
+    "Ignoring compliance requirements"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "How should you address these conflicts?",
+    "description": "Select the approach that best balances all requirements"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement role-based adaptive security: biometric login for clinical staff, simplified workflows within secure zones, and context-aware timeouts that extend during active patient care",
+      "correct": true,
+      "explanation": "This solution addresses all concerns: biometric login is both secure and fast for nurses, context-aware timeouts maintain security without disrupting emergency care, and simplified workflows within secure zones balance usability with compliance. Modern technology can satisfy seemingly conflicting requirements.",
+      "pros": ["Satisfies all stakeholders", "Maintains compliance", "Improves workflow"],
+      "cons": ["More complex to implement"],
+      "realWorldUse": "Many hospitals use similar adaptive security models"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Prioritize IT security requirements since HIPAA compliance is legally mandated",
+      "correct": false,
+      "explanation": "While compliance is critical, implementing strict security without considering usability often leads to workarounds that actually decrease security. Nurses might share logins or prop doors open if the system is too cumbersome.",
+      "whyIncorrect": "Focusing only on security often creates less secure systems due to user workarounds"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Create separate apps for different departments with different security levels",
+      "correct": false,
+      "explanation": "This creates silos and doesn't solve the fundamental conflict. Emergency staff still need access to the same patient data with appropriate security.",
+      "whyIncorrect": "Multiple apps increase complexity and don't resolve the core security vs usability conflict"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Ask executive leadership to decide which requirement is most important",
+      "correct": false,
+      "explanation": "This avoids your responsibility as a solution architect to find creative solutions. Leadership hired you to solve these exact challenges.",
+      "whyIncorrect": "Good architects find solutions that satisfy multiple requirements rather than forcing trade-offs"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The key insight is that modern technology can often satisfy seemingly conflicting requirements. Adaptive security provides both strong protection and good usability by adjusting to context.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This scenario demonstrates that stakeholder conflicts often have technical solutions. Instead of choosing sides, architects should explore how technology can address multiple needs simultaneously. Biometric authentication is actually faster than passwords while being more secure.",
+  
+  "learningMoment": "When stakeholders present conflicting requirements, look for innovative solutions that satisfy everyone rather than forcing compromises. Technology often enables win-win scenarios.",
+  
+  "practicalTip": "In stakeholder conflicts, reframe 'either/or' discussions as 'how might we achieve both?' This shifts focus from conflict to creative problem-solving.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 7,
+  "examReference": "Manage stakeholder requirements",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 60,
+  "type": "multiplechoice",
+  "topic": "Data Modeling Fundamentals",
+  "difficultyLevel": "Easy",
+  "examObjective": "Design basic data relationships",
+  
+  "text": "You're creating a Power Apps solution for a small training company. They need to track instructors, courses, and student enrollments. Each course can have multiple instructors, and each instructor can teach multiple courses. Students can enroll in multiple courses.\n\nWhat type of relationship should you create between Instructors and Courses in Dataverse?",
+  
+  "keyWords": [
+    "Data Relationships",
+    "Many-to-Many",
+    "Dataverse Design",
+    "Entity Relationships",
+    "Basic Data Modeling"
+  ],
+  
+  "scenario": {
+    "businessContext": "Training company needing to track relationships between instructors, courses, and students",
+    "dataNeeds": [
+      "Multiple instructors per course",
+      "Instructors teaching multiple courses",
+      "Student enrollment tracking"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "If each course can have multiple instructors AND each instructor can teach multiple courses, what relationship type is needed?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Basic relationship types",
+    "Many-to-many relationships",
+    "Dataverse capabilities"
+  ],
+  
+  "commonMistakes": [
+    "Using one-to-many when many-to-many is needed",
+    "Creating duplicate records instead of relationships",
+    "Not understanding relationship types"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What type of relationship should you create?",
+    "description": "Select the appropriate relationship type for this scenario"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Many-to-Many (N:N) relationship",
+      "correct": true,
+      "explanation": "Since each instructor can teach multiple courses AND each course can have multiple instructors, you need a many-to-many relationship. Dataverse handles this with an intersect table behind the scenes.",
+      "pros": ["Properly models the business requirement", "No duplicate data", "Easy to query"],
+      "cons": ["Slightly more complex than 1:N"],
+      "realWorldUse": "Standard pattern for instructor-course relationships"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "One-to-Many (1:N) relationship from Instructor to Course",
+      "correct": false,
+      "explanation": "This would mean each course could only have one instructor, which doesn't match the requirement that courses can have multiple instructors.",
+      "whyIncorrect": "Doesn't support multiple instructors per course"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "One-to-Many (1:N) relationship from Course to Instructor",
+      "correct": false,
+      "explanation": "This would mean each instructor could only teach one course, which doesn't match the requirement that instructors can teach multiple courses.",
+      "whyIncorrect": "Doesn't support instructors teaching multiple courses"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Create a text field to store comma-separated instructor names",
+      "correct": false,
+      "explanation": "Storing multiple values in a text field violates database normalization principles and makes querying and reporting extremely difficult.",
+      "whyIncorrect": "Violates data modeling best practices and makes the data unusable for reporting"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Many-to-many relationships are designed exactly for this scenario where both sides can have multiple related records. Dataverse makes this easy to implement.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Understanding relationship types is fundamental to data modeling. Many-to-many relationships are common in real-world scenarios like instructors-courses, students-classes, or products-orders. Dataverse handles the complexity with an automatic intersect table.",
+  
+  "learningMoment": "When both entities can have multiple related records on the other side, you need a many-to-many relationship. The key phrase is 'multiple... AND multiple...'",
+  
+  "practicalTip": "Draw out relationships on paper first. If you see arrows going both directions with 'multiple' on both ends, that's a many-to-many relationship.",
+  
+  "category": "architect_a_solution",
+  "weight": 5,
+  "examReference": "Design data models",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 61,
+  "type": "multiplechoice",
+  "topic": "Integration Architecture",
+  "difficultyLevel": "Medium",
+  "examObjective": "Choose appropriate integration patterns",
+  
+  "text": "A manufacturing company uses Power Apps for work order management and has an on-premises SQL Server database containing real-time production data from factory sensors. The Power Apps solution needs to display current machine status and production metrics updated every 30 seconds.\n\nThe factory has reliable internet but strict security policies preventing cloud services from directly accessing internal databases. Data volume is approximately 500 records updated per minute across 50 machines.\n\nWhich integration approach best meets these requirements?",
+  
+  "keyWords": [
+    "Real-time Integration",
+    "On-premises Data",
+    "Security Constraints",
+    "Data Gateway",
+    "Integration Patterns"
+  ],
+  
+  "scenario": {
+    "businessContext": "Manufacturing environment requiring near real-time data access with security constraints",
+    "dataNeeds": [
+      "30-second data refresh requirement",
+      "500 records per minute volume",
+      "On-premises SQL Server source",
+      "Security policy compliance"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What Microsoft technology enables secure cloud access to on-premises data?",
+      "Consider the refresh rate requirement"
+    ],
+    "medium": [
+      "Think about push vs pull patterns for real-time data",
+      "What provides the best balance of security and performance?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "On-premises integration patterns",
+    "Real-time data strategies",
+    "Security-compliant integration",
+    "Performance considerations"
+  ],
+  
+  "commonMistakes": [
+    "Ignoring security constraints",
+    "Choosing overly complex solutions",
+    "Not considering data volume impacts"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "Which integration approach best meets these requirements?",
+    "description": "Select the most appropriate integration solution"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Install On-premises Data Gateway and use Power Automate with scheduled refresh every 30 seconds to update Dataverse with latest production data",
+      "correct": true,
+      "explanation": "The On-premises Data Gateway provides secure, firewall-friendly connectivity to on-premises SQL Server. Power Automate can poll for changes every 30 seconds and update Dataverse, which Power Apps then displays. This respects security policies while meeting the near real-time requirement.",
+      "pros": ["Secure approved solution", "Meets 30-second requirement", "No firewall changes needed"],
+      "cons": ["30-second minimum polling interval"],
+      "realWorldUse": "Standard pattern for secure on-premises integration"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Open firewall ports to allow Power Apps direct SQL connection to the on-premises database",
+      "correct": false,
+      "explanation": "This violates the stated security policies and exposes the internal database to the internet, creating significant security risks.",
+      "whyIncorrect": "Violates security policies and creates vulnerabilities"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Export data from SQL Server to Excel files every hour and upload to SharePoint for Power Apps access",
+      "correct": false,
+      "explanation": "Hourly updates don't meet the 30-second refresh requirement, and manual file handling is error-prone and not scalable.",
+      "whyIncorrect": "Doesn't meet the 30-second update requirement"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Build custom web service on-premises and expose it through Azure Application Proxy",
+      "correct": false,
+      "explanation": "While technically feasible, this is unnecessarily complex when the On-premises Data Gateway provides the same capability with less development effort.",
+      "whyIncorrect": "Overly complex when standard solutions exist"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The On-premises Data Gateway is Microsoft's standard solution for this exact scenario. It provides secure connectivity without firewall changes and supports the required refresh frequency.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This scenario represents a common integration challenge: accessing on-premises data from cloud applications with security constraints. The On-premises Data Gateway is purpose-built for this scenario, providing encrypted connectivity without exposing internal systems.",
+  
+  "learningMoment": "When integrating on-premises systems with Power Platform, the On-premises Data Gateway is usually the best first option to consider. It's secure, supported, and relatively simple to implement.",
+  
+  "practicalTip": "For near real-time scenarios (updates needed in seconds to minutes), polling patterns with Power Automate work well. For true real-time (milliseconds), consider event-driven architectures.",
+  
+  "category": "architect_a_solution",
+  "weight": 6,
+  "examReference": "Design integration strategies",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 62,
+  "type": "multiplechoice",
+  "topic": "Performance & API Limits",
+  "difficultyLevel": "Easy",
+  "examObjective": "Understand basic performance optimization",
+  
+  "text": "Users complain that a Power Apps canvas app is slow when loading a gallery that displays customer records from Dataverse. The gallery shows all 50,000 customer records with no filtering. What is the BEST first step to improve performance?",
+  
+  "keyWords": [
+    "Performance Optimization",
+    "Gallery Performance",
+    "Data Loading",
+    "Canvas Apps",
+    "Delegation"
+  ],
+  
+  "scenario": {
+    "businessContext": "Canvas app with poor performance due to large data volume in gallery",
+    "dataNeeds": [
+      "50,000 customer records",
+      "Gallery display requirements",
+      "User experience expectations"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "Do users really need to see all 50,000 records at once?",
+      "What's the most common performance issue with galleries?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Gallery performance basics",
+    "Data loading strategies",
+    "Delegation concepts"
+  ],
+  
+  "commonMistakes": [
+    "Loading all data without filtering",
+    "Not understanding delegation limits",
+    "Ignoring user experience patterns"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What is the BEST first step to improve performance?",
+    "description": "Select the most impactful performance improvement"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Add search and filter controls to limit the records displayed in the gallery",
+      "correct": true,
+      "explanation": "No user can effectively work with 50,000 records at once. Adding search and filters reduces the data to a manageable amount, dramatically improving performance. This also improves user experience by helping users find what they need quickly.",
+      "pros": ["Immediate performance improvement", "Better user experience", "Simple to implement"],
+      "cons": ["Requires user interaction"],
+      "realWorldUse": "Standard pattern for all apps with large datasets"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Increase the data row limit from 500 to 2000 in app settings",
+      "correct": false,
+      "explanation": "This would make performance worse by trying to load more data. The limit exists to prevent performance problems.",
+      "whyIncorrect": "Loading more data makes performance worse, not better"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Move the data from Dataverse to Excel Online",
+      "correct": false,
+      "explanation": "Excel has even more limitations for large datasets and would make the problem worse. Dataverse is designed for this scale.",
+      "whyIncorrect": "Excel is not designed for 50,000 record datasets"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Convert to a model-driven app",
+      "correct": false,
+      "explanation": "While model-driven apps handle large datasets better, this is a drastic change. The canvas app can perform well with proper filtering.",
+      "whyIncorrect": "Unnecessarily complex solution when simple filtering would solve the problem"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Adding search and filters is the fundamental solution for gallery performance. Users can't work with 50,000 records anyway, so filtering improves both performance and usability.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This represents the most common performance issue in Power Apps: trying to display too much data. The solution is simple - only load what users need. Search and filter controls make the app both faster and more useful.",
+  
+  "learningMoment": "Performance problems often indicate user experience problems. If an app is trying to show 50,000 records, ask 'what is the user really trying to do?' Then design for that scenario.",
+  
+  "practicalTip": "Always implement search/filter for any data source over 100 records. Users will thank you for both the performance and the improved usability.",
+  
+  "category": "architect_a_solution",
+  "weight": 4,
+  "examReference": "Optimize solution performance",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 41,
+  "type": "multiplechoice",
+  "topic": "Solution Envisioning & Requirements",
+  "difficultyLevel": "Medium",
+  "examObjective": "Understand complete business ecosystem",
+  
+  "text": "You're architecting a solution for a university that wants to modernize their student services. During discovery, the IT director focuses only on replacing their student portal. However, through your analysis, you discover:\n\n- Students use 12 different systems for various services\n- 40% of help desk tickets are password reset requests\n- Academic advisors manually copy data between systems\n- Financial aid has no integration with registration\n- Alumni relations uses completely separate systems\n\nWhat should be your primary recommendation?",
+  
+  "keyWords": [
+    "Ecosystem Analysis",
+    "Holistic View",
+    "System Integration",
+    "Business Process",
+    "Digital Transformation"
+  ],
+  
+  "scenario": {
+    "businessContext": "University with fragmented systems creating poor student experience and operational inefficiency",
+    "dataNeeds": [
+      "Student lifecycle from application to alumni",
+      "Integration points between departments",
+      "Identity management across systems",
+      "Process automation opportunities"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What's the root cause of the problems?",
+      "Think beyond just replacing one system"
+    ],
+    "medium": [
+      "Consider the entire student journey",
+      "What would solve multiple problems at once?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Systems thinking",
+    "Root cause analysis",
+    "Enterprise architecture view",
+    "Strategic recommendations"
+  ],
+  
+  "commonMistakes": [
+    "Focusing on single system replacement",
+    "Not seeing integration opportunities",
+    "Missing the bigger picture"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should be your primary recommendation?",
+    "description": "Select the most strategic approach"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement a unified student experience platform with single sign-on, integrated workflows across departments, and a comprehensive Power Platform solution connecting all systems",
+      "correct": true,
+      "explanation": "This addresses the root causes: system fragmentation, password fatigue, manual data entry, and poor integration. A unified platform with SSO solves 40% of help desk tickets immediately while enabling process automation across departments. This transforms the student experience while improving operational efficiency.",
+      "pros": ["Solves multiple problems", "Improves student experience", "Enables automation", "Reduces help desk load"],
+      "cons": ["Larger initial scope", "Requires cross-department coordination"],
+      "realWorldUse": "Universities like ASU have transformed student services with unified platforms"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Focus on replacing the student portal as requested by IT",
+      "correct": false,
+      "explanation": "This addresses only one symptom of the larger problem. Students would still struggle with multiple systems and passwords, and operational inefficiencies would continue.",
+      "whyIncorrect": "Misses the opportunity to solve root causes and transform the entire student experience"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Implement a password manager for students",
+      "correct": false,
+      "explanation": "While this might reduce password reset tickets, it doesn't address the fundamental issue of system fragmentation and manual processes.",
+      "whyIncorrect": "Treats symptoms rather than the disease of system fragmentation"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Create point-to-point integrations between the most critical systems",
+      "correct": false,
+      "explanation": "Point-to-point integrations create technical debt and become difficult to maintain. A platform approach is more sustainable.",
+      "whyIncorrect": "Creates spaghetti architecture that becomes harder to maintain over time"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The unified platform approach demonstrates understanding of the complete ecosystem. It solves multiple problems with one architectural decision, providing both immediate wins (SSO reducing help desk tickets) and long-term transformation (integrated workflows).",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This scenario tests your ability to see beyond stated requirements to understand the complete business ecosystem. Good architects identify patterns (system fragmentation), root causes (lack of integration), and opportunities for transformation (unified platform).",
+  
+  "learningMoment": "Always look for patterns in problems. Multiple symptoms (password resets, manual copying, poor integration) often point to a systemic issue that requires a platform solution, not point fixes.",
+  
+  "practicalTip": "During discovery, ask 'What other systems do users interact with?' and 'What manual processes exist between systems?' This reveals integration opportunities that transform user experience.",
+  
+  "category": "perform_solution_envisioning",
+  "weight": 7,
+  "examReference": "Analyze business ecosystem",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 64,
+  "type": "multiplechoice",
+  "topic": "Environment Strategy & ALM",
+  "difficultyLevel": "Medium",
+  "examObjective": "Design environment and deployment strategies",
+  
+  "text": "A financial services company is implementing Power Platform with strict requirements for testing and compliance. They have 50 developers across 3 teams working on different features, need to maintain SOX compliance with separation of duties, and require that all changes be tested by business users before production deployment.\n\nTheir current plan is to have Development → Production environments only. What should you recommend?",
+  
+  "keyWords": [
+    "Environment Strategy",
+    "ALM",
+    "SOX Compliance",
+    "Testing Environments",
+    "Deployment Pipeline",
+    "Separation of Duties"
+  ],
+  
+  "scenario": {
+    "businessContext": "Financial services requiring proper ALM with compliance and testing requirements",
+    "dataNeeds": [
+      "Multiple development teams",
+      "Business user testing needs",
+      "Compliance audit trails",
+      "Deployment controls"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What's missing between Development and Production?",
+      "How do you enable business user testing safely?"
+    ],
+    "medium": [
+      "Consider the purpose of each environment type",
+      "Think about SOX compliance requirements for separation"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Environment strategy design",
+    "ALM best practices",
+    "Compliance requirements",
+    "Testing strategies"
+  ],
+  
+  "commonMistakes": [
+    "Skipping test environments to save costs",
+    "Not separating development from testing",
+    "Ignoring compliance requirements"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What environment strategy should you recommend?",
+    "description": "Select the most appropriate environment structure"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement a four-tier environment strategy: Development → Test → UAT → Production, with automated deployments between environments and proper access controls",
+      "correct": true,
+      "explanation": "This provides proper separation of duties for SOX compliance: developers work in Dev, IT tests in Test, business users validate in UAT, and Production is protected. Automated deployments ensure consistency and audit trails. Each environment serves a specific purpose in the quality assurance process.",
+      "pros": ["SOX compliance through separation", "Safe business user testing in UAT", "Quality gates at each stage", "Clear audit trail"],
+      "cons": ["More environments to manage", "Additional licensing costs"],
+      "realWorldUse": "Standard pattern for regulated industries requiring compliance"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Keep Development → Production but give business users access to test in Development",
+      "correct": false,
+      "explanation": "This violates separation of duties required for SOX compliance and risks business users seeing incomplete features or breaking development work.",
+      "whyIncorrect": "Mixing development and testing violates compliance requirements and creates chaos"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Add a single Test environment between Development and Production for all testing",
+      "correct": false,
+      "explanation": "While better than two environments, this doesn't separate IT testing from business user testing, which is important for quality assurance and compliance.",
+      "whyIncorrect": "Insufficient separation between technical and business testing phases"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Create separate Development environments for each team with direct deployment to Production",
+      "correct": false,
+      "explanation": "This creates integration issues and still lacks proper testing environments. Multiple paths to production increase risk and complexity.",
+      "whyIncorrect": "No testing environments and multiple production paths create quality and compliance risks"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The four-tier environment strategy is best practice for regulated industries. It provides proper separation of duties, enables safe testing at each stage, and maintains compliance requirements while supporting multiple development teams.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Environment strategy is crucial for enterprise ALM. Each environment serves a specific purpose: Development for building, Test for technical validation, UAT for business validation, and Production for live operations. This separation ensures quality while maintaining compliance.",
+  
+  "learningMoment": "In regulated industries, environment strategy isn't just about testing—it's about compliance, separation of duties, and audit trails. Plan environments based on who needs access and why.",
+  
+  "practicalTip": "Budget for at least three environments (Dev, UAT, Prod) minimum. The cost of environments is tiny compared to the cost of production issues or compliance violations.",
+  
+  "category": "architect_a_solution",
+  "weight": 7,
+  "examReference": "Design environment strategy",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 65,
+  "type": "multiplechoice",
+  "topic": "Security Architecture",
+  "difficultyLevel": "Medium",
+  "examObjective": "Design security for complex scenarios",
+  
+  "text": "A healthcare organization is implementing Power Platform for patient care coordination. They have these security requirements:\n\n- Doctors can see all patient records in their department\n- Nurses can only see patients assigned to them\n- Administrative staff can see patient names and appointments but not medical details\n- Department heads can see all records in their department plus summary reports\n- All access must be audited for HIPAA compliance\n\nHow should you design the security model in Dataverse?",
+  
+  "keyWords": [
+    "Security Design",
+    "Role-Based Access",
+    "Field-Level Security",
+    "Business Units",
+    "HIPAA Compliance",
+    "Audit Requirements"
+  ],
+  
+  "scenario": {
+    "businessContext": "Healthcare organization with complex security requirements based on roles and departments",
+    "dataNeeds": [
+      "Department-based access control",
+      "Role-specific data visibility",
+      "Field-level restrictions",
+      "Comprehensive auditing"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What Dataverse features support department-based security?",
+      "How can you hide specific fields from certain roles?"
+    ],
+    "medium": [
+      "Consider combining multiple security features",
+      "Think about how to implement hierarchical access"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Business unit design",
+    "Security role configuration",
+    "Field-level security",
+    "Security architecture patterns"
+  ],
+  
+  "commonMistakes": [
+    "Using only security roles without business units",
+    "Forgetting field-level security for sensitive data",
+    "Over-complicating security design"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "How should you design the security model?",
+    "description": "Select the most appropriate security architecture"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Use Business Units for departments, Security Roles for job functions (Doctor, Nurse, Admin), Field-Level Security for medical details, and enable auditing on all patient tables",
+      "correct": true,
+      "explanation": "This layered approach properly addresses all requirements: Business Units provide department isolation, Security Roles define job-based permissions, Field-Level Security protects sensitive medical data from administrative staff, and auditing ensures HIPAA compliance. The combination provides precise control while remaining manageable.",
+      "pros": ["Precise access control", "Scalable design", "HIPAA compliant", "Clear security model"],
+      "cons": ["Requires careful planning", "Multiple features to configure"],
+      "realWorldUse": "Standard pattern for healthcare organizations using Power Platform"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Create separate Power Apps for each role with filtered data sources",
+      "correct": false,
+      "explanation": "This creates maintenance nightmares and doesn't provide proper security—users could potentially access data through other means. Security should be enforced at the data layer, not the application layer.",
+      "whyIncorrect": "Security through obscurity is not real security, and multiple apps increase maintenance"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Use only Security Roles with complex privilege configurations for each combination of department and role",
+      "correct": false,
+      "explanation": "This creates role explosion (e.g., Cardiology-Doctor, Neurology-Doctor, etc.) making the system unmaintainable. Business Units are designed exactly for this scenario.",
+      "whyIncorrect": "Creates too many security roles and becomes unmanageable as departments grow"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Implement row-level security using Power Automate flows to filter data based on user properties",
+      "correct": false,
+      "explanation": "This is complex, performs poorly, and can be bypassed. Dataverse has built-in security features designed for exactly these requirements.",
+      "whyIncorrect": "Reinventing the wheel when platform features already exist for this purpose"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "The layered security approach using Business Units, Security Roles, and Field-Level Security provides the right tool for each requirement while maintaining a manageable and auditable security model.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Effective security architecture uses multiple Dataverse features in combination. Business Units handle organizational structure, Security Roles define functional permissions, Field-Level Security protects sensitive attributes, and auditing ensures compliance. This layered approach provides defense in depth.",
+  
+  "learningMoment": "Don't try to solve all security requirements with one feature. Dataverse provides multiple security mechanisms designed to work together. Use each for its intended purpose.",
+  
+  "practicalTip": "Start with Business Units for organizational structure, add Security Roles for job functions, then layer on Field-Level Security for sensitive data. This approach scales well and remains maintainable.",
+  
+  "category": "architect_a_solution",
+  "weight": 8,
+  "examReference": "Design security architecture",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 66,
+  "type": "multiplechoice",
+  "topic": "Solution Design Process",
+  "difficultyLevel": "Medium",
+  "examObjective": "Design automated business processes",
+  
+  "text": "A insurance company processes 5,000 claims daily with this workflow:\n\n1. Claims arrive via email, fax, and web portal\n2. Staff manually enter data into system (20 minutes per claim)\n3. Claims under $1,000 are auto-approved\n4. Claims $1,000-$10,000 need supervisor review\n5. Claims over $10,000 need director approval\n6. Approved claims generate payment in accounting system\n7. Customers are notified of claim status\n\nThey want to reduce processing time by 75%. What should you recommend?",
+  
+  "keyWords": [
+    "Process Automation",
+    "Workflow Design",
+    "AI Builder",
+    "Power Automate",
+    "Business Rules",
+    "Integration"
+  ],
+  
+  "scenario": {
+    "businessContext": "Insurance company with high-volume claims processing needing significant efficiency improvements",
+    "dataNeeds": [
+      "Multi-channel claim ingestion",
+      "Automated data extraction",
+      "Rule-based routing",
+      "System integration",
+      "Customer notifications"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What's taking the most time currently?",
+      "How can AI help with document processing?"
+    ],
+    "medium": [
+      "Consider end-to-end automation possibilities",
+      "Think about which parts must remain human-driven"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Process automation design",
+    "AI Builder capabilities",
+    "Workflow optimization",
+    "Integration patterns"
+  ],
+  
+  "commonMistakes": [
+    "Automating without fixing the process",
+    "Not considering AI for document processing",
+    "Over-automating approval processes"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should you recommend to achieve 75% time reduction?",
+    "description": "Select the most effective automation approach"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement AI Builder for document processing to extract claim data, Power Automate for workflow routing based on amount rules, automated integration with accounting, and automated customer notifications",
+      "correct": true,
+      "explanation": "This eliminates the biggest time waste—manual data entry (20 minutes per claim)—using AI Builder. Power Automate handles routing and approvals based on business rules, maintaining human oversight where needed while automating routine tasks. This easily achieves 75% time reduction by focusing on the manual bottleneck.",
+      "pros": ["Eliminates manual data entry", "Maintains approval controls", "End-to-end automation", "Scalable solution"],
+      "cons": ["Requires AI Builder licensing", "Initial training of AI models"],
+      "realWorldUse": "Insurance companies like Progressive use similar AI-driven automation"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Focus only on automating the approval routing with Power Automate",
+      "correct": false,
+      "explanation": "This misses the biggest opportunity—manual data entry takes 20 minutes per claim. Automating approvals alone won't achieve 75% time reduction.",
+      "whyIncorrect": "Doesn't address the primary bottleneck of manual data entry"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Hire more data entry staff to reduce the backlog",
+      "correct": false,
+      "explanation": "This increases costs without addressing the fundamental inefficiency. The goal is to reduce processing time through automation, not add human resources.",
+      "whyIncorrect": "Solves the problem with more people instead of better process"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Increase auto-approval threshold to $5,000 to reduce reviews needed",
+      "correct": false,
+      "explanation": "This creates business risk without addressing the main time sink. The manual data entry still takes 20 minutes regardless of approval limits.",
+      "whyIncorrect": "Increases risk without solving the core efficiency problem"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "AI-driven document processing eliminates the primary bottleneck while workflow automation handles the remaining process efficiently. This combination achieves dramatic time reduction while maintaining necessary controls.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Successful process automation requires identifying the biggest bottlenecks first. Here, manual data entry consumes 20 minutes per claim × 5,000 claims = 1,667 hours daily. AI Builder can reduce this to minutes, providing immediate massive improvement while Power Automate optimizes the remaining workflow.",
+  
+  "learningMoment": "When automating processes, always analyze where time is actually spent. The biggest manual effort (data entry) often provides the biggest automation opportunity. AI Builder excels at eliminating document processing bottlenecks.",
+  
+  "practicalTip": "Use the 80/20 rule: 80% of process time often comes from 20% of activities. Find and automate those activities first for maximum impact.",
+  
+  "category": "architect_a_solution",
+  "weight": 7,
+  "examReference": "Design business process automation",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 67,
+  "type": "multiplechoice",
+  "topic": "Solution Validation",
+  "difficultyLevel": "Medium",
+  "examObjective": "Plan for user adoption and change management",
+  
+  "text": "You've built an excellent Power Platform solution for a retail chain replacing their paper-based inventory system. During pilot testing at 5 stores, you discover:\n\n- Store managers love the real-time insights\n- Young employees adopted it quickly\n- Experienced employees (15+ years) refuse to use it, saying 'paper worked fine'\n- Some stores have 80% adoption, others only 20%\n- Regional managers are concerned about inconsistent data\n\nThe company plans to roll out to all 200 stores next month. What should you recommend?",
+  
+  "keyWords": [
+    "Change Management",
+    "User Adoption",
+    "Training Strategy",
+    "Resistance Management",
+    "Rollout Planning",
+    "Success Metrics"
+  ],
+  
+  "scenario": {
+    "businessContext": "Retail chain facing adoption challenges during digital transformation with varied user demographics",
+    "dataNeeds": [
+      "User adoption metrics",
+      "Demographic patterns",
+      "Training effectiveness",
+      "Success factors from pilot"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What's different between high and low adoption stores?",
+      "How do you address resistance to change?"
+    ],
+    "medium": [
+      "Consider phased approaches versus big bang",
+      "Think about making adoption mandatory versus voluntary"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Change management strategies",
+    "Adoption planning",
+    "Resistance management",
+    "Rollout methodologies"
+  ],
+  
+  "commonMistakes": [
+    "Forcing rollout without addressing adoption issues",
+    "Ignoring user resistance",
+    "One-size-fits-all training"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should you recommend for successful rollout?",
+    "description": "Select the best approach to ensure adoption"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Delay rollout to implement a comprehensive change management program: identify champions in high-adoption stores, create peer mentoring program, develop role-specific training for experienced employees, and phase rollout based on readiness",
+      "correct": true,
+      "explanation": "This addresses the root cause—change resistance—rather than forcing technology adoption. Champions from successful stores can mentor others, peer influence is powerful for experienced employees, and phased rollout based on readiness ensures success builds on success. The delay prevents a disaster that could doom the entire initiative.",
+      "pros": ["Addresses resistance directly", "Builds sustainable adoption", "Leverages success stories", "Reduces failure risk"],
+      "cons": ["Delays full rollout", "Requires investment in change management"],
+      "realWorldUse": "Walmart's successful technology rollouts always include champion programs"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Proceed with full rollout but make the system mandatory with management enforcement",
+      "correct": false,
+      "explanation": "Forcing adoption without addressing resistance typically leads to workarounds, data quality issues, and potential sabotage. The pilot already shows this approach doesn't work.",
+      "whyIncorrect": "Force without addressing concerns creates resentment and shadow IT"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Modify the system to be more like the paper process to increase comfort",
+      "correct": false,
+      "explanation": "This defeats the purpose of digital transformation and won't deliver the benefits. The issue isn't the system design—some stores have 80% adoption with the same system.",
+      "whyIncorrect": "Diluting the solution won't address change resistance"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Replace resistant employees with younger staff who embrace technology",
+      "correct": false,
+      "explanation": "This is both impractical and destroys valuable experience. Experienced employees often have the best process knowledge; they need support, not replacement.",
+      "whyIncorrect": "Loses valuable experience and creates hostile environment"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Successful technology adoption requires addressing human factors. The champion-based approach leverages social proof and peer influence, which are particularly effective with experienced employees who trust their colleagues more than technology promises.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "This scenario illustrates that great technology alone doesn't ensure success. The variation in adoption (20% to 80%) shows the solution works—when properly introduced. Change management isn't optional for enterprise rollouts; it's the difference between success and expensive failure.",
+  
+  "learningMoment": "Technology adoption is 20% tech and 80% people. When you see varied adoption rates with the same technology, look for human factors. Champions and peer influence often succeed where training and mandates fail.",
+  
+  "practicalTip": "Always identify and replicate success patterns. If some locations have 80% adoption, study what they did differently. Often it's one enthusiastic champion who made the difference.",
+  
+  "category": "architect_a_solution",
+  "weight": 7,
+  "examReference": "Plan user adoption strategies",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 68,
+  "type": "multiplechoice",
+  "topic": "Solution Validation",
+  "difficultyLevel": "Medium",
+  "examObjective": "Design validation and testing strategies",
+  
+  "text": "A logistics company has built a Power Platform solution for route optimization that integrates with their GPS tracking, weather services, and traffic APIs. The solution must handle 1,000 delivery trucks making 50,000 deliveries daily. Before go-live, you need to validate the solution will work at scale.\n\nWhat testing approach would best validate the solution?",
+  
+  "keyWords": [
+    "Performance Testing",
+    "Integration Testing",
+    "Load Testing",
+    "Solution Validation",
+    "Test Strategy",
+    "Scalability Testing"
+  ],
+  
+  "scenario": {
+    "businessContext": "Logistics company requiring validation of high-volume, multi-integration solution before production deployment",
+    "dataNeeds": [
+      "1,000 concurrent truck tracking",
+      "50,000 daily transactions",
+      "Real-time API integrations",
+      "Route optimization algorithms"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What could go wrong at scale that works fine in testing?",
+      "Consider all integration points"
+    ],
+    "medium": [
+      "Think about realistic testing scenarios",
+      "How do you test external dependencies?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Test strategy design",
+    "Performance validation",
+    "Integration testing approaches",
+    "Risk mitigation"
+  ],
+  
+  "commonMistakes": [
+    "Testing with small data volumes",
+    "Not testing integration failures",
+    "Ignoring peak load scenarios"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What testing approach would best validate the solution?",
+    "description": "Select the most comprehensive validation strategy"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Execute phased testing: unit tests for business logic, integration tests with API mocking for failure scenarios, load testing with realistic data volumes, and pilot with 100 trucks before full deployment",
+      "correct": true,
+      "explanation": "This comprehensive approach validates each layer: unit tests ensure business logic correctness, API mocking tests failure handling (critical for external dependencies), load testing confirms scalability, and pilot deployment validates real-world operation. The phased approach catches issues early when they're cheaper to fix.",
+      "pros": ["Tests all risk areas", "Catches issues early", "Validates at scale", "Real-world pilot validation"],
+      "cons": ["Requires time and planning", "More complex test setup"],
+      "realWorldUse": "FedEx uses similar phased testing for route optimization systems"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Perform user acceptance testing with business users testing happy path scenarios",
+      "correct": false,
+      "explanation": "While UAT is important, it doesn't validate performance at scale or integration failure scenarios. Happy path testing misses edge cases that cause production failures.",
+      "whyIncorrect": "Doesn't test scale, performance, or failure scenarios"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Run automated UI tests to validate all screens and workflows function correctly",
+      "correct": false,
+      "explanation": "UI testing doesn't validate the critical aspects: performance at scale, API integration reliability, or system behavior under load.",
+      "whyIncorrect": "Focuses on UI rather than scale and integration risks"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Deploy to production with all trucks but monitor closely for the first week",
+      "correct": false,
+      "explanation": "This 'test in production' approach risks business disruption. With 50,000 daily deliveries, failures could cause significant customer impact and revenue loss.",
+      "whyIncorrect": "Unacceptable risk for business-critical operations"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Phased testing with increasing scope and realism provides confidence while managing risk. Each phase validates different aspects, with the pilot serving as final validation before full deployment.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Enterprise solution validation requires testing at multiple levels. Unit tests catch logic errors, integration tests with mocking validate error handling, load tests confirm scalability, and pilots validate real-world operation. This layered approach prevents expensive production failures.",
+  
+  "learningMoment": "Test what can go wrong, not just what should go right. External APIs will fail, load will spike, and users will do unexpected things. Your testing strategy should validate the solution handles all these scenarios.",
+  
+  "practicalTip": "Always test external dependency failures. APIs go down, rate limits hit, and networks fail. Use mocking to simulate these failures and ensure your solution degrades gracefully.",
+  
+  "category": "architect_a_solution",
+  "weight": 6,
+  "examReference": "Design solution validation approach",
+  "examArea": "Solution Architecture (35-40%)"
+},
+{
+  "id": 47,
+  "type": "multiplechoice",
+  "topic": "Power Platform Well-Architected Framework",
+  "difficultyLevel": "Medium",
+  "examObjective": "Optimize solution costs",
+  
+  "text": "A nonprofit organization using Power Platform has seen their monthly costs increase from $2,000 to $15,000 over six months. Investigation reveals:\n\n- 500 users but only 150 active monthly\n- Power Automate flows running every minute checking for changes\n- Dataverse storage at 450GB with old test data\n- Premium connectors assigned to all users\n- Multiple development environments never deleted\n\nWhat should be your primary cost optimization recommendation?",
+  
+  "keyWords": [
+    "Cost Optimization",
+    "License Management",
+    "Resource Efficiency",
+    "Well-Architected Framework",
+    "Storage Optimization",
+    "Flow Efficiency"
+  ],
+  
+  "scenario": {
+    "businessContext": "Nonprofit facing budget pressure from unexpectedly high Power Platform costs",
+    "dataNeeds": [
+      "User activity analysis",
+      "Flow execution patterns",
+      "Storage utilization",
+      "License assignments",
+      "Environment management"
+    ]
+  },
+  
+  "hints": {
+    "easy": [
+      "What's consuming resources without providing value?",
+      "Look for waste in licensing and execution"
+    ],
+    "medium": [
+      "Consider the impact versus effort of each optimization",
+      "What provides the biggest immediate savings?"
+    ]
+  },
+  
+  "conceptsTested": [
+    "Cost optimization strategies",
+    "License optimization",
+    "Resource efficiency",
+    "Power Platform economics"
+  ],
+  
+  "commonMistakes": [
+    "Focusing on small optimizations first",
+    "Not addressing licensing waste",
+    "Ignoring inefficient patterns"
+  ],
+  
+  "questionItems": [{
+    "id": "default",
+    "text": "What should be your primary cost optimization recommendation?",
+    "description": "Select the most impactful cost reduction approach"
+  }],
+  
+  "answerOptions": [
+    {
+      "id": "opt_a",
+      "letter": "A",
+      "text": "Implement activity-based license management, convert per-minute flows to event-driven triggers, clean up test data and environments, and assign premium connectors only to users who need them",
+      "correct": true,
+      "explanation": "This comprehensive approach attacks the major cost drivers: 350 unused licenses could save $7,000/month alone, event-driven flows reduce consumption by 95%+, storage cleanup avoids overage charges, and selective premium connector assignment optimizes costs. Combined impact could reduce costs by 70%+ while maintaining functionality.",
+      "pros": ["Addresses all major cost drivers", "Maintains functionality", "Sustainable long-term", "Quick wins available"],
+      "cons": ["Requires initial analysis effort", "Some user management overhead"],
+      "realWorldUse": "Organizations typically see 60-80% cost reduction with proper optimization"
+    },
+    {
+      "id": "opt_b",
+      "letter": "B",
+      "text": "Move everything to SharePoint lists instead of Dataverse to eliminate storage costs",
+      "correct": false,
+      "explanation": "This is a drastic architectural change that would sacrifice functionality. Dataverse provides security, relationships, and business logic that SharePoint lists cannot match. The storage cost is minor compared to license waste.",
+      "whyIncorrect": "Architectural regression for minor savings while ignoring major cost drivers"
+    },
+    {
+      "id": "opt_c",
+      "letter": "C",
+      "text": "Reduce the number of flows by combining multiple automations into single flows",
+      "correct": false,
+      "explanation": "While this might provide some optimization, it doesn't address the per-minute execution pattern or the major cost driver of unused licenses. Combined flows can also be harder to maintain.",
+      "whyIncorrect": "Minor optimization that misses the major cost drivers"
+    },
+    {
+      "id": "opt_d",
+      "letter": "D",
+      "text": "Switch all users to the lower-tier Power Apps license",
+      "correct": false,
+      "explanation": "This might break functionality if users need premium features. The issue isn't the license tier but that 350 users don't need licenses at all.",
+      "whyIncorrect": "Doesn't address unused licenses and may break required functionality"
+    }
+  ],
+  
+  "correctMappings": [{
+    "questionItemId": "default",
+    "correctAnswerIds": ["opt_a"],
+    "explanation": "Successful cost optimization requires addressing all waste areas systematically. License optimization typically provides the biggest impact, followed by execution pattern improvements and resource cleanup.",
+    "isMultiSelect": false
+  }],
+  
+  "detailedExplanation": "Power Platform cost optimization follows the Pareto principle: 80% of costs often come from 20% of resources. Here, unused licenses and inefficient flow patterns drive most costs. Address these first before minor optimizations.",
+  
+  "learningMoment": "Cost optimization isn't about using less—it's about eliminating waste. Unused licenses, polling patterns instead of events, and retained test data are pure waste that provides no value.",
+  
+  "practicalTip": "Implement monthly license reviews comparing assigned versus active users. Set up automated reports to catch drift early. One person saving $7,000/month pays for a lot of automation effort.",
+  
+  "category": "architect_a_solution",
+  "weight": 6,
+  "examReference": "Apply Well-Architected Framework cost optimization",
+  "examArea": "Solution Architecture (35-40%)"
+}	      	      
 ];
 
       setQuestions(sampleQuestions);
