@@ -13288,7 +13288,414 @@
   "examReference": "Document solution assumptions and constraints",
   "source": "Enhanced for September 2024 exam updates",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-}
+},
+	      [
+    {
+        "id": 76,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Medium",
+        "examArea": "Solution Envisioning and Requirements (45-50%)",
+        "text": "A global non-profit organisation is implementing a Power Platform solution to manage donor relationships and fundraising campaigns. The organisation has the following requirements:\n• Donors should receive personalised communication based on their donation history.\n• Fundraising managers need real-time dashboards to track campaign performance.\n• The system must integrate with their existing CRM and financial systems.\n• The solution must comply with GDPR regulations for donor data.\n\nWhat should the solution architect prioritise during the envisioning phase?",
+        "keyWords": [
+            "Donor Management",
+            "GDPR Compliance"
+        ],
+        "scenario": {
+            "businessContext": "The organisation needs to manage donor relationships and ensure compliance with GDPR regulations.",
+            "dataNeeds": [
+                "Personalised donor communication",
+                "Real-time campaign performance dashboards"
+            ]
+        },
+        "questionItems": [
+            {
+                "id": "default",
+                "text": "What should the solution architect prioritise during the envisioning phase?",
+                "description": "Identify the most critical step to ensure compliance and solution success.",
+                "businessContext": "Ensuring compliance with GDPR is a legal requirement and must be addressed early."
+            }
+        ],
+        "answerOptions": [
+            {
+                "id": "opt_a",
+                "letter": "A",
+                "text": "Design the dashboards for campaign performance tracking.",
+                "description": "Focuses on visualising campaign performance.",
+                "analysis": "Dashboards are important but should not be prioritised over compliance.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Provides insights into campaign performance"],
+                "cons": ["Does not address compliance requirements"],
+                "whyIncorrect": "Compliance must be addressed before focusing on dashboards.",
+                "realWorldUse": "Used for tracking campaign performance in fundraising."
+            },
+            {
+                "id": "opt_b",
+                "letter": "B",
+                "text": "Identify GDPR compliance requirements and map them to the solution.",
+                "description": "Ensures the solution meets legal and regulatory standards.",
+                "analysis": "Compliance is a foundational requirement that influences all other aspects of the solution.",
+                "wellArchitectedPillar": "Security",
+                "pros": ["Ensures legal compliance", "Reduces risk of penalties"],
+                "cons": ["Requires detailed analysis and planning"],
+                "whyCorrect": "Compliance is a legal requirement and must be prioritised during the envisioning phase.",
+                "realWorldUse": "Ensures GDPR compliance for donor data in non-profit organisations."
+            },
+            {
+                "id": "opt_c",
+                "letter": "C",
+                "text": "Build a custom connector for CRM integration.",
+                "description": "Focuses on integrating with the existing CRM system.",
+                "analysis": "Integration is important but should follow compliance planning.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Enables data integration"],
+                "cons": ["Does not address compliance requirements"],
+                "whyIncorrect": "Integration should follow compliance planning.",
+                "realWorldUse": "Used for connecting CRM systems with Power Platform solutions."
+            },
+            {
+                "id": "opt_d",
+                "letter": "D",
+                "text": "Develop a communication workflow for personalised donor emails.",
+                "description": "Focuses on automating donor communication.",
+                "analysis": "Personalised communication is important but should follow compliance planning.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Improves donor engagement"],
+                "cons": ["Does not address compliance requirements"],
+                "whyIncorrect": "Compliance must be addressed before focusing on communication workflows.",
+                "realWorldUse": "Used for automating donor communication in fundraising campaigns."
+            }
+        ],
+        "correctMappings": [
+            {
+                "questionItemId": "default",
+                "correctAnswerIds": ["opt_b"],
+                "explanation": "Compliance requirements such as GDPR must be prioritised to ensure the solution meets legal and regulatory standards. This forms the foundation for subsequent design and implementation activities.",
+                "isMultiSelect": false
+            }
+        ],
+        "detailedExplanation": "During the envisioning phase, compliance requirements such as GDPR must be prioritised to ensure the solution meets legal and regulatory standards. This forms the foundation for subsequent design and implementation activities.",
+        "learningMoment": "Compliance requirements often constrain solution design and must be addressed early in the envisioning phase.",
+        "practicalTip": "Always identify regulatory requirements during stakeholder interviews to avoid costly redesigns later.",
+        "realWorldExample": "A non-profit organisation ensuring GDPR compliance for donor data before implementing dashboards.",
+        "category": "perform_solution_envisioning",
+        "weight": 6,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Generated based on Microsoft Learn and Well-Architected Framework"
+    },
+    {
+        "id": 77,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Hard",
+        "examArea": "Solution Envisioning and Requirements (45-50%)",
+        "text": "A retail chain with 50 stores is implementing a Power Platform solution to improve inventory management and customer engagement. The stakeholders have provided the following requirements:\n• Store managers need to track inventory levels in real-time.\n• Customers should receive notifications when out-of-stock items are available.\n• The system must integrate with the existing ERP system.\n• The solution must support offline functionality for stores in remote areas.\n\nMatch each requirement to the appropriate Power Platform component.",
+        "keyWords": [
+            "Inventory Management",
+            "Offline Functionality"
+        ],
+        "scenario": {
+            "businessContext": "The retail chain needs to improve inventory management and customer engagement across 50 stores.",
+            "dataNeeds": [
+                "Real-time inventory tracking",
+                "Notifications for out-of-stock items"
+            ]
+        },
+        "questionItems": [
+            {
+                "id": "default",
+                "text": "Match each requirement to the appropriate Power Platform component.",
+                "description": "Identify the correct components for each requirement.",
+                "businessContext": "Ensuring operational excellence and customer satisfaction is critical for the retail chain."
+            }
+        ],
+        "answerOptions": [
+            {
+                "id": "opt_a",
+                "letter": "A",
+                "text": "Model-driven app",
+                "description": "Used for structured data and real-time tracking.",
+                "analysis": "Model-driven apps are ideal for structured data like inventory tracking.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Supports structured data", "Real-time tracking"],
+                "cons": ["Requires internet connectivity"],
+                "whyCorrect": "Model-driven apps are ideal for structured data like inventory tracking.",
+                "realWorldUse": "Used for inventory management in retail chains."
+            },
+            {
+                "id": "opt_b",
+                "letter": "B",
+                "text": "Canvas app",
+                "description": "Provides offline functionality for remote stores.",
+                "analysis": "Canvas apps are suitable for offline scenarios.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Supports offline functionality"],
+                "cons": ["Limited for structured data"],
+                "whyCorrect": "Canvas apps provide offline capabilities, making them suitable for remote stores.",
+                "realWorldUse": "Used for offline inventory management in remote retail stores."
+            },
+            {
+                "id": "opt_c",
+                "letter": "C",
+                "text": "Power Automate",
+                "description": "Automates notifications for out-of-stock items.",
+                "analysis": "Power Automate handles notifications efficiently.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Automates notifications"],
+                "cons": ["Requires configuration"],
+                "whyCorrect": "Power Automate handles notifications for out-of-stock items.",
+                "realWorldUse": "Used for automating customer notifications in retail."
+            },
+            {
+                "id": "opt_d",
+                "letter": "D",
+                "text": "Power BI",
+                "description": "Provides dashboards for inventory tracking.",
+                "analysis": "Power BI is used for visualising data.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Provides data visualisation"],
+                "cons": ["Not suitable for real-time tracking"],
+                "whyIncorrect": "Power BI is used for visualisation, not for real-time tracking.",
+                "realWorldUse": "Used for creating dashboards in retail."
+            }
+        ],
+        "correctMappings": [
+            {
+                "questionItemId": "default",
+                "correctAnswerIds": ["opt_a", "opt_b", "opt_c"],
+                "explanation": "Model-driven apps are ideal for structured data like inventory tracking, Power Automate handles notifications, and Canvas apps provide offline capabilities.",
+                "isMultiSelect": true
+            }
+        ],
+        "detailedExplanation": "Model-driven apps are ideal for structured data like inventory tracking, Power Automate handles notifications, and Canvas apps provide offline capabilities, making them suitable for remote stores.",
+        "learningMoment": "Matching requirements to the right Power Platform components ensures the solution meets both functional and non-functional needs.",
+        "practicalTip": "Always consider offline requirements when designing solutions for remote locations.",
+        "realWorldExample": "A retail chain using Power Platform components to improve inventory management and customer engagement.",
+        "category": "perform_solution_envisioning",
+        "weight": 8,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Generated based on Microsoft Learn and Well-Architected Framework"
+    },
+    {
+        "id": 78,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Medium",
+        "examObjective": "Perform solution envisioning and requirement analysis",
+        "text": "A healthcare provider is implementing a Power Platform solution to modernise patient management. The project involves the following stakeholders:\n• Doctors who need quick access to patient records during consultations.\n• Nurses who need to track medication schedules and patient vitals.\n• IT staff who require the solution to integrate with the existing EHR system.\n• Compliance officers who need the solution to meet HIPAA requirements.\n\nSequence the steps the solution architect should take during the envisioning phase.",
+        "keyWords": [
+            "Healthcare",
+            "Stakeholder Engagement"
+        ],
+        "scenario": {},
+        "wellArchitectedAlignment": {
+            "Security": "Ensuring HIPAA compliance for patient data"
+        },
+        "conceptsTested": [
+            "Stakeholder engagement and compliance planning"
+        ],
+        "commonMistakes": [
+            "Skipping compliance planning during the envisioning phase"
+        ],
+        "questionItems": [
+            {
+                "step": "Conduct stakeholder interviews to gather requirements.",
+                "correctOrder": 1
+            },
+            {
+                "step": "Identify compliance requirements and constraints.",
+                "correctOrder": 2
+            },
+            {
+                "step": "Map requirements to Power Platform components.",
+                "correctOrder": 3
+            },
+            {
+                "step": "Develop a high-level solution design.",
+                "correctOrder": 4
+            }
+        ],
+        "detailedExplanation": "Stakeholder interviews provide the foundation for understanding requirements. Compliance planning ensures legal constraints are addressed early. Mapping requirements to components and developing a high-level design follow logically.",
+        "learningMoment": "Compliance requirements often influence component selection and solution design, making early identification critical.",
+        "practicalTip": "Always address compliance requirements before mapping technical components.",
+        "category": "perform_solution_envisioning",
+        "weight": 7,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Generated based on Microsoft Learn and Well-Architected Framework",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+    },
+    {
+        "id": 79,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Hard",
+        "examObjective": "Perform solution envisioning and requirement analysis",
+        "text": "A manufacturing company is implementing a Power Platform solution to improve production efficiency. The company has the following requirements:\n• Real-time monitoring of production line performance.\n• Automated alerts for equipment failures.\n• Integration with IoT sensors and the existing MES system.\n• Compliance with ISO 9001 standards for quality management.\n\nWhat is the most critical step during the envisioning phase?",
+        "keyWords": [
+            "Manufacturing",
+            "IoT Integration"
+        ],
+        "scenario": {},
+        "wellArchitectedAlignment": {
+            "Reliability": "Ensuring real-time monitoring and alerting capabilities"
+        },
+        "conceptsTested": [
+            "Integration planning and compliance alignment"
+        ],
+        "commonMistakes": [
+            "Focusing on IoT integration before addressing compliance requirements"
+        ],
+        "answerOptions": [
+            "A. Design the IoT integration architecture.",
+            "B. Identify ISO 9001 compliance requirements.",
+            "C. Develop a Power BI dashboard for production monitoring.",
+            "D. Build a Power Automate flow for equipment alerts."
+        ],
+        "correctMappings": [
+            "B"
+        ],
+        "detailedExplanation": "Compliance requirements such as ISO 9001 must be addressed early to ensure the solution aligns with industry standards. This influences subsequent design and implementation activities.",
+        "learningMoment": "Industry compliance requirements often dictate solution architecture and must be prioritised during the envisioning phase.",
+        "practicalTip": "Always align solution design with industry standards to avoid compliance risks.",
+        "category": "perform_solution_envisioning",
+        "weight": 8,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Generated based on Microsoft Learn and Well-Architected Framework",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+    },
+    {
+        "id": 80,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Medium",
+        "examObjective": "Perform solution envisioning and requirement analysis",
+        "text": "A financial services company is implementing a Power Platform solution to enhance client onboarding. The company has the following requirements:\n• Automate document collection and verification.\n• Provide clients with a self-service portal for onboarding.\n• Ensure all client data is encrypted and meets regulatory standards.\n• Integrate with the existing CRM system.\n\nWhat should the solution architect focus on first during the envisioning phase?",
+        "keyWords": [
+            "Client Onboarding",
+            "Data Encryption"
+        ],
+        "scenario": {},
+        "wellArchitectedAlignment": {
+            "Security": "Ensuring data encryption and regulatory compliance"
+        },
+        "conceptsTested": [
+            "Stakeholder engagement and security planning"
+        ],
+        "commonMistakes": [
+            "Focusing on portal design before addressing data security"
+        ],
+        "answerOptions": [
+            "A. Design the self-service portal for client onboarding.",
+            "B. Identify regulatory requirements for data encryption.",
+            "C. Develop a Power Automate flow for document verification.",
+            "D. Map CRM integration requirements."
+        ],
+        "correctMappings": [
+            "B"
+        ],
+        "detailedExplanation": "Regulatory requirements for data encryption must be identified early to ensure the solution meets legal and security standards. This forms the foundation for subsequent design activities.",
+        "learningMoment": "Security and compliance requirements often constrain solution design and must be addressed during the envisioning phase.",
+        "practicalTip": "Always address security and compliance requirements before designing user-facing components.",
+        "category": "perform_solution_envisioning",
+        "weight": 7,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Generated based on Microsoft Learn and Well-Architected Framework",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+    },
+    {
+        "id": 81,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "difficultyLevel": "Easy",
+        "examArea": "Solution Envisioning and Requirements (45-50%)",
+        "text": "You are designing an integration with an external system that uses sequential integers as the primary key for its records. The external system needs to sync data into Dataverse. You need to set it up so that the external system does not create duplicate rows and that the data in Dataverse matches the data in the external system. What two features should you use to achieve the requirement?",
+        "keyWords": [
+            "Data Integration",
+            "Sequential Integers",
+            "Duplicate Prevention"
+        ],
+        "scenario": {
+            "businessContext": "An external system with sequential integer primary keys needs to sync data into Dataverse, which uses GUIDs as primary keys.",
+            "dataNeeds": [
+                "Prevent duplicate rows in Dataverse",
+                "Ensure data consistency between systems"
+            ]
+        },
+        "questionItems": [
+            {
+                "id": "default",
+                "text": "What two features should you use to achieve the requirement?",
+                "description": "Identify the correct features for seamless data integration.",
+                "businessContext": "Ensuring data consistency and avoiding duplication is critical for operational excellence."
+            }
+        ],
+        "answerOptions": [
+            {
+                "id": "opt_a",
+                "letter": "A",
+                "text": "Alternate key for row identification",
+                "description": "Allows external systems to identify records without knowing the GUID.",
+                "analysis": "Alternate keys enable updates to records using non-GUID identifiers.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Simplifies integration", "Avoids GUID dependency"],
+                "cons": ["Requires configuration in Dataverse"],
+                "whyCorrect": "Alternate keys allow external systems to identify and update records without needing the GUID.",
+                "realWorldUse": "Used in integrations where external systems use non-GUID primary keys."
+            },
+            {
+                "id": "opt_b",
+                "letter": "B",
+                "text": "Upsert method",
+                "description": "Checks for existing records and updates or creates them as needed.",
+                "analysis": "The upsert method improves performance by combining insert and update operations.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Simplifies integration logic", "Improves performance"],
+                "cons": ["Requires alternate keys for non-GUID systems"],
+                "whyCorrect": "The upsert method ensures data consistency by updating existing records or creating new ones.",
+                "realWorldUse": "Commonly used in data synchronization scenarios."
+            },
+            {
+                "id": "opt_c",
+                "letter": "C",
+                "text": "Webhook",
+                "description": "Used for outbound data synchronization.",
+                "analysis": "Webhooks are triggered by events in Dataverse to send data to external systems.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Real-time outbound sync"],
+                "cons": ["Not suitable for inbound sync"],
+                "whyIncorrect": "Webhooks are used for outbound sync, not for inbound data updates.",
+                "realWorldUse": "Used to notify external systems of changes in Dataverse."
+            },
+            {
+                "id": "opt_d",
+                "letter": "D",
+                "text": "Change tracking",
+                "description": "Tracks changes in Dataverse for external systems.",
+                "analysis": "Change tracking is used to send updates from Dataverse to external systems.",
+                "wellArchitectedPillar": "Operational Excellence",
+                "pros": ["Efficient for outbound sync"],
+                "cons": ["Not suitable for inbound sync"],
+                "whyIncorrect": "Change tracking is used for outbound sync, not for inbound data updates.",
+                "realWorldUse": "Used in scenarios where external systems need to track changes in Dataverse."
+            }
+        ],
+        "correctMappings": [
+            {
+                "questionItemId": "default",
+                "correctAnswerIds": ["opt_a", "opt_b"],
+                "explanation": "Alternate keys allow external systems to identify records without GUIDs, and the upsert method ensures data consistency by updating existing records or creating new ones.",
+                "isMultiSelect": true
+            }
+        ],
+        "detailedExplanation": "Dataverse uses GUIDs as primary keys, which differ from the sequential integers used by the external system. Alternate keys allow you to define other columns for identifying records, enabling the external system to update records without needing to know the GUID. The upsert method simplifies integration by checking for an existing record using the alternate key. If the record exists, it updates it; otherwise, it creates a new one. Webhooks and change tracking are used for outbound sync, not inbound data updates.",
+        "learningMoment": "Alternate keys and the upsert method are essential for seamless inbound data integration with Dataverse, especially when external systems use different primary key formats.",
+        "practicalTip": "Define alternate keys in Dataverse for external system compatibility and use the upsert method to improve integration performance and avoid duplication.",
+        "realWorldExample": "A retail system with sequential order IDs integrates with Dataverse to sync order data without creating duplicates.",
+        "category": "perform_solution_envisioning",
+        "weight": 5,
+        "examReference": "Perform solution envisioning and requirement analysis",
+        "source": "Enhanced for September 2024 exam updates"
+    }
 
 ];
 
