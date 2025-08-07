@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* High contrast color palette */
+    --color-primary: #1e40af; /* Strong blue */
+    --color-primary-hover: #1e3a8a;
+    --color-secondary: #7c3aed; /* Purple */
+    --color-success: #16a34a; /* Green */
+    --color-error: #dc2626; /* Red */
+    --color-warning: #ea580c; /* Orange */
+    --color-text-primary: #111827; /* Near black */
+    --color-text-secondary: #4b5563; /* Dark gray */
+    --color-text-light: #6b7280; /* Medium gray */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9fafb;
+    --color-bg-tertiary: #f3f4f6;
+    --color-border: #d1d5db;
+    --color-border-focus: #3b82f6;
+    
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-primary: #3b82f6;
+      --color-primary-hover: #2563eb;
+      --color-text-primary: #f9fafb;
+      --color-text-secondary: #d1d5db;
+      --color-text-light: #9ca3af;
+      --color-bg-primary: #111827;
+      --color-bg-secondary: #1f2937;
+      --color-bg-tertiary: #374151;
+      --color-border: #4b5563;
+    }
+  }
+
+  /* Base typography with improved readability */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-secondary);
+    line-height: 1.6;
+  }
+
+  /* High contrast headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1.125rem; }
+
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+  }
+
+  /* Focus states for accessibility */
+  *:focus-visible {
+    outline: 3px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+
+  /* Remove focus for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Button styles with high contrast */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200 transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-opacity-50;
+    min-height: 44px; /* Touch-friendly size */
+  }
+
+  .btn-primary {
+    @apply bg-blue-700 text-white hover:bg-blue-800 focus:ring-blue-500 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400 border-2 border-gray-300;
+  }
+
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-md;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-md;
+  }
+
+  /* Card styles with better visibility */
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+  }
+
+  .card-header {
+    @apply px-6 py-4 bg-gray-50 border-b-2 border-gray-200 font-bold text-lg text-gray-900;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  /* High contrast form inputs */
+  .form-input {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-colors;
+    min-height: 44px;
+  }
+
+  .form-label {
+    @apply block text-sm font-bold text-gray-900 mb-2;
+  }
+
+  /* Question styles with improved contrast */
+  .question-option {
+    @apply p-4 border-2 border-gray-300 rounded-lg cursor-pointer transition-all hover:border-blue-500 hover:bg-blue-50 hover:shadow-md;
+  }
+
+  .question-option-selected {
+    @apply border-blue-600 bg-blue-100 shadow-md;
+  }
+
+  .question-option-correct {
+    @apply border-green-600 bg-green-100 text-green-900 font-semibold;
+  }
+
+  .question-option-incorrect {
+    @apply border-red-600 bg-red-100 text-red-900;
+  }
+
+  /* Status indicators with high visibility */
+  .status-success {
+    @apply text-green-700 bg-green-100 px-3 py-1 rounded-full font-bold border-2 border-green-300;
+  }
+
+  .status-error {
+    @apply text-red-700 bg-red-100 px-3 py-1 rounded-full font-bold border-2 border-red-300;
+  }
+
+  .status-warning {
+    @apply text-orange-700 bg-orange-100 px-3 py-1 rounded-full font-bold border-2 border-orange-300;
+  }
+
+  .status-info {
+    @apply text-blue-700 bg-blue-100 px-3 py-1 rounded-full font-bold border-2 border-blue-300;
+  }
+
+  /* Progress bars with clear visibility */
+  .progress-bar {
+    @apply w-full bg-gray-300 rounded-full h-3 overflow-hidden shadow-inner;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-500 shadow-sm;
+  }
+
+  /* Navigation with better contrast */
+  .nav-link {
+    @apply px-4 py-2 rounded-lg font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all;
+  }
+
+  .nav-link-active {
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-md;
+  }
+
+  /* Responsive grid layouts */
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  /* Accessibility helpers */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+
+  .focus-outline {
+    @apply focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50;
+  }
+
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .card {
+      @apply bg-gray-800 border-gray-700;
+    }
+
+    .card-header {
+      @apply bg-gray-900 border-gray-700 text-gray-100;
+    }
+
+    .form-input {
+      @apply bg-gray-800 border-gray-600 text-gray-100 placeholder-gray-400 focus:border-blue-400;
+    }
+
+    .question-option {
+      @apply border-gray-600 hover:border-blue-400 hover:bg-gray-700;
+    }
+
+    .btn-secondary {
+      @apply bg-gray-700 text-gray-100 hover:bg-gray-600 border-gray-600;
+    }
+  }
+}
+
+@layer utilities {
+  /* Text contrast utilities */
+  .text-high-contrast {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .text-medium-contrast {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-low-contrast {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 640px) {
+    .mobile-full-width {
+      @apply w-full;
+    }
+
+    .mobile-stack {
+      @apply flex-col;
+    }
+
+    .mobile-hidden {
+      @apply hidden;
+    }
+  }
+
+  /* Tablet-specific utilities */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .tablet-half-width {
+      @apply w-1/2;
+    }
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Shadow utilities for depth */
+  .shadow-elevated {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Scrollbar styling for better visibility */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-200 dark:bg-gray-700 rounded-lg;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 dark:bg-gray-400 rounded-lg hover:bg-gray-600 dark:hover:bg-gray-300;
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      color: #000;
+      background: #fff;
+    }
+  }
+}

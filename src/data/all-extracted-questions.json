@@ -1,0 +1,2385 @@
+{
+  "metadata": {
+    "total_questions": 48,
+    "extracted_at": "2025-08-07T20:00:00.000Z",
+    "source": "index-old.html",
+    "exam_structure": {
+      "areas": [
+        {
+          "id": "envisioning",
+          "name": "Solution Envisioning and Requirements Analysis",
+          "weight": "35-40%",
+          "topics": [
+            "Initiate solution planning",
+            "Identify organization information and metrics",
+            "Identify existing solutions and systems",
+            "Capture requirements",
+            "Perform fit/gap analysis"
+          ]
+        },
+        {
+          "id": "architecture",
+          "name": "Architect a Solution",
+          "weight": "40-45%",
+          "topics": [
+            "Lead the design process",
+            "Design solution topology",
+            "Design customizations",
+            "Design integrations",
+            "Design migrations",
+            "Design the security model",
+            "Design for deployment and operations"
+          ]
+        },
+        {
+          "id": "implementation",
+          "name": "Implement the Solution",
+          "weight": "15-20%",
+          "topics": [
+            "Validate the solution design",
+            "Support go-live",
+            "Optimize solution performance"
+          ]
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "total": 120,
+    "by_type": {
+      "multiplechoice": 77,
+      "hotspot": 27,
+      "sequence": 14,
+      "dragdrop": 2
+    },
+    "by_area": {
+      "envisioning": 57,
+      "architecture": 15,
+      "implementation": 48
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiplechoice",
+      "topic": "Power Platform Well-Architected Framework",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 2,
+      "type": "hotspot",
+      "topic": "Environment Strategy & ALM",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 8,
+      "type": "multiplechoice",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 9,
+      "type": "hotspot",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 26,
+      "type": "multiplechoice",
+      "topic": "Power Automate & Mobile Solutions",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 27,
+      "type": "hotspot",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 28,
+      "type": "dragdrop",
+      "topic": "Business Continuity and Error Handling",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 29,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 30,
+      "type": "hotspot",
+      "topic": "Data Modeling and Field Types",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 37,
+      "type": "multiplechoice",
+      "topic": "Fit Gap Analysis",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 39,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 45,
+      "type": "multiplechoice",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 46,
+      "type": "sequence",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 47,
+      "type": "hotspot",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 48,
+      "type": "multiplechoice",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 49,
+      "type": "sequence",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 50,
+      "type": "hotspot",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 51,
+      "type": "multiplechoice",
+      "topic": "Solution Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 52,
+      "type": "multiplechoice",
+      "topic": "Environment Strategy & ALM",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 53,
+      "type": "hotspot",
+      "topic": "Performance & API Limits",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 56,
+      "type": "multiplechoice",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 60,
+      "type": "multiplechoice",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 62,
+      "type": "multiplechoice",
+      "topic": "Performance & API Limits",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 64,
+      "type": "multiplechoice",
+      "topic": "Environment Strategy & ALM",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 65,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 67,
+      "type": "multiplechoice",
+      "topic": "Solution Validation",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 68,
+      "type": "multiplechoice",
+      "topic": "Solution Validation",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 47,
+      "type": "multiplechoice",
+      "topic": "Power Platform Well-Architected Framework",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 74,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 76,
+      "type": "multiplechoice",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 82,
+      "type": "sequence",
+      "topic": "Business Continuity",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 83,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 84,
+      "type": "hotspot",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Easy",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 88,
+      "type": "multiplechoice",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 96,
+      "type": "hotspot",
+      "topic": "Environment Strategy & ALM",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 97,
+      "type": "hotspot",
+      "topic": "Data Modeling Fundamentals",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 104,
+      "type": "multiplechoice",
+      "topic": "Power Automate & Mobile Solutions",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 108,
+      "type": "hotspot",
+      "topic": "Power Platform Components",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 111,
+      "type": "multiplechoice",
+      "topic": "Power Platform Components",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 32,
+      "type": "multiplechoice",
+      "topic": "Licensing & Cost Strategy",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 33,
+      "type": "multiplechoice",
+      "topic": "Licensing & Cost Strategy",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 34,
+      "type": "multiplechoice",
+      "topic": "Licensing & Cost Strategy",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 35,
+      "type": "hotspot",
+      "topic": "Licensing & Cost Strategy",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 116,
+      "type": "multiplechoice",
+      "topic": "Environment Strategy & ALM",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 117,
+      "type": "hotspot",
+      "topic": "Migration Strategies",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 118,
+      "type": "sequence",
+      "topic": "Organization Assessment",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 119,
+      "type": "multiplechoice",
+      "topic": "Performance & API Limits",
+      "question": "",
+      "difficultyLevel": "Medium",
+      "examArea": "Unknown"
+    },
+    {
+      "id": 120,
+      "type": "hotspot",
+      "topic": "Security Architecture",
+      "question": "",
+      "difficultyLevel": "Hard",
+      "examArea": "Unknown"
+    }
+  ],
+  "questions_by_type": {
+    "multiplechoice": [
+      {
+        "id": 1,
+        "type": "multiplechoice",
+        "topic": "Power Platform Well-Architected Framework",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 3,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 5,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 8,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 10,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 14,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 16,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 18,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 20,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 21,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 22,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 23,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 24,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 25,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 26,
+        "type": "multiplechoice",
+        "topic": "Power Automate & Mobile Solutions",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 29,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 31,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 32,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 34,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 35,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 37,
+        "type": "multiplechoice",
+        "topic": "Fit Gap Analysis",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 38,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 39,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 40,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 42,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 45,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 48,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 51,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 52,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 54,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 56,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 58,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 59,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 60,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 61,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 62,
+        "type": "multiplechoice",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 41,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 64,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 65,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 66,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 67,
+        "type": "multiplechoice",
+        "topic": "Solution Validation",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 68,
+        "type": "multiplechoice",
+        "topic": "Solution Validation",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 47,
+        "type": "multiplechoice",
+        "topic": "Power Platform Well-Architected Framework",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 69,
+        "type": "multiplechoice",
+        "topic": "Requirements Capture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 70,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 71,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 72,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 73,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 74,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 75,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 76,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 79,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 80,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 81,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+      },
+      {
+        "id": 83,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 86,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 87,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 88,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 90,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 92,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 94,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 95,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 100,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 101,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 102,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 103,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 104,
+        "type": "multiplechoice",
+        "topic": "Power Automate & Mobile Solutions",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 106,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 107,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 108,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 110,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 111,
+        "type": "multiplechoice",
+        "topic": "Power Platform Components",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 32,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 33,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 34,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 116,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 119,
+        "type": "multiplechoice",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      }
+    ],
+    "hotspot": [
+      {
+        "id": 2,
+        "type": "hotspot",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 9,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 11,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 15,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 19,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 27,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 30,
+        "type": "hotspot",
+        "topic": "Data Modeling and Field Types",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 33,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 41,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 47,
+        "type": "hotspot",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 50,
+        "type": "hotspot",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 53,
+        "type": "hotspot",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 55,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 77,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+      },
+      {
+        "id": 84,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 85,
+        "type": "hotspot",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 89,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 91,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 93,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 96,
+        "type": "hotspot",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 97,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 98,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 105,
+        "type": "hotspot",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 108,
+        "type": "hotspot",
+        "topic": "Power Platform Components",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 35,
+        "type": "hotspot",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 117,
+        "type": "hotspot",
+        "topic": "Migration Strategies",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 120,
+        "type": "hotspot",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      }
+    ],
+    "sequence": [
+      {
+        "id": 4,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 7,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 12,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 13,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 17,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 36,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 43,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 44,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 46,
+        "type": "sequence",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 49,
+        "type": "sequence",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 57,
+        "type": "sequence",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 78,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 82,
+        "type": "sequence",
+        "topic": "Business Continuity",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 118,
+        "type": "sequence",
+        "topic": "Organization Assessment",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      }
+    ],
+    "dragdrop": [
+      {
+        "id": 28,
+        "type": "dragdrop",
+        "topic": "Business Continuity and Error Handling",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 99,
+        "type": "dragdrop",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      }
+    ]
+  },
+  "questions_by_area": {
+    "envisioning": [
+      {
+        "id": 4,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 7,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 10,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 11,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 12,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 13,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 14,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 15,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 16,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 17,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 18,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 19,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 20,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 21,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 22,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 23,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 24,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 25,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 31,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 32,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 33,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 34,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 35,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 36,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 40,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 41,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 42,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 43,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 44,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 54,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 55,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 58,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 59,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 41,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 69,
+        "type": "multiplechoice",
+        "topic": "Requirements Capture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 70,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 71,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 77,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+      },
+      {
+        "id": 78,
+        "type": "sequence",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 79,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 80,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 81,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Solution Envisioning and Requirements (45-50%)"
+      },
+      {
+        "id": 86,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 87,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 89,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 90,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 91,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 92,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 93,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 95,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 98,
+        "type": "hotspot",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 99,
+        "type": "dragdrop",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 100,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 101,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 102,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 103,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 110,
+        "type": "multiplechoice",
+        "topic": "Solution Envisioning & Requirements",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      }
+    ],
+    "architecture": [
+      {
+        "id": 3,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 5,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 38,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 57,
+        "type": "sequence",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 61,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 66,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 72,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 73,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 75,
+        "type": "multiplechoice",
+        "topic": "Solution Design Process",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 85,
+        "type": "hotspot",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 94,
+        "type": "multiplechoice",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 105,
+        "type": "hotspot",
+        "topic": "Integration Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 106,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 107,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 108,
+        "type": "multiplechoice",
+        "topic": "Dynamics 365 Integration",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      }
+    ],
+    "implementation": [
+      {
+        "id": 1,
+        "type": "multiplechoice",
+        "topic": "Power Platform Well-Architected Framework",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 2,
+        "type": "hotspot",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 8,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 9,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 26,
+        "type": "multiplechoice",
+        "topic": "Power Automate & Mobile Solutions",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 27,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 28,
+        "type": "dragdrop",
+        "topic": "Business Continuity and Error Handling",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 29,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 30,
+        "type": "hotspot",
+        "topic": "Data Modeling and Field Types",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 37,
+        "type": "multiplechoice",
+        "topic": "Fit Gap Analysis",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 39,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 45,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 46,
+        "type": "sequence",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 47,
+        "type": "hotspot",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 48,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 49,
+        "type": "sequence",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 50,
+        "type": "hotspot",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 51,
+        "type": "multiplechoice",
+        "topic": "Solution Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 52,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 53,
+        "type": "hotspot",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 56,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 60,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 62,
+        "type": "multiplechoice",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 64,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 65,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 67,
+        "type": "multiplechoice",
+        "topic": "Solution Validation",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 68,
+        "type": "multiplechoice",
+        "topic": "Solution Validation",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 47,
+        "type": "multiplechoice",
+        "topic": "Power Platform Well-Architected Framework",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 74,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 76,
+        "type": "multiplechoice",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 82,
+        "type": "sequence",
+        "topic": "Business Continuity",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 83,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 84,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Easy",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 88,
+        "type": "multiplechoice",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 96,
+        "type": "hotspot",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 97,
+        "type": "hotspot",
+        "topic": "Data Modeling Fundamentals",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 104,
+        "type": "multiplechoice",
+        "topic": "Power Automate & Mobile Solutions",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 108,
+        "type": "hotspot",
+        "topic": "Power Platform Components",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 111,
+        "type": "multiplechoice",
+        "topic": "Power Platform Components",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 32,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 33,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 34,
+        "type": "multiplechoice",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 35,
+        "type": "hotspot",
+        "topic": "Licensing & Cost Strategy",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 116,
+        "type": "multiplechoice",
+        "topic": "Environment Strategy & ALM",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 117,
+        "type": "hotspot",
+        "topic": "Migration Strategies",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 118,
+        "type": "sequence",
+        "topic": "Organization Assessment",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 119,
+        "type": "multiplechoice",
+        "topic": "Performance & API Limits",
+        "question": "",
+        "difficultyLevel": "Medium",
+        "examArea": "Unknown"
+      },
+      {
+        "id": 120,
+        "type": "hotspot",
+        "topic": "Security Architecture",
+        "question": "",
+        "difficultyLevel": "Hard",
+        "examArea": "Unknown"
+      }
+    ]
+  }
+}

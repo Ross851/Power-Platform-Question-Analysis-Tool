@@ -1,0 +1,10 @@
+
+> pl600-prep@1.0.0 dev
+> vite
+
+
+  VITE v7.1.0  ready in 8686 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.255.255.254:5173/
+  ➜  Network: http://172.25.23.146:5173/

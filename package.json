@@ -1,0 +1,61 @@
+{
+  "name": "pl600-prep",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/github/workflow/status/Ross851/Power-Platform-Question-Analysis-Tool/CI)](https://github.com/Ross851/Power-Platform-Question-Analysis-Tool/actions) [![Version](https://img.shields.io/github/package-json/v/Ross851/Power-Platform-Question-Analysis-Tool)](https://github.com/Ross851/Power-Platform-Question-Analysis-Tool/releases)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:gh-pages": "GITHUB_PAGES=true npm run build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit",
+    "extract-questions": "node scripts/extractQuestions.js",
+    "upload-questions": "node scripts/upload-to-supabase.js",
+    "security-check": "npm audit && npm outdated",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "deploy": "npm run build:gh-pages && gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ross851/Power-Platform-Question-Analysis-Tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ross851/Power-Platform-Question-Analysis-Tool/issues"
+  },
+  "homepage": "https://github.com/Ross851/Power-Platform-Question-Analysis-Tool#readme",
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@supabase/supabase-js": "^2.54.0",
+    "@tanstack/react-query": "^5.84.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^9.32.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "terser": "^5.43.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.0"
+  }
+}
