@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Question } from './Question/Question';
 import EnhancedQuestion from './Question/EnhancedQuestion';
 import MasterQuestion from './Question/MasterQuestion';
 import SequenceQuestion from './Question/QuestionTypes/SequenceQuestion';
 import HotspotQuestion from './Question/QuestionTypes/HotspotQuestion';
 import { supabase } from '@/lib/supabase';
+import { examTopics/*, getMicrosoftLearnUrl*/ } from '@/data/exam-topics';
 // import type { Question as QuestionType } from '@/types/question';
 
 // Import all question data
@@ -22,6 +23,8 @@ interface StudyFilters {
 export const ComprehensiveStudyView: React.FC = () => {
   const [questions, setQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [questionKey, setQuestionKey] = useState(0); // Force re-render of questions
+  // const [showHelp, setShowHelp] = useState(false); // For future Microsoft Learn help section
   const [filters, setFilters] = useState<StudyFilters>({
     examArea: 'all',
     questionType: 'all',
@@ -38,50 +41,20 @@ export const ComprehensiveStudyView: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(true);
 
-  // Microsoft PL-600 Exam Structure
-  const examStructure = {
-    areas: [
-      {
-        id: 'envisioning',
-        name: 'Solution Envisioning and Requirements Analysis',
-        weight: '35-40%',
-        color: 'blue',
-        topics: [
-          'Initiate solution planning',
-          'Identify organization information and metrics',
-          'Identify existing solutions and systems',
-          'Capture requirements',
-          'Perform fit/gap analysis'
-        ]
-      },
-      {
-        id: 'architecture',
-        name: 'Architect a Solution',
-        weight: '40-45%',
-        color: 'purple',
-        topics: [
-          'Lead the design process',
-          'Design solution topology',
-          'Design customizations',
-          'Design integrations',
-          'Design migrations',
-          'Design the security model',
-          'Design for deployment and operations'
-        ]
-      },
-      {
-        id: 'implementation',
-        name: 'Implement the Solution',
-        weight: '15-20%',
-        color: 'green',
-        topics: [
-          'Validate the solution design',
-          'Support go-live',
-          'Optimize solution performance'
-        ]
-      }
-    ]
-  };
+  // Get current topic info for help section (will be used for Microsoft Learn integration)
+  // const getCurrentTopicInfo = () => {
+  //   const currentQ = filteredQuestions[currentQuestionIndex];
+  //   if (!currentQ) return null;
+    
+  //   const topic = currentQ.topic || currentQ.exam_area || 'general';
+  //   const examArea = examTopics.find((t: any) => 
+  //     t.id === topic || 
+  //     t.subtopics.some((st: any) => st.keywords.includes(topic.toLowerCase()))
+  //   );
+    
+  //   return examArea || examTopics[0];
+  // };
+
 
   useEffect(() => {
     loadQuestions();
@@ -138,15 +111,22 @@ export const ComprehensiveStudyView: React.FC = () => {
     return questions.filter(q => {
       // Filter by exam area
       if (filters.examArea !== 'all') {
-        const questionArea = q.examArea?.toLowerCase() || '';
-        if (!questionArea.includes(filters.examArea)) {
-          return false;
-        }
+        const questionArea = q.examArea?.toLowerCase() || q.exam_area?.toLowerCase() || '';
+        const questionText = (q.question_text || q.question || '').toLowerCase();
+        const topic = q.topic?.toLowerCase() || '';
+        
+        // Check if question matches the exam area
+        const areaMatch = questionArea.includes(filters.examArea) ||
+                         topic.includes(filters.examArea) ||
+                         questionText.includes(filters.examArea);
+        
+        if (!areaMatch) return false;
       }
 
       // Filter by question type
       if (filters.questionType !== 'all') {
-        if (q.type !== filters.questionType && q.question_type !== filters.questionType) {
+        const qType = (q.type || q.question_type || 'multiplechoice').toLowerCase();
+        if (qType !== filters.questionType.toLowerCase()) {
           return false;
         }
       }
@@ -169,14 +149,21 @@ export const ComprehensiveStudyView: React.FC = () => {
         }
       }
 
-      // Filter by topic
-      if (filters.topic !== 'all') {
+      // Filter by topic - enhanced search
+      if (filters.topic !== 'all' && filters.topic !== '') {
+        const searchTerm = filters.topic.toLowerCase();
         const topic = q.topic?.toLowerCase() || '';
-        const tags = q.tags?.join(' ').toLowerCase() || '';
-        if (!topic.includes(filters.topic.toLowerCase()) && 
-            !tags.includes(filters.topic.toLowerCase())) {
-          return false;
-        }
+        const tags = q.tags?.map((t: any) => t.toLowerCase()).join(' ') || '';
+        const questionText = (q.question_text || q.question || '').toLowerCase();
+        const explanation = JSON.stringify(q.explanation || {}).toLowerCase();
+        
+        // Search in multiple fields for better matching
+        const matches = topic.includes(searchTerm) ||
+                       tags.includes(searchTerm) ||
+                       questionText.includes(searchTerm) ||
+                       explanation.includes(searchTerm);
+        
+        if (!matches) return false;
       }
 
       return true;
@@ -227,45 +214,57 @@ export const ComprehensiveStudyView: React.FC = () => {
     }
   };
 
-  const nextQuestion = () => {
+  const nextQuestion = useCallback(() => {
     if (currentQuestionIndex < filteredQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setQuestionKey(prev => prev + 1); // Force re-render with new key
+      window.scrollTo(0, 0); // Scroll to top
     }
-  };
+  }, [currentQuestionIndex, filteredQuestions.length]);
 
-  const previousQuestion = () => {
+  const previousQuestion = useCallback(() => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setQuestionKey(prev => prev + 1); // Force re-render with new key
+      window.scrollTo(0, 0); // Scroll to top
     }
-  };
+  }, [currentQuestionIndex]);
 
-  const renderQuestion = (question: any) => {
+  const renderQuestion = useCallback((question: any) => {
     const questionType = question.type || question.question_type || 'multiplechoice';
+
+    // Add key prop to force re-render when moving between questions
+    const commonProps = {
+      key: `question-${questionKey}`,
+      question: question,
+      onAnswer: handleAnswer,
+      showExplanation: true
+    };
 
     // Check for special question features
     if (question.explanation?.question_breakdown) {
-      return <MasterQuestion question={question} onAnswer={handleAnswer} showExplanation={true} />;
+      return <MasterQuestion {...commonProps} />;
     }
     
     if (question.explanation?.deep_dive) {
-      return <EnhancedQuestion question={question} onAnswer={handleAnswer} showExplanation={true} />;
+      return <EnhancedQuestion {...commonProps} />;
     }
 
     // Render based on question type
     switch (questionType) {
       case 'sequence':
       case 'dragdrop':
-        return <SequenceQuestion question={question} onAnswer={handleAnswer} />;
+        return <SequenceQuestion key={`sequence-${questionKey}`} question={question} onAnswer={handleAnswer} />;
       
       case 'hotspot':
-        return <HotspotQuestion question={question} onAnswer={handleAnswer} />;
+        return <HotspotQuestion key={`hotspot-${questionKey}`} question={question} onAnswer={handleAnswer} />;
       
       case 'multiplechoice':
       case 'yesno':
       default:
-        return <Question question={question} onAnswer={handleAnswer} showExplanation={true} />;
+        return <Question {...commonProps} />;
     }
-  };
+  }, [questionKey, handleAnswer]);
 
   if (loading) {
     return (
@@ -331,7 +330,7 @@ export const ComprehensiveStudyView: React.FC = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="all">All Areas ({questions.length})</option>
-                  {examStructure.areas.map(area => (
+                  {examTopics.map(area => (
                     <option key={area.id} value={area.id}>
                       {area.name} ({area.weight})
                     </option>
