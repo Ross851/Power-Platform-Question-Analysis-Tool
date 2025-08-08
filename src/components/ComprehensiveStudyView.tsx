@@ -391,13 +391,14 @@ export const ComprehensiveStudyView: React.FC = () => {
 
             {/* Quick Filter Buttons */}
             <div className="mt-4">
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
                 <span className="text-sm font-bold text-gray-800">Quick filters:</span>
                 <button
                   onClick={() => setShowHelp(!showHelp)}
-                  className="text-sm font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 px-3 py-1 bg-blue-100 rounded-lg hover:bg-blue-200 transition-all"
+                  className="text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-1 px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
                 >
-                  <span>📚</span> Microsoft Learn Resources
+                  <span className="text-lg">📚</span> 
+                  <span>Microsoft Learn</span>
                 </button>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -556,11 +557,11 @@ export const ComprehensiveStudyView: React.FC = () => {
       {currentQuestion && renderQuestion(currentQuestion)}
 
       {/* Navigation */}
-      <div className="mt-6 flex justify-between items-center">
+      <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:justify-between items-center">
         <button
           onClick={previousQuestion}
           disabled={currentQuestionIndex === 0}
-          className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+          className={`w-full sm:w-auto px-6 py-3 rounded-lg font-medium transition-colors ${
             currentQuestionIndex === 0
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
               : 'bg-gray-600 text-white hover:bg-gray-700'
@@ -570,8 +571,8 @@ export const ComprehensiveStudyView: React.FC = () => {
         </button>
 
         {/* Question Jump */}
-        <div className="flex items-center space-x-2">
-          <span className="text-sm font-bold text-gray-700">Jump to:</span>
+        <div className="flex items-center justify-center space-x-2">
+          <span className="text-sm font-bold text-gray-700 whitespace-nowrap">Jump to:</span>
           <input
             type="number"
             min="1"
@@ -591,7 +592,7 @@ export const ComprehensiveStudyView: React.FC = () => {
         <button
           onClick={nextQuestion}
           disabled={currentQuestionIndex === filteredQuestions.length - 1}
-          className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+          className={`w-full sm:w-auto px-6 py-3 rounded-lg font-medium transition-colors ${
             currentQuestionIndex === filteredQuestions.length - 1
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
               : 'bg-blue-600 text-white hover:bg-blue-700'
