@@ -1,11 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from '@/types/database';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Use hardcoded values as fallback for GitHub Pages deployment
+// These are public keys, safe to expose
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://cezjxkvvtxdmikhwcseb.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNlemp4a3Z2dHhkbWlraHdjc2ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1ODQxMDYsImV4cCI6MjA3MDE2MDEwNn0.HEihErzl6ZJ2JrxS5wbAb3vMsDMCBKWACBQMdvdfNUE';
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+  console.warn('Missing Supabase environment variables, using defaults');
 }
 
 // Create Supabase client with security configurations

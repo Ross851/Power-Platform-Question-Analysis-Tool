@@ -16,12 +16,13 @@ const queryClient = new QueryClient({
 });
 
 // Apply security configurations
-if (import.meta.env.PROD) {
-  // Disable console in production
-  console.log = () => {};
-  console.warn = () => {};
-  console.error = () => {};
-}
+// Temporarily disabled to debug white screen issue
+// if (import.meta.env.PROD) {
+//   // Disable console in production
+//   console.log = () => {};
+//   console.warn = () => {};
+//   console.error = () => {};
+// }
 
 // Register service worker for PWA
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
