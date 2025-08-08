@@ -571,7 +571,7 @@ export const ComprehensiveStudyView: React.FC = () => {
 
         {/* Question Jump */}
         <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-600">Jump to:</span>
+          <span className="text-sm font-bold text-gray-700">Jump to:</span>
           <input
             type="number"
             min="1"
@@ -581,9 +581,10 @@ export const ComprehensiveStudyView: React.FC = () => {
               const idx = parseInt(e.target.value) - 1;
               if (idx >= 0 && idx < filteredQuestions.length) {
                 setCurrentQuestionIndex(idx);
+                setQuestionKey(prev => prev + 1); // Force re-render when jumping
               }
             }}
-            className="w-16 px-2 py-1 border border-gray-300 rounded text-center"
+            className="w-20 px-3 py-2 border-2 border-gray-400 rounded-lg text-center font-bold text-gray-900 bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-200"
           />
         </div>
 
