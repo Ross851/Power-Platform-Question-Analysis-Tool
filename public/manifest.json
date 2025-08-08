@@ -1,0 +1,33 @@
+{
+  "name": "PL-600 Exam Prep Platform",
+  "short_name": "PL-600 Prep",
+  "description": "Ultimate PL-600 Microsoft Power Platform Solution Architect exam preparation platform",
+  "start_url": "/Power-Platform-Question-Analysis-Tool/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078D4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Start Practice",
+      "url": "/Power-Platform-Question-Analysis-Tool/",
+      "description": "Begin PL-600 exam practice"
+    }
+  ]
+}
