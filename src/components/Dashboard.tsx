@@ -184,10 +184,10 @@ export const Dashboard: React.FC = () => {
             <span className="text-sm text-gray-600">Questions Attempted</span>
             <span className="text-2xl">📊</span>
           </div>
-          <div className="text-3xl font-bold text-gray-900">
+          <div className="text-3xl font-black text-gray-900">
             {progressData.questionsAttempted}
           </div>
-          <div className="text-sm text-gray-500 mt-1">
+          <div className="text-sm font-bold text-gray-700 mt-1">
             of {progressData.totalQuestions} total
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
@@ -205,10 +205,10 @@ export const Dashboard: React.FC = () => {
             <span className="text-sm text-gray-600">Accuracy Rate</span>
             <span className="text-2xl">🎯</span>
           </div>
-          <div className="text-3xl font-bold text-gray-900">
+          <div className="text-3xl font-black text-gray-900">
             {accuracy}%
           </div>
-          <div className="text-sm text-gray-500 mt-1">
+          <div className="text-sm font-bold text-gray-700 mt-1">
             {progressData.correctAnswers} correct
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
@@ -228,10 +228,10 @@ export const Dashboard: React.FC = () => {
             <span className="text-sm text-gray-600">Avg. Time/Question</span>
             <span className="text-2xl">⏱️</span>
           </div>
-          <div className="text-3xl font-bold text-gray-900">
+          <div className="text-3xl font-black text-gray-900">
             {progressData.averageTime}s
           </div>
-          <div className="text-sm text-gray-500 mt-1">
+          <div className="text-sm font-bold text-gray-700 mt-1">
             {progressData.averageTime < 60 ? 'Good pace!' : 'Take your time'}
           </div>
           </div>
@@ -248,7 +248,7 @@ export const Dashboard: React.FC = () => {
           }`}>
             {readinessScore}%
           </div>
-          <div className="text-sm text-gray-500 mt-1">
+          <div className="text-sm font-bold text-gray-700 mt-1">
             {readinessScore >= 80 ? 'Exam Ready!' : readinessScore >= 60 ? 'Getting There' : 'Keep Practicing'}
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2 mt-3">

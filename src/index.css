@@ -136,12 +136,32 @@
 
   /* High contrast form inputs */
   .form-input {
-    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-colors;
+    @apply w-full px-4 py-3 border-2 border-gray-400 rounded-lg text-gray-900 bg-white placeholder-gray-500 focus:border-blue-600 focus:ring-4 focus:ring-blue-200 transition-all font-medium;
     min-height: 44px;
+  }
+  
+  /* High contrast select dropdowns */
+  select, .form-select {
+    @apply w-full px-4 py-3 border-2 border-gray-400 rounded-lg text-gray-900 bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-200 transition-all font-medium appearance-none cursor-pointer;
+    min-height: 44px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7l3 3 3-3'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+  
+  select:hover, .form-select:hover {
+    @apply border-gray-500 bg-gray-50;
+  }
+  
+  select option {
+    @apply text-gray-900 bg-white font-medium;
+    padding: 8px;
   }
 
   .form-label {
-    @apply block text-sm font-bold text-gray-900 mb-2;
+    @apply block text-sm font-black text-gray-900 mb-2;
   }
 
   /* Question styles with improved contrast */
@@ -163,19 +183,19 @@
 
   /* Status indicators with high visibility */
   .status-success {
-    @apply text-green-700 bg-green-100 px-3 py-1 rounded-full font-bold border-2 border-green-300;
+    @apply text-green-900 bg-green-100 px-3 py-2 rounded-full font-black border-2 border-green-500 shadow-md;
   }
 
   .status-error {
-    @apply text-red-700 bg-red-100 px-3 py-1 rounded-full font-bold border-2 border-red-300;
+    @apply text-red-900 bg-red-100 px-3 py-2 rounded-full font-black border-2 border-red-500 shadow-md;
   }
 
   .status-warning {
-    @apply text-orange-700 bg-orange-100 px-3 py-1 rounded-full font-bold border-2 border-orange-300;
+    @apply text-orange-900 bg-orange-100 px-3 py-2 rounded-full font-black border-2 border-orange-500 shadow-md;
   }
 
   .status-info {
-    @apply text-blue-700 bg-blue-100 px-3 py-1 rounded-full font-bold border-2 border-blue-300;
+    @apply text-blue-900 bg-blue-100 px-3 py-2 rounded-full font-black border-2 border-blue-500 shadow-md;
   }
 
   /* Progress bars with clear visibility */

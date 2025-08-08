@@ -321,13 +321,13 @@ export const ComprehensiveStudyView: React.FC = () => {
             <div className="grid md:grid-cols-4 gap-4 mt-4">
               {/* Exam Area Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="form-label">
                   Exam Area
                 </label>
                 <select
                   value={filters.examArea}
                   onChange={(e) => setFilters({...filters, examArea: e.target.value as any})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="form-select"
                 >
                   <option value="all">All Areas ({questions.length})</option>
                   {examTopics.map(area => (
@@ -340,13 +340,13 @@ export const ComprehensiveStudyView: React.FC = () => {
 
               {/* Question Type Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="form-label">
                   Question Type
                 </label>
                 <select
                   value={filters.questionType}
                   onChange={(e) => setFilters({...filters, questionType: e.target.value as any})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="form-select"
                 >
                   <option value="all">All Types</option>
                   <option value="multiplechoice">Multiple Choice</option>
@@ -358,13 +358,13 @@ export const ComprehensiveStudyView: React.FC = () => {
 
               {/* Difficulty Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="form-label">
                   Difficulty
                 </label>
                 <select
                   value={filters.difficulty}
                   onChange={(e) => setFilters({...filters, difficulty: e.target.value as any})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="form-select"
                 >
                   <option value="all">All Levels</option>
                   <option value="easy">Easy</option>
@@ -376,7 +376,7 @@ export const ComprehensiveStudyView: React.FC = () => {
 
               {/* Topic Search */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="form-label">
                   Topic Search
                 </label>
                 <input
@@ -384,7 +384,7 @@ export const ComprehensiveStudyView: React.FC = () => {
                   value={filters.topic === 'all' ? '' : filters.topic}
                   onChange={(e) => setFilters({...filters, topic: e.target.value || 'all'})}
                   placeholder="e.g., integration, security"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="form-input"
                 />
               </div>
             </div>

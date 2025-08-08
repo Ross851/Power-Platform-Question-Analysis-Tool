@@ -131,7 +131,7 @@ export const Question: React.FC<QuestionProps> = ({
             <div
               key={option.id}
               onClick={() => handleAnswerSelect(option.id)}
-              className={`p-4 border-2 rounded-lg transition-all ${optionClass}`}
+              className={`p-4 rounded-lg font-medium transition-all ${optionClass}`}
             >
               <div className="flex items-start">
                 <span className="font-semibold mr-3 text-gray-700">
@@ -152,24 +152,24 @@ export const Question: React.FC<QuestionProps> = ({
 
       {/* Explanation */}
       {isAnswered && showExplanation && (
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-          <h4 className="font-semibold text-gray-900 mb-2">Explanation:</h4>
+        <div className="mt-6 p-5 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border-2 border-blue-300 shadow-lg">
+          <h4 className="font-black text-xl text-gray-900 mb-3">Explanation:</h4>
           
           {/* Correct Answer Explanation */}
-          <div className="mb-3">
-            <p className="text-green-700 font-medium mb-1">
+          <div className="mb-4 p-3 bg-green-100 rounded-lg border-2 border-green-400">
+            <p className="text-green-900 font-black mb-2">
               ✅ Why {typeof question.correct_answer === 'string' ? question.correct_answer.toUpperCase() : 'this answer'} is correct:
             </p>
-            <p className="text-gray-700">{question.explanation.correct}</p>
+            <p className="text-gray-900 font-medium">{question.explanation.correct}</p>
           </div>
           
           {/* Incorrect Answer Explanations */}
           {selectedAnswer && selectedAnswer !== question.correct_answer && (
-            <div className="mb-3">
-              <p className="text-red-700 font-medium mb-1">
+            <div className="mb-4 p-3 bg-red-100 rounded-lg border-2 border-red-400">
+              <p className="text-red-900 font-black mb-2">
                 ❌ Why {selectedAnswer.toUpperCase()} is incorrect:
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-900 font-medium">
                 {question.explanation.incorrect[selectedAnswer]}
               </p>
             </div>
