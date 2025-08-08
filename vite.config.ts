@@ -42,6 +42,7 @@ const securityHeadersPlugin = () => ({
 // https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.GITHUB_PAGES ? '/Power-Platform-Question-Analysis-Tool/' : '/',
+  publicDir: 'public',
   plugins: [
     react(),
     securityHeadersPlugin()

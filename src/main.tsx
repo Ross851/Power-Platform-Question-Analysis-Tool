@@ -24,14 +24,14 @@ const queryClient = new QueryClient({
 //   console.error = () => {};
 // }
 
-// Register service worker for PWA
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch((error) => {
-      console.error('SW registration failed:', error);
-    });
-  });
-}
+// Register service worker for PWA - disabled for now to avoid 404 errors
+// if ('serviceWorker' in navigator && import.meta.env.PROD) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/sw.js').catch((error) => {
+//       console.error('SW registration failed:', error);
+//     });
+//   });
+// }
 
 // Render the application
 ReactDOM.createRoot(document.getElementById('root')!).render(
