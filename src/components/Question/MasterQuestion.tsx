@@ -243,9 +243,9 @@ export const MasterQuestion: React.FC<MasterQuestionProps> = ({
                 <div>
                   <button
                     onClick={() => toggleSection('critical')}
-                    className="w-full flex justify-between items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
+                    className="w-full flex justify-between items-center p-5 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg hover:from-purple-200 hover:to-pink-200 transition-all border-2 border-purple-400 shadow-lg"
                   >
-                    <span className="font-bold text-purple-900 text-lg">
+                    <span className="font-black text-purple-900 text-xl">
                       🧠 Critical Thinking Framework
                     </span>
                     <span className="text-2xl">{expandedSections.has('critical') ? '−' : '+'}</span>
@@ -301,29 +301,30 @@ export const MasterQuestion: React.FC<MasterQuestionProps> = ({
                 </div>
 
                 {/* Answer Validation Checklist */}
-                <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300">
-                  <h4 className="font-bold text-green-900 mb-4 text-lg">
-                    ✅ Answer Validation Checklist
+                <div className="bg-gradient-to-br from-green-100 to-emerald-100 p-6 rounded-xl border-4 border-green-600 shadow-2xl">
+                  <h4 className="font-black text-green-900 mb-4 text-xl flex items-center gap-2">
+                    <span className="text-2xl">✅</span>
+                    <span className="bg-green-600 text-white px-3 py-1 rounded-lg">Answer Validation Checklist</span>
                   </h4>
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h5 className="font-semibold text-green-800 mb-2">Must Have Elements:</h5>
-                      <ul className="space-y-1">
+                    <div className="bg-white/80 p-4 rounded-lg border-2 border-green-400">
+                      <h5 className="font-black text-green-900 mb-3 text-lg bg-green-200 px-3 py-1 rounded inline-block">✓ Must Have Elements:</h5>
+                      <ul className="space-y-2">
                         {breakdown.answer_validation.must_have_elements.map((element, idx) => (
-                          <li key={idx} className="text-sm flex items-start">
-                            <span className="text-green-600 mr-2">✓</span>
-                            <span>{element}</span>
+                          <li key={idx} className="flex items-start bg-green-50 p-2 rounded-lg border-l-4 border-green-500">
+                            <span className="text-green-700 mr-2 text-lg font-black">✓</span>
+                            <span className="font-semibold text-gray-900">{element}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div>
-                      <h5 className="font-semibold text-red-800 mb-2">Automatic Eliminators:</h5>
-                      <ul className="space-y-1">
+                    <div className="bg-white/80 p-4 rounded-lg border-2 border-red-400">
+                      <h5 className="font-black text-red-900 mb-3 text-lg bg-red-200 px-3 py-1 rounded inline-block">✗ Automatic Eliminators:</h5>
+                      <ul className="space-y-2">
                         {breakdown.answer_validation.automatic_eliminators.map((element, idx) => (
-                          <li key={idx} className="text-sm flex items-start">
-                            <span className="text-red-600 mr-2">✗</span>
-                            <span>{element}</span>
+                          <li key={idx} className="flex items-start bg-red-50 p-2 rounded-lg border-l-4 border-red-500">
+                            <span className="text-red-700 mr-2 text-lg font-black">✗</span>
+                            <span className="font-semibold text-gray-900">{element}</span>
                           </li>
                         ))}
                       </ul>
@@ -332,26 +333,27 @@ export const MasterQuestion: React.FC<MasterQuestionProps> = ({
                 </div>
 
                 {/* Exam Strategy Box */}
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-2 border-yellow-400">
-                  <h4 className="font-bold text-orange-900 mb-4 text-lg">
-                    📚 Exam Strategy & Related Topics
+                <div className="bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-xl border-4 border-orange-500 shadow-2xl">
+                  <h4 className="font-black text-orange-900 mb-4 text-xl flex items-center gap-2">
+                    <span className="text-2xl">📚</span>
+                    <span className="bg-orange-600 text-white px-3 py-1 rounded-lg">Exam Strategy & Related Topics</span>
                   </h4>
                   <div className="space-y-3">
-                    <div>
-                      <span className="font-semibold">Common Variations:</span>
-                      <div className="mt-2 flex flex-wrap gap-2">
+                    <div className="bg-white/90 p-4 rounded-lg border-2 border-orange-300">
+                      <span className="font-black text-orange-900 text-lg">🔄 Common Variations:</span>
+                      <div className="mt-3 flex flex-wrap gap-2">
                         {breakdown.exam_strategy.common_variations.map((variation, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-white rounded-full text-sm">
+                          <span key={idx} className="px-4 py-2 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full font-bold text-gray-900 border-2 border-orange-400 shadow-md">
                             {variation}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div>
-                      <span className="font-semibold">Related Questions to Study:</span>
-                      <div className="mt-2 flex flex-wrap gap-2">
+                    <div className="bg-white/90 p-4 rounded-lg border-2 border-orange-300 mt-3">
+                      <span className="font-black text-orange-900 text-lg">📖 Related Questions to Study:</span>
+                      <div className="mt-3 flex flex-wrap gap-2">
                         {breakdown.exam_strategy.related_questions.map((related, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-orange-100 rounded-full text-sm font-medium">
+                          <span key={idx} className="px-4 py-2 bg-gradient-to-r from-orange-200 to-red-200 rounded-full font-bold text-gray-900 border-2 border-red-400 shadow-md hover:shadow-lg transition-all cursor-pointer">
                             {related}
                           </span>
                         ))}

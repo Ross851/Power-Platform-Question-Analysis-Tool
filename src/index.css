@@ -308,6 +308,52 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  
+  /* High-visibility highlight classes for important sections */
+  .highlight-must-have {
+    @apply bg-green-100 border-l-4 border-green-600 p-3 rounded-lg shadow-md font-semibold text-gray-900;
+  }
+  
+  .highlight-eliminator {
+    @apply bg-red-100 border-l-4 border-red-600 p-3 rounded-lg shadow-md font-semibold text-gray-900;
+  }
+  
+  .highlight-strategy {
+    @apply bg-gradient-to-r from-amber-100 to-orange-100 border-2 border-orange-500 p-4 rounded-lg shadow-lg;
+  }
+  
+  .highlight-critical {
+    @apply bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-500 p-4 rounded-lg shadow-lg;
+  }
+  
+  .highlight-warning {
+    @apply bg-yellow-100 border-2 border-yellow-600 p-3 rounded-lg shadow-md font-bold text-gray-900;
+  }
+  
+  .highlight-success {
+    @apply bg-green-100 border-2 border-green-600 p-3 rounded-lg shadow-md font-bold text-gray-900;
+  }
+  
+  .highlight-danger {
+    @apply bg-red-100 border-2 border-red-600 p-3 rounded-lg shadow-md font-bold text-gray-900;
+  }
+  
+  /* Badge styles for important labels */
+  .badge-must-have {
+    @apply inline-block bg-green-600 text-white px-3 py-1 rounded-full font-black text-sm shadow-md;
+  }
+  
+  .badge-eliminator {
+    @apply inline-block bg-red-600 text-white px-3 py-1 rounded-full font-black text-sm shadow-md;
+  }
+  
+  .badge-strategy {
+    @apply inline-block bg-orange-600 text-white px-3 py-1 rounded-full font-black text-sm shadow-md;
+  }
+  
+  .badge-tip {
+    @apply inline-block bg-blue-600 text-white px-3 py-1 rounded-full font-black text-sm shadow-md;
+  }
 
   /* Shadow utilities for depth */
   .shadow-elevated {
