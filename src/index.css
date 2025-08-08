@@ -87,6 +87,22 @@
     outline: 3px solid var(--color-border-focus);
     outline-offset: 2px;
   }
+  
+  /* Ensure input text is always visible */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Password field specific styling */
+  input[type="password"]::-webkit-textfield-decoration-container {
+    color: #000000 !important;
+  }
 
   /* Remove focus for mouse users */
   *:focus:not(:focus-visible) {

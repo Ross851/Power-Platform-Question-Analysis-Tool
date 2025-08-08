@@ -203,29 +203,31 @@ function App() {
             
             <form onSubmit={handleEmailAuth}>
               <div className="mb-4">
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-base font-black text-black mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg text-gray-900 bg-white font-medium focus:border-blue-600 focus:ring-4 focus:ring-blue-200 transition-all"
+                  className="w-full px-4 py-3 border-4 border-gray-700 rounded-lg text-black bg-white font-bold text-lg focus:border-blue-700 focus:ring-4 focus:ring-blue-300 transition-all placeholder-gray-500"
+                  style={{ color: '#000000', backgroundColor: '#FFFFFF' }}
                   placeholder="Enter your email"
                   required
                 />
               </div>
               
               <div className="mb-4">
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-base font-black text-black mb-2">
                   Password
                 </label>
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg text-gray-900 bg-white font-medium focus:border-blue-600 focus:ring-4 focus:ring-blue-200 transition-all"
-                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 border-4 border-gray-700 rounded-lg text-black bg-white font-bold text-lg focus:border-blue-700 focus:ring-4 focus:ring-blue-300 transition-all placeholder-gray-500"
+                  style={{ color: '#000000', backgroundColor: '#FFFFFF', WebkitTextFillColor: '#000000' }}
+                  placeholder="Enter your password (min 6 characters)"
                   required
                   minLength={6}
                 />
