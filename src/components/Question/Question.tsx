@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getMicrosoftLearnUrl } from '@/data/exam-topics';
 import { Question as QuestionType } from '@/types/question';
 
 interface QuestionProps {
@@ -175,19 +176,57 @@ export const Question: React.FC<QuestionProps> = ({
             </div>
           )}
           
-          {/* Learn More Link */}
-          {question.microsoft_learn_url && (
-            <div className="mt-4 pt-3 border-t border-gray-200">
-              <a
-                href={question.microsoft_learn_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-              >
-                📚 Learn more on Microsoft Learn →
-              </a>
+          {/* Microsoft Learn Links */}
+          <div className="mt-4 pt-4 border-t-2 border-blue-300 bg-blue-50 p-4 rounded-lg">
+            <h5 className="font-black text-blue-900 mb-3 flex items-center gap-2">
+              <span className="text-xl">📚</span>
+              <span>Study Resources</span>
+            </h5>
+            <div className="space-y-2">
+              {question.microsoft_learn_url && (
+                <a
+                  href={question.microsoft_learn_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
+                >
+                  🔗 Direct Microsoft Learn Article
+                </a>
+              )}
+              
+              {/* Topic-based Microsoft Learn search */}
+              {'topic' in question && (question as any).topic && (
+                <a
+                  href={getMicrosoftLearnUrl((question as any).topic as string)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-purple-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-purple-700 transition-all shadow-md hover:shadow-lg"
+                >
+                  🔍 Search: {(question as any).topic}
+                </a>
+              )}
+              
+              {/* General PL-600 resources */}
+              <div className="grid grid-cols-2 gap-2 mt-3">
+                <a
+                  href="https://learn.microsoft.com/en-us/credentials/certifications/exams/pl-600/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center bg-gray-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition-all text-sm"
+                >
+                  PL-600 Home
+                </a>
+                <a
+                  href="https://learn.microsoft.com/en-us/training/browse/?products=power-platform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center bg-gray-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition-all text-sm"
+                >
+                  All Training
+                </a>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>

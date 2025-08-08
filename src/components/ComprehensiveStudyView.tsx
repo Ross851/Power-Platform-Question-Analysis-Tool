@@ -5,7 +5,7 @@ import MasterQuestion from './Question/MasterQuestion';
 import SequenceQuestion from './Question/QuestionTypes/SequenceQuestion';
 import HotspotQuestion from './Question/QuestionTypes/HotspotQuestion';
 import { supabase } from '@/lib/supabase';
-import { examTopics/*, getMicrosoftLearnUrl*/ } from '@/data/exam-topics';
+import { examTopics, getMicrosoftLearnUrl } from '@/data/exam-topics';
 // import type { Question as QuestionType } from '@/types/question';
 
 // Import all question data
@@ -24,7 +24,7 @@ export const ComprehensiveStudyView: React.FC = () => {
   const [questions, setQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questionKey, setQuestionKey] = useState(0); // Force re-render of questions
-  // const [showHelp, setShowHelp] = useState(false); // For future Microsoft Learn help section
+  const [showHelp, setShowHelp] = useState(false);
   const [filters, setFilters] = useState<StudyFilters>({
     examArea: 'all',
     questionType: 'all',
@@ -390,8 +390,17 @@ export const ComprehensiveStudyView: React.FC = () => {
             </div>
 
             {/* Quick Filter Buttons */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="text-sm text-gray-600">Quick filters:</span>
+            <div className="mt-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-bold text-gray-800">Quick filters:</span>
+                <button
+                  onClick={() => setShowHelp(!showHelp)}
+                  className="text-sm font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 px-3 py-1 bg-blue-100 rounded-lg hover:bg-blue-200 transition-all"
+                >
+                  <span>📚</span> Microsoft Learn Resources
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2">
               {['Integration', 'Security', 'ALM', 'Performance', 'Governance'].map(topic => (
                 <button
                   key={topic}
@@ -405,17 +414,116 @@ export const ComprehensiveStudyView: React.FC = () => {
                   {topic}
                 </button>
               ))}
+              </div>
             </div>
           </div>
         )}
       </div>
 
+      {/* Microsoft Learn Resources Section */}
+      {showHelp && (
+        <div className="mb-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-xl shadow-2xl p-6 border-4 border-blue-400">
+          <div className="flex justify-between items-start mb-4">
+            <h3 className="text-xl font-black text-gray-900 flex items-center gap-2">
+              <span className="text-2xl">📚</span>
+              <span className="bg-blue-600 text-white px-3 py-1 rounded-lg">Microsoft Learn Resources</span>
+            </h3>
+            <button
+              onClick={() => setShowHelp(false)}
+              className="text-gray-500 hover:text-gray-700 font-bold text-2xl"
+            >
+              ×
+            </button>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            {/* Main Study Resources */}
+            <a
+              href="https://learn.microsoft.com/en-us/credentials/certifications/exams/pl-600/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-lg border-2 border-blue-400 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <div className="font-black text-blue-900 mb-2">📖 Official PL-600 Exam Page</div>
+              <div className="text-sm text-gray-700">Complete exam details, skills measured, and registration</div>
+            </a>
+            
+            <a
+              href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-600"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-lg border-2 border-purple-400 hover:border-purple-600 hover:shadow-lg transition-all"
+            >
+              <div className="font-black text-purple-900 mb-2">📋 Official Study Guide</div>
+              <div className="text-sm text-gray-700">Detailed breakdown of all exam objectives</div>
+            </a>
+            
+            <a
+              href="https://learn.microsoft.com/en-us/training/browse/?products=power-platform&roles=solution-architect"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-lg border-2 border-green-400 hover:border-green-600 hover:shadow-lg transition-all"
+            >
+              <div className="font-black text-green-900 mb-2">🎓 Learning Paths</div>
+              <div className="text-sm text-gray-700">Free Microsoft training modules for Solution Architects</div>
+            </a>
+          </div>
+          
+          {/* Topic-Specific Resources */}
+          <div className="bg-white/90 p-4 rounded-lg border-2 border-orange-400">
+            <h4 className="font-black text-orange-900 mb-3">🎯 Topic-Specific Resources</h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div>
+                <div className="font-bold text-gray-800 mb-2">Architecture & Design</div>
+                <div className="space-y-2">
+                  <a href="https://learn.microsoft.com/en-us/power-platform/well-architected/" target="_blank" rel="noopener noreferrer" 
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Well-Architected Framework</a>
+                  <a href="https://learn.microsoft.com/en-us/power-platform/guidance/architecture/" target="_blank" rel="noopener noreferrer"
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Architecture Best Practices</a>
+                  <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/" target="_blank" rel="noopener noreferrer"
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Adoption & Governance</a>
+                </div>
+              </div>
+              
+              <div>
+                <div className="font-bold text-gray-800 mb-2">Integration & Security</div>
+                <div className="space-y-2">
+                  <a href="https://learn.microsoft.com/en-us/power-platform/admin/security/" target="_blank" rel="noopener noreferrer"
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Security Model</a>
+                  <a href="https://learn.microsoft.com/en-us/power-platform/developer/" target="_blank" rel="noopener noreferrer"
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Developer Resources</a>
+                  <a href="https://learn.microsoft.com/en-us/connectors/" target="_blank" rel="noopener noreferrer"
+                     className="block text-blue-600 hover:text-blue-800 font-medium text-sm">→ Connectors Documentation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Current Topic Resources */}
+          {filters.topic !== 'all' && (
+            <div className="mt-4 bg-yellow-100 p-4 rounded-lg border-2 border-yellow-500">
+              <h4 className="font-black text-gray-900 mb-2">🔍 Resources for: {filters.topic}</h4>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={getMicrosoftLearnUrl(filters.topic)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 font-bold shadow-md hover:shadow-lg transition-all"
+                >
+                  Search Microsoft Learn for "{filters.topic}"
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Study Header with Statistics */}
       <div className="mb-6">
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Comprehensive Study Mode</h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900">Comprehensive Study Mode</h2>
+            <p className="text-sm md:text-base font-medium text-gray-700 mt-1">
               {questions.length} total questions • {filteredQuestions.length} matching filters
             </p>
           </div>

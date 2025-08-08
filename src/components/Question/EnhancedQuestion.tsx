@@ -337,20 +337,62 @@ export const EnhancedQuestion: React.FC<EnhancedQuestionProps> = ({
               </div>
             )}
 
-            {/* Learn More Link */}
-            {question.microsoft_learn_url && (
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <a
-                  href={question.microsoft_learn_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:text-blue-900 font-medium flex items-center"
-                >
-                  📚 Deep dive into Microsoft Learn documentation
-                  <span className="ml-2">→</span>
-                </a>
+            {/* Microsoft Learn Resources Section */}
+            <div className="mt-6 p-5 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl border-4 border-blue-500 shadow-2xl">
+              <h4 className="font-black text-blue-900 text-lg mb-4 flex items-center gap-2">
+                <span className="text-2xl">📚</span>
+                <span className="bg-blue-600 text-white px-3 py-1 rounded-lg">Microsoft Learn Resources</span>
+              </h4>
+              
+              <div className="space-y-3">
+                {question.microsoft_learn_url && (
+                  <a
+                    href={question.microsoft_learn_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-blue-600 text-white px-4 py-3 rounded-lg font-bold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg text-center"
+                  >
+                    🔗 View Specific Documentation for This Topic
+                  </a>
+                )}
+                
+                {/* Quick Links Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href="https://learn.microsoft.com/en-us/credentials/certifications/exams/pl-600/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-purple-600 text-white px-3 py-2 rounded-lg font-bold hover:bg-purple-700 transition-all text-center text-sm"
+                  >
+                    📋 PL-600 Exam
+                  </a>
+                  <a
+                    href="https://learn.microsoft.com/en-us/power-platform/well-architected/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green-600 text-white px-3 py-2 rounded-lg font-bold hover:bg-green-700 transition-all text-center text-sm"
+                  >
+                    🏗️ Architecture
+                  </a>
+                  <a
+                    href="https://learn.microsoft.com/en-us/power-platform/guidance/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-orange-600 text-white px-3 py-2 rounded-lg font-bold hover:bg-orange-700 transition-all text-center text-sm"
+                  >
+                    💡 Best Practices
+                  </a>
+                  <a
+                    href="https://learn.microsoft.com/en-us/training/browse/?products=power-platform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-red-600 text-white px-3 py-2 rounded-lg font-bold hover:bg-red-700 transition-all text-center text-sm"
+                  >
+                    🎓 Training Paths
+                  </a>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         )}
       </div>
