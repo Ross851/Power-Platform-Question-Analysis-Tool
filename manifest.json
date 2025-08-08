@@ -1,0 +1,20 @@
+{
+  "name": "PL-600 Power Platform Solution Architect Exam Prep",
+  "short_name": "PL-600 Prep",
+  "description": "Comprehensive Microsoft Power Platform Solution Architect (PL-600) exam preparation platform with 500+ questions, adaptive learning, and hands-on labs",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078D4",
+  "orientation": "any",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
