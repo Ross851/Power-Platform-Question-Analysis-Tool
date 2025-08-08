@@ -19,6 +19,14 @@ function App() {
     const { data: authListener } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null);
       setLoading(false);
+      
+      // Close the login modal if user successfully authenticated
+      if (session?.user) {
+        setShowEmailLogin(false);
+        setEmail('');
+        setPassword('');
+        setAuthError(null);
+      }
     });
 
     return () => {
@@ -62,12 +70,21 @@ function App() {
         });
         if (error) throw error;
         setAuthError('Check your email for the confirmation link!');
+        // Keep modal open for sign up to show the email confirmation message
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { error, data } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (error) throw error;
+        
+        // Successfully signed in - close the modal
+        if (data.user) {
+          setShowEmailLogin(false);
+          setEmail('');
+          setPassword('');
+          setAuthError(null);
+        }
       }
     } catch (error: any) {
       setAuthError(error.message || 'Authentication failed');
