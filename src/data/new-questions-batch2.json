@@ -1,0 +1,974 @@
+{
+  "version": "1.1.0", 
+  "lastUpdated": "2025-01-13",
+  "totalQuestions": 25,
+  "questions": [
+    {
+      "question_number": "PL600-D009",
+      "question_text": "Order the steps for implementing automated testing in Power Platform solutions:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Set up test data and test environments",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Create Test Studio test cases for canvas apps",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Implement EasyRepro tests for model-driven apps",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Configure automated test execution in pipelines",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Generate test reports and metrics",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "Automated testing requires proper test data setup first, then creating tests for different app types, automation, and reporting.",
+        "concepts": [
+          "Test data isolation prevents production impact",
+          "Test Studio handles canvas app testing",
+          "EasyRepro automates model-driven app testing",
+          "Pipeline integration enables CI/CD",
+          "Metrics track test coverage and quality"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["testing", "automation", "quality", "cicd"]
+    },
+    {
+      "question_number": "PL600-H004",
+      "question_text": "Click on the area where you would configure solution checker policies:",
+      "question_type": "hotspot",
+      "image_url": "/images/power-platform-admin-center.png",
+      "hotspot_areas": [
+        {
+          "id": "environments",
+          "coordinates": { "x": 150, "y": 200, "width": 120, "height": 50 },
+          "label": "Environments",
+          "isCorrect": false
+        },
+        {
+          "id": "analytics",
+          "coordinates": { "x": 150, "y": 300, "width": 120, "height": 50 },
+          "label": "Analytics",
+          "isCorrect": false
+        },
+        {
+          "id": "policies",
+          "coordinates": { "x": 150, "y": 350, "width": 120, "height": 50 },
+          "label": "Policies",
+          "isCorrect": true
+        },
+        {
+          "id": "resources",
+          "coordinates": { "x": 150, "y": 400, "width": 120, "height": 50 },
+          "label": "Resources",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Solution checker policies are configured in the Policies section of the Power Platform admin center, where you set rules for solution validation.",
+        "incorrect": {
+          "environments": "Environments section manages environment creation and settings, not solution checker",
+          "analytics": "Analytics provides usage insights, not solution validation",
+          "resources": "Resources section manages capacity and add-ons"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["solution-checker", "admin-center", "governance", "quality"]
+    },
+    {
+      "question_number": "PL600-MC007",
+      "question_text": "Which considerations apply when designing for global deployments? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Data residency and sovereignty requirements",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Multi-language and localization support",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Single global environment for all users",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Time zone handling for workflows",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Regional compliance regulations (GDPR, etc.)",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Network latency and performance optimization",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Global deployments require considering data residency, localization, time zones, compliance, and performance across regions.",
+        "incorrect": {
+          "c": "Multiple regional environments are typically needed for performance and compliance, not a single global environment"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["global", "localization", "compliance", "architecture"]
+    },
+    {
+      "question_number": "PL600-YN007",
+      "question_text": "True or False: Dataverse virtual tables can be used to access external data without copying it.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Virtual tables provide real-time access to external data sources like SQL Server or SharePoint without data duplication in Dataverse.",
+        "additional": "Virtual tables support CRUD operations on external data while maintaining it in the original source system."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["dataverse", "virtual-tables", "integration", "external-data"]
+    },
+    {
+      "question_number": "PL600-CS004",
+      "question_text": "CASE STUDY: Government Agency Digital Transformation\n\nA federal agency needs to modernize their citizen services:\n- Portal for 10 million citizens\n- 508 compliance (accessibility) requirements\n- Integration with legacy mainframe systems\n- Multi-factor authentication mandatory\n- Zero downtime requirement\n- $2 million budget\n\nAnswer the following questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs4-q1",
+          "question": "Which portal technology should be used?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Canvas app embedded in SharePoint",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Power Pages with Azure Front Door",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Model-driven app with guest access",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Custom web application",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs4-q2",
+          "question": "How should zero downtime be achieved?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Single production environment with careful timing",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Blue-green deployment with traffic manager",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Maintenance windows at night",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Multiple development environments",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "Government portals require scalable, accessible solutions with high availability. Power Pages with proper architecture meets all requirements.",
+        "details": {
+          "portal": "Power Pages provides built-in accessibility features and scales with Azure Front Door for millions of users",
+          "availability": "Blue-green deployment enables zero-downtime updates by switching traffic between environments"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["government", "portal", "accessibility", "high-availability", "case-study"]
+    },
+    {
+      "question_number": "PL600-D010",
+      "question_text": "Arrange the Power BI security layers from least to most restrictive:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Workspace access",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "App permissions",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Dataset permissions",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Row-level security (RLS)",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Object-level security (OLS)",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "Power BI security becomes more granular: workspace gives broad access, then apps, datasets, row filtering (RLS), and finally column filtering (OLS).",
+        "concepts": [
+          "Workspace: Access to all content in workspace",
+          "App: Curated content from workspace",
+          "Dataset: Specific data access",
+          "RLS: Row filtering based on user",
+          "OLS: Column/measure level restrictions"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["power-bi", "security", "rls", "ols"]
+    },
+    {
+      "question_number": "PL600-MC008",
+      "question_text": "Which patterns are recommended for handling large file attachments in Dataverse? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Store files in Azure Blob Storage with references in Dataverse",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Use File columns for files under 128MB",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Store all files as base64 in text columns",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Use SharePoint integration for document management",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Compress files before storing in Dataverse",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Large files are best handled with Azure Blob Storage, File columns for moderate sizes, SharePoint for documents, and compression when appropriate.",
+        "incorrect": {
+          "c": "Base64 in text columns is inefficient and has size limitations"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["dataverse", "files", "storage", "azure-blob", "sharepoint"]
+    },
+    {
+      "question_number": "PL600-YN008",
+      "question_text": "True or False: Power Automate can directly call JavaScript code in cloud flows.",
+      "question_type": "yesno",
+      "correct_answer": false,
+      "explanation": {
+        "correct": "False. Cloud flows cannot execute JavaScript directly. You need to use Azure Functions or custom connectors to run custom code.",
+        "additional": "Desktop flows can execute JavaScript through browser automation, but cloud flows require external compute resources."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["power-automate", "javascript", "cloud-flows", "limitations"]
+    },
+    {
+      "question_number": "PL600-H005",
+      "question_text": "Click where you would enable Copilot features in a canvas app:",
+      "question_type": "hotspot",
+      "image_url": "/images/canvas-app-settings.png",
+      "hotspot_areas": [
+        {
+          "id": "general",
+          "coordinates": { "x": 100, "y": 150, "width": 150, "height": 40 },
+          "label": "General",
+          "isCorrect": false
+        },
+        {
+          "id": "advanced",
+          "coordinates": { "x": 100, "y": 200, "width": 150, "height": 40 },
+          "label": "Advanced Settings",
+          "isCorrect": false
+        },
+        {
+          "id": "upcoming",
+          "coordinates": { "x": 100, "y": 250, "width": 150, "height": 40 },
+          "label": "Upcoming features",
+          "isCorrect": true
+        },
+        {
+          "id": "experimental",
+          "coordinates": { "x": 100, "y": 300, "width": 150, "height": 40 },
+          "label": "Experimental",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Copilot and AI features are enabled in the 'Upcoming features' section of app settings where preview features are managed.",
+        "incorrect": {
+          "general": "General settings contain basic app configuration",
+          "advanced": "Advanced settings handle performance and compatibility",
+          "experimental": "Experimental features are different from upcoming/preview features"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "easy",
+      "tags": ["copilot", "ai", "canvas-apps", "settings"]
+    },
+    {
+      "question_number": "PL600-D011",
+      "question_text": "Order the steps for implementing a custom connector:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Define the API specification (OpenAPI/Postman)",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Configure authentication method",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Define actions and triggers",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Set up request/response schemas",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Test the connector",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Share or certify the connector",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "Custom connector creation follows: API definition, authentication setup, operations definition, schema configuration, testing, and distribution.",
+        "concepts": [
+          "OpenAPI/Postman defines the API structure",
+          "Authentication ensures secure access",
+          "Actions/triggers define functionality",
+          "Schemas validate data structure",
+          "Testing verifies functionality",
+          "Sharing enables team usage"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["custom-connectors", "api", "integration", "development"]
+    },
+    {
+      "question_number": "PL600-MC009",
+      "question_text": "Which scenarios require Power Platform premium licenses? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Using custom connectors",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Accessing Dataverse data",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Using Office 365 connectors only",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "On-premises data gateway usage",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "AI Builder consumption",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "SharePoint list operations",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Premium licenses are required for custom connectors, Dataverse, on-premises gateway, and AI Builder features.",
+        "incorrect": {
+          "c": "Office 365 connectors are included in standard licensing",
+          "f": "SharePoint operations are covered by Office 365 licenses"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "medium",
+      "tags": ["licensing", "premium", "costs", "planning"]
+    },
+    {
+      "question_number": "PL600-YN009",
+      "question_text": "True or False: Model-driven apps can work offline on mobile devices.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Model-driven apps support offline capability on mobile devices through the Power Apps mobile app with configured offline profiles.",
+        "additional": "Administrators configure offline profiles to determine which entities and data are available offline."
+      },
+      "exam_area": "architecture",
+      "difficulty": "easy",
+      "tags": ["model-driven", "offline", "mobile", "capabilities"]
+    },
+    {
+      "question_number": "PL600-CS005",
+      "question_text": "CASE STUDY: Insurance Claims Processing\n\nAn insurance company needs to automate their claims process:\n- 50,000 claims per month\n- Complex approval matrix based on claim amount\n- Integration with external fraud detection service\n- Document OCR for claim forms\n- Mobile app for field adjusters\n- Real-time status updates to customers\n\nAnswer the following questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs5-q1",
+          "question": "Which AI Builder feature should be used for form processing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sentiment analysis",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Form processing (Document processing)",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Object detection",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Text classification",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs5-q2",
+          "question": "How should the complex approval matrix be implemented?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hard-coded in Power Automate flows",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Business rules in Dataverse with approval hierarchy table",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "JavaScript in canvas app",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Excel file lookup",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "Insurance claims require document processing AI, configurable business rules, and scalable architecture for high-volume processing.",
+        "details": {
+          "ai": "Form processing in AI Builder extracts data from claim forms automatically",
+          "approval": "Business rules with data-driven configuration allows flexible approval matrix without code changes"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["insurance", "ai-builder", "automation", "case-study", "approvals"]
+    },
+    {
+      "question_number": "PL600-D012",
+      "question_text": "Arrange the stages of Power Platform adoption maturity model:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Individual use - Personal productivity",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Team collaboration - Departmental solutions",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Enterprise standardization - Governance and CoE",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Optimized operations - Fusion teams and innovation",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Transformative - Strategic business differentiation",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "Adoption maturity progresses from individual use through team collaboration, enterprise standardization, optimization, to transformation.",
+        "concepts": [
+          "Individual: Personal apps and automation",
+          "Team: Shared solutions within departments",
+          "Enterprise: Governance and standards established",
+          "Optimized: Fusion development and efficiency",
+          "Transformative: Strategic competitive advantage"
+        ]
+      },
+      "exam_area": "envisioning",
+      "difficulty": "medium",
+      "tags": ["adoption", "maturity", "governance", "strategy"]
+    },
+    {
+      "question_number": "PL600-MC010",
+      "question_text": "Which factors affect Power Automate flow performance? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of actions in the flow",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Use of variables vs compose actions",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Flow name length",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Parallel branches vs sequential execution",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Pagination settings for data operations",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Error handling configuration",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Flow performance is affected by action count, variable usage, parallelization, pagination, and error handling strategies.",
+        "incorrect": {
+          "c": "Flow name has no impact on performance"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["power-automate", "performance", "optimization", "best-practices"]
+    },
+    {
+      "question_number": "PL600-YN010",
+      "question_text": "True or False: You can embed Power BI reports in Power Pages for external users.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power BI reports can be embedded in Power Pages using Power BI Embedded capacity, allowing external users to view reports.",
+        "additional": "This requires proper licensing (Power BI Embedded or Premium capacity) and configuration of row-level security."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["power-bi", "power-pages", "embedding", "external-users"]
+    },
+    {
+      "question_number": "PL600-H006",
+      "question_text": "Click on the component that handles authentication in a Power Platform solution:",
+      "question_type": "hotspot",
+      "image_url": "/images/platform-architecture.png",
+      "hotspot_areas": [
+        {
+          "id": "azure-ad",
+          "coordinates": { "x": 300, "y": 100, "width": 140, "height": 60 },
+          "label": "Azure Active Directory",
+          "isCorrect": true
+        },
+        {
+          "id": "dataverse",
+          "coordinates": { "x": 300, "y": 250, "width": 140, "height": 60 },
+          "label": "Dataverse",
+          "isCorrect": false
+        },
+        {
+          "id": "power-apps",
+          "coordinates": { "x": 150, "y": 350, "width": 120, "height": 60 },
+          "label": "Power Apps",
+          "isCorrect": false
+        },
+        {
+          "id": "api-management",
+          "coordinates": { "x": 450, "y": 350, "width": 140, "height": 60 },
+          "label": "API Management",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Azure Active Directory (Entra ID) handles all authentication for Power Platform, providing single sign-on and identity management.",
+        "incorrect": {
+          "dataverse": "Dataverse uses Azure AD for authentication but doesn't handle it directly",
+          "power-apps": "Power Apps rely on Azure AD for user authentication",
+          "api-management": "API Management can validate tokens but doesn't perform authentication"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "easy",
+      "tags": ["authentication", "azure-ad", "security", "identity"]
+    },
+    {
+      "question_number": "PL600-D013",
+      "question_text": "Order the components for implementing a data warehouse solution with Power Platform:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Azure Data Factory for ETL/ELT",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Azure Synapse Analytics for data warehouse",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Dataverse virtual tables for real-time access",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Power BI for analytics and reporting",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Power Apps for data entry and management",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "Data warehouse implementation flows from ETL (ADF), storage (Synapse), access layer (virtual tables), analytics (Power BI), to user interfaces (Power Apps).",
+        "concepts": [
+          "ADF handles data extraction and transformation",
+          "Synapse provides scalable data warehouse",
+          "Virtual tables enable real-time access",
+          "Power BI delivers insights",
+          "Power Apps provide user interaction"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["data-warehouse", "azure", "synapse", "etl", "architecture"]
+    },
+    {
+      "question_number": "PL600-MC011",
+      "question_text": "Which security features should be implemented for sensitive data? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Customer-managed encryption keys (CMK)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Column-level encryption in Dataverse",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Audit logging for all access",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "IP restrictions and conditional access",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Disable all external sharing",
+          "isCorrect": false
+        },
+        {
+          "id": "f",
+          "text": "Privileged Identity Management (PIM)",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Sensitive data requires CMK, column encryption, auditing, access controls, and PIM for comprehensive security.",
+        "incorrect": {
+          "e": "Disabling all external sharing may be too restrictive; controlled sharing with proper security is often needed"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["security", "encryption", "compliance", "sensitive-data"]
+    },
+    {
+      "question_number": "PL600-YN011",
+      "question_text": "True or False: Power Platform can integrate with Microsoft Sentinel for security monitoring.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power Platform activity logs and audit data can be ingested into Microsoft Sentinel for advanced security monitoring and threat detection.",
+        "additional": "This integration enables security teams to detect anomalies, investigate incidents, and respond to threats across Power Platform."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["security", "sentinel", "monitoring", "integration"]
+    },
+    {
+      "question_number": "PL600-CS006",
+      "question_text": "CASE STUDY: Educational Institution\n\nA university needs to implement a student information system:\n- 50,000 students and 5,000 faculty\n- Course registration and scheduling\n- Grade management and transcripts\n- Integration with existing LMS (Canvas/Blackboard)\n- Parent portal for K-12 programs\n- FERPA compliance requirements\n\nAnswer the following questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs6-q1",
+          "question": "What is the best approach for the parent portal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Give parents Dataverse licenses",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Power Pages with role-based access",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "SharePoint site with custom development",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Email-only communication",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs6-q2",
+          "question": "How should FERPA compliance be ensured?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Standard Dataverse security only",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Comprehensive audit logging, encryption, and access controls with consent management",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Manual review of all data access",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Separate database for sensitive data",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "Educational systems require secure portals for different user types and strict compliance with privacy regulations like FERPA.",
+        "details": {
+          "portal": "Power Pages provides secure, scalable portal with role-based access perfect for parent access",
+          "compliance": "FERPA requires comprehensive security including audit trails, encryption, and consent management"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "hard",
+      "tags": ["education", "compliance", "ferpa", "portal", "case-study"]
+    },
+    {
+      "question_number": "PL600-D014",
+      "question_text": "Arrange the steps for migrating from InfoPath to Power Apps:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Inventory existing InfoPath forms and usage",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Analyze form complexity and categorize",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Design data model in Dataverse or SharePoint",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Rebuild forms in Power Apps (canvas or model-driven)",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Migrate existing data",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Update workflows and processes",
+          "correctOrder": 6
+        },
+        {
+          "id": "7",
+          "text": "Train users and decommission InfoPath",
+          "correctOrder": 7
+        }
+      ],
+      "explanation": {
+        "correct": "InfoPath migration requires systematic inventory, analysis, data model design, form rebuilding, data migration, process updates, and user training.",
+        "concepts": [
+          "Inventory identifies all forms and dependencies",
+          "Categorization helps prioritize migration effort",
+          "Data model must be designed before forms",
+          "Forms rebuilt based on complexity",
+          "Data migration preserves historical information",
+          "Workflows updated to Power Automate",
+          "Training ensures user adoption"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["migration", "infopath", "power-apps", "modernization"]
+    },
+    {
+      "question_number": "PL600-MC012",
+      "question_text": "Which monitoring capabilities are available for Power Platform solutions? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Application Insights integration",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Power Platform admin center analytics",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Dataverse auditing",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Real-time performance profiler",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "Azure Monitor integration",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "CoE Starter Kit dashboards",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Monitoring includes Application Insights, admin center analytics, auditing, Azure Monitor, and CoE Kit dashboards for comprehensive visibility.",
+        "incorrect": {
+          "d": "There's no real-time performance profiler, but performance can be monitored through other tools"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["monitoring", "analytics", "application-insights", "operations"]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import EnhancedQuestion from './Question/EnhancedQuestion';
 import MasterQuestion from './Question/MasterQuestion';
 import SequenceQuestion from './Question/QuestionTypes/SequenceQuestion';
 import HotspotQuestion from './Question/QuestionTypes/HotspotQuestion';
+import CaseStudyQuestion from './Question/QuestionTypes/CaseStudyQuestion';
 import { supabase } from '@/lib/supabase';
 import { examTopics, getMicrosoftLearnUrl } from '@/data/exam-topics';
 import { QuestionSkeleton, ContentLoader } from './LoadingStates';
@@ -14,10 +15,12 @@ import { useErrorHandler } from '@/utils/error-handling';
 import allExtractedQuestions from '@/data/all-extracted-questions.json';
 import masterQuestionsJson from '@/data/questions-with-breakdown.json';
 import enhancedQuestionsJson from '@/data/enhanced-questions.json';
+import newQuestionsBatch1 from '@/data/new-questions-batch1.json';
+import newQuestionsBatch2 from '@/data/new-questions-batch2.json';
 
 interface StudyFilters {
   examArea: 'all' | 'envisioning' | 'architecture' | 'implementation';
-  questionType: 'all' | 'multiplechoice' | 'sequence' | 'dragdrop' | 'hotspot' | 'yesno';
+  questionType: 'all' | 'multiplechoice' | 'sequence' | 'dragdrop' | 'hotspot' | 'yesno' | 'case-study';
   difficulty: 'all' | 'easy' | 'medium' | 'hard' | 'expert';
   topic: string;
 }
@@ -78,7 +81,11 @@ export const ComprehensiveStudyView: React.FC = () => {
         // Enhanced questions with deep dive
         ...(enhancedQuestionsJson.questions || []),
         // All extracted questions (120 from HTML)
-        ...(allExtractedQuestions.questions || [])
+        ...(allExtractedQuestions.questions || []),
+        // New batch 1 - 30 questions with drag-drop, hotspot, case studies
+        ...(newQuestionsBatch1.questions || []),
+        // New batch 2 - 25 more questions with various types
+        ...(newQuestionsBatch2.questions || [])
       ];
       
       // Remove duplicates based on ID or question_number
@@ -248,7 +255,11 @@ export const ComprehensiveStudyView: React.FC = () => {
       case 'hotspot':
         return <HotspotQuestion key={`hotspot-${questionKey}`} question={question} onAnswer={handleAnswer} />;
       
+      case 'case-study':
+        return <CaseStudyQuestion key={`case-study-${questionKey}`} question={question} onAnswer={handleAnswer} />;
+      
       case 'multiplechoice':
+      case 'multiple-choice':
       case 'yesno':
       default:
         return <Question {...commonProps} />;

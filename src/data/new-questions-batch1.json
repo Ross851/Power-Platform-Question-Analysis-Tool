@@ -1,0 +1,1049 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2025-01-13",
+  "totalQuestions": 30,
+  "questions": [
+    {
+      "question_number": "PL600-D001",
+      "question_text": "You need to implement a data migration strategy for moving from an on-premises SQL Server to Dataverse. Arrange the following steps in the correct order:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Analyze source data and identify data quality issues",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Design the Dataverse data model and relationships",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Create data maps between source and target",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Perform test migration with sample data",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Execute full data migration",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Validate migrated data and reconcile discrepancies",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "The correct order ensures data quality, proper mapping, testing before full migration, and validation. This minimizes risks and ensures data integrity throughout the migration process.",
+        "concepts": [
+          "Always analyze data quality first to identify issues early",
+          "Design the target model before creating mappings",
+          "Test with sample data before full migration",
+          "Always validate and reconcile after migration"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["data-migration", "dataverse", "implementation", "best-practices"]
+    },
+    {
+      "question_number": "PL600-D002",
+      "question_text": "Arrange the Power Platform ALM (Application Lifecycle Management) environments in the correct promotion order for a typical enterprise deployment:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Development Environment",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "System Integration Testing (SIT) Environment",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "User Acceptance Testing (UAT) Environment",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Pre-Production/Staging Environment",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Production Environment",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "This is the standard ALM promotion path: Dev → SIT → UAT → Pre-Prod → Prod. Each environment serves a specific purpose in the deployment pipeline.",
+        "concepts": [
+          "Development: Where developers build and unit test",
+          "SIT: Integration testing between components",
+          "UAT: Business users validate functionality",
+          "Pre-Prod: Final testing with production-like data",
+          "Production: Live environment for end users"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["alm", "devops", "environments", "deployment"]
+    },
+    {
+      "question_number": "PL600-H001",
+      "question_text": "Click on the area in the Power Platform architecture diagram where you would implement Row Level Security (RLS):",
+      "question_type": "hotspot",
+      "image_url": "/images/power-platform-architecture.png",
+      "hotspot_areas": [
+        {
+          "id": "dataverse",
+          "coordinates": { "x": 250, "y": 300, "width": 150, "height": 80 },
+          "label": "Dataverse",
+          "isCorrect": true
+        },
+        {
+          "id": "powerbi",
+          "coordinates": { "x": 450, "y": 200, "width": 120, "height": 80 },
+          "label": "Power BI",
+          "isCorrect": false
+        },
+        {
+          "id": "powerapps",
+          "coordinates": { "x": 100, "y": 200, "width": 120, "height": 80 },
+          "label": "Power Apps",
+          "isCorrect": false
+        },
+        {
+          "id": "powerautomate",
+          "coordinates": { "x": 250, "y": 100, "width": 150, "height": 80 },
+          "label": "Power Automate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Row Level Security is implemented at the Dataverse level. This ensures consistent security across all Power Platform components that access the data.",
+        "incorrect": {
+          "powerbi": "While Power BI has its own RLS, in Power Platform solutions, the primary RLS is implemented in Dataverse",
+          "powerapps": "Power Apps respects Dataverse security but doesn't implement RLS directly",
+          "powerautomate": "Power Automate flows run in security context but don't implement RLS"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["security", "dataverse", "rls", "architecture"]
+    },
+    {
+      "question_number": "PL600-CS001",
+      "question_text": "CASE STUDY: Contoso Manufacturing\n\nContoso Manufacturing is implementing a Power Platform solution for their global operations. They have:\n- 5,000 users across 10 manufacturing plants\n- Integration with SAP ERP system\n- Real-time production monitoring requirements\n- Compliance with ISO 27001 and GDPR\n- Budget of $500,000 for first year\n\nBased on this scenario, answer the following:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs1-q1",
+          "question": "What licensing model would you recommend?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Per app plan for all users",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Per user plan for power users, per app for others",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Pay-as-you-go for all users",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Per user plan for all users",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs1-q2",
+          "question": "Which integration pattern is most suitable for SAP integration?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direct API calls from Power Automate",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "On-premises data gateway with scheduled refresh",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Azure Service Bus with event-driven architecture",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Manual data import/export",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "This scenario requires a hybrid licensing approach to optimize costs, enterprise-grade integration for SAP, and careful consideration of compliance requirements.",
+        "details": {
+          "licensing": "Mixed licensing optimizes costs - power users who create content need per user licenses, while consumers can use per app licenses",
+          "integration": "Service Bus provides reliable, scalable integration with proper error handling and retry logic for enterprise SAP integration"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "expert",
+      "tags": ["case-study", "licensing", "integration", "enterprise"]
+    },
+    {
+      "question_number": "PL600-YN001",
+      "question_text": "True or False: You can use Power Automate desktop flows to automate legacy applications that don't have APIs.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power Automate desktop flows (RPA) can automate legacy applications through UI automation, even when APIs are not available.",
+        "additional": "Desktop flows use UI automation to interact with applications just like a human would, making them perfect for legacy system integration."
+      },
+      "exam_area": "architecture",
+      "difficulty": "easy",
+      "tags": ["power-automate", "rpa", "desktop-flows", "legacy-integration"]
+    },
+    {
+      "question_number": "PL600-YN002",
+      "question_text": "True or False: Dataverse for Teams has the same capabilities as the full Dataverse.",
+      "question_type": "yesno",
+      "correct_answer": false,
+      "explanation": {
+        "correct": "False. Dataverse for Teams has limitations including 2GB storage per team, no custom plugins, limited API access, and simplified security model.",
+        "additional": "Dataverse for Teams is designed for team-level apps with simpler requirements. For enterprise solutions, full Dataverse is required."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["dataverse", "teams", "limitations", "capacity"]
+    },
+    {
+      "question_number": "PL600-D003",
+      "question_text": "Order the following Power BI deployment pipeline stages for a proper CI/CD implementation:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Development workspace with test datasets",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Test workspace with UAT data",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Production workspace with live data",
+          "correctOrder": 3
+        }
+      ],
+      "explanation": {
+        "correct": "Power BI deployment pipelines follow Dev → Test → Prod pattern. Each stage can have different data sources and configurations.",
+        "concepts": [
+          "Development uses test/sample datasets",
+          "Test stage validates with UAT data",
+          "Production connects to live data sources"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["power-bi", "deployment", "pipeline", "cicd"]
+    },
+    {
+      "question_number": "PL600-MC001",
+      "question_text": "Which of the following are valid triggers for Power Automate cloud flows? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "When a Dataverse record is created, updated, or deleted",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "On a recurring schedule",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "When a SharePoint item is modified",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "When CPU usage exceeds 80%",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "When an HTTP request is received",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Power Automate supports various triggers including Dataverse operations, schedules, SharePoint events, and HTTP requests.",
+        "incorrect": {
+          "d": "CPU usage monitoring is not a native Power Automate trigger. This would require external monitoring tools."
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["power-automate", "triggers", "cloud-flows", "automation"]
+    },
+    {
+      "question_number": "PL600-D004",
+      "question_text": "Arrange the security layers in Power Platform from outermost to innermost:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Azure AD Conditional Access",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Environment Security",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Security Roles",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Field Level Security",
+          "correctOrder": 4
+        }
+      ],
+      "explanation": {
+        "correct": "Security in Power Platform is layered: Azure AD controls access, then environment, then roles, and finally field-level security for granular control.",
+        "concepts": [
+          "Azure AD: Authentication and conditional access",
+          "Environment: Who can access the environment",
+          "Security Roles: What entities/actions users can perform",
+          "Field Security: Specific field read/write permissions"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["security", "azure-ad", "roles", "field-security"]
+    },
+    {
+      "question_number": "PL600-H002",
+      "question_text": "In the canvas app screen below, click where you would add a connection to Dataverse:",
+      "question_type": "hotspot",
+      "image_url": "/images/canvas-app-screen.png",
+      "hotspot_areas": [
+        {
+          "id": "data-panel",
+          "coordinates": { "x": 50, "y": 150, "width": 100, "height": 300 },
+          "label": "Data Panel",
+          "isCorrect": true
+        },
+        {
+          "id": "screen-area",
+          "coordinates": { "x": 200, "y": 100, "width": 400, "height": 400 },
+          "label": "Screen Design Area",
+          "isCorrect": false
+        },
+        {
+          "id": "properties",
+          "coordinates": { "x": 650, "y": 150, "width": 100, "height": 300 },
+          "label": "Properties Panel",
+          "isCorrect": false
+        },
+        {
+          "id": "formula-bar",
+          "coordinates": { "x": 200, "y": 50, "width": 400, "height": 40 },
+          "label": "Formula Bar",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Data connections in canvas apps are added through the Data panel on the left side of the screen. This is where you manage all data sources.",
+        "incorrect": {
+          "screen-area": "The screen area is for designing UI, not adding data connections",
+          "properties": "Properties panel configures selected controls, not data connections",
+          "formula-bar": "Formula bar is for writing expressions, not adding connections"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "easy",
+      "tags": ["canvas-apps", "dataverse", "connections", "power-apps"]
+    },
+    {
+      "question_number": "PL600-MC002",
+      "question_text": "A client requires a solution that processes 1 million transactions daily with sub-second response time. Which architecture components should you include? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Azure Service Bus for message queuing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Dataverse standard tables only",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Azure Functions for compute-intensive operations",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Redis Cache for frequently accessed data",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Synchronous plugins for all operations",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "High-volume, low-latency solutions require Service Bus for async processing, Azure Functions for compute, and caching for performance.",
+        "incorrect": {
+          "b": "Standard Dataverse alone cannot handle this volume with sub-second response",
+          "e": "Synchronous plugins would create bottlenecks and timeout issues at this scale"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["high-volume", "performance", "azure", "architecture"]
+    },
+    {
+      "question_number": "PL600-YN003",
+      "question_text": "True or False: You can use the same solution package to deploy to both Dataverse for Teams and regular Dataverse environments.",
+      "question_type": "yesno",
+      "correct_answer": false,
+      "explanation": {
+        "correct": "False. Solutions built for Dataverse for Teams cannot be directly imported to regular Dataverse due to different capabilities and schemas.",
+        "additional": "You need to upgrade a Dataverse for Teams environment to full Dataverse before moving solutions to regular environments."
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["dataverse", "teams", "solutions", "deployment"]
+    },
+    {
+      "question_number": "PL600-D005",
+      "question_text": "Arrange the steps for implementing a Center of Excellence (CoE) for Power Platform:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Establish governance team and charter",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Deploy CoE Starter Kit",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Configure environment strategy and DLP policies",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Implement monitoring and compliance dashboards",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Enable citizen developer training program",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Establish app certification process",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "CoE implementation starts with governance, then technical setup, policies, monitoring, training, and finally certification processes.",
+        "concepts": [
+          "Governance team provides oversight and strategy",
+          "CoE Kit provides tools and templates",
+          "DLP policies enforce security",
+          "Monitoring ensures compliance",
+          "Training enables citizen developers",
+          "Certification ensures quality"
+        ]
+      },
+      "exam_area": "envisioning",
+      "difficulty": "hard",
+      "tags": ["coe", "governance", "best-practices", "strategy"]
+    },
+    {
+      "question_number": "PL600-CS002",
+      "question_text": "CASE STUDY: Healthcare Provider Network\n\nA healthcare network with 15 hospitals needs to implement a patient management system with:\n- HIPAA compliance requirements\n- Integration with multiple EMR systems\n- Mobile access for 10,000 healthcare workers\n- Real-time patient status tracking\n- Automated appointment scheduling\n\nAnswer the following questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs2-q1",
+          "question": "Which compliance features must be enabled?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Customer-managed encryption keys only",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Audit logging, encryption at rest and in transit, and customer-managed keys",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Standard Dataverse security only",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Azure AD authentication only",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs2-q2",
+          "question": "What is the recommended mobile strategy?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Canvas apps with offline capability",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Model-driven apps only",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Power Pages for all mobile access",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Third-party mobile development",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "Healthcare requires comprehensive security, offline mobile capability, and careful integration with existing systems while maintaining HIPAA compliance.",
+        "details": {
+          "compliance": "HIPAA requires audit trails, encryption everywhere, and customer control of encryption keys",
+          "mobile": "Canvas apps provide offline capability essential for healthcare workers who may lose connectivity in different hospital areas"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "expert",
+      "tags": ["healthcare", "hipaa", "compliance", "mobile", "case-study"]
+    },
+    {
+      "question_number": "PL600-MC003",
+      "question_text": "Which statements about Power Platform connectors are correct? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Custom connectors can be shared across environments",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Premium connectors require additional licensing",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Standard connectors have no usage limits",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "On-premises data gateway enables hybrid connectivity",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "All connectors support real-time triggers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Custom connectors can be packaged in solutions, premium connectors need licenses, and data gateway enables hybrid scenarios.",
+        "incorrect": {
+          "c": "Even standard connectors have throttling limits",
+          "e": "Not all connectors support triggers; some are action-only"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["connectors", "licensing", "integration", "gateway"]
+    },
+    {
+      "question_number": "PL600-D006",
+      "question_text": "Order the layers of a typical Power Platform solution architecture from top to bottom:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Presentation Layer (Power Apps, Power Pages)",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Process Automation Layer (Power Automate)",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Business Logic Layer (Plugins, Azure Functions)",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Data Layer (Dataverse, SQL)",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Integration Layer (Connectors, APIs)",
+          "correctOrder": 5
+        }
+      ],
+      "explanation": {
+        "correct": "This layered architecture separates concerns: UI at top, then workflow, business logic, data storage, and integration at the foundation.",
+        "concepts": [
+          "Presentation: User interfaces and experiences",
+          "Process: Workflow and automation",
+          "Business Logic: Complex calculations and rules",
+          "Data: Persistent storage",
+          "Integration: External system connectivity"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["architecture", "layers", "design-patterns", "solution-design"]
+    },
+    {
+      "question_number": "PL600-YN004",
+      "question_text": "True or False: Power Virtual Agents can escalate conversations to human agents through Omnichannel for Customer Service.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power Virtual Agents integrates with Omnichannel for Customer Service to seamlessly escalate to human agents when needed.",
+        "additional": "This escalation can be triggered by customer request, sentiment analysis, or when the bot cannot handle the query."
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["power-virtual-agents", "omnichannel", "customer-service", "escalation"]
+    },
+    {
+      "question_number": "PL600-H003",
+      "question_text": "Click on the component in the solution architecture where you would implement API throttling:",
+      "question_type": "hotspot",
+      "image_url": "/images/solution-architecture.png",
+      "hotspot_areas": [
+        {
+          "id": "api-management",
+          "coordinates": { "x": 300, "y": 250, "width": 140, "height": 60 },
+          "label": "Azure API Management",
+          "isCorrect": true
+        },
+        {
+          "id": "power-apps",
+          "coordinates": { "x": 100, "y": 100, "width": 120, "height": 60 },
+          "label": "Power Apps",
+          "isCorrect": false
+        },
+        {
+          "id": "dataverse",
+          "coordinates": { "x": 300, "y": 400, "width": 140, "height": 60 },
+          "label": "Dataverse",
+          "isCorrect": false
+        },
+        {
+          "id": "power-automate",
+          "coordinates": { "x": 500, "y": 100, "width": 120, "height": 60 },
+          "label": "Power Automate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Azure API Management is the correct place to implement API throttling, rate limiting, and quota management for external APIs.",
+        "incorrect": {
+          "power-apps": "Power Apps consume APIs but don't control throttling",
+          "dataverse": "Dataverse has built-in API limits but not configurable throttling",
+          "power-automate": "Power Automate respects throttling but doesn't implement it"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["api-management", "throttling", "azure", "architecture"]
+    },
+    {
+      "question_number": "PL600-MC004",
+      "question_text": "A financial services company needs to process loan applications with multiple approval stages. Which components would you recommend? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Business Process Flows for stage visualization",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Power Automate for approval workflows",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Canvas app for all user interfaces",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Model-driven app for case management",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Power BI for real-time dashboard",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Complex approval processes benefit from BPF for visualization, Power Automate for workflow, model-driven apps for case management, and Power BI for analytics.",
+        "incorrect": {
+          "c": "Model-driven apps are better for complex business processes than canvas apps"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["business-process", "approvals", "model-driven", "workflow"]
+    },
+    {
+      "question_number": "PL600-D007",
+      "question_text": "Arrange the steps for implementing disaster recovery for a Power Platform solution:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Define RTO and RPO requirements",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Configure backup policies for Dataverse",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Implement geo-redundant storage",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Create automated backup of solutions and data",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Test disaster recovery procedures",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Document recovery runbooks",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "DR planning starts with requirements (RTO/RPO), then implementation of backups, redundancy, automation, testing, and documentation.",
+        "concepts": [
+          "RTO: Recovery Time Objective - how quickly to restore",
+          "RPO: Recovery Point Objective - acceptable data loss",
+          "Geo-redundancy ensures data survives regional failures",
+          "Testing validates the DR plan actually works",
+          "Runbooks ensure anyone can execute recovery"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["disaster-recovery", "backup", "business-continuity", "best-practices"]
+    },
+    {
+      "question_number": "PL600-YN005",
+      "question_text": "True or False: You can use Azure DevOps pipelines to deploy Power Platform solutions.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Azure DevOps pipelines can be configured with Power Platform Build Tools to automate solution deployment across environments.",
+        "additional": "This enables proper CI/CD practices including automated testing, approval gates, and version control integration."
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["devops", "cicd", "deployment", "automation"]
+    },
+    {
+      "question_number": "PL600-MC005",
+      "question_text": "Which factors influence Power Platform capacity planning? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of API calls per day",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Database storage requirements",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Number of Power Automate flow runs",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Color scheme of the apps",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "File storage for attachments",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Number of environments needed",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "Capacity planning must consider API limits, storage (database and file), flow runs, and environment needs to ensure adequate resources.",
+        "incorrect": {
+          "d": "UI design choices like color schemes don't affect capacity requirements"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "medium",
+      "tags": ["capacity-planning", "sizing", "performance", "resources"]
+    },
+    {
+      "question_number": "PL600-CS003",
+      "question_text": "CASE STUDY: Global Retail Chain\n\nA retail chain with 500 stores needs to modernize their inventory management:\n- Real-time inventory tracking across all locations\n- Integration with 3 different POS systems\n- Mobile apps for store managers\n- Predictive analytics for stock optimization\n- Budget constraint of $300,000\n- 6-month implementation timeline\n\nAnswer the following questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs3-q1",
+          "question": "What is the most cost-effective integration approach for the POS systems?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Custom development for each POS system",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Use existing connectors where available, custom connectors for others",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Replace all POS systems with a single solution",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Manual data entry from each system",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs3-q2",
+          "question": "Which analytics solution fits the budget and timeline?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Custom AI model development",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Power BI with AI Insights and automated ML",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Third-party analytics platform",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Excel-based reporting only",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "This scenario requires balancing cost, timeline, and functionality. Leveraging existing connectors and Power BI's built-in AI reduces development time and cost.",
+        "details": {
+          "integration": "Mixed approach using existing and custom connectors minimizes development while ensuring connectivity",
+          "analytics": "Power BI with AI Insights provides predictive analytics without custom development, fitting budget and timeline"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "hard",
+      "tags": ["retail", "integration", "analytics", "case-study", "budget"]
+    },
+    {
+      "question_number": "PL600-D008",
+      "question_text": "Arrange the components of a data loss prevention (DLP) policy implementation:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Identify sensitive data types and classification",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Define business and non-business data groups",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Create DLP policies for environments",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Configure connector blocking rules",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Test policies with pilot group",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Monitor and refine based on violations",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "DLP implementation starts with data classification, grouping, policy creation, rules configuration, testing, and continuous monitoring.",
+        "concepts": [
+          "Data classification identifies what needs protection",
+          "Grouping separates business from personal data",
+          "Policies enforce the rules at environment level",
+          "Connector rules prevent data leakage",
+          "Testing ensures policies don't break legitimate flows",
+          "Monitoring helps refine policies over time"
+        ]
+      },
+      "exam_area": "architecture",
+      "difficulty": "medium",
+      "tags": ["dlp", "security", "governance", "compliance"]
+    },
+    {
+      "question_number": "PL600-YN006",
+      "question_text": "True or False: Power Apps portals and Power Pages are the same product with different names.",
+      "question_type": "yesno",
+      "correct_answer": false,
+      "explanation": {
+        "correct": "False. While Power Pages evolved from Power Apps portals, Power Pages is a standalone product with enhanced features, separate licensing, and improved developer experience.",
+        "additional": "Power Pages includes better design tools, more templates, and simplified pricing compared to the legacy Power Apps portals."
+      },
+      "exam_area": "architecture",
+      "difficulty": "easy",
+      "tags": ["power-pages", "portals", "licensing", "products"]
+    },
+    {
+      "question_number": "PL600-MC006",
+      "question_text": "Which techniques can optimize Dataverse performance? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Use filtered views instead of retrieving all records",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Enable change tracking for incremental sync",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Always use synchronous plugins",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Implement proper indexing strategies",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Use FetchXML aggregation for calculations",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Retrieve all columns for future use",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Performance optimization includes filtered data retrieval, change tracking, proper indexing, and server-side aggregation.",
+        "incorrect": {
+          "c": "Asynchronous plugins are preferred for non-critical operations to avoid blocking",
+          "f": "Only retrieve required columns to minimize data transfer and improve performance"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["performance", "dataverse", "optimization", "best-practices"]
+    }
+  ]
+}
