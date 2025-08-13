@@ -41,21 +41,6 @@ export const ComprehensiveStudyView: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(true);
 
-  // Get current topic info for help section (will be used for Microsoft Learn integration)
-  // const getCurrentTopicInfo = () => {
-  //   const currentQ = filteredQuestions[currentQuestionIndex];
-  //   if (!currentQ) return null;
-    
-  //   const topic = currentQ.topic || currentQ.exam_area || 'general';
-  //   const examArea = examTopics.find((t: any) => 
-  //     t.id === topic || 
-  //     t.subtopics.some((st: any) => st.keywords.includes(topic.toLowerCase()))
-  //   );
-    
-  //   return examArea || examTopics[0];
-  // };
-
-
   useEffect(() => {
     loadQuestions();
   }, []);
