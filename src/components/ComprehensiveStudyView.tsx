@@ -6,6 +6,8 @@ import SequenceQuestion from './Question/QuestionTypes/SequenceQuestion';
 import HotspotQuestion from './Question/QuestionTypes/HotspotQuestion';
 import { supabase } from '@/lib/supabase';
 import { examTopics, getMicrosoftLearnUrl } from '@/data/exam-topics';
+import { QuestionSkeleton, ContentLoader } from './LoadingStates';
+import { useErrorHandler } from '@/utils/error-handling';
 // import type { Question as QuestionType } from '@/types/question';
 
 // Import all question data
@@ -40,13 +42,17 @@ export const ComprehensiveStudyView: React.FC = () => {
   });
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(true);
+  const { error, handleError, clearError, wrapAsync } = useErrorHandler();
 
   useEffect(() => {
     loadQuestions();
   }, []);
 
   const loadQuestions = async () => {
-    try {
+    setLoading(true);
+    clearError();
+    
+    const result = await wrapAsync(async () => {
       // Try to load from Supabase first
       const { data } = await supabase
         .from('questions')
@@ -55,40 +61,38 @@ export const ComprehensiveStudyView: React.FC = () => {
         .order('question_number');
 
       if (data && data.length > 0) {
-        setQuestions(data);
-      } else {
-        // Combine all question sources
-        const allQuestions = [
-          // Master questions with breakdown
-          ...(masterQuestionsJson.questions || []),
-          // Enhanced questions with deep dive
-          ...(enhancedQuestionsJson.questions || []),
-          // All extracted questions (120 from HTML)
-          ...(allExtractedQuestions.questions || [])
-        ];
-        
-        // Remove duplicates based on ID or question_number
-        const uniqueQuestions = Array.from(
-          new Map(allQuestions.map(q => {
-            const id = 'id' in q ? q.id : 'question_number' in q ? q.question_number : Math.random();
-            return [id, q];
-          })).values()
-        );
-        
-        setQuestions(uniqueQuestions);
+        return data;
       }
-    } catch (error) {
-      console.error('Error loading questions:', error);
-      // Load from local files
+      
+      // If no data from Supabase, use local files
+      return null;
+    }, 'Loading questions from database');
+    
+    if (result) {
+      setQuestions(result);
+    } else {
+      // Combine all question sources from local files
       const allQuestions = [
+        // Master questions with breakdown
         ...(masterQuestionsJson.questions || []),
+        // Enhanced questions with deep dive
         ...(enhancedQuestionsJson.questions || []),
+        // All extracted questions (120 from HTML)
         ...(allExtractedQuestions.questions || [])
       ];
-      setQuestions(allQuestions);
-    } finally {
-      setLoading(false);
+      
+      // Remove duplicates based on ID or question_number
+      const uniqueQuestions = Array.from(
+        new Map(allQuestions.map(q => {
+          const id = 'id' in q ? q.id : 'question_number' in q ? q.question_number : Math.random();
+          return [id, q];
+        })).values()
+      );
+      
+      setQuestions(uniqueQuestions);
     }
+    
+    setLoading(false);
   };
 
   // Filter questions based on current filters

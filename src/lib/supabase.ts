@@ -2,20 +2,19 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from '@/types/database';
 
 // Get Supabase configuration from environment variables
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// These are public anon keys - safe for client-side use
+// The anon key is designed to be used in browsers with Row Level Security
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://cezjxkvvtxdmikhwcseb.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNlemp4a3Z2dHhkbWlraHdjc2ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1ODQxMDYsImV4cCI6MjA3MDE2MDEwNn0.HEihErzl6ZJ2JrxS5wbAb3vMsDMCBKWACBQMdvdfNUE';
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing required Supabase environment variables. Please check your .env file.');
-  // For development, you can still run the app without Supabase
-  console.warn('Running in offline mode - Supabase features will be disabled');
+  console.warn('Using default Supabase configuration');
 }
 
 // Create Supabase client with security configurations
-// Use placeholder values if environment variables are missing to prevent crashes
 export const supabase = createClient<Database>(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-key',
+  supabaseUrl,
+  supabaseAnonKey,
   {
   auth: {
     persistSession: true,

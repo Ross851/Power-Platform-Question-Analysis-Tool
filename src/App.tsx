@@ -4,6 +4,9 @@ import { User } from '@supabase/supabase-js';
 // import StudyView from '@/components/StudyView';
 import ComprehensiveStudyView from '@/components/ComprehensiveStudyView';
 import Dashboard from '@/components/Dashboard';
+import ConnectionStatus from '@/components/ConnectionStatus';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import { setupGlobalErrorHandlers } from '@/utils/error-handling';
 import './App.css';
 
 function App() {
@@ -12,6 +15,9 @@ function App() {
   const [currentView, setCurrentView] = useState<'home' | 'study' | 'dashboard'>('home');
 
   useEffect(() => {
+    // Setup global error handlers
+    setupGlobalErrorHandlers();
+    
     // Check for existing session
     checkUser();
 
@@ -267,6 +273,9 @@ function App() {
         </div>
       )}
 
+      {/* Connection Status (only in dev mode) */}
+      {import.meta.env.DEV && <ConnectionStatus />}
+      
       {/* Main Content */}
       <main className="max-w-7xl mx-auto mobile-padding py-6 md:py-8">
         {!user ? (
@@ -338,11 +347,15 @@ function App() {
             )}
 
             {currentView === 'study' && (
-              <ComprehensiveStudyView />
+              <ErrorBoundary>
+                <ComprehensiveStudyView />
+              </ErrorBoundary>
             )}
 
             {currentView === 'dashboard' && (
-              <Dashboard />
+              <ErrorBoundary>
+                <Dashboard />
+              </ErrorBoundary>
             )}
           </div>
         )}
