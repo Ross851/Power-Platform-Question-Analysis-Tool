@@ -17,6 +17,7 @@ import masterQuestionsJson from '@/data/questions-with-breakdown.json';
 import enhancedQuestionsJson from '@/data/enhanced-questions.json';
 import newQuestionsBatch1 from '@/data/new-questions-batch1.json';
 import newQuestionsBatch2 from '@/data/new-questions-batch2.json';
+import newQuestionsBatch3 from '@/data/new-questions-batch3.json';
 
 interface StudyFilters {
   examArea: 'all' | 'envisioning' | 'architecture' | 'implementation';
@@ -85,7 +86,9 @@ export const ComprehensiveStudyView: React.FC = () => {
         // New batch 1 - 30 questions with drag-drop, hotspot, case studies
         ...(newQuestionsBatch1.questions || []),
         // New batch 2 - 25 more questions with various types
-        ...(newQuestionsBatch2.questions || [])
+        ...(newQuestionsBatch2.questions || []),
+        // New batch 3 - 20 advanced expert-level questions
+        ...(newQuestionsBatch3.questions || [])
       ];
       
       // Remove duplicates based on ID or question_number

@@ -1,0 +1,889 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2025-01-13",
+  "totalQuestions": 20,
+  "questions": [
+    {
+      "question_number": "PL600-ADV001",
+      "question_text": "You are architecting a solution that requires processing 5 million transactions daily with complex business logic. Which combination of technologies provides the best performance and scalability?",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Azure Service Bus for message queuing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Synchronous Dataverse plugins for all logic",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Azure Functions for compute-intensive processing",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Power Automate cloud flows for all processing",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "Azure Cosmos DB for high-speed data access",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Dataverse elastic tables for scale",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "High-volume solutions require Service Bus for async processing, Azure Functions for compute, Cosmos DB or elastic tables for scale, avoiding synchronous operations.",
+        "incorrect": {
+          "b": "Synchronous plugins would create bottlenecks and timeouts at this scale",
+          "d": "Power Automate has throughput limits unsuitable for 5M daily transactions"
+        },
+        "deep_dive": {
+          "architecture_pattern": "Use event-driven architecture with Service Bus managing the queue, Functions processing logic, and Cosmos DB/elastic tables for data",
+          "performance_metrics": "Service Bus: 2000 msg/sec, Functions: unlimited scale, Cosmos DB: <10ms latency",
+          "cost_optimization": "Use consumption-based pricing for Functions, reserved capacity for Cosmos DB"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["high-volume", "performance", "scalability", "azure", "architecture"]
+    },
+    {
+      "question_number": "PL600-ADV002",
+      "question_text": "Your organization needs to implement a zero-trust security model for Power Platform. Arrange the security controls in order of implementation priority:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Enable Azure AD Multi-Factor Authentication (MFA)",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Implement Conditional Access policies with device compliance",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Configure Privileged Identity Management (PIM) for admin roles",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Enable customer-managed keys (CMK) for encryption",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Implement IP location restrictions and named locations",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Configure Azure Information Protection labels",
+          "correctOrder": 6
+        },
+        {
+          "id": "7",
+          "text": "Set up Microsoft Defender for Cloud Apps integration",
+          "correctOrder": 7
+        }
+      ],
+      "explanation": {
+        "correct": "Zero-trust implementation starts with identity verification (MFA), then device trust (Conditional Access), privileged access control, data encryption, network restrictions, data classification, and threat monitoring.",
+        "concepts": [
+          "MFA is the foundation of zero-trust",
+          "Conditional Access enforces device and location trust",
+          "PIM prevents standing admin access",
+          "CMK provides data sovereignty",
+          "IP restrictions limit attack surface",
+          "AIP classifies and protects data",
+          "Defender provides threat detection"
+        ],
+        "best_practices": "Implement in phases, test with pilot groups, monitor impact on user productivity"
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["security", "zero-trust", "azure-ad", "compliance", "best-practices"]
+    },
+    {
+      "question_number": "PL600-ADV003",
+      "question_text": "A multinational corporation requires Power Platform governance across 50 subsidiaries with varying compliance requirements. What is the recommended environment strategy?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Single production environment with security roles",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Environment per subsidiary with centralized CoE governance",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Regional environments with data residency compliance",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Unlimited developer environments without governance",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Environment per subsidiary provides isolation while CoE maintains governance standards across all environments.",
+        "incorrect": {
+          "a": "Single environment cannot handle varying compliance requirements",
+          "c": "Regional only addresses data residency, not subsidiary-specific needs",
+          "d": "Ungoverned environments lead to shadow IT and compliance violations"
+        },
+        "deep_dive": {
+          "environment_architecture": "Hub-and-spoke model with CoE hub managing policies, DLP, and monitoring across subsidiary spokes",
+          "compliance_handling": "Each environment configured for local regulations (GDPR, CCPA, etc.)",
+          "cost_management": "Use Azure Cost Management tags and environment-level budgets"
+        }
+      },
+      "exam_area": "envisioning",
+      "difficulty": "expert",
+      "tags": ["governance", "environments", "multinational", "compliance", "coe"]
+    },
+    {
+      "question_number": "PL600-ADV004",
+      "question_text": "You need to implement a complex approval workflow with 15 approval stages, delegation, escalation, and out-of-office handling. What is the best approach?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Single Power Automate flow with all logic",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Multiple child flows with parent orchestration flow",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Canvas app with embedded approval logic",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Custom Azure Logic Apps solution",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Child flows pattern provides modularity, reusability, and easier maintenance for complex workflows.",
+        "incorrect": {
+          "a": "Single flow becomes unmaintainable and hits action limits",
+          "c": "Canvas apps shouldn't contain complex workflow logic",
+          "d": "Logic Apps adds unnecessary complexity when Power Automate suffices"
+        },
+        "deep_dive": {
+          "pattern": "Use parent flow for orchestration, child flows for each approval stage, shared flows for common functions",
+          "error_handling": "Implement try-catch-finally pattern with scope actions",
+          "monitoring": "Use Application Insights for flow analytics and performance monitoring"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["power-automate", "approvals", "workflow", "patterns", "complex-logic"]
+    },
+    {
+      "question_number": "PL600-ADV005",
+      "question_text": "CASE STUDY: Global Bank Digital Transformation\n\nA global bank with 100,000 employees needs to modernize their loan origination system:\n- Process 500,000 loan applications annually\n- 37 different loan products with unique workflows\n- Integration with 12 core banking systems\n- Real-time fraud detection using AI\n- Regulatory compliance for 25 countries\n- Mobile-first for loan officers and customers\n- Zero-downtime requirement\n- $10M budget over 2 years\n\nAnswer the following architectural questions:",
+      "question_type": "case-study",
+      "sub_questions": [
+        {
+          "id": "cs-bank-q1",
+          "question": "Which data architecture pattern best supports this scale and complexity?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monolithic Dataverse with all data",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Microservices with domain-driven design and event sourcing",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Traditional SQL Server with stored procedures",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "File-based storage with Power Automate processing",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs-bank-q2",
+          "question": "How should the AI fraud detection be implemented?",
+          "options": [
+            {
+              "id": "a",
+              "text": "AI Builder with custom models",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Azure Machine Learning with real-time endpoints integrated via custom connector",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Power Automate with simple rules",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Third-party SaaS without integration",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cs-bank-q3",
+          "question": "What is the recommended deployment strategy for zero downtime?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Big bang deployment over a weekend",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Blue-green deployment with feature flags and canary releases",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Manual deployment during business hours",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "No deployment strategy needed",
+              "isCorrect": false
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "overall": "Banking transformation requires microservices architecture for scale, enterprise AI for fraud detection, and sophisticated deployment strategies for zero downtime.",
+        "details": {
+          "architecture": "Microservices with event sourcing provides scalability, audit trail, and regulatory compliance",
+          "ai_integration": "Azure ML offers enterprise-scale fraud detection with sub-second response times",
+          "deployment": "Blue-green with feature flags enables gradual rollout and instant rollback capabilities"
+        },
+        "risks": "Data sovereignty, regulatory compliance, system integration complexity, change management"
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["banking", "case-study", "microservices", "ai", "compliance", "high-availability"]
+    },
+    {
+      "question_number": "PL600-ADV006",
+      "question_text": "You're implementing Power Platform in a highly regulated environment with ITAR compliance requirements. Which features must be configured? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "GCC High or DoD cloud environment",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Customer Lockbox for support access control",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Standard commercial Power Platform",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Bring Your Own Key (BYOK) encryption",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "IP allowlisting with geofencing",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Public anonymous access for portals",
+          "isCorrect": false
+        },
+        {
+          "id": "g",
+          "text": "Azure Private Endpoints for all connections",
+          "isCorrect": true
+        }
+      ],
+      "explanation": {
+        "correct": "ITAR requires GCC High/DoD environments, customer-controlled encryption, strict access controls, and network isolation.",
+        "incorrect": {
+          "c": "Commercial cloud doesn't meet ITAR requirements",
+          "f": "Anonymous access violates ITAR controlled information requirements"
+        },
+        "compliance_notes": "ITAR (International Traffic in Arms Regulations) requires US-person only access and data sovereignty"
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["itar", "compliance", "gcc-high", "security", "regulated"]
+    },
+    {
+      "question_number": "PL600-ADV007",
+      "question_text": "Your client needs to migrate 500 InfoPath forms with 10TB of associated data to Power Platform. Order the migration approach phases:",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Discovery and assessment of all forms and dependencies",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Categorize forms by complexity and business criticality",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Create migration factory with templates and patterns",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Pilot migration with 10 representative forms",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Parallel migration tracks by business unit",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Data migration with validation and reconciliation",
+          "correctOrder": 6
+        },
+        {
+          "id": "7",
+          "text": "Cutover with parallel run period",
+          "correctOrder": 7
+        },
+        {
+          "id": "8",
+          "text": "Decommission InfoPath with data archival",
+          "correctOrder": 8
+        }
+      ],
+      "explanation": {
+        "correct": "Large-scale migration requires systematic discovery, categorization, factory approach, pilot validation, parallel execution, data migration, careful cutover, and proper decommissioning.",
+        "concepts": [
+          "Discovery prevents surprises and scope creep",
+          "Categorization prioritizes effort and approach",
+          "Migration factory ensures consistency and efficiency",
+          "Pilot validates approach before scale",
+          "Parallel tracks accelerate timeline",
+          "Data validation ensures integrity",
+          "Parallel run reduces risk",
+          "Proper decommissioning ensures compliance"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "expert",
+      "tags": ["migration", "infopath", "large-scale", "methodology", "data-migration"]
+    },
+    {
+      "question_number": "PL600-ADV008",
+      "question_text": "True or False: Power Platform supports quantum-resistant cryptography for future-proofing against quantum computing threats.",
+      "question_type": "yesno",
+      "correct_answer": false,
+      "explanation": {
+        "correct": "False. Power Platform currently uses industry-standard encryption (AES-256, RSA) but doesn't yet implement quantum-resistant algorithms.",
+        "additional": "Microsoft is researching post-quantum cryptography, but implementation in Power Platform awaits NIST standardization and broader industry adoption.",
+        "future_consideration": "Organizations requiring quantum resistance should implement additional application-level encryption using approved algorithms"
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["security", "encryption", "quantum", "future", "cryptography"]
+    },
+    {
+      "question_number": "PL600-ADV009",
+      "question_text": "You need to implement real-time streaming analytics for IoT data in Power Platform. What is the recommended architecture?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Direct IoT device connection to Dataverse",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Azure IoT Hub → Stream Analytics → Event Hub → Power Automate → Dataverse",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "CSV file uploads every hour",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Power Automate polling IoT devices",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "IoT Hub handles device management, Stream Analytics processes data, Event Hub buffers, Power Automate orchestrates, and Dataverse stores results.",
+        "incorrect": {
+          "a": "Dataverse cannot handle high-frequency IoT data directly",
+          "c": "Hourly uploads aren't real-time",
+          "d": "Polling doesn't scale for IoT scenarios"
+        },
+        "deep_dive": {
+          "throughput": "IoT Hub: millions of events/sec, Stream Analytics: real-time processing, Event Hub: buffering and replay",
+          "patterns": "Use hot path for real-time alerts, warm path for near-real-time analytics, cold path for historical analysis",
+          "optimization": "Implement edge computing with Azure IoT Edge for local processing"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["iot", "streaming", "real-time", "azure", "architecture"]
+    },
+    {
+      "question_number": "PL600-ADV010",
+      "question_text": "Your organization requires a disaster recovery plan with 15-minute RTO and 1-hour RPO for critical Power Platform applications. Which configuration achieves this?",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Automated hourly Dataverse backups",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Geo-redundant environment replication",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Manual weekly exports",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Azure Site Recovery for integrated services",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Automated failover with Azure Traffic Manager",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Single environment with no backup",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Achieving 15-min RTO requires automated failover and geo-redundancy, while 1-hour RPO needs hourly backups.",
+        "incorrect": {
+          "c": "Weekly exports exceed the 1-hour RPO requirement",
+          "f": "No backup violates basic DR principles"
+        },
+        "dr_strategy": "Combine platform features (backups, geo-redundancy) with Azure services (Site Recovery, Traffic Manager) for comprehensive DR"
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["disaster-recovery", "rto", "rpo", "backup", "high-availability"]
+    },
+    {
+      "question_number": "PL600-ADV011",
+      "question_text": "A solution requires processing personally identifiable information (PII) across multiple jurisdictions. Click on the correct data residency configuration:",
+      "question_type": "hotspot",
+      "image_url": "/images/data-residency-map.png",
+      "hotspot_areas": [
+        {
+          "id": "multi-geo",
+          "coordinates": { "x": 300, "y": 200, "width": 150, "height": 80 },
+          "label": "Multi-Geo Configuration",
+          "isCorrect": true
+        },
+        {
+          "id": "single-region",
+          "coordinates": { "x": 100, "y": 200, "width": 150, "height": 80 },
+          "label": "Single Region",
+          "isCorrect": false
+        },
+        {
+          "id": "any-region",
+          "coordinates": { "x": 500, "y": 200, "width": 150, "height": 80 },
+          "label": "Any Available Region",
+          "isCorrect": false
+        },
+        {
+          "id": "customer-managed",
+          "coordinates": { "x": 300, "y": 350, "width": 150, "height": 80 },
+          "label": "Customer Data Center",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Multi-Geo configuration allows data to remain in specific geographic regions to meet data residency requirements.",
+        "incorrect": {
+          "single-region": "Cannot meet multi-jurisdiction requirements",
+          "any-region": "Violates data residency laws",
+          "customer-managed": "Power Platform doesn't support on-premises data storage"
+        }
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["data-residency", "multi-geo", "compliance", "pii", "gdpr"]
+    },
+    {
+      "question_number": "PL600-ADV012",
+      "question_text": "You're designing a Power BI solution that needs to handle 100 concurrent users with 500GB of data. What is the minimum licensing requirement?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Power BI Pro for all users",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Power BI Premium Per User (PPU)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Power BI Premium P1 capacity",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Power BI Embedded A4",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Premium P1 capacity handles up to 400GB storage (extensible) and supports 100+ concurrent users with better performance than PPU.",
+        "incorrect": {
+          "a": "Pro has 10GB limit per workspace",
+          "b": "PPU has 100GB per user limit but doesn't pool storage",
+          "d": "Embedded is for ISV scenarios, not internal use"
+        },
+        "sizing": "P1: 8 v-cores, 25GB RAM, 400GB storage, ~$5000/month"
+      },
+      "exam_area": "envisioning",
+      "difficulty": "hard",
+      "tags": ["power-bi", "licensing", "capacity", "premium", "sizing"]
+    },
+    {
+      "question_number": "PL600-ADV013",
+      "question_text": "Your solution uses 50 custom connectors across 10 environments. What is the best governance approach?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deploy connectors individually to each environment",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Create a connector governance board with certification process and shared repository",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Allow developers to create connectors without oversight",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Use only Microsoft standard connectors",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Connector governance board ensures quality, security review, versioning, and prevents duplication across the organization.",
+        "incorrect": {
+          "a": "Individual deployment leads to inconsistency and maintenance overhead",
+          "c": "Ungoverned connectors create security risks",
+          "d": "Standard connectors don't meet all business needs"
+        },
+        "best_practices": "Implement connector lifecycle management, security scanning, performance testing, and documentation standards"
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["connectors", "governance", "custom-connectors", "best-practices"]
+    },
+    {
+      "question_number": "PL600-ADV014",
+      "question_text": "PERFORMANCE OPTIMIZATION: Your Power Apps canvas app takes 30 seconds to load. Arrange these optimization techniques by impact (highest to lowest):",
+      "question_type": "dragdrop",
+      "options": [
+        {
+          "id": "1",
+          "text": "Implement concurrent data calls with Concurrent function",
+          "correctOrder": 1
+        },
+        {
+          "id": "2",
+          "text": "Use StartScreen property to defer non-critical loading",
+          "correctOrder": 2
+        },
+        {
+          "id": "3",
+          "text": "Enable DelayOutput for search boxes",
+          "correctOrder": 3
+        },
+        {
+          "id": "4",
+          "text": "Cache static data in collections",
+          "correctOrder": 4
+        },
+        {
+          "id": "5",
+          "text": "Optimize images and media files",
+          "correctOrder": 5
+        },
+        {
+          "id": "6",
+          "text": "Reduce the number of controls per screen",
+          "correctOrder": 6
+        }
+      ],
+      "explanation": {
+        "correct": "Concurrent calls provide the biggest impact by parallelizing data loading, followed by deferred loading, then incremental optimizations.",
+        "performance_tips": [
+          "Concurrent(): Can reduce load time by 50-70%",
+          "StartScreen: Improves perceived performance",
+          "DelayOutput: Reduces unnecessary API calls",
+          "Collections: Eliminates repeated data fetches",
+          "Image optimization: Reduces bandwidth usage",
+          "Control reduction: Improves rendering time"
+        ]
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["performance", "canvas-apps", "optimization", "best-practices"]
+    },
+    {
+      "question_number": "PL600-ADV015",
+      "question_text": "True or False: You can use Power Platform CLI to automate solution deployment across 100+ environments.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power Platform CLI (pac) supports scripting and automation for large-scale deployments across multiple environments.",
+        "additional": "Use 'pac solution import' in scripts with Azure DevOps or GitHub Actions for enterprise-scale automation.",
+        "example": "pac auth create --url https://org.crm.dynamics.com && pac solution import --path solution.zip --activate-plugins --force-overwrite"
+      },
+      "exam_area": "implementation",
+      "difficulty": "medium",
+      "tags": ["cli", "automation", "deployment", "devops", "scale"]
+    },
+    {
+      "question_number": "PL600-ADV016",
+      "question_text": "Your client needs to implement a data lake architecture with Power Platform. What is the correct data flow?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dataverse → Azure Data Lake Storage → Synapse Analytics → Power BI",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Excel → SharePoint → Power Apps → SQL Server",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Power BI → Dataverse → Azure Storage",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "On-premises SQL → Power Apps → Excel",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Dataverse Azure Synapse Link exports to Data Lake, Synapse provides analytics, Power BI visualizes insights.",
+        "incorrect": {
+          "b": "Not a data lake architecture",
+          "c": "Incorrect flow direction",
+          "d": "Doesn't involve data lake components"
+        },
+        "architecture": "Use Synapse Link for no-copy analytics, Delta Lake format for ACID compliance, and incremental refresh in Power BI"
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["data-lake", "synapse", "dataverse", "analytics", "architecture"]
+    },
+    {
+      "question_number": "PL600-ADV017",
+      "question_text": "A manufacturing client needs predictive maintenance for 10,000 machines. Which AI/ML approach is most suitable?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "AI Builder with prebuilt models",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Azure Machine Learning with custom models and IoT integration",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Power Automate with simple threshold rules",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Excel formulas for prediction",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Azure ML provides industrial-scale ML with real-time scoring, model management, and IoT integration capabilities.",
+        "incorrect": {
+          "a": "AI Builder lacks specialized predictive maintenance models",
+          "c": "Simple rules can't handle complex failure patterns",
+          "d": "Excel cannot scale to 10,000 machines with real-time needs"
+        },
+        "implementation": "Use Azure ML for model training, Azure IoT for telemetry, and Power Apps for maintenance workflow"
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["ai", "machine-learning", "iot", "predictive-maintenance", "manufacturing"]
+    },
+    {
+      "question_number": "PL600-ADV018",
+      "question_text": "You need to implement field service management with offline mobile capability. Which components are required? (Select all that apply)",
+      "question_type": "multiple-choice",
+      "multi_select": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Dynamics 365 Field Service",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Model-driven app with offline profile",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Canvas app with LoadData/SaveData",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Resco Mobile CRM",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Power Apps mobile app",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Azure Mobile Services",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "Field Service provides capabilities, model-driven apps support offline profiles, Resco extends mobile features, Power Apps mobile enables offline.",
+        "incorrect": {
+          "c": "Canvas apps have limited offline capabilities compared to model-driven",
+          "f": "Azure Mobile Services is deprecated"
+        }
+      },
+      "exam_area": "implementation",
+      "difficulty": "hard",
+      "tags": ["field-service", "offline", "mobile", "dynamics-365"]
+    },
+    {
+      "question_number": "PL600-ADV019",
+      "question_text": "Your solution requires integration with 25 different external APIs with varying authentication methods. What is the best approach?",
+      "question_type": "multiple-choice",
+      "options": [
+        {
+          "id": "a",
+          "text": "Create 25 custom connectors in Power Platform",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Azure API Management as facade with single custom connector",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Direct HTTP calls from Power Automate",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Manual data import/export",
+          "isCorrect": false
+        }
+      ],
+      "explanation": {
+        "correct": "API Management provides centralized authentication, transformation, caching, and monitoring with single connector to Power Platform.",
+        "incorrect": {
+          "a": "25 connectors create maintenance overhead",
+          "c": "Direct HTTP calls lack governance and reusability",
+          "d": "Manual processes don't scale"
+        },
+        "benefits": "APIM provides rate limiting, security policies, versioning, and analytics"
+      },
+      "exam_area": "architecture",
+      "difficulty": "hard",
+      "tags": ["api-management", "integration", "connectors", "authentication", "facade-pattern"]
+    },
+    {
+      "question_number": "PL600-ADV020",
+      "question_text": "True or False: Power Platform supports blockchain integration for supply chain traceability.",
+      "question_type": "yesno",
+      "correct_answer": true,
+      "explanation": {
+        "correct": "True. Power Platform can integrate with Azure Blockchain Service or other blockchain platforms through custom connectors and Azure Functions.",
+        "additional": "Use Logic Apps or Functions to interact with smart contracts, then surface data in Power Apps and Power BI for supply chain visibility.",
+        "implementation": "Common pattern: IoT → Azure Functions → Blockchain → Dataverse → Power Apps/BI"
+      },
+      "exam_area": "architecture",
+      "difficulty": "expert",
+      "tags": ["blockchain", "supply-chain", "integration", "azure", "emerging-tech"]
+    }
+  ]
+}
